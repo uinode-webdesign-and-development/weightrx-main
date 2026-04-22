@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "hero_jVaWmY": {
       "type": "hero",
@@ -65,6 +66,7 @@
         "custom_mobile_media": false,
         "media_type_1_mobile": "image",
         "media_type_2_mobile": "image",
+        "link": "",
         "open_in_new_tab": false,
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -281,10 +283,66 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "landing_faq_section_cnjqM8": {
+      "type": "landing-faq-section",
+      "blocks": {
+        "faq_item_a9JQtD": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's included with WeightRx?",
+            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
+          }
+        },
+        "faq_item_Qhgn7X": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's included with WeightRx?",
+            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
+          }
+        },
+        "faq_item_Li8JgG": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's included with WeightRx?",
+            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
+          }
+        },
+        "faq_item_HFQFec": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's included with WeightRx?",
+            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
+          }
+        },
+        "faq_item_h3Tixh": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's included with WeightRx?",
+            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_a9JQtD",
+        "faq_item_Qhgn7X",
+        "faq_item_Li8JgG",
+        "faq_item_HFQFec",
+        "faq_item_h3Tixh"
+      ],
+      "name": "FAQ section",
+      "settings": {
+        "section_id": "faq",
+        "title": "Frequently Asked Questions",
+        "disclaimer": "<p>*The assessment made available on the WeightRx website does not create a clinician-patient relationship between the individual completing the assessment and WeightRx.</p><p>All claims and benefits on this website refer to self-reported data from WeightRx members on a treatment plan that includes compounded GLP-1 medications and consultations with medical professionals.</p><p>We encourage all prospective users of compounded medications to speak with their clinician about the specific risks and benefits that may come with the use of compounded medication.</p>",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
     "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "product_list_fa6P9H",
+    "landing_faq_section_cnjqM8"
   ]
 }
