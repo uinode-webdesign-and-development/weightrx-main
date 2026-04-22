@@ -316,7 +316,7 @@
         "background_position": "center center",
         "show_overlay": true,
         "overlay_color": "#000000",
-        "overlay_opacity": 40,
+        "overlay_opacity": 0,
         "counter_first": "2",
         "counter_second": "5",
         "spots_text": "spots left",
