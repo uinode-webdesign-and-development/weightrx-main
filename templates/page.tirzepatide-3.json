@@ -53,13 +53,22 @@
             "number_text": "",
             "text": "<p>55% More EffectiveThan Semaglutide</p>"
           }
+        },
+        "feature_wH8CxE": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/feature-5.png",
+            "number_text": "",
+            "text": "<p>Payment Plans Available at Checkout</p>"
+          }
         }
       },
       "block_order": [
         "feature_4JFLXL",
         "feature_3wAh9Q",
         "feature_64JiGn",
-        "feature_DGVzPF"
+        "feature_DGVzPF",
+        "feature_wH8CxE"
       ],
       "name": "Landing hero",
       "settings": {
