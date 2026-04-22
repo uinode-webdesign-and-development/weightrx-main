@@ -63,77 +63,90 @@
   {% endif %}
   {{- block.shopify_attributes -}}
 >
-
-  {% if section.settings.custom_button_1_url and section.settings.custom_button_1_label %}
+  {% if section.settings.custom_button_1_url or section.settings.custom_button_1_label %}
     <div class="nav-buttons">
-      <a class="sign-in-btn" href="{{ section.settings.custom_button_1_url }}">{{ section.settings.custom_button_1_label }}</a>
+      <a class="sign-in-btn" href="{{ section.settings.custom_button_1_url }}">
+        {{- section.settings.custom_button_1_label -}}
+      </a>
       <a class="quiz-btn desktop-quiz-btn js-quiz-link" href="{{ section.settings.custom_button_2_url }}">
-        {{ section.settings.custom_button_2_label }}
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        {{ section.settings.custom_button_2_label }} {%- render 'icon', icon: 'caret' -%}
+        {% comment %} <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <path d="M5 12h14"></path>
           <path d="m12 5 7 7-7 7"></path>
-        </svg>
+        </svg> {% endcomment %}
       </a>
     </div>
   {% endif %}
-  {% if shop.customer_accounts_enabled %}
-    {% liquid
-      assign account_actions_style = ''
-      if display_style == 'text' and section
-        assign actions_font = section.settings.actions_font | default: 'body'
-        assign font_obj = settings.type_heading_font
-        case actions_font
-          when 'body'
-            assign font_obj = settings.type_body_font
-          when 'subheading'
-            assign font_obj = settings.type_subheading_font
-          when 'accent'
-            assign font_obj = settings.type_accent_font
-        endcase
-        assign font_family = font_obj.family | append: ', ' | append: font_obj.fallback_families
-        assign font_family_safe = font_family | replace: '"', "'"
-        assign account_actions_style = '--header-actions-font-family: ' | append: font_family_safe | append: '; --header-actions-font-weight: ' | append: font_obj.weight | append: ';'
-      endif
-    %}
-    <div
-      class="account-button header-actions__action{% if display_style == 'text' %} account-button--text{% endif %} color-{{ settings.popover_color_scheme }}"
-    >
-      <shopify-account
-        menu="{{ customer_account_menu }}"
-        {% if account_actions_style != blank %}
-          style="{{ account_actions_style }}"
-        {% endif %}
+
+  {% if section.settings.header_actions %}
+    {% if shop.customer_accounts_enabled %}
+      {% liquid
+        assign account_actions_style = ''
+        if display_style == 'text' and section
+          assign actions_font = section.settings.actions_font | default: 'body'
+          assign font_obj = settings.type_heading_font
+          case actions_font
+            when 'body'
+              assign font_obj = settings.type_body_font
+            when 'subheading'
+              assign font_obj = settings.type_subheading_font
+            when 'accent'
+              assign font_obj = settings.type_accent_font
+          endcase
+          assign font_family = font_obj.family | append: ', ' | append: font_obj.fallback_families
+          assign font_family_safe = font_family | replace: '"', "'"
+          assign account_actions_style = '--header-actions-font-family: ' | append: font_family_safe | append: '; --header-actions-font-weight: ' | append: font_obj.weight | append: ';'
+        endif
+      %}
+      <div
+        class="account-button header-actions__action{% if display_style == 'text' %} account-button--text{% endif %} color-{{ settings.popover_color_scheme }}"
       >
-        {% if customer %}
-          <div class="account-button__fallback"></div>
-        {% else %}
-          <span
-            slot="signed-out-avatar"
-            class="account-button__text header-actions__text-style {% if display_style == 'icon' %}hidden{% else %}mobile:hidden{% endif %}"
-          >
-            {{ 'content.account_title' | t }}
-          </span>
+        <shopify-account
+          menu="{{ customer_account_menu }}"
+          {% if account_actions_style != blank %}
+            style="{{ account_actions_style }}"
+          {% endif %}
+        >
+          {% if customer %}
+            <div class="account-button__fallback"></div>
+          {% else %}
+            <span
+              slot="signed-out-avatar"
+              class="account-button__text header-actions__text-style {% if display_style == 'icon' %}hidden{% else %}mobile:hidden{% endif %}"
+            >
+              {{ 'content.account_title' | t }}
+            </span>
 
-          <span
-            slot="signed-out-avatar"
-            class="{% if display_style != 'icon' %}desktop:hidden{% endif %}"
-            aria-hidden="true"
-          >
-            {{ account_icon }}
-          </span>
-        {% endif %}
-      </shopify-account>
-    </div>
-  {% endif %}
+            <span
+              slot="signed-out-avatar"
+              class="{% if display_style != 'icon' %}desktop:hidden{% endif %}"
+              aria-hidden="true"
+            >
+              {{ account_icon }}
+            </span>
+          {% endif %}
+        </shopify-account>
+      </div>
+    {% endif %}
 
-  {% if settings.cart_type == 'drawer' and template.name != 'cart' %}
-    <script
-      src="{{ 'cart-drawer.js' | asset_url }}"
-      type="module"
-      fetchpriority="low"
-    ></script>
+    {% if settings.cart_type == 'drawer' and template.name != 'cart' %}
+      <script
+        src="{{ 'cart-drawer.js' | asset_url }}"
+        type="module"
+        fetchpriority="low"
+      ></script>
 
-    {% capture empty_cart_drawer_content %}
+      {% capture empty_cart_drawer_content %}
       <div class="cart-drawer__header">
         <button
           ref="closeButton"
@@ -164,45 +177,45 @@
       </div>
     {% endcapture %}
 
-    <cart-drawer-component
-      class="cart-drawer{% if display_style == 'text' %} cart-drawer--text{% endif %}"
-      {{ block.shopify_attributes }}
-      {% if settings.auto_open_cart_drawer %}
-        auto-open
-      {% endif %}
-    >
-      <template id="empty-cart-template">
-        {{ empty_cart_drawer_content }}
-      </template>
-      <button
-        class="header-actions__action button-unstyled{% if display_style == 'text' %} header-actions__text-style{% endif %}"
-        on:click="/open"
-        aria-haspopup="dialog"
-        aria-label="{{ 'accessibility.cart' | t }}"
-        aria-describedby="cart-bubble-text"
-        data-testid="cart-drawer-trigger"
+      <cart-drawer-component
+        class="cart-drawer{% if display_style == 'text' %} cart-drawer--text{% endif %}"
+        {{ block.shopify_attributes }}
+        {% if settings.auto_open_cart_drawer %}
+          auto-open
+        {% endif %}
       >
-        {{ cart_icon }}
-      </button>
-
-      <dialog
-        ref="dialog"
-        class="cart-drawer__dialog dialog-modal dialog-drawer color-{{ settings.drawer_color_scheme }}{% if cart.empty? %} cart-drawer--empty{%endif%}"
-        data-testid="cart-drawer-dialog"
-        aria-labelledby="{% if cart.empty? %}cart-drawer-heading-empty{% else %}cart-drawer-heading{% endif %}"
-        scroll-lock
-        cart-summary-sticky="true"
-      >
-        <span
-          ref="liveRegion"
-          class="visually-hidden"
-          role="status"
-        ></span>
-        <div
-          class="cart-drawer__inner"
-          data-hydration-key="cart-drawer-inner"
+        <template id="empty-cart-template">
+          {{ empty_cart_drawer_content }}
+        </template>
+        <button
+          class="header-actions__action button-unstyled{% if display_style == 'text' %} header-actions__text-style{% endif %}"
+          on:click="/open"
+          aria-haspopup="dialog"
+          aria-label="{{ 'accessibility.cart' | t }}"
+          aria-describedby="cart-bubble-text"
+          data-testid="cart-drawer-trigger"
         >
-          {% capture cart_items_children %}
+          {{ cart_icon }}
+        </button>
+
+        <dialog
+          ref="dialog"
+          class="cart-drawer__dialog dialog-modal dialog-drawer color-{{ settings.drawer_color_scheme }}{% if cart.empty? %} cart-drawer--empty{%endif%}"
+          data-testid="cart-drawer-dialog"
+          aria-labelledby="{% if cart.empty? %}cart-drawer-heading-empty{% else %}cart-drawer-heading{% endif %}"
+          scroll-lock
+          cart-summary-sticky="true"
+        >
+          <span
+            ref="liveRegion"
+            class="visually-hidden"
+            role="status"
+          ></span>
+          <div
+            class="cart-drawer__inner"
+            data-hydration-key="cart-drawer-inner"
+          >
+            {% capture cart_items_children %}
             {%- if cart.empty? -%}
               {{ empty_cart_drawer_content }}
             {%- else -%}
@@ -249,27 +262,28 @@
               </scroll-hint>
             {%- endif -%}
           {% endcapture %}
-          {% render 'cart-items-component', children: cart_items_children, is_drawer: true, section_id: section.id %}
-        </div>
-      </dialog>
-    </cart-drawer-component>
-  {% else %}
-    <a
-      href="{{ routes.cart_url }}"
-      class="header-actions__action action__cart{% if display_style == 'text' %} header-actions__text-style{% endif %}"
-      aria-label="{{ 'accessibility.cart' | t }}"
-      aria-describedby="cart-bubble-text"
-    >
-      {{ cart_icon }}
-    </a>
-  {% endif %}
+            {% render 'cart-items-component', children: cart_items_children, is_drawer: true, section_id: section.id %}
+          </div>
+        </dialog>
+      </cart-drawer-component>
+    {% else %}
+      <a
+        href="{{ routes.cart_url }}"
+        class="header-actions__action action__cart{% if display_style == 'text' %} header-actions__text-style{% endif %}"
+        aria-label="{{ 'accessibility.cart' | t }}"
+        aria-describedby="cart-bubble-text"
+      >
+        {{ cart_icon }}
+      </a>
+    {% endif %}
 
-  <span
-    ref="liveRegion"
-    class="visually-hidden"
-    role="status"
-    data-testid="cart-count-live-region"
-  ></span>
+    <span
+      ref="liveRegion"
+      class="visually-hidden"
+      role="status"
+      data-testid="cart-count-live-region"
+    ></span>
+  {% endif %}
 </header-actions>
 
 <script

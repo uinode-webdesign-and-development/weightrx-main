@@ -41,6 +41,8 @@
     "background_video": "Background video",
     "block_link": "Block link",
     "block_size": "Block size",
+    // Header action button settings in theme editor
+    "actions": "Header action buttons",
     // Typography setting for body text size
     "body_size": "Body size",
     "borders": "Borders",
@@ -753,6 +755,7 @@
     "button_label_primary": "Primary button label",
     "button_label_secondary": "Secondary button label",
     "button_url": "Button URL",
+    "header_actions": "Header Actions On/Off",
     // Block name for collapsible content sections in the theme editor
     "accordion": "Accordion",
     "account": "Account",
