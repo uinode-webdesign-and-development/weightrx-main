@@ -50,23 +50,22 @@
               {% endfor %}
             </div>
           {% endif %}
-         {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-            <div class="landing-hero__cta-wrap">
-              <a class="landing-hero__button button" href="{{ section.settings.button_link }}">
-                      {% if section.settings.button_icon != blank %}
-                  <span class="button-custom-icon">
-                    {{ section.settings.button_icon | image_url: width: 40 | image_tag: loading: 'lazy', alt: section.settings.button_icon.alt }}
-                  </span>
-                {% endif %}
-                {{ section.settings.button_label }}
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#facc15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
+       {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+  <div class="landing-hero__cta-wrap">
+    <a class="landing-hero__button button" href="{{ section.settings.button_link }}">
+      
+      {% comment %} Customizer se select kiya hua icon yahan show hoga {% endcomment %}
+      {% if section.settings.button_icon != blank %}
+        <span class="landing-hero__button-custom-icon">
+          {{ section.settings.button_icon | image_url: width: 50 | image_tag: loading: 'lazy' }}
+        </span>
+      {% endif %}
 
-              </a>
-            </div>
-          {% endif %}
+      <span>{{ section.settings.button_label }}</span>
+
+    </a>
+  </div>
+{% endif %}
         {% if section.settings.reviews_title != blank or section.settings.rating_text != blank %}
           <div class="landing-hero__reviews">
             {% if section.settings.reviews_title != blank %}
