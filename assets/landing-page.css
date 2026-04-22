@@ -2599,6 +2599,6 @@ FAQS
     height: 20px;
     display: block;
   }
-  .offer-banner__feature-icon {
+  .offer-banner__feature-icon-wrap {
   stroke: #062089 !important;
 }
