@@ -119,11 +119,13 @@
 </section>
 
 {% style %}
-#MainContent .shopify-section:has(.{{ section_id }}) {
-  margin-left: calc(-1 * var(--page-margin, 0px));
-  margin-right: calc(-1 * var(--page-margin, 0px));
+.shopify-section:has(.{{ section_id }}) {
   width: 100vw;
-  max-width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
   .{{ section_id }} {
   padding-top: {{ section.settings.padding_top }}px;
