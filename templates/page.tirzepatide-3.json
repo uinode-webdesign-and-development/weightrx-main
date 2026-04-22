@@ -402,6 +402,27 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "custom_footer_WtBNLF": {
+      "type": "custom-footer",
+      "name": "Custom Footer",
+      "settings": {
+        "logo": "shopify://shop_images/footer-logo.svg",
+        "logo_width": 160,
+        "brand_name": "WeightRx",
+        "copyright_text": "© 2026 WeightRx",
+        "center_image": "shopify://shop_images/18557581.png",
+        "center_image_width": 70,
+        "center_image_alt": "LegitScript Certified",
+        "center_image_link": "",
+        "contact_heading": "Contact Care Team",
+        "footer_menu": "footer",
+        "bg_color": "#062089",
+        "text_color": "#FFFFFF",
+        "max_width": 1200,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
@@ -410,6 +431,7 @@
     "landing_testimonials_section_4JgYfm",
     "landing_customer_feedback_Gxham3",
     "landing_offer_banner_eYtqfQ",
-    "landing_faq_section_eGA4jH"
+    "landing_faq_section_eGA4jH",
+    "custom_footer_WtBNLF"
   ]
 }

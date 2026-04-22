@@ -29,33 +29,58 @@
       </p>
     </div>
 
-    {% comment %} RIGHT: Contact Info + Menu Links {% endcomment %}
-    <div class="custom-footer__right-content">
+    {% comment %} CENTER: Badge/Image {% endcomment %}
+    <div class="custom-footer__center">
+      {% if section.settings.center_image != blank %}
+        <div class="custom-footer__badge">
+          {% if section.settings.center_image_link != blank %}
+            <a href="{{ section.settings.center_image_link }}" target="_blank" rel="noopener noreferrer">
+              <img
+                src="{{ section.settings.center_image | image_url: width: 400 }}"
+                alt="{{ section.settings.center_image_alt | default: 'Badge' | escape }}"
+                class="custom-footer__badge-img"
+                loading="lazy"
+                style="width: {{ section.settings.center_image_width }}px; height: auto;"
+              >
+            </a>
+          {% else %}
+            <img
+              src="{{ section.settings.center_image | image_url: width: 400 }}"
+              alt="{{ section.settings.center_image_alt | default: 'Badge' | escape }}"
+              class="custom-footer__badge-img"
+              loading="lazy"
+              style="width: {{ section.settings.center_image_width }}px; height: auto;"
+            >
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+
+    {% comment %} RIGHT: Heading + Contact Info + Menu {% endcomment %}
+    <div class="custom-footer__contact">
       {% if section.settings.contact_heading != blank %}
         <p class="custom-footer__contact-heading">{{ section.settings.contact_heading }}</p>
       {% endif %}
 
-      {% comment %} Contact Details Blocks {% endcomment %}
-      <div class="custom-footer__contact-info">
+      <div class="custom-footer__info-group">
         {% for block in section.blocks %}
           {% if block.type == 'contact_line' %}
             <div class="custom-footer__contact-line" {{ block.shopify_attributes }}>
               {% if block.settings.line_icon != blank %}
                 <span class="custom-footer__contact-icon">{{ block.settings.line_icon }}</span>
               {% endif %}
-              <span>{{ block.settings.line_text }}</span>
+              <span class="custom-footer__line-text">{{ block.settings.line_text }}</span>
             </div>
           {% endif %}
         {% endfor %}
       </div>
 
-      {% comment %} Right Side Menu (Terms, Privacy etc) {% endcomment %}
       {% if section.settings.footer_menu != blank %}
         {% assign footer_nav = linklists[section.settings.footer_menu] %}
         {% if footer_nav.links.size > 0 %}
-          <div class="custom-footer__right-menu">
+          <div class="custom-footer__inline-links">
             {% for link in footer_nav.links %}
-              <a href="{{ link.url }}" class="custom-footer__right-link">{{ link.title }}</a>
+              <a href="{{ link.url }}" class="custom-footer__link-item">{{ link.title }}</a>
             {% endfor %}
           </div>
         {% endif %}
@@ -78,107 +103,74 @@
     margin: 0 auto;
     padding: 0 24px;
     display: flex;
-    align-items: flex-start;
+    align-items: center; 
     justify-content: space-between;
-    gap: 40px;
+    gap: 32px;
     flex-wrap: wrap;
   }
 
-  /* ── LEFT SIDE ── */
-  .custom-footer__brand {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    flex: 1;
-    min-width: 200px;
-  }
+  .custom-footer__brand { flex: 1; min-width: 180px; }
+  .custom-footer__logo-img { display: block; height: auto; margin-bottom: 8px; }
+  .custom-footer__copyright { color: {{ section.settings.text_color }}; font-size: 13px; margin: 0; opacity: 0.8; }
 
-  .custom-footer__logo-img {
-    display: block;
-    height: auto;
-    width: 100%;
-  }
+  .custom-footer__center { flex: 1; display: flex; justify-content: center; }
+  .custom-footer__badge-img { display: block; max-width: 100%; }
 
-  .custom-footer__copyright {
-    color: {{ section.settings.text_color }};
-    font-size: 13px;
-    margin: 0;
-    opacity: 0.7;
-  }
-
-  /* ── RIGHT SIDE ── */
-  .custom-footer__right-content {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    flex: 1;
+  .custom-footer__contact {
+    flex: 1.5;
     min-width: 300px;
-    align-items: flex-end;
-    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .custom-footer__contact-heading {
     color: {{ section.settings.text_color }};
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
-    margin: 0;
+    margin: 0 0 6px 0;
   }
 
-  .custom-footer__contact-info {
+  .custom-footer__info-group {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    margin-bottom: 8px;
+    gap: 5px;
+    width: 100%;
+    margin-bottom: 12px;
+    display:none;
   }
 
   .custom-footer__contact-line {
     color: {{ section.settings.text_color }};
     font-size: 13px;
+    line-height: 1.4;
     opacity: 0.9;
+    display: block; /* Forced to block so next item starts on new line */
+    width: 100%;
+  }
+
+  .custom-footer__inline-links {
     display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    justify-content: flex-end;
+    flex-direction: column; /* Isse har item auto-next line par chala jayega */
+    gap: 8px; /* Items ke darmiyan fasla */
+    margin-top: 10px;
+    align-items: flex-start; /* Left align karne ke liye */
+  }
+
+  .custom-footer__link-item {
+    display: block; /* Force block level */
+    color: {{ section.settings.text_color }};
+    font-size: 13px;
+    text-decoration: none;
+    opacity: 0.9;
     line-height: 1.4;
   }
 
-  /* Right Menu Links Styling */
-  .custom-footer__right-menu {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: flex-end;
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .custom-footer__right-link {
-    color: {{ section.settings.text_color }};
-    font-size: 12px;
-    text-decoration: none;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-  }
-
-  .custom-footer__right-link:hover {
-    opacity: 1;
-    text-decoration: underline;
-  }
-
   @media (max-width: 768px) {
-    .custom-footer__inner {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .custom-footer__right-content, 
-    .custom-footer__contact-line,
-    .custom-footer__right-menu {
-      align-items: center;
-      text-align: center;
-      justify-content: center;
-    }
+    .custom-footer__inner { flex-direction: column; text-align: center; align-items: center; }
+    .custom-footer__contact { align-items: center; text-align: center; }
+    .custom-footer__inline-links { justify-content: center; }
   }
 </style>
 
@@ -186,102 +178,34 @@
 {
   "name": "Custom Footer",
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Logo image"
-    },
-    {
-      "type": "range",
-      "id": "logo_width",
-      "label": "Logo width",
-      "min": 50,
-      "max": 250,
-      "step": 5,
-      "unit": "px",
-      "default": 120
-    },
-    {
-      "type": "text",
-      "id": "brand_name",
-      "label": "Brand name",
-      "default": "WeightRx"
-    },
-    {
-      "type": "text",
-      "id": "copyright_text",
-      "label": "Copyright text",
-      "default": "© [year] WeightRx"
-    },
-    {
-      "type": "text",
-      "id": "contact_heading",
-      "label": "Contact heading",
-      "default": "Contact Care Team"
-    },
-    {
-      "type": "link_list",
-      "id": "footer_menu",
-      "label": "Right Side Menu",
-      "info": "Select menu for Privacy, Terms etc."
-    },
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background color",
-      "default": "#1A237E"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text color",
-      "default": "#FFFFFF"
-    },
-    {
-      "type": "number",
-      "id": "max_width",
-      "label": "Max width (px)",
-      "default": 1200
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "label": "Padding top",
-      "min": 0,
-      "max": 100,
-      "default": 40
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "label": "Padding bottom",
-      "min": 0,
-      "max": 100,
-      "default": 40
-    }
+    { "type": "image_picker", "id": "logo", "label": "Logo image" },
+    { "type": "range", "id": "logo_width", "label": "Logo width", "min": 50, "max": 300, "step": 10, "default": 140 },
+    { "type": "text", "id": "brand_name", "label": "Brand name", "default": "WeightRx" },
+    { "type": "text", "id": "copyright_text", "label": "Copyright text", "default": "© [year] WeightRx" },
+    { "type": "header", "content": "Center Badge" },
+    { "type": "image_picker", "id": "center_image", "label": "Center image" },
+    { "type": "range", "id": "center_image_width", "label": "Center image width", "min": 20, "max": 300, "step": 5, "unit": "px", "default": 80 },
+    { "type": "text", "id": "center_image_alt", "label": "Alt text", "default": "LegitScript Certified" },
+    { "type": "url", "id": "center_image_link", "label": "Image link" },
+    { "type": "header", "content": "Right Column" },
+    { "type": "text", "id": "contact_heading", "label": "Contact heading", "default": "Contact Care Team" },
+    { "type": "link_list", "id": "footer_menu", "label": "Menu (Privacy, Terms etc.)" },
+    { "type": "color", "id": "bg_color", "label": "Background color", "default": "#1A237E" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#FFFFFF" },
+    { "type": "number", "id": "max_width", "label": "Max width (px)", "default": 1200 },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 100, "default": 40 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 100, "default": 40 }
   ],
   "blocks": [
     {
       "type": "contact_line",
       "name": "Contact line",
       "settings": [
-        {
-          "type": "text",
-          "id": "line_icon",
-          "label": "Icon (optional)"
-        },
-        {
-          "type": "text",
-          "id": "line_text",
-          "label": "Line text"
-        }
+        { "type": "text", "id": "line_icon", "label": "Icon" },
+        { "type": "text", "id": "line_text", "label": "Line text" }
       ]
     }
   ],
-  "presets": [
-    {
-      "name": "Custom Footer"
-    }
-  ]
+  "presets": [{ "name": "Custom Footer" }]
 }
 {% endschema %}
