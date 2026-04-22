@@ -205,11 +205,12 @@
           "type": "feedback",
           "settings": {
             "rating_label": "5 out of 5 stars",
-            "quote_title": "WeightRx helped me achieve my goal!",
-            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
+            "quote_title": "The best choice for weight loss",
+            "quote_text": "From start to finish, customer service representatives made the entire process simple. The doctors I interacted with were friendly and concerned about my goals and concerns. I was able to quickly and safely",
             "show_read_more": true,
             "read_more_label": "Read More",
-            "author_name": "Hayley N.",
+            "author_avatar": "shopify://shop_images/customer2.png",
+            "author_name": "Courtney D.",
             "verified_label": "Verified Member"
           }
         },
@@ -218,10 +219,11 @@
           "settings": {
             "rating_label": "5 out of 5 stars",
             "quote_title": "WeightRx helped me achieve my goal!",
-            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
+            "quote_text": "The process was flawless. From signing up, speaking to the physician, and shipping! I've tried other companies, but never got the results I wanted until trying WeightRx. I have referred multiple friend and family members. Will definitely be a long-term customer!",
             "show_read_more": true,
             "read_more_label": "Read More",
-            "author_name": "Hayley N.",
+            "author_avatar": "shopify://shop_images/customer4.png",
+            "author_name": "Khalia L.",
             "verified_label": "Verified Member"
           }
         },
@@ -230,10 +232,11 @@
           "settings": {
             "rating_label": "5 out of 5 stars",
             "quote_title": "WeightRx helped me achieve my goal!",
-            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
+            "quote_text": "The WeightRx team, and its doctors/NPs were extremely knowledgeable, professional, and supportive throughout this process. I paired the medication with a more active lifestyle (working out 4 times per week), and I am so very happy to have finally reached my goal. I have lost a total of 60 pounds and feel great. Thank you so much for this opportunity to get to a place where I am healthier.",
             "show_read_more": true,
             "read_more_label": "Read More",
-            "author_name": "Hayley N.",
+            "author_avatar": "shopify://shop_images/customer5.png",
+            "author_name": "Jason W.",
             "verified_label": "Verified Member"
           }
         },
