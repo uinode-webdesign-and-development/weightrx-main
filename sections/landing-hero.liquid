@@ -193,9 +193,13 @@
       <!-- Left Content Column -->
       <div class="hero-content">
         <div class="hero-title-section">
-          <h1 class="hero-title">
-              {{ section.settings.title | replace: 'Tirzepatide', '<span class="highlight-green">Tirzepatide</span>' }}
-            </h1>
+         <h1 class="hero-title">
+  {%- assign title_content = section.settings.title -%}
+  {%- assign title_content = title_content | replace: 'Tirzepatide', '<span class="highlight-green">Tirzepatide</span>' -%}
+  {%- assign title_content = title_content | replace: '$83/mo', '<span class="highlight-green">$83/mo</span>' -%}
+  
+  {{ title_content }}
+</h1>
           <div class="portal-features__description">
             <span style="color: #00b676; font-weight: 600">{{ section.settings.subheading }}</span>
           </div>
