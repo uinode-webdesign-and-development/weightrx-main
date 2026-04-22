@@ -163,11 +163,104 @@
         "highlight_text": "Join 200,000+ members and transform your",
         "heading_text": "health, body and life."
       }
+    },
+    "landing_customer_feedback_Gxham3": {
+      "type": "landing-customer-feedback",
+      "blocks": {
+        "feedback_nFVHyw": {
+          "type": "feedback",
+          "settings": {
+            "rating_label": "5 out of 5 stars",
+            "quote_title": "WeightRx helped me achieve my goal!",
+            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
+            "show_read_more": true,
+            "read_more_label": "Read More",
+            "author_name": "Hayley N.",
+            "verified_label": "Verified Member"
+          }
+        },
+        "feedback_3QWRnb": {
+          "type": "feedback",
+          "settings": {
+            "rating_label": "5 out of 5 stars",
+            "quote_title": "WeightRx helped me achieve my goal!",
+            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
+            "show_read_more": true,
+            "read_more_label": "Read More",
+            "author_name": "Hayley N.",
+            "verified_label": "Verified Member"
+          }
+        },
+        "feedback_L7iFJX": {
+          "type": "feedback",
+          "settings": {
+            "rating_label": "5 out of 5 stars",
+            "quote_title": "WeightRx helped me achieve my goal!",
+            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
+            "show_read_more": true,
+            "read_more_label": "Read More",
+            "author_name": "Hayley N.",
+            "verified_label": "Verified Member"
+          }
+        },
+        "feedback_jYeLf9": {
+          "type": "feedback",
+          "settings": {
+            "rating_label": "5 out of 5 stars",
+            "quote_title": "WeightRx helped me achieve my goal!",
+            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
+            "show_read_more": true,
+            "read_more_label": "Read More",
+            "author_name": "Hayley N.",
+            "verified_label": "Verified Member"
+          }
+        },
+        "feedback_qiXVRk": {
+          "type": "feedback",
+          "settings": {
+            "rating_label": "5 out of 5 stars",
+            "quote_title": "WeightRx helped me achieve my goal!",
+            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
+            "show_read_more": true,
+            "read_more_label": "Read More",
+            "author_name": "Hayley N.",
+            "verified_label": "Verified Member"
+          }
+        },
+        "feedback_hkakJG": {
+          "type": "feedback",
+          "settings": {
+            "rating_label": "5 out of 5 stars",
+            "quote_title": "WeightRx helped me achieve my goal!",
+            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
+            "show_read_more": true,
+            "read_more_label": "Read More",
+            "author_name": "Hayley N.",
+            "verified_label": "Verified Member"
+          }
+        }
+      },
+      "block_order": [
+        "feedback_nFVHyw",
+        "feedback_3QWRnb",
+        "feedback_L7iFJX",
+        "feedback_jYeLf9",
+        "feedback_qiXVRk",
+        "feedback_hkakJG"
+      ],
+      "name": "Customer feedback",
+      "settings": {
+        "heading_line_1": "Real Stories.",
+        "heading_highlight": "Real Results.",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
     "main",
     "landing_hero_iXWFMc",
-    "landing_testimonials_section_4JgYfm"
+    "landing_testimonials_section_4JgYfm",
+    "landing_customer_feedback_Gxham3"
   ]
 }
