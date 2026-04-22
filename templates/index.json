@@ -24,7 +24,7 @@
           "settings": {
             "icon": "shopify://shop_images/feature-2.png",
             "number_text": "",
-            "text": "<p>Save <strong>THOUSANDS </strong>per year in medication costs<br/></p>"
+            "text": "<p>Save<strong>THOUSANDS</strong>per year in medication costs<br/><br/></p>"
           }
         },
         "feature_WPyaGd": {
@@ -32,7 +32,7 @@
           "settings": {
             "icon": "shopify://shop_images/feature-3.png",
             "number_text": "",
-            "text": "<p>3 Months Of High Dose Fees WAIVED ($99/mo)</p>"
+            "text": "<p>3 Months Of High Dose Fees WAIVED ($99/mo)<br/><br/></p>"
           }
         },
         "feature_FrUcWr": {
@@ -40,7 +40,7 @@
           "settings": {
             "icon": "shopify://shop_images/feature-4.png",
             "number_text": "",
-            "text": "<p>55% More Effective Than Semaglutide<br/></p>"
+            "text": "<p>55% More EffectiveThan Semaglutide<br/><br/></p>"
           }
         },
         "feature_Tdt8jF": {
@@ -48,7 +48,7 @@
           "settings": {
             "icon": "shopify://shop_images/feature-5.png",
             "number_text": "",
-            "text": "<p>Payment Plans Available at Checkout<br/></p>"
+            "text": "<p>Payment Plans Available at Checkout<br/><br/></p>"
           }
         }
       },
@@ -61,7 +61,7 @@
       ],
       "name": "Landing hero",
       "settings": {
-        "heading": "<p>2026 Is Your Year. Start <strong>Tirzepatide</strong> for<strong> $83/mo</strong></p>",
+        "heading": "<p>2026 Is Your Year. Start <strong>Tirzepatide </strong>for <strong>$83/mo</strong></p>",
         "subheading": "<p>Price locked in forever. Ships in 48 hours</p>",
         "desktop_image": "shopify://shop_images/tirz_vial_2.png",
         "mobile_image": "shopify://shop_images/tirz_vial_2.png",
@@ -79,7 +79,7 @@
         "accent_color": "#00b676",
         "card_background": "#f7f8fb",
         "star_color": "#00b67a",
-        "card_radius": 6,
+        "card_radius": 16,
         "padding_top": 48,
         "padding_bottom": 48
       }
