@@ -113,7 +113,11 @@ ul {
 
   color: var(--foreground);
 }
-
+  .custom-main-container {
+  max-width: 1247px;
+  margin: 0 auto; 
+  width: 100%;
+}
 /* Phone support section */
 .phone-support {
   display: flex;
@@ -2572,7 +2576,6 @@ FAQS
     padding: 3.5rem 0;
   }
 }
-
 
 .legitscript-container {
   width: 73px;
