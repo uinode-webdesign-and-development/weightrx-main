@@ -77,7 +77,7 @@
         "desktop_image": "shopify://shop_images/tirz_vial_2.png",
         "mobile_image": "shopify://shop_images/tirz_vial_2.png",
         "button_label": "Start Your Weight Loss Journey",
-        "button_link": "shopify://collections/frontpage",
+        "button_link": "https://results.weightrx.com/start.html",
         "button_icon": "shopify://shop_images/svgviewer-output.svg",
         "reviews_title": "Over 1,000+ reviews",
         "show_stars": true,
@@ -302,7 +302,7 @@
           "settings": {
             "icon_image": "shopify://shop_images/gemini-svg.svg",
             "icon_size": 24,
-            "feature_text": "<p><strong>UNLIMITED</strong> doctor access & lab reviews</p>"
+            "feature_text": "<p>Medication + Shipping + Doctors <strong>INCLUDED </strong>in price</p>"
           }
         },
         "feature_NX8YfF": {
@@ -310,7 +310,7 @@
           "settings": {
             "icon_image": "shopify://shop_images/gemini-svg_1.svg",
             "icon_size": 24,
-            "feature_text": "<p><strong>UNLIMITED</strong> doctor access & lab reviews</p>"
+            "feature_text": "<p><strong>Prices LOCKED for 12 Months (Inflation-Proof)</strong></p>"
           }
         },
         "feature_AUj4aP": {
@@ -345,7 +345,7 @@
         "title_bold": "TODAY!",
         "press_text": "",
         "button_label": "Get Started Now",
-        "button_link": "",
+        "button_link": "https://results.weightrx.com/start.html",
         "padding_top": 80,
         "padding_bottom": 80
       }
