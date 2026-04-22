@@ -61,6 +61,10 @@
       },
       "settings": {
         "logo_position": "left",
+        "custom_button_1_label": "Sign In",
+        "custom_button_1_url": "https://portal.weightrx.com/",
+        "custom_button_2_label": "Get Started Now",
+        "custom_button_2_url": "https://results.weightrx.com/start.html",
         "menu_position": "left",
         "menu_row": "top",
         "customer_account_menu": "",
