@@ -279,7 +279,99 @@
   </div>
 </section>
 
-
+{% schema %}
+{
+  "name": "Landing Hero",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Heading",
+      "default": "2026 Is Your Year. Start Tirzepatide for $83/mo"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Prescription GLP-1 medications"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button Label",
+      "default": "Start Your Weight Loss Journey"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "reviews_count",
+      "label": "Reviews Text",
+      "default": "Over 1,000+ reviews"
+    },
+    {
+      "type": "text",
+      "id": "rating_val",
+      "label": "Rating Number",
+      "default": "4.7"
+    },
+    {
+      "type": "textarea",
+      "id": "disclaimer",
+      "label": "Disclaimer Text",
+      "default": "WeightRx offers compounded GLP-1s exclusively from U.S. pharmacies..."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature_number",
+          "label": "Feature Number (Optional)",
+          "info": "e.g. 200,000+"
+        },
+        {
+          "type": "image_picker",
+          "id": "feature_icon",
+          "label": "Feature Icon"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "feature_text",
+          "label": "Feature Text",
+          "default": "Patients trusted."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Landing Hero",
+      "blocks": [
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" }
+      ]
+    }
+  ]
+}
+{% endschema %}
 
 
 
@@ -662,7 +754,7 @@ font-size : 30px !important;
 
 {% endstyle %} 
 
-{% schema %}
+{% comment %} {% schema %}
 {
   "name": "Landing hero",
   "tag": "section",
@@ -714,4 +806,4 @@ font-size : 30px !important;
     }
   ]
 }
-{% endschema %}
+{% endschema %} {% endcomment %}
