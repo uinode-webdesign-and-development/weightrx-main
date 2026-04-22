@@ -63,7 +63,7 @@
         "heading": "<p><strong>2026 Is Your Year. Start</strong> <strong>Tirzepatide</strong> <strong>for</strong> <strong>$83/mo</strong></p>",
         "subheading": "<p>Price locked in forever. Ships in 48 hours</p>",
         "button_label": "Start Your Weight Loss Journey",
-        "button_link": "",
+        "button_link": "shopify://collections/frontpage",
         "reviews_title": "Over 1,000+ reviews",
         "show_stars": true,
         "rating_label": "Excellent",
@@ -84,6 +84,22 @@
       "type": "landing-testimonials-section",
       "blocks": {
         "testimonial_BMWQEB": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Tim B.",
+            "weight_text": "40 lbs lost",
+            "badge_text": "Verified WeightRx Member"
+          }
+        },
+        "testimonial_xJeNqp": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Tim B.",
+            "weight_text": "40 lbs lost",
+            "badge_text": "Verified WeightRx Member"
+          }
+        },
+        "testimonial_xPwkeU": {
           "type": "testimonial",
           "settings": {
             "name": "Tim B.",
@@ -134,6 +150,8 @@
       },
       "block_order": [
         "testimonial_BMWQEB",
+        "testimonial_xJeNqp",
+        "testimonial_xPwkeU",
         "testimonial_neFfNh",
         "testimonial_V8VXjr",
         "testimonial_w6hqTz",
