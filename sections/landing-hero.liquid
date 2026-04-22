@@ -161,7 +161,16 @@
         </div>
         <!-- Right Image Column -->
         <div class="hero-image-section">
-          <img class="hero-desktop-image" alt="Hero Image" src="./assets3/tirz vial 2.png">
+          {% if section.settings.desktop_image != blank %}
+            {{
+              section.settings.desktop_image
+              | image_url: width: 610
+              | image_tag:
+                loading: 'lazy',
+                class: 'landing-hero__desktop-image',
+                alt: section.settings.desktop_image.alt
+            }}
+          {% endif %}
         </div>
       </div>
     </div>
