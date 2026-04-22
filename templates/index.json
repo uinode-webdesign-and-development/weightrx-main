@@ -69,6 +69,98 @@
         "padding_bottom": 48
       }
     },
+    "landing_customer_feedback_9TngNq": {
+      "type": "landing-customer-feedback",
+      "blocks": {
+        "feedback_jXBGwM": {
+          "type": "feedback",
+          "settings": {
+            "rating_label": "5 out of 5 stars",
+            "quote_title": "WeightRx helped me achieve my goal!",
+            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
+            "show_read_more": true,
+            "read_more_label": "Read More",
+            "author_name": "Hayley N.",
+            "verified_label": "Verified Member"
+          }
+        },
+        "feedback_RNTnyg": {
+          "type": "feedback",
+          "settings": {
+            "rating_label": "5 out of 5 stars",
+            "quote_title": "WeightRx helped me achieve my goal!",
+            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
+            "show_read_more": true,
+            "read_more_label": "Read More",
+            "author_name": "Hayley N.",
+            "verified_label": "Verified Member"
+          }
+        },
+        "feedback_hHHCRf": {
+          "type": "feedback",
+          "settings": {
+            "rating_label": "5 out of 5 stars",
+            "quote_title": "WeightRx helped me achieve my goal!",
+            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
+            "show_read_more": true,
+            "read_more_label": "Read More",
+            "author_name": "Hayley N.",
+            "verified_label": "Verified Member"
+          }
+        },
+        "feedback_whGd9W": {
+          "type": "feedback",
+          "settings": {
+            "rating_label": "5 out of 5 stars",
+            "quote_title": "WeightRx helped me achieve my goal!",
+            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
+            "show_read_more": true,
+            "read_more_label": "Read More",
+            "author_name": "Hayley N.",
+            "verified_label": "Verified Member"
+          }
+        },
+        "feedback_D7YPxj": {
+          "type": "feedback",
+          "settings": {
+            "rating_label": "5 out of 5 stars",
+            "quote_title": "WeightRx helped me achieve my goal!",
+            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
+            "show_read_more": true,
+            "read_more_label": "Read More",
+            "author_name": "Hayley N.",
+            "verified_label": "Verified Member"
+          }
+        },
+        "feedback_PxL8Cb": {
+          "type": "feedback",
+          "settings": {
+            "rating_label": "5 out of 5 stars",
+            "quote_title": "WeightRx helped me achieve my goal!",
+            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
+            "show_read_more": true,
+            "read_more_label": "Read More",
+            "author_name": "Hayley N.",
+            "verified_label": "Verified Member"
+          }
+        }
+      },
+      "block_order": [
+        "feedback_jXBGwM",
+        "feedback_RNTnyg",
+        "feedback_hHHCRf",
+        "feedback_whGd9W",
+        "feedback_D7YPxj",
+        "feedback_PxL8Cb"
+      ],
+      "name": "Customer feedback",
+      "settings": {
+        "heading_line_1": "Real Stories.",
+        "heading_highlight": "Real Results.",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
     "hero_jVaWmY": {
       "type": "hero",
       "blocks": {
@@ -399,94 +491,56 @@
         "padding_bottom": 80
       }
     },
-    "landing_customer_feedback_9TngNq": {
-      "type": "landing-customer-feedback",
+    "landing_offer_banner_aLx4Wr": {
+      "type": "landing-offer-banner",
       "blocks": {
-        "feedback_jXBGwM": {
-          "type": "feedback",
+        "feature_qaG6j9": {
+          "type": "feature",
           "settings": {
-            "rating_label": "5 out of 5 stars",
-            "quote_title": "WeightRx helped me achieve my goal!",
-            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
-            "show_read_more": true,
-            "read_more_label": "Read More",
-            "author_name": "Hayley N.",
-            "verified_label": "Verified Member"
+            "icon_type": "doctor",
+            "feature_text": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
           }
         },
-        "feedback_RNTnyg": {
-          "type": "feedback",
+        "feature_UwiDFU": {
+          "type": "feature",
           "settings": {
-            "rating_label": "5 out of 5 stars",
-            "quote_title": "WeightRx helped me achieve my goal!",
-            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
-            "show_read_more": true,
-            "read_more_label": "Read More",
-            "author_name": "Hayley N.",
-            "verified_label": "Verified Member"
+            "icon_type": "doctor",
+            "feature_text": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
           }
         },
-        "feedback_hHHCRf": {
-          "type": "feedback",
+        "feature_apAe7d": {
+          "type": "feature",
           "settings": {
-            "rating_label": "5 out of 5 stars",
-            "quote_title": "WeightRx helped me achieve my goal!",
-            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
-            "show_read_more": true,
-            "read_more_label": "Read More",
-            "author_name": "Hayley N.",
-            "verified_label": "Verified Member"
+            "icon_type": "doctor",
+            "feature_text": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
           }
         },
-        "feedback_whGd9W": {
-          "type": "feedback",
+        "feature_jUEGpC": {
+          "type": "feature",
           "settings": {
-            "rating_label": "5 out of 5 stars",
-            "quote_title": "WeightRx helped me achieve my goal!",
-            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
-            "show_read_more": true,
-            "read_more_label": "Read More",
-            "author_name": "Hayley N.",
-            "verified_label": "Verified Member"
-          }
-        },
-        "feedback_D7YPxj": {
-          "type": "feedback",
-          "settings": {
-            "rating_label": "5 out of 5 stars",
-            "quote_title": "WeightRx helped me achieve my goal!",
-            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
-            "show_read_more": true,
-            "read_more_label": "Read More",
-            "author_name": "Hayley N.",
-            "verified_label": "Verified Member"
-          }
-        },
-        "feedback_PxL8Cb": {
-          "type": "feedback",
-          "settings": {
-            "rating_label": "5 out of 5 stars",
-            "quote_title": "WeightRx helped me achieve my goal!",
-            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
-            "show_read_more": true,
-            "read_more_label": "Read More",
-            "author_name": "Hayley N.",
-            "verified_label": "Verified Member"
+            "icon_type": "doctor",
+            "feature_text": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
           }
         }
       },
       "block_order": [
-        "feedback_jXBGwM",
-        "feedback_RNTnyg",
-        "feedback_hHHCRf",
-        "feedback_whGd9W",
-        "feedback_D7YPxj",
-        "feedback_PxL8Cb"
+        "feature_qaG6j9",
+        "feature_UwiDFU",
+        "feature_apAe7d",
+        "feature_jUEGpC"
       ],
-      "name": "Customer feedback",
+      "name": "Offer banner",
       "settings": {
-        "heading_line_1": "Real Stories.",
-        "heading_highlight": "Real Results.",
+        "counter_first": "2",
+        "counter_second": "5",
+        "spots_text": "spots left",
+        "title_prefix": "Secure",
+        "title_highlight": "your",
+        "title_middle": "spot",
+        "title_bold": "TODAY!",
+        "press_text": "<p>Recommended by <strong>Forbes, USA Today, and more</strong></p>",
+        "button_label": "Get Started Now",
+        "button_link": "",
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -497,6 +551,7 @@
     "landing_customer_feedback_9TngNq",
     "hero_jVaWmY",
     "product_list_fa6P9H",
-    "landing_faq_section_cnjqM8"
+    "landing_faq_section_cnjqM8",
+    "landing_offer_banner_aLx4Wr"
   ]
 }
