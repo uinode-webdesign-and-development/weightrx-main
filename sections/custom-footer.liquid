@@ -1,40 +1,50 @@
 <footer class="site-footer">
   <div class="site-footer__container">
-<div class="site-footer__content">
-    {% comment %} LEFT: Logo + Copyright {% endcomment %}
-    <div class="site-footer__brand">
-      {% if section.settings.logo != blank %}
-        <a href="{{ routes.root_url }}" class="custom-footer__logo-link">
-          <img
-            src="{{ section.settings.logo | image_url: width: 300 }}"
-            alt="{{ section.settings.logo.alt | default: shop.name | escape }}"
-            width="{{ section.settings.logo_width }}"
-            class="custom-footer__logo-img"
-            loading="lazy"
-            style="max-width: {{ section.settings.logo_width }}px;"
-          >
-        </a>
-      {% else %}
-        <a href="{{ routes.root_url }}" class="custom-footer__logo-text">
-          {{ section.settings.brand_name | default: shop.name }}
-        </a>
-      {% endif %}
-
-      <p class="custom-footer__copyright">
-        {% if section.settings.copyright_text != blank %}
-          {{ section.settings.copyright_text | replace: '[year]', 'now' | date: '%Y' }}
+    <div class="site-footer__content">
+      {% comment %} LEFT: Logo + Copyright {% endcomment %}
+      <div class="site-footer__brand">
+        {% if section.settings.logo != blank %}
+          <a href="{{ routes.root_url }}" class="custom-footer__logo-link">
+            <img
+              src="{{ section.settings.logo | image_url: width: 300 }}"
+              alt="{{ section.settings.logo.alt | default: shop.name | escape }}"
+              width="{{ section.settings.logo_width }}"
+              class="custom-footer__logo-img"
+              loading="lazy"
+              style="max-width: {{ section.settings.logo_width }}px;"
+            >
+          </a>
         {% else %}
-          &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}
+          <a href="{{ routes.root_url }}" class="custom-footer__logo-text">
+            {{ section.settings.brand_name | default: shop.name }}
+          </a>
         {% endif %}
-      </p>
-    </div>
 
-    {% comment %} CENTER: Badge/Image {% endcomment %}
-    <div class="legitscript-container">
-      {% if section.settings.center_image != blank %}
-        <div class="custom-footer__badge">
-          {% if section.settings.center_image_link != blank %}
-            <a href="{{ section.settings.center_image_link }}" target="_blank" rel="noopener noreferrer">
+        <p class="custom-footer__copyright">
+          {% if section.settings.copyright_text != blank %}
+            {{ section.settings.copyright_text | replace: '[year]', 'now' | date: '%Y' }}
+          {% else %}
+            &copy; {{ 'now' | date: '%Y' }}
+            {{ shop.name }}
+          {% endif %}
+        </p>
+      </div>
+
+      {% comment %} CENTER: Badge/Image {% endcomment %}
+      <div class="legitscript-container">
+        {% if section.settings.center_image != blank %}
+          <div class="custom-footer__badge">
+            {% if section.settings.center_image_link != blank %}
+              <a href="{{ section.settings.center_image_link }}" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="{{ section.settings.center_image | image_url: width: 400 }}"
+                  alt="{{ section.settings.center_image_alt | default: 'Badge' | escape }}"
+                  class="custom-footer__badge-img"
+                  loading="lazy"
+                  style="width: {{ section.settings.center_image_width }}px; height: auto;"
+                >
+              </a>
+            {% else %}
               <img
                 src="{{ section.settings.center_image | image_url: width: 400 }}"
                 alt="{{ section.settings.center_image_alt | default: 'Badge' | escape }}"
@@ -42,142 +52,133 @@
                 loading="lazy"
                 style="width: {{ section.settings.center_image_width }}px; height: auto;"
               >
-            </a>
-          {% else %}
-            <img
-              src="{{ section.settings.center_image | image_url: width: 400 }}"
-              alt="{{ section.settings.center_image_alt | default: 'Badge' | escape }}"
-              class="custom-footer__badge-img"
-              loading="lazy"
-              style="width: {{ section.settings.center_image_width }}px; height: auto;"
-            >
-          {% endif %}
-        </div>
-      {% endif %}
-    </div>
-
-    {% comment %} RIGHT: Heading + Contact Info + Menu {% endcomment %}
-    <div class="site-footer__contact">
-      {% if section.settings.contact_heading != blank %}
-        <p class="site-footer__contact-title">{{ section.settings.contact_heading }}</p>
-      {% endif %}
-<nav>
-      <div class="site-footer__contact-list">
-        {% for block in section.blocks %}
-          {% if block.type == 'contact_line' %}
-            <div class="site-footer__contact-item" {{ block.shopify_attributes }}>
-              {% if block.settings.line_icon != blank %}
-                <span class="custom-footer__contact-icon">{{ block.settings.line_icon }}</span>
-              {% endif %}
-              <span class="custom-footer__line-text">{{ block.settings.line_text }}</span>
-            </div>
-          {% endif %}
-        {% endfor %}
-      </div>
-    </nav>
-
-      {% if section.settings.footer_menu != blank %}
-        {% assign footer_nav = linklists[section.settings.footer_menu] %}
-        {% if footer_nav.links.size > 0 %}
-          <div class="custom-footer__inline-links">
-            {% for link in footer_nav.links %}
-              <a href="{{ link.url }}" class="custom-footer__link-item">{{ link.title }}</a>
-            {% endfor %}
+            {% endif %}
           </div>
         {% endif %}
-      {% endif %}
+      </div>
+
+      {% comment %} RIGHT: Heading + Contact Info + Menu {% endcomment %}
+      <div class="site-footer__contact">
+        {% if section.settings.contact_heading != blank %}
+          <p class="site-footer__contact-title">{{ section.settings.contact_heading }}</p>
+        {% endif %}
+        <nav>
+          <div class="site-footer__contact-list">
+            {% for block in section.blocks %}
+              {% if block.type == 'contact_line' %}
+                <div class="site-footer__contact-item" {{ block.shopify_attributes }}>
+                  {% if block.settings.line_icon != blank %}
+                    <span class="custom-footer__contact-icon">{{ block.settings.line_icon }}</span>
+                  {% endif %}
+                  <span class="custom-footer__line-text">{{ block.settings.line_text }}</span>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+
+          {% if section.settings.footer_menu != blank %}
+            {% assign footer_nav = linklists[section.settings.footer_menu] %}
+            {% if footer_nav.links.size > 0 %}
+              <div class="custom-footer__inline-links">
+                {% for link in footer_nav.links %}
+                  <a href="{{ link.url }}" class="custom-footer__link-item">{{ link.title }}</a>
+                {% endfor %}
+              </div>
+            {% endif %}
+          {% endif %}
+        </nav>
+      </div>
     </div>
-</div>
   </div>
 </footer>
 
 <style>
-  .custom-footer {
-    background-color: {{ section.settings.bg_color }};
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
-    width: 100%;
-  }
+   .custom-footer {
+     background-color: {{ section.settings.bg_color }};
+     padding-top: {{ section.settings.padding_top }}px;
+     padding-bottom: {{ section.settings.padding_bottom }}px;
+     width: 100%;
+   }
 
-  .custom-footer__inner {
-    max-width: {{ section.settings.max_width }}px;
-    margin: 0 auto;
-    padding: 0 24px;
-    display: flex;
-    align-items: center; 
-    justify-content: space-between;
-    gap: 32px;
-    flex-wrap: wrap;
-  }
+   .custom-footer__inner {
+     max-width: {{ section.settings.max_width }}px;
+     margin: 0 auto;
+     padding: 0 24px;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: 32px;
+     flex-wrap: wrap;
+   }
 
-  .custom-footer__brand { flex: 1; min-width: 180px; }
-  .custom-footer__logo-img { display: block; height: auto; margin-bottom: 8px; }
-  .custom-footer__copyright { color: {{ section.settings.text_color }}; font-size: 13px; margin: 0; opacity: 0.8; }
+   .custom-footer__brand { flex: 1; min-width: 180px; }
+   .custom-footer__logo-img { display: block; height: auto; margin-bottom: 8px; }
+   .custom-footer__copyright { color: {{ section.settings.text_color }}; font-size: 13px; margin: 0; opacity: 0.8; }
 
-  .custom-footer__center { flex: 1; display: flex; justify-content: center; }
-  .custom-footer__badge-img { display: block; max-width: 100%; }
+   .custom-footer__center { flex: 1; display: flex; justify-content: center; }
+   .custom-footer__badge-img { display: block; max-width: 100%; }
 
-  .custom-footer__contact {
-    flex: 1.5;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-  }
+   .custom-footer__contact {
+     flex: 1.5;
+     min-width: 300px;
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+     text-align: left;
+   }
 
-  .custom-footer__contact-heading {
-    color: {{ section.settings.text_color }};
-    font-size: 15px;
-    font-weight: 700;
-    margin: 0 0 6px 0;
-  }
+   .custom-footer__contact-heading {
+     color: {{ section.settings.text_color }};
+     font-size: 15px;
+     font-weight: 700;
+     margin: 0 0 6px 0;
+   }
 
-  .custom-footer__info-group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    width: 100%;
-    margin-bottom: 12px;
-    display:none;
-  }
+   .custom-footer__info-group {
+     display: flex;
+     flex-direction: column;
+     gap: 5px;
+     width: 100%;
+     margin-bottom: 12px;
+     display:none;
+   }
 
-  .custom-footer__contact-line {
-    color: {{ section.settings.text_color }};
-    font-size: 13px;
-    line-height: 1.4;
-    opacity: 0.9;
-    display: block; /* Forced to block so next item starts on new line */
-    width: 100%;
-  }
+   .custom-footer__contact-line {
+     color: {{ section.settings.text_color }};
+     font-size: 13px;
+     line-height: 1.4;
+     opacity: 0.9;
+     display: block; /* Forced to block so next item starts on new line */
+     width: 100%;
+   }
 
-  .custom-footer__inline-links {
-    display: flex;
-    flex-direction: column; /* Isse har item auto-next line par chala jayega */
-    gap: 8px; /* Items ke darmiyan fasla */
-    margin-top: 10px;
-    align-items: flex-start; 
-  }
+   .custom-footer__inline-links {
+     display: flex;
+     flex-direction: column; /* Isse har item auto-next line par chala jayega */
+     gap: 8px; /* Items ke darmiyan fasla */
+     margin-top: 10px;
+     align-items: flex-start;
+   }
 
-  .custom-footer__link-item {
-    display: block; 
-    color: {{ section.settings.text_color }};
-    font-size: 13px;
-    text-decoration: none;
-    opacity: 0.9;
-    line-height: 1.4;
-  }
+   .custom-footer__link-item {
+     display: block;
+     color: {{ section.settings.text_color }};
+     font-size: 13px;
+     text-decoration: none;
+     opacity: 0.9;
+     line-height: 1.4;
+   }
 
-  @media (max-width: 768px) {
-    .custom-footer__inner { flex-direction: column; text-align: center; align-items: center; }
-    {% comment %} .custom-footer__contact { align-items: center; text-align: center; } {% endcomment %}
-    .custom-footer__inline-links { justify-content: center; }
-  }
-    @media (min-width: 1247px) {
-  .custom-footer__inner{
- padding: 0px !important;
-  }
-    }
+   @media (max-width: 768px) {
+     .custom-footer__inner { flex-direction: column; text-align: center; align-items: center; }
+     {% comment %} .custom-footer__contact { align-items: center; text-align: center; } {% endcomment %}
+     .custom-footer__inline-links { justify-content: center; }
+   }
+     @media (min-width: 1247px) {
+   .custom-footer__inner{
+  padding: 0px !important;
+   }
+     }
 </style>
 
 {% schema %}
@@ -190,7 +191,16 @@
     { "type": "text", "id": "copyright_text", "label": "Copyright text", "default": "© [year] WeightRx" },
     { "type": "header", "content": "Center Badge" },
     { "type": "image_picker", "id": "center_image", "label": "Center image" },
-    { "type": "range", "id": "center_image_width", "label": "Center image width", "min": 20, "max": 300, "step": 5, "unit": "px", "default": 80 },
+    {
+      "type": "range",
+      "id": "center_image_width",
+      "label": "Center image width",
+      "min": 20,
+      "max": 300,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
     { "type": "text", "id": "center_image_alt", "label": "Alt text", "default": "LegitScript Certified" },
     { "type": "url", "id": "center_image_link", "label": "Image link" },
     { "type": "header", "content": "Right Column" },
