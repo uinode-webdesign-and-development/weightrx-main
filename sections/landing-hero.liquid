@@ -194,8 +194,8 @@
       <div class="hero-content">
         <div class="hero-title-section">
           <h1 class="hero-title">
-            {{ section.settings.title }}
-          </h1>
+              {{ section.settings.title | replace: 'Tirzepatide', '<span class="highlight-green">Tirzepatide</span>' }}
+            </h1>
           <div class="portal-features__description">
             <span style="color: #00b676; font-weight: 600">{{ section.settings.subheading }}</span>
           </div>
