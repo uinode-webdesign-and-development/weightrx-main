@@ -11,6 +11,7 @@
             width="{{ section.settings.logo_width }}"
             class="custom-footer__logo-img"
             loading="lazy"
+            style="max-width: {{ section.settings.logo_width }}px;"
           >
         </a>
       {% else %}
@@ -28,7 +29,7 @@
       </p>
     </div>
 
-    {% comment %} CENTER: Badge/Image {% endcomment %}
+    {% comment %} CENTER: Empty or Badge (Space maintainer) {% endcomment %}
     <div class="custom-footer__center">
       {% if section.settings.center_image != blank %}
         <div class="custom-footer__badge">
@@ -55,7 +56,7 @@
       {% endif %}
     </div>
 
-    {% comment %} RIGHT: Contact Info {% endcomment %}
+    {% comment %} RIGHT: Contact Info (All items now appear here) {% endcomment %}
     <div class="custom-footer__contact">
       {% if section.settings.contact_heading != blank %}
         <p class="custom-footer__contact-heading">{{ section.settings.contact_heading }}</p>
@@ -63,19 +64,19 @@
 
       {% for block in section.blocks %}
         {% if block.type == 'contact_line' %}
-          <p class="custom-footer__contact-line" {{ block.shopify_attributes }}>
+          <div class="custom-footer__contact-line" {{ block.shopify_attributes }}>
             {% if block.settings.line_icon != blank %}
               <span class="custom-footer__contact-icon">{{ block.settings.line_icon }}</span>
             {% endif %}
-            {{ block.settings.line_text }}
-          </p>
+            <span>{{ block.settings.line_text }}</span>
+          </div>
         {% endif %}
       {% endfor %}
     </div>
 
   </div>
 
-  {% comment %} BOTTOM: Footer Menu {% endcomment %}
+  {% comment %} BOTTOM: Footer Menu (Privacy, Terms etc) {% endcomment %}
   {% if section.settings.footer_menu != blank %}
     {% assign footer_nav = linklists[section.settings.footer_menu] %}
     {% if footer_nav.links.size > 0 %}
@@ -106,7 +107,7 @@
     margin: 0 auto;
     padding: 0 24px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 32px;
     flex-wrap: wrap;
@@ -116,27 +117,15 @@
   .custom-footer__brand {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
     flex: 1;
-    min-width: 160px;
-  }
-
-  .custom-footer__logo-link {
-    display: inline-block;
+    min-width: 200px;
   }
 
   .custom-footer__logo-img {
     display: block;
     height: auto;
-    max-width: 100%;
-  }
-
-  .custom-footer__logo-text {
-    color: {{ section.settings.text_color }};
-    font-size: 24px;
-    font-weight: 700;
-    text-decoration: none;
-    letter-spacing: -0.5px;
+    width: 100%; /* controlled by max-width inline */
   }
 
   .custom-footer__copyright {
@@ -146,39 +135,20 @@
     opacity: 0.75;
   }
 
-  /* ── CENTER ── */
-  .custom-footer__center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 auto;
-  }
-
-  .custom-footer__badge {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .custom-footer__badge-img {
-    display: block;
-    height: auto;
-  }
-
   /* ── RIGHT: Contact ── */
   .custom-footer__contact {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
     flex: 1;
-    min-width: 200px;
+    min-width: 280px;
     align-items: flex-end;
     text-align: right;
   }
 
   .custom-footer__contact-heading {
     color: {{ section.settings.text_color }};
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
     margin: 0 0 4px;
   }
@@ -187,25 +157,20 @@
     color: {{ section.settings.text_color }};
     font-size: 13px;
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.4;
     opacity: 0.9;
     display: flex;
     align-items: flex-start;
-    gap: 6px;
+    gap: 8px;
     justify-content: flex-end;
   }
 
-  .custom-footer__contact-icon {
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  /* ── BOTTOM: Menu Bar ── */
+  /* ── BOTTOM Menu ── */
   .custom-footer__menu-bar {
     max-width: {{ section.settings.max_width }}px;
-    margin: 16px auto 0;
+    margin: 32px auto 0;
     padding: 16px 24px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .custom-footer__menu-list {
@@ -213,50 +178,27 @@
     margin: 0;
     padding: 0;
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px 24px;
-  }
-
-  .custom-footer__menu-item {
-    margin: 0;
+    justify-content: center;
+    gap: 24px;
   }
 
   .custom-footer__menu-link {
     color: {{ section.settings.text_color }};
-    font-size: 13px;
+    font-size: 12px;
     text-decoration: none;
-    opacity: 0.75;
-    transition: opacity 0.2s ease;
+    opacity: 0.7;
   }
 
-  .custom-footer__menu-link:hover {
-    opacity: 1;
-    text-decoration: underline;
-  }
-
-  /* ── Mobile ── */
   @media (max-width: 768px) {
     .custom-footer__inner {
       flex-direction: column;
-      align-items: flex-start;
-      gap: 24px;
+      align-items: center;
+      text-align: center;
     }
-
-    .custom-footer__contact {
-      align-items: flex-start;
-      text-align: left;
-    }
-
-    .custom-footer__contact-line {
-      justify-content: flex-start;
-    }
-
-    .custom-footer__center {
-      justify-content: flex-start;
-    }
-
-    .custom-footer__menu-list {
-      gap: 8px 16px;
+    .custom-footer__contact, .custom-footer__contact-line {
+      align-items: center;
+      text-align: center;
+      justify-content: center;
     }
   }
 </style>
@@ -264,13 +206,7 @@
 {% schema %}
 {
   "name": "Custom Footer",
-  "tag": "section",
-  "class": "custom-footer-section",
   "settings": [
-    {
-      "type": "header",
-      "content": "LEFT — Brand / Logo"
-    },
     {
       "type": "image_picker",
       "id": "logo",
@@ -280,58 +216,23 @@
       "type": "range",
       "id": "logo_width",
       "label": "Logo width",
-      "min": 60,
-      "max": 300,
-      "step": 10,
+      "min": 50,
+      "max": 250,
+      "step": 5,
       "unit": "px",
-      "default": 140
+      "default": 120
     },
     {
       "type": "text",
       "id": "brand_name",
-      "label": "Brand name (agar logo nahi ho)",
+      "label": "Brand name",
       "default": "WeightRx"
     },
     {
       "type": "text",
       "id": "copyright_text",
       "label": "Copyright text",
-      "info": "Saal automatic aayega. Example: © [year] WeightRx",
-      "default": "© 2026 WeightRx"
-    },
-    {
-      "type": "header",
-      "content": "CENTER — Image / Badge"
-    },
-    {
-      "type": "image_picker",
-      "id": "center_image",
-      "label": "Center image (e.g. LegitScript badge)"
-    },
-    {
-      "type": "range",
-      "id": "center_image_width",
-      "label": "Center image width",
-      "min": 40,
-      "max": 200,
-      "step": 10,
-      "unit": "px",
-      "default": 90
-    },
-    {
-      "type": "text",
-      "id": "center_image_alt",
-      "label": "Image alt text",
-      "default": "LegitScript Certified"
-    },
-    {
-      "type": "url",
-      "id": "center_image_link",
-      "label": "Image link (optional)"
-    },
-    {
-      "type": "header",
-      "content": "RIGHT — Contact Section"
+      "default": "© [year] WeightRx"
     },
     {
       "type": "text",
@@ -340,30 +241,21 @@
       "default": "Contact Care Team"
     },
     {
-      "type": "header",
-      "content": "BOTTOM — Footer Menu"
-    },
-    {
       "type": "link_list",
       "id": "footer_menu",
-      "label": "Footer menu",
-      "info": "Shopify Admin > Content > Menus se menu select karo"
-    },
-    {
-      "type": "header",
-      "content": "Colors & Style"
+      "label": "Footer menu"
     },
     {
       "type": "color",
       "id": "bg_color",
       "label": "Background color",
-      "default": "#1a237e"
+      "default": "#1A237E"
     },
     {
       "type": "color",
       "id": "text_color",
       "label": "Text color",
-      "default": "#ffffff"
+      "default": "#FFFFFF"
     },
     {
       "type": "number",
@@ -376,20 +268,16 @@
       "id": "padding_top",
       "label": "Padding top",
       "min": 0,
-      "max": 120,
-      "step": 4,
-      "unit": "px",
-      "default": 48
+      "max": 100,
+      "default": 40
     },
     {
       "type": "range",
       "id": "padding_bottom",
       "label": "Padding bottom",
       "min": 0,
-      "max": 120,
-      "step": 4,
-      "unit": "px",
-      "default": 48
+      "max": 100,
+      "default": 40
     }
   ],
   "blocks": [
@@ -400,47 +288,19 @@
         {
           "type": "text",
           "id": "line_icon",
-          "label": "Icon / Emoji (optional)",
-          "info": "Example: 📞 or ✉️"
+          "label": "Icon (optional)"
         },
         {
           "type": "text",
           "id": "line_text",
-          "label": "Line text",
-          "default": "Phone Number: +1 (866) 286-4886"
+          "label": "Line text"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Custom Footer",
-      "blocks": [
-        {
-          "type": "contact_line",
-          "settings": {
-            "line_text": "Phone Number: +1 (866) 286-4886"
-          }
-        },
-        {
-          "type": "contact_line",
-          "settings": {
-            "line_text": "Email: support@weightrx.com"
-          }
-        },
-        {
-          "type": "contact_line",
-          "settings": {
-            "line_text": "WeightRx, Inc 169 Madison Ave STE 38335 New York, New York 10016"
-          }
-        },
-        {
-          "type": "contact_line",
-          "settings": {
-            "line_text": "Monday to Sunday, 8:00am – 8:00pm (Eastern Time Zone)"
-          }
-        }
-      ]
+      "name": "Custom Footer"
     }
   ]
 }
