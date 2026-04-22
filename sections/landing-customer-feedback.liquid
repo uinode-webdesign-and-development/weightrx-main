@@ -1,0 +1,302 @@
+<section
+  class="customer-feedback"
+  style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="customer-feedback__container">
+    <div class="customer-feedback__header">
+      <div>
+        <h1 class="customer-feedback__title">
+          {{ section.settings.heading_line_1 }} <br>
+          <span class="customer-feedback__highlight">{{ section.settings.heading_highlight }}</span>
+        </h1>
+      </div>
+    </div>
+
+    <!-- Mobile Carousel -->
+    <div class="customer-feedback__mobile-carousel" role="region" aria-roledescription="carousel">
+      <div class="customer-feedback__carousel-container swiper mySwipper">
+        <div class="customer-feedback__carousel-track swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="customer-feedback__carousel-slide swiper-slide" role="group" aria-roledescription="slide" {{ block.shopify_attributes }}>
+              <div class="customer-feedback__card">
+                <div class="customer-feedback__card-content">
+                  <div>
+                    <div class="customer-feedback__rating" aria-label="{{ block.settings.rating_label }}">
+                      {% for i in (1..5) %}
+                        <svg class="customer-feedback__star" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M19.9893 0H0V19.9893H19.9893V0Z" fill="#00B67A"></path>
+                          <path d="M13.0363 12.3284L9.99627 13.0988L14.3065 16.2429L13.0363 12.3284Z" fill="white"></path>
+                          <path d="M11.6412 8.03898H16.9925L12.6823 11.1623L10.0171 13.078L5.68607 16.2013L7.33102 11.1623L3 8.03898H8.35131L9.99627 3L11.6412 8.03898Z" fill="white"></path>
+                        </svg>
+                      {% endfor %}
+                    </div>
+                    <div class="customer-feedback__text-content">
+                      <p class="customer-feedback__quote-title">
+                        {{ block.settings.quote_title }}
+                      </p>
+                      <p class="customer-feedback__quote-text">
+                        <span>
+                          {{ block.settings.quote_text }}
+                        </span>
+                        {% if block.settings.show_read_more %}
+                          <button type="button" class="customer-feedback__read-more">{{ block.settings.read_more_label }}</button>
+                        {% endif %}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="customer-feedback__author">
+                    <div class="customer-feedback__author-info">
+                      {% if block.settings.author_avatar != blank %}
+                        <img
+                          class="customer-feedback__author-avatar"
+                          alt="{{ block.settings.author_name | escape }}"
+                          loading="lazy"
+                          src="{{ block.settings.author_avatar | image_url: width: 120 }}"
+                        >
+                      {% endif %}
+                      <div class="customer-feedback__author-details">
+                        <p class="customer-feedback__author-name">
+                          {{ block.settings.author_name }}
+                        </p>
+                        <div class="customer-feedback__verified-badge">
+                          <svg class="customer-feedback__verified-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                            <path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"></path>
+                          </svg>
+                          {{ block.settings.verified_label }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="customer-feedback__carousel-indicators"></div>
+    </div>
+
+    <!-- Desktop Marquee -->
+    <div class="customer-feedback__desktop-marquee feedback-marquee">
+      <div class="customer-feedback__marquee-container feedback-track">
+        <div class="customer-feedback__marquee-group feedback-group1">
+          {% for block in section.blocks %}
+            <div class="customer-feedback__desktop-card" {{ block.shopify_attributes }}>
+              <div class="customer-feedback__card-content">
+                <div>
+                  <div class="customer-feedback__rating" aria-label="{{ block.settings.rating_label }}">
+                    {% for i in (1..5) %}
+                      <svg class="customer-feedback__star" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.9893 0H0V19.9893H19.9893V0Z" fill="#00B67A"></path>
+                        <path d="M13.0363 12.3284L9.99627 13.0988L14.3065 16.2429L13.0363 12.3284Z" fill="white"></path>
+                        <path d="M11.6412 8.03898H16.9925L12.6823 11.1623L10.0171 13.078L5.68607 16.2013L7.33102 11.1623L3 8.03898H8.35131L9.99627 3L11.6412 8.03898Z" fill="white"></path>
+                      </svg>
+                    {% endfor %}
+                  </div>
+                  <div class="customer-feedback__text-content">
+                    <p class="customer-feedback__quote-title">
+                      {{ block.settings.quote_title }}
+                    </p>
+                    <p class="customer-feedback__quote-text">
+                      <span>
+                        {{ block.settings.quote_text }}
+                      </span>
+                      {% if block.settings.show_read_more %}
+                        <button type="button" class="customer-feedback__read-more">{{ block.settings.read_more_label }}</button>
+                      {% endif %}
+                    </p>
+                  </div>
+                </div>
+                <div class="customer-feedback__author">
+                  <div class="customer-feedback__author-info">
+                    {% if block.settings.author_avatar != blank %}
+                      <img
+                        class="customer-feedback__author-avatar"
+                        alt="{{ block.settings.author_name | escape }}"
+                        loading="lazy"
+                        src="{{ block.settings.author_avatar | image_url: width: 120 }}"
+                      >
+                    {% endif %}
+                    <div class="customer-feedback__author-details">
+                      <p class="customer-feedback__author-name">{{ block.settings.author_name }}</p>
+                      <div class="customer-feedback__verified-badge">
+                        <svg class="customer-feedback__verified-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                          <path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"></path>
+                        </svg>
+                        {{ block.settings.verified_label }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="customer-feedback__marquee-group feedback-group2">
+          {% for block in section.blocks %}
+            <div class="customer-feedback__desktop-card">
+              <div class="customer-feedback__card-content">
+                <div>
+                  <div class="customer-feedback__rating" aria-label="{{ block.settings.rating_label }}">
+                    {% for i in (1..5) %}
+                      <svg class="customer-feedback__star" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.9893 0H0V19.9893H19.9893V0Z" fill="#00B67A"></path>
+                        <path d="M13.0363 12.3284L9.99627 13.0988L14.3065 16.2429L13.0363 12.3284Z" fill="white"></path>
+                        <path d="M11.6412 8.03898H16.9925L12.6823 11.1623L10.0171 13.078L5.68607 16.2013L7.33102 11.1623L3 8.03898H8.35131L9.99627 3L11.6412 8.03898Z" fill="white"></path>
+                      </svg>
+                    {% endfor %}
+                  </div>
+                  <div class="customer-feedback__text-content">
+                    <p class="customer-feedback__quote-title">
+                      {{ block.settings.quote_title }}
+                    </p>
+                    <p class="customer-feedback__quote-text">
+                      <span>
+                        {{ block.settings.quote_text }}
+                      </span>
+                      {% if block.settings.show_read_more %}
+                        <button type="button" class="customer-feedback__read-more">{{ block.settings.read_more_label }}</button>
+                      {% endif %}
+                    </p>
+                  </div>
+                </div>
+                <div class="customer-feedback__author">
+                  <div class="customer-feedback__author-info">
+                    {% if block.settings.author_avatar != blank %}
+                      <img
+                        class="customer-feedback__author-avatar"
+                        alt="{{ block.settings.author_name | escape }}"
+                        loading="lazy"
+                        src="{{ block.settings.author_avatar | image_url: width: 120 }}"
+                      >
+                    {% endif %}
+                    <div class="customer-feedback__author-details">
+                      <p class="customer-feedback__author-name">{{ block.settings.author_name }}</p>
+                      <div class="customer-feedback__verified-badge">
+                        <svg class="customer-feedback__verified-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                          <path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"></path>
+                        </svg>
+                        {{ block.settings.verified_label }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Customer feedback",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_line_1",
+      "label": "Heading line 1",
+      "default": "Real Stories."
+    },
+    {
+      "type": "text",
+      "id": "heading_highlight",
+      "label": "Heading highlight",
+      "default": "Real Results."
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feedback",
+      "name": "Feedback card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "rating_label",
+          "label": "Rating aria label",
+          "default": "5 out of 5 stars"
+        },
+        {
+          "type": "text",
+          "id": "quote_title",
+          "label": "Quote title",
+          "default": "WeightRx helped me achieve my goal!"
+        },
+        {
+          "type": "textarea",
+          "id": "quote_text",
+          "label": "Quote text",
+          "default": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_read_more",
+          "label": "Show read more button",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "read_more_label",
+          "label": "Read more label",
+          "default": "Read More"
+        },
+        {
+          "type": "image_picker",
+          "id": "author_avatar",
+          "label": "Author avatar"
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author name",
+          "default": "Hayley N."
+        },
+        {
+          "type": "text",
+          "id": "verified_label",
+          "label": "Verified badge label",
+          "default": "Verified Member"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customer feedback",
+      "blocks": [
+        { "type": "feedback" },
+        { "type": "feedback" },
+        { "type": "feedback" },
+        { "type": "feedback" },
+        { "type": "feedback" },
+        { "type": "feedback" }
+      ]
+    }
+  ]
+}
+{% endschema %}
