@@ -119,15 +119,20 @@
 </section>
 
 {% style %}
+.landing-hero__rating-number{
+font-weight: bold;
+    line-height: 1;
+    font-size: 16px;
+}
 .{{ section_id }} .landing-hero__heading {
-  color: {{ section.settings.text_color }}; /* Default Blue color */
+  color: {{ section.settings.text_color }}; 
 font-size : 48px !important;
 font-family : figtree , sans-serif ;
 font-weight : 700;
 }
 .{{ section_id }} .landing-hero__heading strong {
-  color: {{ section.settings.accent_color }}; /* Green color for Bold text */
-  font-weight: inherit; /* Taake sirf color change ho, font extra mota na ho */
+  color: {{ section.settings.accent_color }}; 
+  font-weight: inherit; 
 }
 .{{ section_id }} .landing-hero__feature-text strong{
 color : #22C55E ;
