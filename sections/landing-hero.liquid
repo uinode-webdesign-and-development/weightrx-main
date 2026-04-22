@@ -68,23 +68,29 @@
               <p class="landing-hero__reviews-title">{{ section.settings.reviews_title }}</p>
             {% endif %}
 
-            <div class="landing-hero__reviews-meta">
-              {% if section.settings.show_stars %}
-                <div class="landing-hero__stars" aria-label="{{ section.settings.rating_text }}">
-                  {% for i in (1..5) %}
-                    <span class="landing-hero__star">★</span>
-                  {% endfor %}
-                </div>
-              {% endif %}
+              <div class="landing-hero__reviews-meta">
+                {% if section.settings.show_stars %}
+                  <div class="landing-hero__stars" aria-label="{{ section.settings.rating_text }}">
+                    {% for i in (1..5) %}
+                      <span class="landing-hero__star">
+                        <svg class="landing-hero__star-svg" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M19.9893 0H0V19.9893H19.9893V0Z" fill="#00B67A"></path>
+                          <path d="M13.0363 12.3284L9.99627 13.0988L14.3065 16.2429L13.0363 12.3284Z" fill="white"></path>
+                          <path d="M11.6412 8.03898H16.9925L12.6823 11.1623L10.0171 13.078L5.68607 16.2013L7.33102 11.1623L3 8.03898H8.35131L9.99627 3L11.6412 8.03898Z" fill="white"></path>
+                        </svg>
+                      </span>
+                    {% endfor %}
+                  </div>
+                {% endif %}
 
-              {% if section.settings.rating_label != blank %}
-                <span class="landing-hero__rating-label">{{ section.settings.rating_label }}</span>
-              {% endif %}
+                {% if section.settings.rating_label != blank %}
+                  <span class="landing-hero__rating-label">{{ section.settings.rating_label }}</span>
+                {% endif %}
 
-              {% if section.settings.rating_number != blank %}
-                <span class="landing-hero__rating-number">{{ section.settings.rating_number }}</span>
-              {% endif %}
-            </div>
+                {% if section.settings.rating_number != blank %}
+                  <span class="landing-hero__rating-number">{{ section.settings.rating_number }}</span>
+                {% endif %}
+              </div>
           </div>
         {% endif %}
 
