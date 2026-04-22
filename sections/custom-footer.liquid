@@ -1,8 +1,8 @@
-<footer class="custom-footer">
-  <div class="custom-footer__inner">
-
+<footer class="site-footer">
+  <div class="site-footer__container">
+<div class="site-footer__content">
     {% comment %} LEFT: Logo + Copyright {% endcomment %}
-    <div class="custom-footer__brand">
+    <div class="site-footer__brand">
       {% if section.settings.logo != blank %}
         <a href="{{ routes.root_url }}" class="custom-footer__logo-link">
           <img
@@ -30,7 +30,7 @@
     </div>
 
     {% comment %} CENTER: Badge/Image {% endcomment %}
-    <div class="custom-footer__center">
+    <div class="legitscript-container">
       {% if section.settings.center_image != blank %}
         <div class="custom-footer__badge">
           {% if section.settings.center_image_link != blank %}
@@ -57,15 +57,15 @@
     </div>
 
     {% comment %} RIGHT: Heading + Contact Info + Menu {% endcomment %}
-    <div class="custom-footer__contact">
+    <div class="site-footer__contact">
       {% if section.settings.contact_heading != blank %}
-        <p class="custom-footer__contact-heading">{{ section.settings.contact_heading }}</p>
+        <p class="site-footer__contact-title">{{ section.settings.contact_heading }}</p>
       {% endif %}
-
-      <div class="custom-footer__info-group">
+<nav>
+      <div class="site-footer__contact-list">
         {% for block in section.blocks %}
           {% if block.type == 'contact_line' %}
-            <div class="custom-footer__contact-line" {{ block.shopify_attributes }}>
+            <div class="site-footer__contact-item" {{ block.shopify_attributes }}>
               {% if block.settings.line_icon != blank %}
                 <span class="custom-footer__contact-icon">{{ block.settings.line_icon }}</span>
               {% endif %}
@@ -74,6 +74,7 @@
           {% endif %}
         {% endfor %}
       </div>
+    </nav>
 
       {% if section.settings.footer_menu != blank %}
         {% assign footer_nav = linklists[section.settings.footer_menu] %}
@@ -86,7 +87,7 @@
         {% endif %}
       {% endif %}
     </div>
-
+</div>
   </div>
 </footer>
 
