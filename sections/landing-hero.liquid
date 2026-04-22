@@ -51,14 +51,6 @@
             </div>
           {% endif %}
 
-          {% comment %} {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-            <div class="landing-hero__cta-wrap">
-              <a class="landing-hero__button button" href="{{ section.settings.button_link }}">
-                {{ section.settings.button_label }}
-              </a>
-            </div>
-          {% endif %} {% endcomment %}
-
         {% if section.settings.button_label != blank and section.settings.button_link != blank %}
           <div class="landing-hero__cta-wrap">
             <a class="landing-hero__button button" href="{{ section.settings.button_link }}">
@@ -189,12 +181,74 @@
     margin-top: 1.5rem;
   }
 
-  .{{ section_id }} .landing-hero__button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
+ /* Button Base Styling */
+.{{ section_id }} .landing-hero__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  
+  /* Aapke schema settings se colors */
+  background-color: {{ section.settings.text_color }}; 
+  color: #ffffff; 
+  
+  height: 3.5rem;
+  padding: 0 2.5rem;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hover State */
+.{{ section_id }} .landing-hero__button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* Shine Animation Layer */
+.{{ section_id }} .landing-hero__button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #fff0 40%, #fff9 50%, #fff0 60%);
+  background-size: 200% 200%;
+  animation: shine 3s infinite forwards;
+  opacity: 0.5;
+}
+
+/* Keyframes for Shine */
+@keyframes shine {
+  0% {
+    background-position: 200% 0;
   }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Agar aap button mein SVG icon add karte hain */
+.{{ section_id }} .landing-hero__button svg {
+  color: {{ section.settings.accent_color }};
+  width: 1.2rem;
+  height: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* Desktop par button ko auto width karne ke liye (Optional) */
+@media screen and (min-min-width: 750px) {
+  .{{ section_id }} .landing-hero__button {
+    width: auto;
+  }
+}
 
   .{{ section_id }} .landing-hero__reviews {
     margin-top: 1.25rem;
