@@ -749,6 +749,10 @@
     "below_media": "Below media"
   },
   "settings": {
+    // Section header for Custom Data blocks
+    "button_label": "Button label",
+    "button_url": "Button URL",
+    // Block name for collapsible content sections in the theme editor
     "accordion": "Accordion",
     "account": "Account",
     "actions_display_style": "Menu style",
