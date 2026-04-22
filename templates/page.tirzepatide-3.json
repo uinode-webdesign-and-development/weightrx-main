@@ -345,7 +345,7 @@
         "title_bold": "TODAY!",
         "press_text": "",
         "button_label": "Get Started Now",
-        "button_link": "",
+        "button_link": "https://results.weightrx.com/start.html",
         "padding_top": 80,
         "padding_bottom": 80
       }
