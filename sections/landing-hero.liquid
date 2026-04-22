@@ -1,0 +1,307 @@
+{% liquid
+  assign section_id = 'landing-hero-' | append: section.id
+%}
+
+<section class="{{ section_id }} landing-hero">
+  <div class="landing-hero__page-width page-width">
+    <div class="landing-hero__grid">
+      <div class="landing-hero__content">
+        {% if section.settings.heading != blank %}
+          <h1 class="landing-hero__heading rte">
+            {{ section.settings.heading }}
+          </h1>
+        {% endif %}
+
+        {% if section.settings.subheading != blank %}
+          <div class="landing-hero__subheading rte">
+            {{ section.settings.subheading }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.mobile_image != blank %}
+          <div class="landing-hero__mobile-image">
+            {{
+              section.settings.mobile_image
+              | image_url: width: 900
+              | image_tag:
+                loading: 'lazy',
+                class: 'landing-hero__image',
+                alt: section.settings.mobile_image.alt
+            }}
+          </div>
+        {% endif %}
+
+        {% if section.blocks.size > 0 %}
+          <div class="landing-hero__features">
+            {% for block in section.blocks %}
+              {% if block.type == 'feature' %}
+                <div class="landing-hero__feature-card" {{ block.shopify_attributes }}>
+                  <div class="landing-hero__feature-inner">
+                    {% if block.settings.icon != blank %}
+                      <div class="landing-hero__feature-icon">
+                        {{
+                          block.settings.icon
+                          | image_url: width: 100
+                          | image_tag:
+                            loading: 'lazy',
+                            alt: block.settings.icon.alt
+                        }}
+                      </div>
+                    {% endif %}
+
+                    {% if block.settings.number_text != blank %}
+                      <div class="landing-hero__feature-number">
+                        {{ block.settings.number_text }}
+                      </div>
+                    {% endif %}
+
+                    {% if block.settings.text != blank %}
+                      <div class="landing-hero__feature-text rte">
+                        {{ block.settings.text }}
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+          <div class="landing-hero__cta-wrap">
+            <a class="landing-hero__button button" href="{{ section.settings.button_link }}">
+              {{ section.settings.button_label }}
+            </a>
+          </div>
+        {% endif %}
+
+        {% if section.settings.reviews_title != blank or section.settings.rating_text != blank %}
+          <div class="landing-hero__reviews">
+            {% if section.settings.reviews_title != blank %}
+              <p class="landing-hero__reviews-title">{{ section.settings.reviews_title }}</p>
+            {% endif %}
+
+            <div class="landing-hero__reviews-meta">
+              {% if section.settings.show_stars %}
+                <div class="landing-hero__stars" aria-label="{{ section.settings.rating_text }}">
+                  {% for i in (1..5) %}
+                    <span class="landing-hero__star">★</span>
+                  {% endfor %}
+                </div>
+              {% endif %}
+
+              {% if section.settings.rating_label != blank %}
+                <span class="landing-hero__rating-label">{{ section.settings.rating_label }}</span>
+              {% endif %}
+
+              {% if section.settings.rating_number != blank %}
+                <span class="landing-hero__rating-number">{{ section.settings.rating_number }}</span>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if section.settings.disclaimer != blank %}
+          <div class="landing-hero__disclaimer rte">
+            {{ section.settings.disclaimer }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="landing-hero__media">
+        {% if section.settings.desktop_image != blank %}
+          {{
+            section.settings.desktop_image
+            | image_url: width: 1200
+            | image_tag:
+              loading: 'lazy',
+              class: 'landing-hero__desktop-image',
+              alt: section.settings.desktop_image.alt
+          }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% style %}
+  .{{ section_id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+  }
+
+  .{{ section_id }} .landing-hero__grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .{{ section_id }} .landing-hero__heading {
+    margin: 0 0 1rem;
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.05;
+  }
+
+  .{{ section_id }} .landing-hero__subheading {
+    margin-bottom: 1.5rem;
+    color: {{ section.settings.accent_color }};
+    font-weight: 600;
+  }
+
+  .{{ section_id }} .landing-hero__mobile-image {
+    display: none;
+    margin-bottom: 1.5rem;
+  }
+
+  .{{ section_id }} .landing-hero__features {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .{{ section_id }} .landing-hero__feature-card {
+    background: {{ section.settings.card_background }};
+    border-radius: {{ section.settings.card_radius }}px;
+    padding: 1rem;
+  }
+
+  .{{ section_id }} .landing-hero__feature-inner {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+  }
+
+  .{{ section_id }} .landing-hero__feature-icon img {
+    display: block;
+    width: 40px;
+    height: auto;
+  }
+
+  .{{ section_id }} .landing-hero__feature-number {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: {{ section.settings.accent_color }};
+  }
+
+  .{{ section_id }} .landing-hero__cta-wrap {
+    margin-top: 1.5rem;
+  }
+
+  .{{ section_id }} .landing-hero__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+
+  .{{ section_id }} .landing-hero__reviews {
+    margin-top: 1.25rem;
+  }
+
+  .{{ section_id }} .landing-hero__reviews-title {
+    margin: 0 0 0.5rem;
+    font-weight: 600;
+  }
+
+  .{{ section_id }} .landing-hero__reviews-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .{{ section_id }} .landing-hero__stars {
+    display: inline-flex;
+    gap: 0.125rem;
+    color: {{ section.settings.star_color }};
+    font-size: 1rem;
+  }
+
+  .{{ section_id }} .landing-hero__disclaimer {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    opacity: 0.8;
+  }
+
+  .{{ section_id }} .landing-hero__media img,
+  .{{ section_id }} .landing-hero__mobile-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  @media screen and (max-width: 989px) {
+    .{{ section_id }} .landing-hero__grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .{{ section_id }} .landing-hero__media {
+      display: none;
+    }
+
+    .{{ section_id }} .landing-hero__mobile-image {
+      display: block;
+    }
+
+    .{{ section_id }} .landing-hero__features {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Landing hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "richtext", "id": "heading", "label": "Heading", "default": "<p><strong>2026 Is Your Year. Start</strong> <strong>Tirzepatide</strong> <strong>for</strong> <strong>$83/mo</strong></p>" },
+    { "type": "richtext", "id": "subheading", "label": "Subheading", "default": "<p>Price locked in forever. Ships in 48 hours</p>" },
+    { "type": "image_picker", "id": "desktop_image", "label": "Desktop image" },
+    { "type": "image_picker", "id": "mobile_image", "label": "Mobile image" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Start Your Weight Loss Journey" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "text", "id": "reviews_title", "label": "Reviews title", "default": "Over 1,000+ reviews" },
+    { "type": "checkbox", "id": "show_stars", "label": "Show stars", "default": true },
+    { "type": "text", "id": "rating_label", "label": "Rating label", "default": "Excellent" },
+    { "type": "text", "id": "rating_number", "label": "Rating number", "default": "4.7" },
+    { "type": "text", "id": "rating_text", "label": "Aria rating text", "default": "4.7 out of 5 stars" },
+    { "type": "richtext", "id": "disclaimer", "label": "Disclaimer", "default": "<p>WeightRx offers compounded GLP-1s exclusively from U.S. pharmacies. While these pharmacies are regulated, the FDA has not evaluated the medications for safety, quality, or efficacy.</p>" },
+    { "type": "color", "id": "background_color", "label": "Background color", "default": "#ffffff" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#062088" },
+    { "type": "color", "id": "accent_color", "label": "Accent color", "default": "#00b676" },
+    { "type": "color", "id": "card_background", "label": "Feature card background", "default": "#f7f8fb" },
+    { "type": "color", "id": "star_color", "label": "Star color", "default": "#00B67A" },
+    { "type": "range", "id": "card_radius", "label": "Card radius", "min": 0, "max": 40, "step": 2, "default": 16 },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "default": 48 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "default": 48 }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature card",
+      "settings": [
+        { "type": "image_picker", "id": "icon", "label": "Icon" },
+        { "type": "text", "id": "number_text", "label": "Number text", "default": "200,000+" },
+        { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Patients trusted.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Landing hero",
+      "blocks": [
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" }
+      ]
+    }
+  ]
+}
+{% endschema %}
