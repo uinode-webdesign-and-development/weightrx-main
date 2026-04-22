@@ -66,7 +66,7 @@
         "desktop_image": "shopify://shop_images/tirz_vial_2.png",
         "mobile_image": "shopify://shop_images/tirz_vial_2.png",
         "button_label": "Start Your Weight Loss Journey",
-        "button_link": "",
+        "button_link": "https://results.weightrx.com/start.html",
         "reviews_title": "Over 1,000+ reviews",
         "show_stars": true,
         "rating_label": "Excellent",
