@@ -1950,10 +1950,11 @@ FAQS
   margin-bottom: 1.25rem;
 }
 
-.faq-section__disclaimer-text {
-  color: #4b5563;
-  font-size: 0.75rem;
-  line-height: 1.75;
+.faq-section__disclaimer-text p {
+    color: #4b5563;
+    font-size: .75rem;
+    line-height: 1.75;
+    font-weight: 400;
 }
 
 /* =============
