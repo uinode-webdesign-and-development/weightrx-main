@@ -50,21 +50,21 @@
               {% endfor %}
             </div>
           {% endif %}
-       {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-  <div class="landing-hero__cta-wrap">
-    <a class="landing-hero__button button" href="{{ section.settings.button_link }}">
-      
-      <span>{{ section.settings.button_label }}</span>
+                  {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+              <div class="landing-hero__cta-wrap">
+                <a class="landing-hero__button button" href="{{ section.settings.button_link }}">
+                  
+                  <span>{{ section.settings.button_label }}</span>
 
-      {% if section.settings.button_icon != blank %}
-        <span class="landing-hero__button-icon-wrapper">
-          {{ section.settings.button_icon | image_url: width: 50 | image_tag: loading: 'lazy' }}
-        </span>
-      {% endif %}
+                  {% if section.settings.button_icon != blank %}
+                    <span class="landing-hero__button-icon-wrapper">
+                      {{ section.settings.button_icon | image_url: width: 50 | image_tag: loading: 'lazy' }}
+                    </span>
+                  {% endif %}
 
-    </a>
-  </div>
-{% endif %}
+                </a>
+              </div>
+            {% endif %}
         {% if section.settings.reviews_title != blank or section.settings.rating_text != blank %}
           <div class="landing-hero__reviews">
             {% if section.settings.reviews_title != blank %}
