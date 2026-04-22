@@ -63,7 +63,7 @@
         "heading": "<p><strong>2026 Is Your Year. Start</strong> <strong>Tirzepatide</strong> <strong>for</strong> <strong>$83/mo</strong></p>",
         "subheading": "<p>Price locked in forever. Ships in 48 hours</p>",
         "button_label": "Start Your Weight Loss Journey",
-        "button_link": "",
+        "button_link": "shopify://collections/frontpage",
         "reviews_title": "Over 1,000+ reviews",
         "show_stars": true,
         "rating_label": "Excellent",
@@ -74,15 +74,100 @@
         "text_color": "#062088",
         "accent_color": "#00b676",
         "card_background": "#f7f8fb",
-        "star_color": "#00B67A",
+        "star_color": "#00b67a",
         "card_radius": 16,
         "padding_top": 48,
         "padding_bottom": 48
+      }
+    },
+    "landing_testimonials_section_4JgYfm": {
+      "type": "landing-testimonials-section",
+      "blocks": {
+        "testimonial_BMWQEB": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Tim B.",
+            "weight_text": "40 lbs lost",
+            "badge_text": "Verified WeightRx Member"
+          }
+        },
+        "testimonial_xJeNqp": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Tim B.",
+            "weight_text": "40 lbs lost",
+            "badge_text": "Verified WeightRx Member"
+          }
+        },
+        "testimonial_xPwkeU": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Tim B.",
+            "weight_text": "40 lbs lost",
+            "badge_text": "Verified WeightRx Member"
+          }
+        },
+        "testimonial_neFfNh": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Tim B.",
+            "weight_text": "40 lbs lost",
+            "badge_text": "Verified WeightRx Member"
+          }
+        },
+        "testimonial_V8VXjr": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Tim B.",
+            "weight_text": "40 lbs lost",
+            "badge_text": "Verified WeightRx Member"
+          }
+        },
+        "testimonial_w6hqTz": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Tim B.",
+            "weight_text": "40 lbs lost",
+            "badge_text": "Verified WeightRx Member"
+          }
+        },
+        "testimonial_aLkKrj": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Tim B.",
+            "weight_text": "40 lbs lost",
+            "badge_text": "Verified WeightRx Member"
+          }
+        },
+        "testimonial_c7eHpV": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Tim B.",
+            "weight_text": "40 lbs lost",
+            "badge_text": "Verified WeightRx Member"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_BMWQEB",
+        "testimonial_xJeNqp",
+        "testimonial_xPwkeU",
+        "testimonial_neFfNh",
+        "testimonial_V8VXjr",
+        "testimonial_w6hqTz",
+        "testimonial_aLkKrj",
+        "testimonial_c7eHpV"
+      ],
+      "name": "Testimonials section",
+      "settings": {
+        "highlight_text": "Join 200,000+ members and transform your",
+        "heading_text": "health, body and life."
       }
     }
   },
   "order": [
     "main",
-    "landing_hero_iXWFMc"
+    "landing_hero_iXWFMc",
+    "landing_testimonials_section_4JgYfm"
   ]
 }
