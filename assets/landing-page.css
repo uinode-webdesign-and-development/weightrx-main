@@ -118,7 +118,7 @@ ul {
   margin: 0 auto; 
   width: 100%;
 }
-.header__columns .spacing-style {
+div.header__columns .spacing-style {
   max-width: 1247px;
     margin: 0 auto;
     width: 100%; 
