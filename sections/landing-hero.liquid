@@ -51,13 +51,13 @@
             </div>
           {% endif %}
 
-          {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+          {% comment %} {% if section.settings.button_label != blank and section.settings.button_link != blank %}
             <div class="landing-hero__cta-wrap">
               <a class="landing-hero__button button" href="{{ section.settings.button_link }}">
                 {{ section.settings.button_label }}
               </a>
             </div>
-          {% endif %}
+          {% endif %} {% endcomment %}
 
         {% if section.settings.button_label != blank and section.settings.button_link != blank %}
           <div class="landing-hero__cta-wrap">
