@@ -39,16 +39,7 @@
               <div class="feature-content">
                 <div class="feature-inner">
                   <div class="feature-icon">
-                    {% comment %} <img alt="Semaglutide Oral and Injectable" src="./assets3/feature-2.png"> {% endcomment %}
-                     {% if section.settings.feature_image != blank %}
-          <img 
-            alt="{{ section.settings.feature_image.alt | escape }}" 
-            src="{{ section.settings.feature_image | image_url: width: 300 }}"
-            loading="lazy"
-          >
-        {% else %}
-          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-        {% endif %}
+                    <img alt="Semaglutide Oral and Injectable" src="./assets3/feature-2.png">
                   </div>
                   <div class="feature-text-cont">
                     <div class="feature-text">
@@ -184,6 +175,123 @@
       </div>
     </div>
   </section>
+
+
+
+
+
+
+
+
+  {% liquid
+  assign section_id = 'landing-hero-' | append: section.id
+%}
+
+<section class="hero-section" id="{{ section_id }}">
+  <div class="hero-container">
+    <div class="hero-grid">
+      <!-- Left Content Column -->
+      <div class="hero-content">
+        <div class="hero-title-section">
+          <h1 class="hero-title">
+            {{ section.settings.title }}
+          </h1>
+          <div class="portal-features__description">
+            <span style="color: #00b676; font-weight: 600">{{ section.settings.subheading }}</span>
+          </div>
+          
+          {% if section.settings.mobile_image != blank %}
+             <img class="hero-mobile-image" 
+                  alt="{{ section.settings.mobile_image.alt | escape }}" 
+                  src="{{ section.settings.mobile_image | image_url: width: 600 }}">
+          {% endif %}
+        </div>
+
+        <div class="features-grid">
+          {% for block in section.blocks %}
+            <div class="feature-card" {{ block.shopify_attributes }}>
+              <div class="feature-content">
+                <div class="feature-inner">
+                  
+                  {% if block.settings.feature_number != blank %}
+                    <span class="feature-number">{{ block.settings.feature_number }}</span>
+                  {% endif %}
+
+                  {% if block.settings.feature_icon != blank %}
+                    <div class="feature-icon">
+                      <img alt="{{ block.settings.feature_icon.alt }}" src="{{ block.settings.feature_icon | image_url: width: 100 }}">
+                    </div>
+                  {% endif %}
+
+                  <div class="feature-text-cont">
+                    <div class="feature-text">
+                      <span class="feature-text-small">
+                        {{ block.settings.feature_text }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="cta-section">
+          <a class="cta-button js-quiz-link" href="{{ section.settings.btn_link }}">
+            {{ section.settings.btn_label }}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+          
+          <div class="reviews-section">
+            <p class="reviews-title">{{ section.settings.reviews_count }}</p>
+            <div class="reviews-stars">
+              <!-- Stars SVG logic remains same, you can make this dynamic too if needed -->
+              <div class="stars-container" aria-label="4.75 out of 5 stars">
+                {% for i in (1..5) %}
+                  <svg height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.9893 0H0V19.9893H19.9893V0Z" fill="#00B67A"></path>
+                    <path d="M13.0363 12.3284L9.99627 13.0988L14.3065 16.2429L13.0363 12.3284Z" fill="#ffffff"></path>
+                    <path d="M11.6412 8.03898H16.9925L12.6823 11.1623L10.0171 13.078L5.68607 16.2013L7.33102 11.1623L3 8.03898H8.35131L9.99627 3L11.6412 8.03898Z" fill="#ffffff"></path>
+                  </svg>
+                {% endfor %}
+              </div>
+              <p class="rating-text-mobile">Excellent</p>
+              <p class="rating-number">{{ section.settings.rating_val }}</p>
+            </div>
+          </div>
+          
+          <p class="hero-disclaimer">
+            {{ section.settings.disclaimer }}
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Image Column -->
+      <div class="hero-image-section">
+        {% if section.settings.desktop_image != blank %}
+          {{ section.settings.desktop_image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'landing-hero__desktop-image' }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
