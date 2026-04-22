@@ -385,7 +385,7 @@
       "settings": {
         "section_id": "faq",
         "title": "Frequently Asked Questions",
-        "disclaimer": "<p>*The assessment made available on the WeightRx website does not create a clinician-patient relationship between the individual completing the assessment and WeightRx.</p><p>All claims and benefits on this website refer to self-reported data from WeightRx members on a treatment plan that includes compounded GLP-1 medications and consultations with medical professionals.</p><p>We encourage all prospective users of compounded medications to speak with their clinician about the specific risks and benefits that may come with the use of compounded medication.</p>",
+        "disclaimer": "<p>*The assessment made available on the WeightRx website does not create a clinician-patient relationship between the individual completing the assessment and WeightRx. WeightRx is not a provider of medical services. WeightRx acts primarily as a technology platform to connect you with professional clinicians who may be available to provide you with non-emergency care. Such providers include MDI Medical Group, and certain other medical groups (collectively, the \"Providers\").  The Providers include a network of US-licensed clinicians that adhere to rigorous medical protocols designed for patient safety and have established exclusionary criteria to determine if an individual does not qualify for GLP-1s. Each WeightRx assessment will be reviewed by a clinician who will determine if the individual is eligible for GLP-1 medication and qualifies for a prescription. Provider clinicians retain the decision to prescribe compounded GLP-1s to patients.<br/><br/></p>",
         "padding_top": 80,
         "padding_bottom": 80
       }
