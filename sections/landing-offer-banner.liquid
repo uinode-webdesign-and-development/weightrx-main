@@ -22,11 +22,42 @@
     </svg>
 {% endcase %}
 
+{% comment %} Build background image styles {% endcomment %}
+{% assign bg_styles = '' %}
+{% if section.settings.background_image != blank %}
+  {% assign bg_image_url = section.settings.background_image | image_url: width: 2000 %}
+  {% assign bg_styles = 'background-image: url(' | append: bg_image_url | append: ');' %}
+  {% assign bg_styles = bg_styles | append: 'background-size: ' | append: section.settings.background_size | append: ';' %}
+  {% assign bg_styles = bg_styles | append: 'background-position: ' | append: section.settings.background_position | append: ';' %}
+  {% assign bg_styles = bg_styles | append: 'background-repeat: no-repeat;' %}
+{% endif %}
+
 <section
-  class="offer-banner"
-  style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+  class="offer-banner{% if section.settings.background_image != blank %} offer-banner--has-bg{% endif %}"
+  style="
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    width: 100%;
+    {{ bg_styles }}
+    position: relative;
+  "
 >
-  <div class="offer-banner__container">
+  {% comment %} Overlay layer {% endcomment %}
+  {% if section.settings.background_image != blank and section.settings.show_overlay %}
+    <div
+      class="offer-banner__overlay"
+      style="
+        position: absolute;
+        inset: 0;
+        background-color: {{ section.settings.overlay_color }};
+        opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+        pointer-events: none;
+        z-index: 0;
+      "
+    ></div>
+  {% endif %}
+
+  <div class="offer-banner__container" style="position: relative; z-index: 1;">
     <div class="offer-banner__header">
       <p class="offer-banner__spots">
         <b class="offer-banner__bold">
@@ -90,6 +121,65 @@
   "class": "section",
   "settings": [
     {
+      "type": "header",
+      "content": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "select",
+      "id": "background_size",
+      "label": "Background size",
+      "default": "cover",
+      "options": [
+        { "value": "cover", "label": "Cover (fill section)" },
+        { "value": "contain", "label": "Contain (fit inside)" },
+        { "value": "auto", "label": "Auto (original size)" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "background_position",
+      "label": "Background position",
+      "default": "center center",
+      "options": [
+        { "value": "center center", "label": "Center" },
+        { "value": "top center", "label": "Top center" },
+        { "value": "bottom center", "label": "Bottom center" },
+        { "value": "left center", "label": "Left" },
+        { "value": "right center", "label": "Right" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Show overlay on background image",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Counter & Spots"
+    },
+    {
       "type": "text",
       "id": "counter_first",
       "label": "Counter first digit",
@@ -106,6 +196,10 @@
       "id": "spots_text",
       "label": "Spots text",
       "default": "spots left"
+    },
+    {
+      "type": "header",
+      "content": "Title"
     },
     {
       "type": "text",
@@ -132,6 +226,10 @@
       "default": "TODAY!"
     },
     {
+      "type": "header",
+      "content": "CTA"
+    },
+    {
       "type": "richtext",
       "id": "press_text",
       "label": "Press text",
@@ -147,6 +245,10 @@
       "type": "url",
       "id": "button_link",
       "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
     },
     {
       "type": "range",
@@ -171,46 +273,38 @@
   ],
   "blocks": [
     {
-  "type": "feature",
-  "name": "Feature item",
-  "settings": [
-    {
-      "type": "select",
-      "id": "icon_type",
-      "label": "Icon type",
-      "default": "doctor",
-      "options": [
-        { "value": "doctor", "label": "Doctor access" },
-        { "value": "cost", "label": "Cost included" },
-        { "value": "lock", "label": "Locked pricing" },
-        { "value": "guarantee", "label": "Guarantee" }
+      "type": "feature",
+      "name": "Feature item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon_type",
+          "label": "Icon type",
+          "default": "doctor",
+          "options": [
+            { "value": "doctor", "label": "Doctor access" },
+            { "value": "cost", "label": "Cost included" },
+            { "value": "lock", "label": "Locked pricing" },
+            { "value": "guarantee", "label": "Guarantee" }
+          ]
+        },
+        {
+          "type": "richtext",
+          "id": "feature_text",
+          "label": "Feature text",
+          "default": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
+        }
       ]
-    },
-    {
-      "type": "richtext",
-      "id": "feature_text",
-      "label": "Feature text",
-      "default": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
     }
-  ]
-}
   ],
   "presets": [
     {
       "name": "Offer banner",
       "blocks": [
-        {
-          "type": "feature"
-        },
-        {
-          "type": "feature"
-        },
-        {
-          "type": "feature"
-        },
-        {
-          "type": "feature"
-        }
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" }
       ]
     }
   ]
