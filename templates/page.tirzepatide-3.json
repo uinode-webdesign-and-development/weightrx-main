@@ -277,28 +277,29 @@
         "feature_e4HPDT": {
           "type": "feature",
           "settings": {
-            "icon_type": "doctor",
-            "feature_text": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
+            "icon_image": "shopify://shop_images/svgviewer-output_1.svg",
+            "icon_size": 20,
+            "feature_text": "<p><strong>UNLIMITED</strong> doctor access & lab reviews</p>"
           }
         },
         "feature_FtJU8C": {
           "type": "feature",
           "settings": {
-            "icon_type": "doctor",
+            "icon_size": 32,
             "feature_text": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
           }
         },
         "feature_NX8YfF": {
           "type": "feature",
           "settings": {
-            "icon_type": "doctor",
+            "icon_size": 32,
             "feature_text": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
           }
         },
         "feature_AUj4aP": {
           "type": "feature",
           "settings": {
-            "icon_type": "doctor",
+            "icon_size": 32,
             "feature_text": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
           }
         }
