@@ -180,8 +180,6 @@
   .{{ section_id }} .landing-hero__cta-wrap {
     margin-top: 1.5rem;
   }
-
- /* Button Base Styling */
 .{{ section_id }} .landing-hero__button {
   display: inline-flex;
   align-items: center;
@@ -190,9 +188,7 @@
   text-align: center;
   font-size: 0.875rem;
   font-weight: 600;
-  
-  /* Aapke schema settings se colors */
-  background-color: {{ section.settings.text_color }}; 
+    background-color: {{ section.settings.text_color }}; 
   color: #ffffff; 
   
   height: 3.5rem;
@@ -208,13 +204,11 @@
   cursor: pointer;
 }
 
-/* Hover State */
 .{{ section_id }} .landing-hero__button:hover {
   opacity: 0.9;
   transform: translateY(-2px);
 }
 
-/* Shine Animation Layer */
 .{{ section_id }} .landing-hero__button::before {
   content: "";
   position: absolute;
@@ -224,8 +218,6 @@
   animation: shine 3s infinite forwards;
   opacity: 0.5;
 }
-
-/* Keyframes for Shine */
 @keyframes shine {
   0% {
     background-position: 200% 0;
@@ -235,7 +227,6 @@
   }
 }
 
-/* Agar aap button mein SVG icon add karte hain */
 .{{ section_id }} .landing-hero__button svg {
   color: {{ section.settings.accent_color }};
   width: 1.2rem;
@@ -243,7 +234,6 @@
   flex-shrink: 0;
 }
 
-/* Desktop par button ko auto width karne ke liye (Optional) */
 @media screen and (min-min-width: 750px) {
   .{{ section_id }} .landing-hero__button {
     width: auto;
