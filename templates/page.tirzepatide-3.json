@@ -26,40 +26,40 @@
         "feature_4JFLXL": {
           "type": "feature",
           "settings": {
-            "number_text": "200,000+",
-            "text": "<p>Patients trusted.</p>"
+            "feature_number": "200,000+",
+            "feature_text": "Patients trusted."
           }
         },
         "feature_3wAh9Q": {
           "type": "feature",
           "settings": {
-            "icon": "shopify://shop_images/feature-2.png",
-            "number_text": "",
-            "text": "<p>Save <strong>THOUSANDS </strong>per year in medication costs</p>"
+            "feature_number": "",
+            "feature_icon": "shopify://shop_images/feature-2.png",
+            "feature_text": "Save <strong>THOUSANDS</strong> per year in medication costs"
           }
         },
         "feature_64JiGn": {
           "type": "feature",
           "settings": {
-            "icon": "shopify://shop_images/feature-3.png",
-            "number_text": "",
-            "text": "<p>3 Months Of High Dose Fees WAIVED ($99/mo)</p>"
+            "feature_number": "",
+            "feature_icon": "shopify://shop_images/feature-3.png",
+            "feature_text": "3 Months Of High Dose Fees WAIVED ($99/mo)"
           }
         },
         "feature_DGVzPF": {
           "type": "feature",
           "settings": {
-            "icon": "shopify://shop_images/feature-4.png",
-            "number_text": "",
-            "text": "<p>55% More Effective Than Semaglutide</p>"
+            "feature_number": "",
+            "feature_icon": "shopify://shop_images/feature-4.png",
+            "feature_text": "55% More Effective Than Semaglutide"
           }
         },
         "feature_wH8CxE": {
           "type": "feature",
           "settings": {
-            "icon": "shopify://shop_images/feature-5.png",
-            "number_text": "",
-            "text": "<p>Payment Plans Available at Checkout</p>"
+            "feature_number": "",
+            "feature_icon": "shopify://shop_images/feature-5.png",
+            "feature_text": "Payment Plans Available at Checkout"
           }
         }
       },
@@ -72,27 +72,15 @@
       ],
       "name": "Landing hero",
       "settings": {
-        "heading": "<p>2026 Is Your Year. Start <strong>Tirzepatide </strong>for <strong>$83/mo</strong></p>",
-        "subheading": "<p>Price locked in forever. Ships in 48 hours</p>",
-        "desktop_image": "shopify://shop_images/tirz_vial_2.png",
+        "title": "<strong>2026 Is Your Year. Start Tirzepatide for $83/mo</strong>",
+        "subheading": "Price locked in forever. Ships in 48 hours",
         "mobile_image": "shopify://shop_images/tirz_vial_2.png",
-        "button_label": "Start Your Weight Loss Journey",
-        "button_link": "https://results.weightrx.com/start.html",
-        "button_icon": "shopify://shop_images/svgviewer-output.svg",
-        "reviews_title": "Over 1,000+ reviews",
-        "show_stars": true,
-        "rating_label": "",
-        "rating_number": "4.7",
-        "rating_text": "4.7 out of 5 stars",
-        "disclaimer": "<p>WeightRx offers compounded GLP-1s exclusively from U.S. pharmacies. While these pharmacies are regulated, the FDA has not evaluated the medications for safety, quality, or efficacy.</p>",
-        "background_color": "rgba(0,0,0,0)",
-        "text_color": "#062088",
-        "accent_color": "#00b676",
-        "card_background": "#f7f8fb",
-        "star_color": "#00b67a",
-        "card_radius": 16,
-        "padding_top": 48,
-        "padding_bottom": 48
+        "desktop_image": "shopify://shop_images/tirz_vial_2.png",
+        "btn_label": "Start Your Weight Loss Journey",
+        "btn_link": "",
+        "reviews_count": "Over 1,000+ reviews",
+        "rating_val": "4.7",
+        "disclaimer": "WeightRx offers compounded GLP-1s exclusively from U.S. pharmacies. While these pharmacies are regulated, the FDA has not evaluated the medications for safety, quality, or efficacy. WeightRx is not affiliated with Eli Lilly & Co"
       }
     },
     "landing_testimonials_section_4JgYfm": {
@@ -318,7 +306,7 @@
           "settings": {
             "icon_image": "shopify://shop_images/gemini-svg_2.svg",
             "icon_size": 24,
-            "feature_text": "<p><strong>UNLIMITED</strong> doctor access & lab reviews</p>"
+            "feature_text": "<p>100% Satisfaction <strong>GUARANTEE</strong></p>"
           }
         }
       },
@@ -345,9 +333,7 @@
         "title_bold": "TODAY!",
         "press_text": "",
         "button_label": "Get Started Now",
-        "button_link": "https://results.weightrx.com/start.html",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "button_link": "https://results.weightrx.com/start.html"
       }
     },
     "landing_faq_section_eGA4jH": {
