@@ -1,0 +1,314 @@
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const swiper = new Swiper(".mobile-carousel .carousel-container", {
+        slidesPerView: "auto",
+        spaceBetween: 16,
+        grabCursor: true,
+        pagination: {
+          el: ".carousel-indicators",
+          clickable: true,
+        },
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const swiper = new Swiper(".portal-features__carousel-container", {
+        slidesPerView: "auto",
+        spaceBetween: 16,
+        grabCursor: true,
+        pagination: {
+          el: ".portal-features__carousel-indicators",
+          clickable: true,
+        },
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const swiper = new Swiper(".rankings-carousel-container", {
+        slidesPerView: "auto",
+        spaceBetween: 16,
+        grabCursor: true,
+        pagination: {
+          el: ".rankings-indicators",
+          clickable: true,
+        },
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const swiper = new Swiper(".customer-feedback__carousel-container", {
+        slidesPerView: "auto",
+        spaceBetween: 16,
+        loop: true,
+        centeredSlides: true,
+        grabCursor: true,
+        pagination: {
+          el: ".customer-feedback__carousel-indicators",
+          clickable: true,
+        },
+      });
+    });
+  </script>
+  <script>
+    const disclaimerButton = document.querySelector(".disclaimer-button");
+    const hiddenText = document.querySelector(".disclaimer-hidden");
+
+    disclaimerButton.addEventListener("click", () => {
+      hiddenText.classList.toggle("active");
+
+      disclaimerButton.textContent = hiddenText.classList.contains("active")
+        ? "See Less"
+        : "See More";
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const maxHeight = 140; // px
+      const quoteContainers = document.querySelectorAll(
+        ".customer-feedback__quote-text"
+      );
+
+      quoteContainers.forEach((container) => {
+        const span = container.querySelector("span");
+        const btn = container.querySelector(".customer-feedback__read-more");
+
+        if (!span || !btn) return;
+
+        let isExpandable = false;
+        let expanded = false;
+
+        // Check if text is longer than 160px
+        if (span.scrollHeight > maxHeight) {
+          isExpandable = true;
+
+          span.style.display = "block";
+          span.style.maxHeight = maxHeight + "px";
+          span.style.overflow = "hidden";
+
+          btn.textContent = "Read More";
+        } else {
+          // Short text â†’ no collapse
+          span.style.maxHeight = "none";
+          btn.textContent = "Read More"; // always visible
+        }
+
+        // Button click
+        btn.addEventListener("click", () => {
+          if (!isExpandable) return; // short text â†’ no action
+
+          if (expanded) {
+            span.style.maxHeight = maxHeight + "px";
+            btn.textContent = "Read More";
+          } else {
+            span.style.maxHeight = span.scrollHeight + "px";
+            btn.textContent = "Read Less";
+          }
+
+          expanded = !expanded;
+        });
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const maxHeight = 96; // px
+      const quoteContainers = document.querySelectorAll(
+        ".customer-feedback__desktop-marquee .customer-feedback__quote-text"
+      );
+
+      quoteContainers.forEach((container) => {
+        const span = container.querySelector("span");
+        const btn = container.querySelector(".customer-feedback__read-more");
+
+        if (!span || !btn) return;
+
+        let isExpandable = false;
+        let expanded = false;
+
+        // Check if text is longer than 160px
+        if (span.scrollHeight > maxHeight) {
+          isExpandable = true;
+
+          span.style.display = "block";
+          span.style.maxHeight = maxHeight + "px";
+          span.style.overflow = "hidden";
+
+          btn.textContent = "Read More";
+        } else {
+          // Short text â†’ no collapse
+          span.style.maxHeight = "none";
+          btn.textContent = "Read More"; // always visible
+        }
+
+        // Button click
+        btn.addEventListener("click", () => {
+          if (!isExpandable) return; // short text â†’ no action
+
+          if (expanded) {
+            span.style.maxHeight = maxHeight + "px";
+            btn.textContent = "Read More";
+          } else {
+            span.style.maxHeight = span.scrollHeight + "px";
+            btn.textContent = "Read Less";
+          }
+
+          expanded = !expanded;
+        });
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabs = document.querySelectorAll(
+        ".portal-features__sidebar-item"
+      );
+      const previewImage = document.querySelector(
+        ".portal-features__preview-image"
+      );
+
+      // Image list in order of your sidebar items
+      const images = [
+        "./assets3/portal-lg1.png",
+        "./assets3/portal2.png",
+        "./assets3/portal-lg3.webp",
+        "./assets3/portal-lg4.webp",
+        "./assets3/portal-lg5.webp",
+      ];
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => {
+          // Remove active class from all tabs
+          tabs.forEach((t) => {
+            t.classList.remove("portal-features__sidebar-item--active");
+            t.querySelector(
+              ".portal-features__sidebar-content"
+            )?.classList.remove("portal-features__sidebar-content--active");
+            t.querySelector(
+              ".portal-features__sidebar-title"
+            )?.classList.remove("portal-features__sidebar-title--active");
+          });
+
+          // Add active class to clicked tab
+          tab.classList.add("portal-features__sidebar-item--active");
+          tab
+            .querySelector(".portal-features__sidebar-content")
+            ?.classList.add("portal-features__sidebar-content--active");
+          tab
+            .querySelector(".portal-features__sidebar-title")
+            ?.classList.add("portal-features__sidebar-title--active");
+
+          // Update image
+          previewImage.src = images[index];
+        });
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const faqItems = document.querySelectorAll(".faq-section__item");
+
+      faqItems.forEach((item) => {
+        const trigger = item.querySelector(".faq-section__trigger");
+        const panel = item.querySelector(".faq-section__content-panel");
+        const icon = item.querySelector(".faq-section__trigger-icon");
+
+        trigger.addEventListener("click", () => {
+          const isOpen = panel.classList.contains(
+            "faq-section__content-panel--open"
+          );
+
+          // 1ï¸âƒ£ CLOSE all FAQs
+          faqItems.forEach((i) => {
+            i.querySelector(".faq-section__trigger").setAttribute(
+              "aria-expanded",
+              "false"
+            );
+            i.querySelector(".faq-section__content-panel").classList.remove(
+              "faq-section__content-panel--open"
+            );
+            i.querySelector(".faq-section__trigger-icon").classList.remove(
+              "icon-rotated"
+            );
+          });
+
+          // 2ï¸âƒ£ If this one was open â†’ just leave everything closed
+          if (isOpen) return;
+
+          // 3ï¸âƒ£ Otherwise OPEN this one
+          trigger.setAttribute("aria-expanded", "true");
+          panel.classList.add("faq-section__content-panel--open");
+          icon.classList.add("icon-rotated");
+        });
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const mobileCta = document.querySelector(".mobile-cta");
+      const triggerHeight = window.innerHeight; // 100vh
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY >= triggerHeight) {
+          mobileCta.classList.add("mobile-cta-sticky");
+        } else {
+          mobileCta.classList.remove("mobile-cta-sticky");
+        }
+      });
+    });
+  </script>
+
+  <script>
+    function startCountdown() {
+      const baseEndDate = new Date("2026-02-26T01:59:30").getTime();
+      const extensionDays = 3; // change to 6 if you want 6-day extensions
+      const extensionMs = extensionDays * 24 * 60 * 60 * 1000;
+      const countdownEl = document.getElementById("countdown");
+
+      function getNextEndDate(now) {
+        if (now < baseEndDate) return baseEndDate;
+
+        const timePassed = now - baseEndDate;
+        const extensionsNeeded = Math.floor(timePassed / extensionMs) + 1;
+        return baseEndDate + extensionsNeeded * extensionMs;
+      }
+
+      function updateTimer() {
+        const now = Date.now();
+        const nextEndDate = getNextEndDate(now);
+        const diff = nextEndDate - now;
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const mins = Math.floor((diff / (1000 * 60)) % 60);
+        const secs = Math.floor((diff / 1000) % 60);
+
+        countdownEl.textContent =
+          `${days} Days ${hours} Hours ${mins} mins ${secs} secs`;
+      }
+
+      updateTimer();
+      setInterval(updateTimer, 1000);
+    }
+
+    startCountdown();
+  </script>
+
+  <script>
+    fbq('track', 'ViewContent');
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var quizLinks = document.querySelectorAll('.js-quiz-link');
+      quizLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          console.log('sending initiate_quiz event');
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'initiate_quiz' });
+        });
+      });
+    });
+  </script>
