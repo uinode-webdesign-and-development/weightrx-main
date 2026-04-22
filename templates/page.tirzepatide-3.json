@@ -140,16 +140,18 @@
         "testimonial_aLkKrj": {
           "type": "testimonial",
           "settings": {
-            "name": "Tim B.",
-            "weight_text": "40 lbs lost",
+            "image": "shopify://shop_images/test-8.webp",
+            "name": "Ashley H.",
+            "weight_text": "25 lbs lost",
             "badge_text": "Verified WeightRx Member"
           }
         },
         "testimonial_c7eHpV": {
           "type": "testimonial",
           "settings": {
-            "name": "Tim B.",
-            "weight_text": "40 lbs lost",
+            "image": "shopify://shop_images/test-6.webp",
+            "name": "Scott H.",
+            "weight_text": "32 lbs lost",
             "badge_text": "Verified WeightRx Member"
           }
         }
