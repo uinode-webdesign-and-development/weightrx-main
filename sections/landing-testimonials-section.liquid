@@ -1,0 +1,216 @@
+<section class="testimonials-section">
+  <div class="testimonials-container">
+    <div class="testimonials-content">
+      <div class="testimonials-header">
+        <h1 class="testimonials-title">
+          {% if section.settings.highlight_text != blank %}
+            <span class="testimonials-highlight">{{ section.settings.highlight_text }}</span>
+          {% endif %}
+          {{ section.settings.heading_text }}
+        </h1>
+      </div>
+
+      <!-- Mobile Carousel -->
+      <div class="mobile-carousel" role="region" aria-roledescription="carousel">
+        <div class="carousel-container swiper mySwiper">
+          <div class="carousel-track swiper-wrapper">
+            {% for block in section.blocks %}
+              {% if block.type == 'testimonial' %}
+                <div class="carousel-slide swiper-slide" role="group" aria-roledescription="slide" {{ block.shopify_attributes }}>
+                  <div class="testimonial-card">
+                    <div class="testimonial-content">
+                      {% if block.settings.image != blank %}
+                        <img
+                          class="testimonial-image"
+                          alt="{{ block.settings.name | escape }}"
+                          src="{{ block.settings.image | image_url: width: 800 }}"
+                          loading="lazy"
+                        />
+                      {% endif %}
+                      <div class="testimonial-details">
+                        <div class="testimonial-info">
+                          <div class="testimonial-header">
+                            <div class="testimonial-text">
+                              {% if block.settings.name != blank %}
+                                <p class="testimonial-name">{{ block.settings.name }}</p>
+                              {% endif %}
+                              {% if block.settings.weight_text != blank %}
+                                <h1 class="testimonial-weight">{{ block.settings.weight_text }}</h1>
+                              {% endif %}
+                              {% if block.settings.badge_text != blank %}
+                                <div class="verified-badge">
+                                  <svg class="verified-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                    <path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"></path>
+                                  </svg>
+                                  {{ block.settings.badge_text }}
+                                </div>
+                              {% endif %}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <div class="swiper-pagination carousel-indicators"></div>
+      </div>
+
+      <!-- Desktop Marquee -->
+      <div class="desktop-marquee test-marquee">
+        <div class="test-marquee-track">
+          <div class="marquee-group test-marquee-group1">
+            {% for block in section.blocks %}
+              {% if block.type == 'testimonial' %}
+                <div class="desktop-testimonial-card" {{ block.shopify_attributes }}>
+                  <div class="testimonial-content">
+                    {% if block.settings.image != blank %}
+                      <img
+                        class="testimonial-image"
+                        alt="{{ block.settings.name | escape }}"
+                        src="{{ block.settings.image | image_url: width: 800 }}"
+                        loading="lazy"
+                      />
+                    {% endif %}
+                    <div class="testimonial-details">
+                      <div class="testimonial-info">
+                        <div class="testimonial-header">
+                          <div class="testimonial-text">
+                            {% if block.settings.name != blank %}
+                              <p class="testimonial-name">{{ block.settings.name }}</p>
+                            {% endif %}
+                            {% if block.settings.weight_text != blank %}
+                              <h1 class="testimonial-weight">{{ block.settings.weight_text }}</h1>
+                            {% endif %}
+                            {% if block.settings.badge_text != blank %}
+                              <div class="verified-badge">
+                                <svg class="verified-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                  <path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"></path>
+                                </svg>
+                                {{ block.settings.badge_text }}
+                              </div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+
+          <div class="marquee-group test-marquee-group2">
+            {% for block in section.blocks %}
+              {% if block.type == 'testimonial' %}
+                <div class="desktop-testimonial-card">
+                  <div class="testimonial-content">
+                    {% if block.settings.image != blank %}
+                      <img
+                        class="testimonial-image"
+                        alt="{{ block.settings.name | escape }}"
+                        src="{{ block.settings.image | image_url: width: 800 }}"
+                        loading="lazy"
+                      />
+                    {% endif %}
+                    <div class="testimonial-details">
+                      <div class="testimonial-info">
+                        <div class="testimonial-header">
+                          <div class="testimonial-text">
+                            {% if block.settings.name != blank %}
+                              <p class="testimonial-name">{{ block.settings.name }}</p>
+                            {% endif %}
+                            {% if block.settings.weight_text != blank %}
+                              <h1 class="testimonial-weight">{{ block.settings.weight_text }}</h1>
+                            {% endif %}
+                            {% if block.settings.badge_text != blank %}
+                              <div class="verified-badge">
+                                <svg class="verified-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                  <path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"></path>
+                                </svg>
+                                {{ block.settings.badge_text }}
+                              </div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials section",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "highlight_text",
+      "label": "Highlight text",
+      "default": "Join 200,000+ members and transform your"
+    },
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading text",
+      "default": "health, body and life."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Tim B."
+        },
+        {
+          "type": "text",
+          "id": "weight_text",
+          "label": "Weight text",
+          "default": "40 lbs lost"
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge text",
+          "default": "Verified WeightRx Member"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials section",
+      "blocks": [
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" }
+      ]
+    }
+  ]
+}
+{% endschema %}
