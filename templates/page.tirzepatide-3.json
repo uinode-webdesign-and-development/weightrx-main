@@ -37,7 +37,7 @@
             "text": "<p>Patients trusted.</p>"
           }
         },
-        "feature_W6zTwR": {
+        "feature_64JiGn": {
           "type": "feature",
           "settings": {
             "number_text": "200,000+",
@@ -55,7 +55,7 @@
       "block_order": [
         "feature_4JFLXL",
         "feature_3wAh9Q",
-        "feature_W6zTwR",
+        "feature_64JiGn",
         "feature_DGVzPF"
       ],
       "name": "Landing hero",
