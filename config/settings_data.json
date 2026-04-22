@@ -637,7 +637,8 @@
   },
   "platform_customizations": {
     "custom_css": [
-      ".section {--full-page-grid-margin: 0; --full-page-grid-central-column-width: 100%; --full-page-margin-inline-offset: 0;}"
+      ".section {--full-page-grid-margin: 0; --full-page-grid-central-column-width: 100%; --full-page-margin-inline-offset: 0;}",
+      "body {font-family: \"Inter\", sans-serif; font-size: 12px; overflow-x: hidden; line-height: 1.2; background: linear-gradient(to right, var(--muted), var(--light));}"
     ]
   }
 }
