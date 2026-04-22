@@ -75,6 +75,7 @@
         "heading": "<p>2026 Is Your Year. Start <strong>Tirzepatide </strong>for <strong>$83/mo</strong></p>",
         "subheading": "<p>Price locked in forever. Ships in 48 hours</p>",
         "desktop_image": "shopify://shop_images/tirz_vial_2.png",
+        "mobile_image": "shopify://shop_images/tirz_vial_2.png",
         "button_label": "Start Your Weight Loss Journey",
         "button_link": "shopify://collections/frontpage",
         "button_icon": "shopify://shop_images/svgviewer-output.svg",
@@ -84,7 +85,7 @@
         "rating_number": "4.7",
         "rating_text": "4.7 out of 5 stars",
         "disclaimer": "<p>WeightRx offers compounded GLP-1s exclusively from U.S. pharmacies. While these pharmacies are regulated, the FDA has not evaluated the medications for safety, quality, or efficacy.</p>",
-        "background_color": "#ddecfd",
+        "background_color": "rgba(0,0,0,0)",
         "text_color": "#062088",
         "accent_color": "#00b676",
         "card_background": "#f7f8fb",
@@ -182,7 +183,7 @@
       ],
       "name": "Testimonials section",
       "settings": {
-        "section_background_color": "hsl(212, 87%, 97%)",
+        "section_background_color": "#f1f7fe",
         "highlight_text": "Join 200,000+ members and transform your",
         "heading_text": "health, body and life."
       }
