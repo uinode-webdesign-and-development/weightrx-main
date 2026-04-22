@@ -86,6 +86,7 @@
         "testimonial_BMWQEB": {
           "type": "testimonial",
           "settings": {
+            "image": "shopify://shop_images/test-1.webp",
             "name": "Tim B.",
             "weight_text": "40 lbs lost",
             "badge_text": "Verified WeightRx Member"
@@ -94,40 +95,45 @@
         "testimonial_xJeNqp": {
           "type": "testimonial",
           "settings": {
-            "name": "Tim B.",
-            "weight_text": "40 lbs lost",
+            "image": "shopify://shop_images/test-2.webp",
+            "name": "Jennifer P.",
+            "weight_text": "34 lbs lost",
             "badge_text": "Verified WeightRx Member"
           }
         },
         "testimonial_xPwkeU": {
           "type": "testimonial",
           "settings": {
-            "name": "Tim B.",
-            "weight_text": "40 lbs lost",
+            "image": "shopify://shop_images/test-11.webp",
+            "name": "Susan S.",
+            "weight_text": "36 lbs lost",
             "badge_text": "Verified WeightRx Member"
           }
         },
         "testimonial_neFfNh": {
           "type": "testimonial",
           "settings": {
-            "name": "Tim B.",
-            "weight_text": "40 lbs lost",
+            "image": "shopify://shop_images/test-10.webp",
+            "name": "Noelle D.",
+            "weight_text": "26 lbs lost",
             "badge_text": "Verified WeightRx Member"
           }
         },
         "testimonial_V8VXjr": {
           "type": "testimonial",
           "settings": {
-            "name": "Tim B.",
-            "weight_text": "40 lbs lost",
+            "image": "shopify://shop_images/test-7.webp",
+            "name": "Michelle C.",
+            "weight_text": "30 lbs lost",
             "badge_text": "Verified WeightRx Member"
           }
         },
         "testimonial_w6hqTz": {
           "type": "testimonial",
           "settings": {
-            "name": "Tim B.",
-            "weight_text": "40 lbs lost",
+            "image": "shopify://shop_images/test-9_1.webp",
+            "name": "Meghan S.",
+            "weight_text": "29 lbs lost",
             "badge_text": "Verified WeightRx Member"
           }
         },
