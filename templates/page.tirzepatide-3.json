@@ -311,6 +311,12 @@
       ],
       "name": "Offer banner",
       "settings": {
+        "background_image": "shopify://shop_images/offer-banner-lg.png",
+        "background_size": "cover",
+        "background_position": "center center",
+        "show_overlay": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 40,
         "counter_first": "2",
         "counter_second": "5",
         "spots_text": "spots left",
