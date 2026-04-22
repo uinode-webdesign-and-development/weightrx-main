@@ -53,15 +53,12 @@
                   {% if section.settings.button_label != blank and section.settings.button_link != blank %}
               <div class="landing-hero__cta-wrap">
                 <a class="landing-hero__button button" href="{{ section.settings.button_link }}">
-                  
                   <span>{{ section.settings.button_label }}</span>
-
                   {% if section.settings.button_icon != blank %}
                     <span class="landing-hero__button-icon-wrapper">
                       {{ section.settings.button_icon | image_url: width: 50 | image_tag: loading: 'lazy' }}
                     </span>
                   {% endif %}
-
                 </a>
               </div>
             {% endif %}
@@ -121,23 +118,22 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; /* Text aur Icon ke darmiyan space */
-  /* Baki purani styling... */
+  gap: 8px; 
 }
 
 .{{ section_id }} .landing-hero__button-icon-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 18px; /* Icon ki width fix kar di */
-  height: 18px; /* Icon ki height fix kar di */
+  width: 18px; 
+  height: 18px; 
   flex-shrink: 0;
 }
 
 .{{ section_id }} .landing-hero__button-icon-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Icon kharab nahi hoga */
+  object-fit: contain; 
   display: block;
 }
 
