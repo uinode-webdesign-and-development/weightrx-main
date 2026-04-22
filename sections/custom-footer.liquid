@@ -1,12 +1,12 @@
 <footer class="custom-footer">
   <div class="custom-footer__inner">
 
-    {% comment %} Left: Logo + Copyright {% endcomment %}
+    {% comment %} LEFT: Logo + Copyright {% endcomment %}
     <div class="custom-footer__brand">
       {% if section.settings.logo != blank %}
         <a href="{{ routes.root_url }}" class="custom-footer__logo-link">
           <img
-            src="{{ section.settings.logo | image_url: width: 200 }}"
+            src="{{ section.settings.logo | image_url: width: 300 }}"
             alt="{{ section.settings.logo.alt | default: shop.name | escape }}"
             width="{{ section.settings.logo_width }}"
             class="custom-footer__logo-img"
@@ -20,39 +20,42 @@
       {% endif %}
 
       <p class="custom-footer__copyright">
-        {{ section.settings.copyright_text | replace: '[year]', 'now' | date: '%Y' }}
-        {% if section.settings.copyright_text == blank %}
+        {% if section.settings.copyright_text != blank %}
+          {{ section.settings.copyright_text | replace: '[year]', 'now' | date: '%Y' }}
+        {% else %}
           &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}
         {% endif %}
       </p>
     </div>
 
-    {% comment %} Center: Badge {% endcomment %}
-    {% if section.settings.badge_image != blank %}
-      <div class="custom-footer__badge">
-        {% if section.settings.badge_link != blank %}
-          <a href="{{ section.settings.badge_link }}" target="_blank" rel="noopener noreferrer">
+    {% comment %} CENTER: Badge/Image {% endcomment %}
+    <div class="custom-footer__center">
+      {% if section.settings.center_image != blank %}
+        <div class="custom-footer__badge">
+          {% if section.settings.center_image_link != blank %}
+            <a href="{{ section.settings.center_image_link }}" target="_blank" rel="noopener noreferrer">
+              <img
+                src="{{ section.settings.center_image | image_url: width: 200 }}"
+                alt="{{ section.settings.center_image_alt | default: 'Badge' | escape }}"
+                width="{{ section.settings.center_image_width }}"
+                class="custom-footer__badge-img"
+                loading="lazy"
+              >
+            </a>
+          {% else %}
             <img
-              src="{{ section.settings.badge_image | image_url: width: 160 }}"
-              alt="{{ section.settings.badge_alt | default: 'Badge' | escape }}"
-              width="{{ section.settings.badge_width }}"
+              src="{{ section.settings.center_image | image_url: width: 200 }}"
+              alt="{{ section.settings.center_image_alt | default: 'Badge' | escape }}"
+              width="{{ section.settings.center_image_width }}"
               class="custom-footer__badge-img"
               loading="lazy"
             >
-          </a>
-        {% else %}
-          <img
-            src="{{ section.settings.badge_image | image_url: width: 160 }}"
-            alt="{{ section.settings.badge_alt | default: 'Badge' | escape }}"
-            width="{{ section.settings.badge_width }}"
-            class="custom-footer__badge-img"
-            loading="lazy"
-          >
-        {% endif %}
-      </div>
-    {% endif %}
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
 
-    {% comment %} Right: Contact Info {% endcomment %}
+    {% comment %} RIGHT: Contact Info {% endcomment %}
     <div class="custom-footer__contact">
       {% if section.settings.contact_heading != blank %}
         <p class="custom-footer__contact-heading">{{ section.settings.contact_heading }}</p>
@@ -72,13 +75,13 @@
 
   </div>
 
-  {% comment %} Footer Menu Row — sirf tab dikhega jab menu select hoga {% endcomment %}
+  {% comment %} BOTTOM: Footer Menu {% endcomment %}
   {% if section.settings.footer_menu != blank %}
-    {% assign footer_menu = linklists[section.settings.footer_menu] %}
-    {% if footer_menu.links.size > 0 %}
+    {% assign footer_nav = linklists[section.settings.footer_menu] %}
+    {% if footer_nav.links.size > 0 %}
       <div class="custom-footer__menu-bar">
         <ul class="custom-footer__menu-list">
-          {% for link in footer_menu.links %}
+          {% for link in footer_nav.links %}
             <li class="custom-footer__menu-item">
               <a href="{{ link.url }}" class="custom-footer__menu-link">{{ link.title }}</a>
             </li>
@@ -109,11 +112,12 @@
     flex-wrap: wrap;
   }
 
-  /* Brand */
+  /* ── LEFT: Brand ── */
   .custom-footer__brand {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    flex: 1;
     min-width: 160px;
   }
 
@@ -124,6 +128,7 @@
   .custom-footer__logo-img {
     display: block;
     height: auto;
+    max-width: 100%;
   }
 
   .custom-footer__logo-text {
@@ -141,12 +146,18 @@
     opacity: 0.75;
   }
 
-  /* Badge */
+  /* ── CENTER ── */
+  .custom-footer__center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+  }
+
   .custom-footer__badge {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
   }
 
   .custom-footer__badge-img {
@@ -154,12 +165,15 @@
     height: auto;
   }
 
-  /* Contact */
+  /* ── RIGHT: Contact ── */
   .custom-footer__contact {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    flex: 1;
     min-width: 200px;
+    align-items: flex-end;
+    text-align: right;
   }
 
   .custom-footer__contact-heading {
@@ -178,6 +192,7 @@
     display: flex;
     align-items: flex-start;
     gap: 6px;
+    justify-content: flex-end;
   }
 
   .custom-footer__contact-icon {
@@ -185,10 +200,10 @@
     margin-top: 1px;
   }
 
-  /* ── Footer Menu Bar ── */
+  /* ── BOTTOM: Menu Bar ── */
   .custom-footer__menu-bar {
     max-width: {{ section.settings.max_width }}px;
-    margin: 0 auto;
+    margin: 16px auto 0;
     padding: 16px 24px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.15);
   }
@@ -219,7 +234,7 @@
     text-decoration: underline;
   }
 
-  /* Mobile */
+  /* ── Mobile ── */
   @media (max-width: 768px) {
     .custom-footer__inner {
       flex-direction: column;
@@ -227,7 +242,16 @@
       gap: 24px;
     }
 
-    .custom-footer__badge {
+    .custom-footer__contact {
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .custom-footer__contact-line {
+      justify-content: flex-start;
+    }
+
+    .custom-footer__center {
       justify-content: flex-start;
     }
 
@@ -245,7 +269,7 @@
   "settings": [
     {
       "type": "header",
-      "content": "Brand / Logo"
+      "content": "LEFT — Brand / Logo"
     },
     {
       "type": "image_picker",
@@ -265,7 +289,7 @@
     {
       "type": "text",
       "id": "brand_name",
-      "label": "Brand name (agar logo nahi)",
+      "label": "Brand name (agar logo nahi ho)",
       "default": "WeightRx"
     },
     {
@@ -277,17 +301,17 @@
     },
     {
       "type": "header",
-      "content": "Badge (LegitScript etc.)"
+      "content": "CENTER — Image / Badge"
     },
     {
       "type": "image_picker",
-      "id": "badge_image",
-      "label": "Badge image"
+      "id": "center_image",
+      "label": "Center image (e.g. LegitScript badge)"
     },
     {
       "type": "range",
-      "id": "badge_width",
-      "label": "Badge width",
+      "id": "center_image_width",
+      "label": "Center image width",
       "min": 40,
       "max": 200,
       "step": 10,
@@ -296,18 +320,18 @@
     },
     {
       "type": "text",
-      "id": "badge_alt",
-      "label": "Badge alt text",
+      "id": "center_image_alt",
+      "label": "Image alt text",
       "default": "LegitScript Certified"
     },
     {
       "type": "url",
-      "id": "badge_link",
-      "label": "Badge link (optional)"
+      "id": "center_image_link",
+      "label": "Image link (optional)"
     },
     {
       "type": "header",
-      "content": "Contact Section"
+      "content": "RIGHT — Contact Section"
     },
     {
       "type": "text",
@@ -317,13 +341,13 @@
     },
     {
       "type": "header",
-      "content": "Footer Menu"
+      "content": "BOTTOM — Footer Menu"
     },
     {
       "type": "link_list",
       "id": "footer_menu",
       "label": "Footer menu",
-      "info": "Shopify admin > Content > Menus se koi bhi menu select karo"
+      "info": "Shopify Admin > Content > Menus se menu select karo"
     },
     {
       "type": "header",
