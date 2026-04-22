@@ -10,14 +10,9 @@
         
         <div class="landing-hero__content">
           {% if section.settings.heading != blank %}
-           <h1 class="landing-hero__heading">
-  <span style="color: {{ section.settings.text_color }};">
-    {{ section.settings.heading_part_1 }}
-  </span>
-  <span style="color: {{ section.settings.accent_color }};">
-    {{ section.settings.heading_part_2 }}
-  </span>
-</h1>
+            <h1 class="landing-hero__heading rte">
+              {{ section.settings.heading }}
+            </h1>
           {% endif %}
 
           {% if section.settings.subheading != blank %}
