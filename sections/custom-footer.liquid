@@ -168,11 +168,14 @@
      opacity: 0.9;
      line-height: 1.4;
    }
-
    @media (max-width: 768px) {
      .custom-footer__inner { flex-direction: column; text-align: center; align-items: center; }
      {% comment %} .custom-footer__contact { align-items: center; text-align: center; } {% endcomment %}
      .custom-footer__inline-links { justify-content: center; }
+.custom-footer__inline-links{
+  margin-top : 0px;
+}
+
    }
      @media (min-width: 1247px) {
    .custom-footer__inner{
