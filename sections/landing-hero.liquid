@@ -5,7 +5,7 @@
 
 <section class="{{ section_id }} landing-hero">
   
-  <div class="page-width">
+  {% comment %} <div class="page-width"> {% endcomment %}
     <div class="custom-main-container">
       <div class="landing-hero__grid">
         
@@ -114,22 +114,31 @@
         {% endif %}
       </div>
     </div>
-  </div>
+  {% comment %} </div> {% endcomment %}
   </div>
 </section>
 
 {% style %}
   .{{ section_id }} {
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
-    background: {{ section.settings.background_color }};
-    color: {{ section.settings.text_color }};
-  }
-
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+  background: {{ section.settings.background_color }};
+  color: {{ section.settings.text_color }};
+  width: 100%;          
+  max-width: 100%;     
+}
+.{{ section_id }} .custom-main-container {
+  max-width: 1400px;    
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.landing-hero__media {
+  width: auto;          
+  max-width: 50%;
+}
   .{{ section_id }} .landing-hero__grid {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
-    /* gap: 4rem; */
     align-items: center;
   }
 
