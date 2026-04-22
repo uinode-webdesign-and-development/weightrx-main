@@ -408,11 +408,11 @@
       "name": "Custom Footer",
       "settings": {
         "logo": "shopify://shop_images/footer-logo.svg",
-        "logo_width": 140,
+        "logo_width": 160,
         "brand_name": "WeightRx",
         "copyright_text": "© [year] WeightRx",
         "center_image": "shopify://shop_images/18557581.png",
-        "center_image_width": 100,
+        "center_image_width": 70,
         "center_image_alt": "LegitScript Certified",
         "center_image_link": "",
         "contact_heading": "Contact Care Team",
