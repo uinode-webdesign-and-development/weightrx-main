@@ -123,18 +123,9 @@ font-weight : 700;
   color: {{ section.settings.accent_color }}; /* Green color for Bold text */
   font-weight: inherit; /* Taake sirf color change ho, font extra mota na ho */
 }
-/* 1. Feature card ka normal text (p tag) */
-.{{ section_id }} .landing-hero__feature-text p {
-  font-weight: 400 !important; /* Isse weight 400 ho jayega */
-  color: {{ section.settings.text_color }}; /* Default Blue color */
-  margin: 0;
-  line-height: 1.4;
-}
-
-/* 2. Feature card ka highlighted text (strong tag) */
-.{{ section_id }} .landing-hero__feature-text strong {
-  color: {{ section.settings.accent_color }}; /* Jo green color aapne pehle diya hai */
-  font-weight: 700 !important; /* Isse sirf bold wala hissa mota dikhega */
+.{{ section_id }} .landing-hero__feature-text strong{
+color : #22C55E ;
+font-weight : 700;
 }
 .{{ section_id }} .landing-hero__feature-text{
 font-weight : 600;
