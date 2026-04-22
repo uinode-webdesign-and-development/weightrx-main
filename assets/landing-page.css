@@ -2196,7 +2196,17 @@ FAQS
     max-width: 448px;
   }
 }
-
+@media (max-width: 768px) {
+.landing-hero__mobile-image{
+  max-width:288px ;
+}
+.landing-hero__content{
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+}
 @media (min-width: 768px) {
   .mobile-phone-support {
     display: none;
