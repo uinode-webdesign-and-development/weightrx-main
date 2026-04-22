@@ -33,22 +33,25 @@
         "feature_3wAh9Q": {
           "type": "feature",
           "settings": {
-            "number_text": "200,000+",
-            "text": "<p>Patients trusted.</p>"
+            "icon": "shopify://shop_images/feature-2.png",
+            "number_text": "",
+            "text": "<p>Save <strong>THOUSANDS </strong>per year in medication costs</p>"
           }
         },
         "feature_64JiGn": {
           "type": "feature",
           "settings": {
-            "number_text": "200,000+",
-            "text": "<p>Patients trusted.</p>"
+            "icon": "shopify://shop_images/feature-3.png",
+            "number_text": "",
+            "text": "<p>3 Months Of High Dose Fees WAIVED ($99/mo)</p>"
           }
         },
         "feature_DGVzPF": {
           "type": "feature",
           "settings": {
-            "number_text": "200,000+",
-            "text": "<p>Patients trusted.</p>"
+            "icon": "shopify://shop_images/feature-4.png",
+            "number_text": "",
+            "text": "<p>55% More EffectiveThan Semaglutide</p>"
           }
         }
       },
@@ -277,29 +280,33 @@
         "feature_e4HPDT": {
           "type": "feature",
           "settings": {
-            "icon_type": "doctor",
-            "feature_text": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
+            "icon_image": "shopify://shop_images/svgviewer-output_2.svg",
+            "icon_size": 24,
+            "feature_text": "<p><strong>UNLIMITED</strong> doctor access & lab reviews</p>"
           }
         },
         "feature_FtJU8C": {
           "type": "feature",
           "settings": {
-            "icon_type": "doctor",
-            "feature_text": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
+            "icon_image": "shopify://shop_images/gemini-svg.svg",
+            "icon_size": 24,
+            "feature_text": "<p><strong>UNLIMITED</strong> doctor access & lab reviews</p>"
           }
         },
         "feature_NX8YfF": {
           "type": "feature",
           "settings": {
-            "icon_type": "doctor",
-            "feature_text": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
+            "icon_image": "shopify://shop_images/gemini-svg_1.svg",
+            "icon_size": 24,
+            "feature_text": "<p><strong>UNLIMITED</strong> doctor access & lab reviews</p>"
           }
         },
         "feature_AUj4aP": {
           "type": "feature",
           "settings": {
-            "icon_type": "doctor",
-            "feature_text": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
+            "icon_image": "shopify://shop_images/gemini-svg_2.svg",
+            "icon_size": 24,
+            "feature_text": "<p><strong>UNLIMITED</strong> doctor access & lab reviews</p>"
           }
         }
       },
@@ -311,6 +318,12 @@
       ],
       "name": "Offer banner",
       "settings": {
+        "background_image": "shopify://shop_images/offer-banner-lg.png",
+        "background_size": "cover",
+        "background_position": "center center",
+        "show_overlay": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
         "counter_first": "2",
         "counter_second": "5",
         "spots_text": "spots left",
@@ -318,7 +331,7 @@
         "title_highlight": "your",
         "title_middle": "spot",
         "title_bold": "TODAY!",
-        "press_text": "<p>Recommended by <strong>Forbes, USA Today, and more</strong></p>",
+        "press_text": "",
         "button_label": "Get Started Now",
         "button_link": "",
         "padding_top": 80,
@@ -375,7 +388,7 @@
       "settings": {
         "section_id": "faq",
         "title": "Frequently Asked Questions",
-        "disclaimer": "<p>*The assessment made available on the WeightRx website does not create a clinician-patient relationship between the individual completing the assessment and WeightRx.</p><p>All claims and benefits on this website refer to self-reported data from WeightRx members on a treatment plan that includes compounded GLP-1 medications and consultations with medical professionals.</p><p>We encourage all prospective users of compounded medications to speak with their clinician about the specific risks and benefits that may come with the use of compounded medication.</p>",
+        "disclaimer": "<p>*The assessment made available on the WeightRx website does not create a clinician-patient relationship between the individual completing the assessment and WeightRx. WeightRx is not a provider of medical services. WeightRx acts primarily as a technology platform to connect you with professional clinicians who may be available to provide you with non-emergency care. Such providers include MDI Medical Group, and certain other medical groups (collectively, the \"Providers\").  The Providers include a network of US-licensed clinicians that adhere to rigorous medical protocols designed for patient safety and have established exclusionary criteria to determine if an individual does not qualify for GLP-1s. Each WeightRx assessment will be reviewed by a clinician who will determine if the individual is eligible for GLP-1 medication and qualifies for a prescription. Provider clinicians retain the decision to prescribe compounded GLP-1s to patients.<br/><br/>All claims and benefits on this website refer to self-reported data from WeightRx members on a treatment plan that includes compounded GLP-1 medications and consultations with medical professionals. Members reported their weight on their initial medical intake questionnaire every 3-12 weeks thereafter. Results from compounded medications found on the Weightrx platform may vary and be affected by an individual's adherence to the program and their clinician's recommendations. Although compounded GLP-1s are produced in facilities that are regulated, the medications are not FDA-approved or evaluated for safety, efficacy, or quality. The decision to use compounded drugs is guided by the licensed clinician's medical judgment, which is informed by a telehealth consultation and medical history.<br/><br/>We encourage all prospective users of compounded medications to speak with their clinician about the specific risks and benefits that may come with the use of compounded medication. WeightRx does not produce compounded medications, and individuals may receive medication that looks different than what is portrayed on the website.<br/></p>",
         "padding_top": 80,
         "padding_bottom": 80
       }

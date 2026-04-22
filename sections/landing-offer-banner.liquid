@@ -1,32 +1,39 @@
-{% case block.settings.icon_type %}
-  {% when 'doctor' %}
-    <svg class="offer-banner__feature-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"></path>
-      <path d="M21 16v2a4 4 0 0 1-4 4h-5"></path>
-    </svg>
-  {% when 'cost' %}
-    <svg class="offer-banner__feature-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <circle cx="12" cy="12" r="10"></circle>
-      <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path>
-      <path d="M12 18V6"></path>
-    </svg>
-  {% when 'lock' %}
-    <svg class="offer-banner__feature-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path>
-      <path d="m8.5 8.5 7 7"></path>
-    </svg>
-  {% when 'guarantee' %}
-    <svg class="offer-banner__feature-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M4.929 4.929 19.07 19.071"></path>
-      <circle cx="12" cy="12" r="10"></circle>
-    </svg>
-{% endcase %}
+{% comment %} Build background image styles {% endcomment %}
+{% assign bg_styles = '' %}
+{% if section.settings.background_image != blank %}
+  {% assign bg_image_url = section.settings.background_image | image_url: width: 2000 %}
+  {% assign bg_styles = 'background-image: url(' | append: bg_image_url | append: ');' %}
+  {% assign bg_styles = bg_styles | append: 'background-size: ' | append: section.settings.background_size | append: ';' %}
+  {% assign bg_styles = bg_styles | append: 'background-position: ' | append: section.settings.background_position | append: ';' %}
+  {% assign bg_styles = bg_styles | append: 'background-repeat: no-repeat;' %}
+{% endif %}
 
 <section
-  class="offer-banner"
-  style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+  class="offer-banner{% if section.settings.background_image != blank %} offer-banner--has-bg{% endif %}"
+  style="
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    width: 100%;
+    {{ bg_styles }}
+    position: relative;
+  "
 >
-  <div class="offer-banner__container">
+  {% comment %} Overlay layer {% endcomment %}
+  {% if section.settings.background_image != blank and section.settings.show_overlay %}
+    <div
+      class="offer-banner__overlay"
+      style="
+        position: absolute;
+        inset: 0;
+        background-color: {{ section.settings.overlay_color }};
+        opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+        pointer-events: none;
+        z-index: 0;
+      "
+    ></div>
+  {% endif %}
+
+  <div class="offer-banner__container" style="position: relative; z-index: 1;">
     <div class="offer-banner__header">
       <p class="offer-banner__spots">
         <b class="offer-banner__bold">
@@ -51,12 +58,26 @@
           <div class="offer-banner__feature-item" {{ block.shopify_attributes }}>
             <div class="offer-banner__feature-content">
               <div class="offer-banner__feature-icon-group">
-                {% if block.settings.icon_svg != blank %}
-                  {{ block.settings.icon_svg }}
+
+                {% comment %} Icon: image_picker se upload ki hui image (SVG/PNG) {% endcomment %}
+                {% if block.settings.icon_image != blank %}
+                  <div class="offer-banner__feature-icon-wrap">
+                    <img
+                      src="{{ block.settings.icon_image | image_url: width: 80 }}"
+                      alt="{{ block.settings.icon_image.alt | default: '' | escape }}"
+                      width="{{ block.settings.icon_size }}"
+                      height="{{ block.settings.icon_size }}"
+                      class="offer-banner__feature-icon-img"
+                      style="width: {{ block.settings.icon_size }}px; height: {{ block.settings.icon_size }}px; object-fit: contain; display: block;"
+                      loading="lazy"
+                    >
+                  </div>
                 {% endif %}
+
                 <div class="offer-banner__feature-text">
                   {{ block.settings.feature_text }}
                 </div>
+
               </div>
             </div>
           </div>
@@ -90,6 +111,65 @@
   "class": "section",
   "settings": [
     {
+      "type": "header",
+      "content": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "select",
+      "id": "background_size",
+      "label": "Background size",
+      "default": "cover",
+      "options": [
+        { "value": "cover", "label": "Cover (fill section)" },
+        { "value": "contain", "label": "Contain (fit inside)" },
+        { "value": "auto", "label": "Auto (original size)" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "background_position",
+      "label": "Background position",
+      "default": "center center",
+      "options": [
+        { "value": "center center", "label": "Center" },
+        { "value": "top center", "label": "Top center" },
+        { "value": "bottom center", "label": "Bottom center" },
+        { "value": "left center", "label": "Left" },
+        { "value": "right center", "label": "Right" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Show overlay on background image",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Counter & Spots"
+    },
+    {
       "type": "text",
       "id": "counter_first",
       "label": "Counter first digit",
@@ -106,6 +186,10 @@
       "id": "spots_text",
       "label": "Spots text",
       "default": "spots left"
+    },
+    {
+      "type": "header",
+      "content": "Title"
     },
     {
       "type": "text",
@@ -132,6 +216,10 @@
       "default": "TODAY!"
     },
     {
+      "type": "header",
+      "content": "CTA"
+    },
+    {
       "type": "richtext",
       "id": "press_text",
       "label": "Press text",
@@ -147,6 +235,10 @@
       "type": "url",
       "id": "button_link",
       "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
     },
     {
       "type": "range",
@@ -171,46 +263,41 @@
   ],
   "blocks": [
     {
-  "type": "feature",
-  "name": "Feature item",
-  "settings": [
-    {
-      "type": "select",
-      "id": "icon_type",
-      "label": "Icon type",
-      "default": "doctor",
-      "options": [
-        { "value": "doctor", "label": "Doctor access" },
-        { "value": "cost", "label": "Cost included" },
-        { "value": "lock", "label": "Locked pricing" },
-        { "value": "guarantee", "label": "Guarantee" }
+      "type": "feature",
+      "name": "Feature item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon image (SVG ya PNG upload karein)"
+        },
+        {
+          "type": "range",
+          "id": "icon_size",
+          "label": "Icon size",
+          "min": 16,
+          "max": 80,
+          "step": 4,
+          "unit": "px",
+          "default": 32
+        },
+        {
+          "type": "richtext",
+          "id": "feature_text",
+          "label": "Feature text",
+          "default": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
+        }
       ]
-    },
-    {
-      "type": "richtext",
-      "id": "feature_text",
-      "label": "Feature text",
-      "default": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
     }
-  ]
-}
   ],
   "presets": [
     {
       "name": "Offer banner",
       "blocks": [
-        {
-          "type": "feature"
-        },
-        {
-          "type": "feature"
-        },
-        {
-          "type": "feature"
-        },
-        {
-          "type": "feature"
-        }
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" }
       ]
     }
   ]
