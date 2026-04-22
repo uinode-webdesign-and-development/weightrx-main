@@ -118,10 +118,10 @@ ul {
   margin: 0 auto; 
   width: 100%;
 }
-div.header__columns .spacing-style {
-  max-width: 1247px;
-    margin: 0 auto;
-    width: 100%; 
+.header__columns {
+  max-width: 1247px !important;
+    margin: 0 auto !important;
+    width: 100% !important; 
 }
 /* Phone support section */
 .phone-support {
