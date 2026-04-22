@@ -1,0 +1,358 @@
+<footer class="custom-footer">
+  <div class="custom-footer__inner">
+
+    {% comment %} Left: Logo + Copyright {% endcomment %}
+    <div class="custom-footer__brand">
+      {% if section.settings.logo != blank %}
+        <a href="{{ routes.root_url }}" class="custom-footer__logo-link">
+          <img
+            src="{{ section.settings.logo | image_url: width: 200 }}"
+            alt="{{ section.settings.logo.alt | default: shop.name | escape }}"
+            width="{{ section.settings.logo_width }}"
+            class="custom-footer__logo-img"
+            loading="lazy"
+          >
+        </a>
+      {% else %}
+        <a href="{{ routes.root_url }}" class="custom-footer__logo-text">
+          {{ section.settings.brand_name | default: shop.name }}
+        </a>
+      {% endif %}
+
+      <p class="custom-footer__copyright">
+        {{ section.settings.copyright_text | replace: '[year]', 'now' | date: '%Y' }}
+        {% if section.settings.copyright_text == blank %}
+          &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}
+        {% endif %}
+      </p>
+    </div>
+
+    {% comment %} Center: Badge {% endcomment %}
+    {% if section.settings.badge_image != blank %}
+      <div class="custom-footer__badge">
+        {% if section.settings.badge_link != blank %}
+          <a href="{{ section.settings.badge_link }}" target="_blank" rel="noopener noreferrer">
+            <img
+              src="{{ section.settings.badge_image | image_url: width: 160 }}"
+              alt="{{ section.settings.badge_alt | default: 'Badge' | escape }}"
+              width="{{ section.settings.badge_width }}"
+              class="custom-footer__badge-img"
+              loading="lazy"
+            >
+          </a>
+        {% else %}
+          <img
+            src="{{ section.settings.badge_image | image_url: width: 160 }}"
+            alt="{{ section.settings.badge_alt | default: 'Badge' | escape }}"
+            width="{{ section.settings.badge_width }}"
+            class="custom-footer__badge-img"
+            loading="lazy"
+          >
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% comment %} Right: Contact Info {% endcomment %}
+    <div class="custom-footer__contact">
+      {% if section.settings.contact_heading != blank %}
+        <p class="custom-footer__contact-heading">{{ section.settings.contact_heading }}</p>
+      {% endif %}
+
+      {% for block in section.blocks %}
+        {% if block.type == 'contact_line' %}
+          <p class="custom-footer__contact-line" {{ block.shopify_attributes }}>
+            {% if block.settings.line_icon != blank %}
+              <span class="custom-footer__contact-icon">{{ block.settings.line_icon }}</span>
+            {% endif %}
+            {{ block.settings.line_text }}
+          </p>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .custom-footer {
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    width: 100%;
+  }
+
+  .custom-footer__inner {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  /* Brand */
+  .custom-footer__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 160px;
+  }
+
+  .custom-footer__logo-link {
+    display: inline-block;
+  }
+
+  .custom-footer__logo-img {
+    display: block;
+    height: auto;
+  }
+
+  .custom-footer__logo-text {
+    color: {{ section.settings.text_color }};
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+
+  .custom-footer__copyright {
+    color: {{ section.settings.text_color }};
+    font-size: 13px;
+    margin: 0;
+    opacity: 0.75;
+  }
+
+  /* Badge */
+  .custom-footer__badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .custom-footer__badge-img {
+    display: block;
+    height: auto;
+  }
+
+  /* Contact */
+  .custom-footer__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 200px;
+  }
+
+  .custom-footer__contact-heading {
+    color: {{ section.settings.text_color }};
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+  }
+
+  .custom-footer__contact-line {
+    color: {{ section.settings.text_color }};
+    font-size: 13px;
+    margin: 0;
+    line-height: 1.5;
+    opacity: 0.9;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .custom-footer__contact-icon {
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .custom-footer__inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .custom-footer__badge {
+      justify-content: flex-start;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom Footer",
+  "tag": "section",
+  "class": "custom-footer-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Brand / Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Logo width",
+      "min": 60,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 140
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand name (agar logo nahi)",
+      "default": "WeightRx"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright text",
+      "info": "Saal automatic aayega. Example: © [year] WeightRx",
+      "default": "© 2026 WeightRx"
+    },
+    {
+      "type": "header",
+      "content": "Badge (LegitScript etc.)"
+    },
+    {
+      "type": "image_picker",
+      "id": "badge_image",
+      "label": "Badge image"
+    },
+    {
+      "type": "range",
+      "id": "badge_width",
+      "label": "Badge width",
+      "min": 40,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 90
+    },
+    {
+      "type": "text",
+      "id": "badge_alt",
+      "label": "Badge alt text",
+      "default": "LegitScript Certified"
+    },
+    {
+      "type": "url",
+      "id": "badge_link",
+      "label": "Badge link (optional)"
+    },
+    {
+      "type": "header",
+      "content": "Contact Section"
+    },
+    {
+      "type": "text",
+      "id": "contact_heading",
+      "label": "Contact heading",
+      "default": "Contact Care Team"
+    },
+    {
+      "type": "header",
+      "content": "Colors & Style"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#1a237e"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "number",
+      "id": "max_width",
+      "label": "Max width (px)",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "contact_line",
+      "name": "Contact line",
+      "settings": [
+        {
+          "type": "text",
+          "id": "line_icon",
+          "label": "Icon / Emoji (optional)",
+          "info": "Example: 📞 or ✉️",
+        },
+        {
+          "type": "text",
+          "id": "line_text",
+          "label": "Line text",
+          "default": "Phone Number: +1 (866) 286-4886"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Footer",
+      "blocks": [
+        {
+          "type": "contact_line",
+          "settings": {
+            "line_text": "Phone Number: +1 (866) 286-4886"
+          }
+        },
+        {
+          "type": "contact_line",
+          "settings": {
+            "line_text": "Email: support@weightrx.com"
+          }
+        },
+        {
+          "type": "contact_line",
+          "settings": {
+            "line_text": "WeightRx, Inc 169 Madison Ave STE 38335 New York, New York 10016"
+          }
+        },
+        {
+          "type": "contact_line",
+          "settings": {
+            "line_text": "Monday to Sunday, 8:00am – 8:00pm (Eastern Time Zone)"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
