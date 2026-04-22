@@ -69,8 +69,9 @@
         {{- section.settings.custom_button_1_label -}}
       </a>
       <a class="quiz-btn desktop-quiz-btn js-quiz-link" href="{{ section.settings.custom_button_2_url }}">
-        {{ section.settings.custom_button_2_label }} {%- render 'icon', icon: 'caret' -%}
-        {% comment %} <svg
+        {{ section.settings.custom_button_2_label }} 
+        {% comment %} {%- render 'icon', icon: 'caret' -%} {% endcomment %}
+        <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -83,7 +84,7 @@
         >
           <path d="M5 12h14"></path>
           <path d="m12 5 7 7-7 7"></path>
-        </svg> {% endcomment %}
+        </svg> 
       </a>
     </div>
   {% endif %}
