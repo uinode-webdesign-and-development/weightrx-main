@@ -10,8 +10,10 @@
 {
   "current": {
     "logo": "shopify://shop_images/WeightRx_Blue_Logo_SVG.svg",
+    "logo_inverse": "shopify://shop_images/footer-logo.svg",
     "logo_height": 41,
     "logo_height_mobile": 41,
+    "favicon": "shopify://shop_images/favicon.svg",
     "type_body_font": "inter_n4",
     "type_subheading_font": "inter_n5",
     "type_heading_font": "inter_n7",
