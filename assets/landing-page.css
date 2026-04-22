@@ -2201,6 +2201,9 @@ FAQS
 .landing-hero__mobile-image{
   max-width:288px ;
 }
+.hero-image-section{
+display:none ;
+}
 .landing-hero__content{
   display: flex;
     flex-direction: column;
