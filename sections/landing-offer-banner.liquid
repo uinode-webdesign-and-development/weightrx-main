@@ -1,0 +1,218 @@
+{% case block.settings.icon_type %}
+  {% when 'doctor' %}
+    <svg class="offer-banner__feature-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"></path>
+      <path d="M21 16v2a4 4 0 0 1-4 4h-5"></path>
+    </svg>
+  {% when 'cost' %}
+    <svg class="offer-banner__feature-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path>
+      <path d="M12 18V6"></path>
+    </svg>
+  {% when 'lock' %}
+    <svg class="offer-banner__feature-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path>
+      <path d="m8.5 8.5 7 7"></path>
+    </svg>
+  {% when 'guarantee' %}
+    <svg class="offer-banner__feature-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M4.929 4.929 19.07 19.071"></path>
+      <circle cx="12" cy="12" r="10"></circle>
+    </svg>
+{% endcase %}
+
+<section
+  class="offer-banner"
+  style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="offer-banner__container">
+    <div class="offer-banner__header">
+      <p class="offer-banner__spots">
+        <b class="offer-banner__bold">
+          <span class="offer-banner__counter">{{ section.settings.counter_first }}</span>
+          <span class="offer-banner__counter">{{ section.settings.counter_second }}</span>
+        </b>
+        {{ section.settings.spots_text }}
+      </p>
+      <div class="offer-banner__title-container">
+        <h1 class="offer-banner__title">
+          {{ section.settings.title_prefix }}
+          <span class="offer-banner__highlight">{{ section.settings.title_highlight }}</span>
+          <span>{{ section.settings.title_middle }}</span>
+          <b style="display: inline" class="offer-banner__bold">{{ section.settings.title_bold }}</b>
+        </h1>
+      </div>
+    </div>
+
+    <div class="offer-banner__features">
+      {% for block in section.blocks %}
+        {% if block.type == 'feature' %}
+          <div class="offer-banner__feature-item" {{ block.shopify_attributes }}>
+            <div class="offer-banner__feature-content">
+              <div class="offer-banner__feature-icon-group">
+                {% if block.settings.icon_svg != blank %}
+                  {{ block.settings.icon_svg }}
+                {% endif %}
+                <div class="offer-banner__feature-text">
+                  {{ block.settings.feature_text }}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="offer-banner__cta-section">
+      <p class="offer-banner__press">
+        {{ section.settings.press_text }}
+      </p>
+      <a
+        class="offer-banner__button js-quiz-link"
+        href="{{ section.settings.button_link }}"
+        data-testid="quiz-button"
+      >
+        {{ section.settings.button_label }}
+        <svg class="offer-banner__button-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Offer banner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "counter_first",
+      "label": "Counter first digit",
+      "default": "2"
+    },
+    {
+      "type": "text",
+      "id": "counter_second",
+      "label": "Counter second digit",
+      "default": "5"
+    },
+    {
+      "type": "text",
+      "id": "spots_text",
+      "label": "Spots text",
+      "default": "spots left"
+    },
+    {
+      "type": "text",
+      "id": "title_prefix",
+      "label": "Title prefix",
+      "default": "Secure"
+    },
+    {
+      "type": "text",
+      "id": "title_highlight",
+      "label": "Title highlight",
+      "default": "your"
+    },
+    {
+      "type": "text",
+      "id": "title_middle",
+      "label": "Title middle",
+      "default": "spot"
+    },
+    {
+      "type": "text",
+      "id": "title_bold",
+      "label": "Title bold text",
+      "default": "TODAY!"
+    },
+    {
+      "type": "richtext",
+      "id": "press_text",
+      "label": "Press text",
+      "default": "<p>Recommended by <strong>Forbes, USA Today, and more</strong></p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Get Started Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+  "type": "feature",
+  "name": "Feature item",
+  "settings": [
+    {
+      "type": "select",
+      "id": "icon_type",
+      "label": "Icon type",
+      "default": "doctor",
+      "options": [
+        { "value": "doctor", "label": "Doctor access" },
+        { "value": "cost", "label": "Cost included" },
+        { "value": "lock", "label": "Locked pricing" },
+        { "value": "guarantee", "label": "Guarantee" }
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "feature_text",
+      "label": "Feature text",
+      "default": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
+    }
+  ]
+}
+  ],
+  "presets": [
+    {
+      "name": "Offer banner",
+      "blocks": [
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
