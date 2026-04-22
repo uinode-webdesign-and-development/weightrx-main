@@ -113,9 +113,13 @@
 </section>
 
 {% style %}
-.landing-hero__heading strong {
-  color: #00b676;
-  font-weight: bold;
+.{{ section_id }} .landing-hero__heading {
+  color: {{ section.settings.text_color }}; /* Default Blue color */
+}
+
+.{{ section_id }} .landing-hero__heading strong {
+  color: {{ section.settings.accent_color }}; /* Green color for Bold text */
+  font-weight: inherit; /* Taake sirf color change ho, font extra mota na ho */
 }
 .{{ section_id }} .landing-hero__button {
   display: inline-flex;
@@ -336,7 +340,8 @@
   "tag": "section",
   "class": "section",
   "settings": [
-    { "type": "richtext", "id": "heading", "label": "Heading", "default": "<p><strong>2026 Is Your Year. Start</strong> <strong>Tirzepatide</strong> <strong>for</strong> <strong>$83/mo</strong></p>" },
+{ 
+  "type": "richtext",   "id": "heading",   "label": "Heading",   "default": "<p>2026 Is Your Year. Start Tirzepatide <strong>for $83/mo</strong></p>" },
     { "type": "richtext", "id": "subheading", "label": "Subheading", "default": "<p>Price locked in forever. Ships in 48 hours</p>" },
     { "type": "image_picker", "id": "desktop_image", "label": "Desktop image" },
     { "type": "image_picker", "id": "mobile_image", "label": "Mobile image" },
