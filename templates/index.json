@@ -48,7 +48,7 @@
           "settings": {
             "icon": "shopify://shop_images/feature-5.png",
             "number_text": "",
-            "text": "<p>Payment Plans Available at Checkout<br/><br/></p>"
+            "text": "<p>Payment Plans Available at Checkout<br/></p>"
           }
         }
       },
