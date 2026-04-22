@@ -71,6 +71,23 @@
     </div>
 
   </div>
+
+  {% comment %} Footer Menu Row — sirf tab dikhega jab menu select hoga {% endcomment %}
+  {% if section.settings.footer_menu != blank %}
+    {% assign footer_menu = linklists[section.settings.footer_menu] %}
+    {% if footer_menu.links.size > 0 %}
+      <div class="custom-footer__menu-bar">
+        <ul class="custom-footer__menu-list">
+          {% for link in footer_menu.links %}
+            <li class="custom-footer__menu-item">
+              <a href="{{ link.url }}" class="custom-footer__menu-link">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {% endif %}
+
 </footer>
 
 <style>
@@ -168,6 +185,40 @@
     margin-top: 1px;
   }
 
+  /* ── Footer Menu Bar ── */
+  .custom-footer__menu-bar {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 16px 24px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .custom-footer__menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+  }
+
+  .custom-footer__menu-item {
+    margin: 0;
+  }
+
+  .custom-footer__menu-link {
+    color: {{ section.settings.text_color }};
+    font-size: 13px;
+    text-decoration: none;
+    opacity: 0.75;
+    transition: opacity 0.2s ease;
+  }
+
+  .custom-footer__menu-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
   /* Mobile */
   @media (max-width: 768px) {
     .custom-footer__inner {
@@ -178,6 +229,10 @@
 
     .custom-footer__badge {
       justify-content: flex-start;
+    }
+
+    .custom-footer__menu-list {
+      gap: 8px 16px;
     }
   }
 </style>
@@ -262,6 +317,16 @@
     },
     {
       "type": "header",
+      "content": "Footer Menu"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu",
+      "label": "Footer menu",
+      "info": "Shopify admin > Content > Menus se koi bhi menu select karo"
+    },
+    {
+      "type": "header",
       "content": "Colors & Style"
     },
     {
@@ -312,7 +377,7 @@
           "type": "text",
           "id": "line_icon",
           "label": "Icon / Emoji (optional)",
-          "info": "Example: 📞 or ✉️",
+          "info": "Example: 📞 or ✉️"
         },
         {
           "type": "text",
