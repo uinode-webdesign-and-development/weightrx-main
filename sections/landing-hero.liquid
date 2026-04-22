@@ -2,71 +2,63 @@
   assign section_id = 'landing-hero-' | append: section.id
 %}
 
+
 <section class="{{ section_id }} landing-hero">
-  <div class="landing-hero__page-width page-width">
+  
+  <div class="page-width">
     <div class="custom-main-container">
-    <div class="landing-hero__grid">
-      <div class="landing-hero__content">
-        {% if section.settings.heading != blank %}
-          <h1 class="landing-hero__heading rte">
-            {{ section.settings.heading }}
-          </h1>
-        {% endif %}
+      <div class="landing-hero__grid">
+        
+        <div class="landing-hero__content">
+          {% if section.settings.heading != blank %}
+            <h1 class="landing-hero__heading rte">
+              {{ section.settings.heading }}
+            </h1>
+          {% endif %}
 
-        {% if section.settings.subheading != blank %}
-          <div class="landing-hero__subheading rte">
-            {{ section.settings.subheading }}
-          </div>
-        {% endif %}
+          {% if section.settings.subheading != blank %}
+            <div class="landing-hero__subheading rte">
+              {{ section.settings.subheading }}
+            </div>
+          {% endif %}
 
-        {% if section.settings.mobile_image != blank %}
-          <div class="landing-hero__mobile-image">
-            {{
-              section.settings.mobile_image
-              | image_url: width: 900
-              | image_tag:
-                loading: 'lazy',
-                class: 'landing-hero__image',
-                alt: section.settings.mobile_image.alt
-            }}
-          </div>
-        {% endif %}
+          {% if section.settings.mobile_image != blank %}
+            <div class="landing-hero__mobile-image">
+              {{ section.settings.mobile_image | image_url: width: 900 | image_tag: loading: 'lazy', class: 'landing-hero__image', alt: section.settings.mobile_image.alt }}
+            </div>
+          {% endif %}
 
-        {% if section.blocks.size > 0 %}
-          <div class="landing-hero__features">
-            {% for block in section.blocks %}
-              {% if block.type == 'feature' %}
-                <div class="landing-hero__feature-card" {{ block.shopify_attributes }}>
-                  <div class="landing-hero__feature-inner">
-                    {% if block.settings.icon != blank %}
-                      <div class="landing-hero__feature-icon">
-                        {{
-                          block.settings.icon
-                          | image_url: width: 100
-                          | image_tag:
-                            loading: 'lazy',
-                            alt: block.settings.icon.alt
-                        }}
-                      </div>
-                    {% endif %}
-
-                    {% if block.settings.number_text != blank %}
-                      <div class="landing-hero__feature-number">
-                        {{ block.settings.number_text }}
-                      </div>
-                    {% endif %}
-
-                    {% if block.settings.text != blank %}
-                      <div class="landing-hero__feature-text rte">
-                        {{ block.settings.text }}
-                      </div>
-                    {% endif %}
+          {% if section.blocks.size > 0 %}
+            <div class="landing-hero__features">
+              {% for block in section.blocks %}
+                {% if block.type == 'feature' %}
+                  <div class="landing-hero__feature-card" {{ block.shopify_attributes }}>
+                    <div class="landing-hero__feature-inner">
+                      {% if block.settings.icon != blank %}
+                        <div class="landing-hero__feature-icon">
+                          {{ block.settings.icon | image_url: width: 100 | image_tag: loading: 'lazy', alt: block.settings.icon.alt }}
+                        </div>
+                      {% endif %}
+                      {% if block.settings.number_text != blank %}
+                        <div class="landing-hero__feature-number">{{ block.settings.number_text }}</div>
+                      {% endif %}
+                      {% if block.settings.text != blank %}
+                        <div class="landing-hero__feature-text rte">{{ block.settings.text }}</div>
+                      {% endif %}
+                    </div>
                   </div>
-                </div>
-              {% endif %}
-            {% endfor %}
-          </div>
-        {% endif %}
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+            <div class="landing-hero__cta-wrap">
+              <a class="landing-hero__button button" href="{{ section.settings.button_link }}">
+                {{ section.settings.button_label }}
+              </a>
+            </div>
+          {% endif %}
 
         {% if section.settings.button_label != blank and section.settings.button_link != blank %}
           <div class="landing-hero__cta-wrap">
