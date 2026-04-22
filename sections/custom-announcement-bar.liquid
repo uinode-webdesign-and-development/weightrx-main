@@ -7,10 +7,16 @@
     font-size: {{ section.settings.font_size }}px;
     font-weight: bold;
   }
+  
   .timer-section-{{ section.id }} .timer-display {
     text-decoration: underline;
     margin-left: 5px;
   }
+ @media (max-width: 768px) {
+  .timer-section-{{ section.id }} {
+  padding : 8px 16px;
+  }
+}
 {%- endstyle -%}
 
 <div class="timer-section-{{ section.id }}">
