@@ -52,12 +52,27 @@
           {% endif %}
 
         {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-          <div class="landing-hero__cta-wrap">
-            <a class="landing-hero__button button" href="{{ section.settings.button_link }}">
-              {{ section.settings.button_label }}
-            </a>
-          </div>
-        {% endif %}
+  <div class="landing-hero__cta-wrap">
+    <a class="landing-hero__button button" href="{{ section.settings.button_link }}">
+      
+      {% comment %} Agar image picker se icon select kiya ho {% endcomment %}
+      {% if section.settings.button_icon != blank %}
+        <span class="button-custom-icon">
+          {{ section.settings.button_icon | image_url: width: 40 | image_tag: loading: 'lazy', alt: section.settings.button_icon.alt }}
+        </span>
+      {% endif %}
+
+      {{ section.settings.button_label }}
+
+      {% comment %} Aapka purana Arrow SVG (iske stroke mein yellow color laga diya hai) {% endcomment %}
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#facc15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14"></path>
+        <path d="m12 5 7 7-7 7"></path>
+      </svg>
+
+    </a>
+  </div>
+{% endif %}
 
         {% if section.settings.reviews_title != blank or section.settings.rating_text != blank %}
           <div class="landing-hero__reviews">
