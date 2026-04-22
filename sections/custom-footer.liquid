@@ -56,42 +56,39 @@
       {% endif %}
     </div>
 
-    {% comment %} RIGHT: Contact Info (All items appear here) {% endcomment %}
+    {% comment %} RIGHT: Heading + Contact Info + Menu {% endcomment %}
     <div class="custom-footer__contact">
       {% if section.settings.contact_heading != blank %}
         <p class="custom-footer__contact-heading">{{ section.settings.contact_heading }}</p>
       {% endif %}
 
-      {% for block in section.blocks %}
-        {% if block.type == 'contact_line' %}
-          <div class="custom-footer__contact-line" {{ block.shopify_attributes }}>
-            {% if block.settings.line_icon != blank %}
-              <span class="custom-footer__contact-icon">{{ block.settings.line_icon }}</span>
-            {% endif %}
-            <span>{{ block.settings.line_text }}</span>
+      <div class="custom-footer__info-group">
+        {% for block in section.blocks %}
+          {% if block.type == 'contact_line' %}
+            <div class="custom-footer__contact-line" {{ block.shopify_attributes }}>
+              {% if block.settings.line_icon != blank %}
+                <span class="custom-footer__contact-icon">{{ block.settings.line_icon }}</span>
+              {% endif %}
+              <span>{{ block.settings.line_text }}</span>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      {% comment %} Links are now directly under contact info {% endcomment %}
+      {% if section.settings.footer_menu != blank %}
+        {% assign footer_nav = linklists[section.settings.footer_menu] %}
+        {% if footer_nav.links.size > 0 %}
+          <div class="custom-footer__inline-links">
+            {% for link in footer_nav.links %}
+              <a href="{{ link.url }}" class="custom-footer__link-item">{{ link.title }}</a>
+            {% endfor %}
           </div>
         {% endif %}
-      {% endfor %}
+      {% endif %}
     </div>
 
   </div>
-
-  {% comment %} BOTTOM: Horizontal Footer Menu List (Privacy, Terms etc) - NO DIVIDER {% endcomment %}
-  {% if section.settings.footer_menu != blank %}
-    {% assign footer_nav = linklists[section.settings.footer_menu] %}
-    {% if footer_nav.links.size > 0 %}
-      <div class="custom-footer__menu-bar">
-        <ul class="custom-footer__menu-list">
-          {% for link in footer_nav.links %}
-            <li class="custom-footer__menu-item">
-              <a href="{{ link.url }}" class="custom-footer__menu-link">{{ link.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-    {% endif %}
-  {% endif %}
-
 </footer>
 
 <style>
@@ -107,109 +104,88 @@
     margin: 0 auto;
     padding: 0 24px;
     display: flex;
-    align-items: center; /* Vertically align items */
+    align-items: center; 
     justify-content: space-between;
     gap: 32px;
     flex-wrap: wrap;
   }
 
-  /* ── LEFT: Brand ── */
+  /* ── LEFT ── */
   .custom-footer__brand {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
     flex: 1;
-    min-width: 160px;
+    min-width: 180px;
   }
-
   .custom-footer__logo-img {
     display: block;
     height: auto;
-    width: 100%; /* controlled by max-width inline */
+    margin-bottom: 8px;
   }
-
   .custom-footer__copyright {
     color: {{ section.settings.text_color }};
     font-size: 13px;
     margin: 0;
-    opacity: 0.75;
+    opacity: 0.8;
   }
 
   /* ── CENTER ── */
   .custom-footer__center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     flex: 0 0 auto;
   }
-
-  .custom-footer__badge {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
   .custom-footer__badge-img {
     display: block;
     height: auto;
   }
 
-  /* ── RIGHT: Contact ── */
+  /* ── RIGHT (The main change) ── */
   .custom-footer__contact {
+    flex: 1;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    flex: 1;
-    min-width: 200px;
-    align-items: flex-end;
-    text-align: right;
+    align-items: flex-start; /* Matches the left-aligned text in your screenshot */
+    text-align: left;
   }
 
   .custom-footer__contact-heading {
     color: {{ section.settings.text_color }};
     font-size: 15px;
     font-weight: 700;
-    margin: 0 0 4px;
+    margin: 0 0 10px 0;
+  }
+
+  .custom-footer__info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 12px;
   }
 
   .custom-footer__contact-line {
     color: {{ section.settings.text_color }};
     font-size: 13px;
-    margin: 0;
-    line-height: 1.5;
+    line-height: 1.4;
     opacity: 0.9;
     display: flex;
-    align-items: flex-start;
-    gap: 6px;
-    justify-content: flex-end;
+    gap: 8px;
   }
 
-  /* ── BOTTOM Menu Bar (NO DIVIDER) ── */
-  .custom-footer__menu-bar {
-    max-width: {{ section.settings.max_width }}px;
-    margin: 16px auto 0; /* Add top margin below main section */
-    padding: 16px 24px 0;
-    /* Removed top border divider */
-  }
-
-  .custom-footer__menu-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  /* Inline Menu Links */
+  .custom-footer__inline-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px 24px; /* Gap between horizontal items */
+    gap: 15px;
+    margin-top: 5px;
   }
 
-  .custom-footer__menu-link {
+  .custom-footer__link-item {
     color: {{ section.settings.text_color }};
-    font-size: 13px;
+    font-size: 12px;
     text-decoration: none;
-    opacity: 0.75;
-    transition: opacity 0.2s ease;
+    opacity: 0.7;
+    transition: opacity 0.2s;
   }
 
-  .custom-footer__menu-link:hover {
+  .custom-footer__link-item:hover {
     opacity: 1;
     text-decoration: underline;
   }
@@ -217,21 +193,15 @@
   @media (max-width: 768px) {
     .custom-footer__inner {
       flex-direction: column;
-      align-items: flex-start;
-      gap: 24px;
+      text-align: center;
+      align-items: center;
     }
     .custom-footer__contact {
-      align-items: flex-start;
-      text-align: left;
+      align-items: center;
+      text-align: center;
     }
-    .custom-footer__contact-line {
-      justify-content: flex-start;
-    }
-    .custom-footer__center {
-        justify-content: flex-start;
-    }
-     .custom-footer__menu-list {
-        gap: 8px 16px;
+    .custom-footer__inline-links {
+      justify-content: center;
     }
   }
 </style>
@@ -269,7 +239,7 @@
     },
     {
       "type": "header",
-      "content": "Center Image (e.g., Badge)"
+      "content": "Center Badge"
     },
     {
       "type": "image_picker",
@@ -284,18 +254,16 @@
       "max": 200,
       "step": 10,
       "unit": "px",
-      "default": 90
-    },
-    {
-      "type": "text",
-      "id": "center_image_alt",
-      "label": "Image alt text",
-      "default": "Certified Badge"
+      "default": 80
     },
     {
       "type": "url",
       "id": "center_image_link",
-      "label": "Image link (optional)"
+      "label": "Image link"
+    },
+    {
+      "type": "header",
+      "content": "Right Column"
     },
     {
       "type": "text",
@@ -306,8 +274,12 @@
     {
       "type": "link_list",
       "id": "footer_menu",
-      "label": "Bottom Horizontal Menu",
-      "info": "Select menu for Privacy, Terms etc."
+      "label": "Menu (Privacy, Terms etc.)",
+      "info": "Ye links contact details ke niche show honge"
+    },
+    {
+      "type": "header",
+      "content": "Style"
     },
     {
       "type": "color",
