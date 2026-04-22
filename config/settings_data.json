@@ -634,5 +634,10 @@
         }
       }
     }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      ".section {--full-page-grid-margin: 0 }"
+    ]
   }
 }
