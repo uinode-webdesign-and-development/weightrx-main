@@ -118,7 +118,11 @@ ul {
   margin: 0 auto; 
   width: 100%;
 }
-
+.header__columns{
+  max-width: 1270px;
+    margin: 0 auto;
+    width: 100%;
+}
 /* Phone support section */
 .phone-support {
   display: flex;
