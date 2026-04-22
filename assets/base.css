@@ -719,7 +719,7 @@ body,
   font-size: var(--font-paragraph--size);
   line-height: var(--font-paragraph--line-height);
   text-transform: var(--font-paragraph--case);
-  -webkit-font-smoothing: antialiased;
+  /* -webkit-font-smoothing: antialiased; */
   color: var(--color, var(--color-foreground));
 }
 
