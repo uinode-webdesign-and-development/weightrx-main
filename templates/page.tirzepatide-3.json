@@ -33,22 +33,25 @@
         "feature_3wAh9Q": {
           "type": "feature",
           "settings": {
-            "number_text": "200,000+",
-            "text": "<p>Patients trusted.</p>"
+            "icon": "shopify://shop_images/feature-2.png",
+            "number_text": "",
+            "text": "<p>Save <strong>THOUSANDS </strong>per year in medication costs</p>"
           }
         },
         "feature_64JiGn": {
           "type": "feature",
           "settings": {
-            "number_text": "200,000+",
-            "text": "<p>Patients trusted.</p>"
+            "icon": "shopify://shop_images/feature-3.png",
+            "number_text": "",
+            "text": "<p>3 Months Of High Dose Fees WAIVED ($99/mo)</p>"
           }
         },
         "feature_DGVzPF": {
           "type": "feature",
           "settings": {
-            "number_text": "200,000+",
-            "text": "<p>Patients trusted.</p>"
+            "icon": "shopify://shop_images/feature-4.png",
+            "number_text": "",
+            "text": "<p>55% More EffectiveThan Semaglutide</p>"
           }
         }
       },
