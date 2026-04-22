@@ -43,6 +43,7 @@
     "block_size": "Block size",
     // Header action button settings in theme editor
     "actions": "Header action buttons",
+    "custom_buttons": "Header custom buttons",
     // Typography setting for body text size
     "body_size": "Body size",
     "borders": "Borders",
