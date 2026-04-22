@@ -255,12 +255,123 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "landing_offer_banner_eYtqfQ": {
+      "type": "landing-offer-banner",
+      "blocks": {
+        "feature_e4HPDT": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "doctor",
+            "feature_text": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
+          }
+        },
+        "feature_FtJU8C": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "doctor",
+            "feature_text": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
+          }
+        },
+        "feature_NX8YfF": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "doctor",
+            "feature_text": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
+          }
+        },
+        "feature_AUj4aP": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "doctor",
+            "feature_text": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_e4HPDT",
+        "feature_FtJU8C",
+        "feature_NX8YfF",
+        "feature_AUj4aP"
+      ],
+      "name": "Offer banner",
+      "settings": {
+        "counter_first": "2",
+        "counter_second": "5",
+        "spots_text": "spots left",
+        "title_prefix": "Secure",
+        "title_highlight": "your",
+        "title_middle": "spot",
+        "title_bold": "TODAY!",
+        "press_text": "<p>Recommended by <strong>Forbes, USA Today, and more</strong></p>",
+        "button_label": "Get Started Now",
+        "button_link": "",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "landing_faq_section_eGA4jH": {
+      "type": "landing-faq-section",
+      "blocks": {
+        "faq_item_FXdPej": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's included with WeightRx?",
+            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
+          }
+        },
+        "faq_item_W4Vxt4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's included with WeightRx?",
+            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
+          }
+        },
+        "faq_item_Rrypqz": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's included with WeightRx?",
+            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
+          }
+        },
+        "faq_item_K3hxYQ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's included with WeightRx?",
+            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
+          }
+        },
+        "faq_item_JLYPXz": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's included with WeightRx?",
+            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_FXdPej",
+        "faq_item_W4Vxt4",
+        "faq_item_Rrypqz",
+        "faq_item_K3hxYQ",
+        "faq_item_JLYPXz"
+      ],
+      "name": "FAQ section",
+      "settings": {
+        "section_id": "faq",
+        "title": "Frequently Asked Questions",
+        "disclaimer": "<p>*The assessment made available on the WeightRx website does not create a clinician-patient relationship between the individual completing the assessment and WeightRx.</p><p>All claims and benefits on this website refer to self-reported data from WeightRx members on a treatment plan that includes compounded GLP-1 medications and consultations with medical professionals.</p><p>We encourage all prospective users of compounded medications to speak with their clinician about the specific risks and benefits that may come with the use of compounded medication.</p>",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
     "main",
     "landing_hero_iXWFMc",
     "landing_testimonials_section_4JgYfm",
-    "landing_customer_feedback_Gxham3"
+    "landing_customer_feedback_Gxham3",
+    "landing_offer_banner_eYtqfQ",
+    "landing_faq_section_eGA4jH"
   ]
 }
