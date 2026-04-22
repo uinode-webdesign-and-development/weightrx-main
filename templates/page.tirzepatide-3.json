@@ -183,6 +183,7 @@
             "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
             "show_read_more": true,
             "read_more_label": "Read More",
+            "author_avatar": "shopify://shop_images/customer1.png",
             "author_name": "Hayley N.",
             "verified_label": "Verified Member"
           }
@@ -191,11 +192,12 @@
           "type": "feedback",
           "settings": {
             "rating_label": "5 out of 5 stars",
-            "quote_title": "WeightRx helped me achieve my goal!",
-            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
+            "quote_title": "WeightRx was miraculous!",
+            "quote_text": "From start to finish, customer service representatives made the entire process simple. The doctors I interacted with were friendly and concerned about my goals and concerns. I was able to quickly and safely meet my goal weight with the support I received. My meds were delivered promptly and the refill process was uncomplicated. I will definitely return to WeightRx in the future if I need additional assistance. Highly recommend!",
             "show_read_more": true,
             "read_more_label": "Read More",
-            "author_name": "Hayley N.",
+            "author_avatar": "shopify://shop_images/customer3.png",
+            "author_name": "Niko N.",
             "verified_label": "Verified Member"
           }
         },
