@@ -44,10 +44,10 @@
       }
 
       document.getElementById("countdown-{{ section.id }}").innerText = 
-        Math.floor(distance / (day)) + "d " +
-        Math.floor((distance % (day)) / (hour)) + "h " +
-        Math.floor((distance % (hour)) / (minute)) + "m " +
-        Math.floor((distance % (minute)) / second) + "s";
+        Math.floor(distance / (day)) + "Days " +
+        Math.floor((distance % (day)) / (hour)) + "Hours " +
+        Math.floor((distance % (hour)) / (minute)) + "mins " +
+        Math.floor((distance % (minute)) / second) + "secs";
         
     }, 1000);
   }());
