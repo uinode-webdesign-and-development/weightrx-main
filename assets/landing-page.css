@@ -121,7 +121,7 @@ ul {
 .header__columns{
   max-width: 1247px;
     margin: 0 auto;
-    width: 100%;
+    width: 100%; 
 }
 /* Phone support section */
 .phone-support {
