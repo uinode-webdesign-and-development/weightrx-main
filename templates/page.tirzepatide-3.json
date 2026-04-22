@@ -417,11 +417,11 @@
         "center_image_link": "",
         "contact_heading": "Contact Care Team",
         "footer_menu": "footer",
-        "bg_color": "#1A237E",
+        "bg_color": "#062089",
         "text_color": "#FFFFFF",
         "max_width": 1200,
-        "padding_top": 40,
-        "padding_bottom": 40
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },
