@@ -1,0 +1,134 @@
+<section
+  class="faq-section"
+  id="{{ section.settings.section_id }}"
+  style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="faq-section__container">
+    <div class="faq-section__grid">
+      <div class="faq-section__header">
+        <h1 class="faq-section__title">{{ section.settings.title }}</h1>
+      </div>
+      <div class="faq-section__content">
+        <div class="faq-section__accordion">
+          {% for block in section.blocks %}
+            {% if block.type == 'faq_item' %}
+              {% assign faq_index = forloop.index %}
+              <div class="faq-section__item" {{ block.shopify_attributes }}>
+                <div class="faq-section__item-header">
+                  <button
+                    class="faq-section__trigger"
+                    aria-expanded="false"
+                    aria-controls="faq-content-{{ section.id }}-{{ faq_index }}"
+                    id="faq-trigger-{{ section.id }}-{{ faq_index }}"
+                  >
+                    {{ block.settings.question }}
+                    <svg class="faq-section__trigger-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                </div>
+                <div
+                  id="faq-content-{{ section.id }}-{{ faq_index }}"
+                  class="faq-section__content-panel"
+                  role="region"
+                  aria-labelledby="faq-trigger-{{ section.id }}-{{ faq_index }}"
+                >
+                  <div class="faq-section__content-text">
+                    <p>{{ block.settings.answer }}</p>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-section__disclaimer">
+      <hr class="faq-section__divider">
+      <p class="faq-section__disclaimer-text">
+        {{ section.settings.disclaimer }}
+      </p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ section",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "default": "faq"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "richtext",
+      "id": "disclaimer",
+      "label": "Disclaimer text",
+      "default": "<p>*The assessment made available on the WeightRx website does not create a clinician-patient relationship between the individual completing the assessment and WeightRx.</p><p>All claims and benefits on this website refer to self-reported data from WeightRx members on a treatment plan that includes compounded GLP-1 medications and consultations with medical professionals.</p><p>We encourage all prospective users of compounded medications to speak with their clinician about the specific risks and benefits that may come with the use of compounded medication.</p>"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What's included with WeightRx?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ section",
+      "blocks": [
+        { "type": "faq_item" },
+        { "type": "faq_item" },
+        { "type": "faq_item" },
+        { "type": "faq_item" },
+        { "type": "faq_item" }
+      ]
+    }
+  ]
+}
+{% endschema %}
