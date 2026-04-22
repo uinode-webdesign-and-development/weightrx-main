@@ -750,7 +750,8 @@
   },
   "settings": {
     // Section header for Custom Data blocks
-    "button_label": "Button label",
+    "button_label_primary": "Primary button label",
+    "button_label_secondary": "Secondary button label",
     "button_url": "Button URL",
     // Block name for collapsible content sections in the theme editor
     "accordion": "Accordion",
