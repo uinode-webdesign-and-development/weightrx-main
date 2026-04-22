@@ -1,6 +1,7 @@
 {% comment %} Build background image styles {% endcomment %}
 {% assign bg_styles = '' %}
 {% if section.settings.background_image != blank %}
+  {% assign bg_image_url = section.settings.background_image | image_url: width: 1920 %}
   {% assign bg_styles = 'background-image: url(' | append: bg_image_url | append: ');' %}
 {% endif %}
 
@@ -10,8 +11,12 @@
   }
 {% endstyle %}
 
+
 <section
   class="offer-banner{% if section.settings.background_image != blank %} offer-banner--has-bg{% endif %}"
+  style="
+    
+  "
 >
   {% comment %} Overlay layer {% endcomment %}
   {% if section.settings.background_image != blank and section.settings.show_overlay %}
@@ -53,6 +58,7 @@
           <div class="offer-banner__feature-item" {{ block.shopify_attributes }}>
             <div class="offer-banner__feature-content">
               <div class="offer-banner__feature-icon-group">
+
                 {% comment %} Icon: image_picker se upload ki hui image (SVG/PNG) {% endcomment %}
                 {% if block.settings.icon_image != blank %}
                   <div class="offer-banner__feature-icon-wrap">
@@ -71,6 +77,7 @@
                 <div class="offer-banner__feature-text">
                   {{ block.settings.feature_text }}
                 </div>
+
               </div>
             </div>
           </div>
@@ -88,19 +95,7 @@
         data-testid="quiz-button"
       >
         {{ section.settings.button_label }}
-        <svg
-          class="offer-banner__button-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
+        <svg class="offer-banner__button-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M5 12h14"></path>
           <path d="m12 5 7 7-7 7"></path>
         </svg>
@@ -278,7 +273,12 @@
   "presets": [
     {
       "name": "Offer banner",
-      "blocks": [{ "type": "feature" }, { "type": "feature" }, { "type": "feature" }, { "type": "feature" }]
+      "blocks": [
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" }
+      ]
     }
   ]
 }
