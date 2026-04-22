@@ -9,231 +9,10 @@
  */
 {
   "sections": {
-    "landing_hero_88k89W": {
-      "type": "landing-hero",
-      "blocks": {
-        "feature_CwDUTt": {
-          "type": "feature",
-          "settings": {
-            "number_text": "200,000+",
-            "text": "<p>Patients trusted.</p>"
-          }
-        },
-        "feature_FLqCqm": {
-          "type": "feature",
-          "settings": {
-            "icon": "shopify://shop_images/feature-2.png",
-            "number_text": "",
-            "text": "<p>Save<strong>THOUSANDS</strong>per year in medication costs<br/></p>"
-          }
-        },
-        "feature_WPyaGd": {
-          "type": "feature",
-          "settings": {
-            "icon": "shopify://shop_images/feature-3.png",
-            "number_text": "",
-            "text": "<p>3 Months Of High Dose Fees WAIVED ($99/mo)<br/></p>"
-          }
-        },
-        "feature_FrUcWr": {
-          "type": "feature",
-          "settings": {
-            "icon": "shopify://shop_images/feature-4.png",
-            "number_text": "",
-            "text": "<p>55% More EffectiveThan Semaglutide</p>"
-          }
-        },
-        "feature_Tdt8jF": {
-          "type": "feature",
-          "settings": {
-            "icon": "shopify://shop_images/feature-5.png",
-            "number_text": "",
-            "text": "<p>Payment Plans Available at Checkout<br/></p>"
-          }
-        }
-      },
-      "block_order": [
-        "feature_CwDUTt",
-        "feature_FLqCqm",
-        "feature_WPyaGd",
-        "feature_FrUcWr",
-        "feature_Tdt8jF"
-      ],
-      "name": "Landing hero",
-      "settings": {
-        "heading": "<p>2026 Is Your Year. Start <strong>Tirzepatide </strong>for <strong>$83/mo</strong></p>",
-        "subheading": "<p>Price locked in forever. Ships in 48 hours</p>",
-        "desktop_image": "shopify://shop_images/tirz_vial_2.png",
-        "mobile_image": "shopify://shop_images/tirz_vial_2.png",
-        "button_label": "Start Your Weight Loss Journey",
-        "button_link": "https://results.weightrx.com/start.html",
-        "button_icon": "shopify://shop_images/svgviewer-output.svg",
-        "reviews_title": "Over 1,000+ reviews",
-        "show_stars": true,
-        "rating_label": "",
-        "rating_number": "4.7",
-        "rating_text": "4.7 out of 5 stars",
-        "disclaimer": "<p>WeightRx offers compounded GLP-1s exclusively from U.S. pharmacies. While these pharmacies are regulated, the FDA has not evaluated the medications for safety, quality, or efficacy.</p>",
-        "background_color": "#ddecfd",
-        "text_color": "#062088",
-        "accent_color": "#00b676",
-        "card_background": "#f7f8fb",
-        "star_color": "#00b67a",
-        "card_radius": 6,
-        "padding_top": 48,
-        "padding_bottom": 48
-      }
-    },
-    "landing_customer_feedback_9TngNq": {
-      "type": "landing-customer-feedback",
-      "blocks": {
-        "feedback_jXBGwM": {
-          "type": "feedback",
-          "settings": {
-            "rating_label": "5 out of 5 stars",
-            "quote_title": "WeightRx helped me achieve my goal!",
-            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
-            "show_read_more": true,
-            "read_more_label": "Read More",
-            "author_name": "Hayley N.",
-            "verified_label": "Verified Member"
-          }
-        },
-        "feedback_RNTnyg": {
-          "type": "feedback",
-          "settings": {
-            "rating_label": "5 out of 5 stars",
-            "quote_title": "WeightRx helped me achieve my goal!",
-            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
-            "show_read_more": true,
-            "read_more_label": "Read More",
-            "author_name": "Hayley N.",
-            "verified_label": "Verified Member"
-          }
-        },
-        "feedback_hHHCRf": {
-          "type": "feedback",
-          "settings": {
-            "rating_label": "5 out of 5 stars",
-            "quote_title": "WeightRx helped me achieve my goal!",
-            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
-            "show_read_more": true,
-            "read_more_label": "Read More",
-            "author_name": "Hayley N.",
-            "verified_label": "Verified Member"
-          }
-        },
-        "feedback_whGd9W": {
-          "type": "feedback",
-          "settings": {
-            "rating_label": "5 out of 5 stars",
-            "quote_title": "WeightRx helped me achieve my goal!",
-            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
-            "show_read_more": true,
-            "read_more_label": "Read More",
-            "author_name": "Hayley N.",
-            "verified_label": "Verified Member"
-          }
-        },
-        "feedback_D7YPxj": {
-          "type": "feedback",
-          "settings": {
-            "rating_label": "5 out of 5 stars",
-            "quote_title": "WeightRx helped me achieve my goal!",
-            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
-            "show_read_more": true,
-            "read_more_label": "Read More",
-            "author_name": "Hayley N.",
-            "verified_label": "Verified Member"
-          }
-        },
-        "feedback_PxL8Cb": {
-          "type": "feedback",
-          "settings": {
-            "rating_label": "5 out of 5 stars",
-            "quote_title": "WeightRx helped me achieve my goal!",
-            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
-            "show_read_more": true,
-            "read_more_label": "Read More",
-            "author_name": "Hayley N.",
-            "verified_label": "Verified Member"
-          }
-        }
-      },
-      "block_order": [
-        "feedback_jXBGwM",
-        "feedback_RNTnyg",
-        "feedback_hHHCRf",
-        "feedback_whGd9W",
-        "feedback_D7YPxj",
-        "feedback_PxL8Cb"
-      ],
-      "name": "Customer feedback",
-      "settings": {
-        "heading_line_1": "Real Stories.",
-        "heading_highlight": "Real Results.",
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
-    "landing_offer_banner_aLx4Wr": {
-      "type": "landing-offer-banner",
-      "blocks": {
-        "feature_qaG6j9": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "doctor",
-            "feature_text": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
-          }
-        },
-        "feature_UwiDFU": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "doctor",
-            "feature_text": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
-          }
-        },
-        "feature_apAe7d": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "doctor",
-            "feature_text": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
-          }
-        },
-        "feature_jUEGpC": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "doctor",
-            "feature_text": "<p><strong>UNLIMITED</strong> doctor access &amp; lab reviews</p>"
-          }
-        }
-      },
-      "block_order": [
-        "feature_qaG6j9",
-        "feature_UwiDFU",
-        "feature_apAe7d",
-        "feature_jUEGpC"
-      ],
-      "name": "Offer banner",
-      "settings": {
-        "counter_first": "2",
-        "counter_second": "5",
-        "spots_text": "spots left",
-        "title_prefix": "Secure",
-        "title_highlight": "your",
-        "title_middle": "spot",
-        "title_bold": "TODAY!",
-        "press_text": "<p>Recommended by <strong>Forbes, USA Today, and more</strong></p>",
-        "button_label": "Get Started Now",
-        "button_link": "",
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
-    "landing_testimonials_section_8VemdJ": {
+    "landing_testimonials_section_NJiafM": {
       "type": "landing-testimonials-section",
       "blocks": {
-        "testimonial_4B7XBz": {
+        "testimonial_6f3X9E": {
           "type": "testimonial",
           "settings": {
             "name": "Tim B.",
@@ -241,7 +20,7 @@
             "badge_text": "Verified WeightRx Member"
           }
         },
-        "testimonial_U38eQm": {
+        "testimonial_rE3VFJ": {
           "type": "testimonial",
           "settings": {
             "name": "Tim B.",
@@ -249,7 +28,7 @@
             "badge_text": "Verified WeightRx Member"
           }
         },
-        "testimonial_tNC8EE": {
+        "testimonial_Afzf3e": {
           "type": "testimonial",
           "settings": {
             "name": "Tim B.",
@@ -257,7 +36,7 @@
             "badge_text": "Verified WeightRx Member"
           }
         },
-        "testimonial_8iknUt": {
+        "testimonial_dBAWCc": {
           "type": "testimonial",
           "settings": {
             "name": "Tim B.",
@@ -265,7 +44,7 @@
             "badge_text": "Verified WeightRx Member"
           }
         },
-        "testimonial_dbEgDJ": {
+        "testimonial_adVCLL": {
           "type": "testimonial",
           "settings": {
             "name": "Tim B.",
@@ -273,7 +52,7 @@
             "badge_text": "Verified WeightRx Member"
           }
         },
-        "testimonial_ERkJcC": {
+        "testimonial_BzDFeC": {
           "type": "testimonial",
           "settings": {
             "name": "Tim B.",
@@ -283,80 +62,129 @@
         }
       },
       "block_order": [
-        "testimonial_4B7XBz",
-        "testimonial_U38eQm",
-        "testimonial_tNC8EE",
-        "testimonial_8iknUt",
-        "testimonial_dbEgDJ",
-        "testimonial_ERkJcC"
+        "testimonial_6f3X9E",
+        "testimonial_rE3VFJ",
+        "testimonial_Afzf3e",
+        "testimonial_dBAWCc",
+        "testimonial_adVCLL",
+        "testimonial_BzDFeC"
       ],
+      "disabled": true,
       "name": "Testimonials section",
       "settings": {
         "highlight_text": "Join 200,000+ members and transform your",
         "heading_text": "health, body and life."
       }
     },
-    "landing_faq_section_AT7HCy": {
-      "type": "landing-faq-section",
+    "hero_HamEMq": {
+      "type": "hero",
       "blocks": {
-        "faq_item_CAFzB8": {
-          "type": "faq_item",
+        "text_HX67bn": {
+          "type": "text",
           "settings": {
-            "question": "What's included with WeightRx?",
-            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
-          }
+            "text": "<h2>New arrivals</h2>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "h1",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         },
-        "faq_item_4MGNaK": {
-          "type": "faq_item",
+        "text_FnVggc": {
+          "type": "text",
           "settings": {
-            "question": "What's included with WeightRx?",
-            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
-          }
+            "text": "<p>Made with care and unconditionally loved by our customers.</p>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 32,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         },
-        "faq_item_9b6ppC": {
-          "type": "faq_item",
+        "button_dm9zDD": {
+          "type": "button",
+          "name": "t:names.button",
           "settings": {
-            "question": "What's included with WeightRx?",
-            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
-          }
-        },
-        "faq_item_6dPLrz": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What's included with WeightRx?",
-            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
-          }
-        },
-        "faq_item_trzfce": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What's included with WeightRx?",
-            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
-          }
+            "label": "Shop now",
+            "link": "shopify://collections/all",
+            "open_in_new_tab": false,
+            "style_class": "button",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "faq_item_CAFzB8",
-        "faq_item_4MGNaK",
-        "faq_item_9b6ppC",
-        "faq_item_6dPLrz",
-        "faq_item_trzfce"
+        "text_HX67bn",
+        "text_FnVggc",
+        "button_dm9zDD"
       ],
-      "name": "FAQ section",
+      "name": "t:names.hero",
       "settings": {
-        "section_id": "faq",
-        "title": "Frequently Asked Questions",
-        "disclaimer": "<p>*The assessment made available on the WeightRx website does not create a clinician-patient relationship between the individual completing the assessment and WeightRx.</p><p>All claims and benefits on this website refer to self-reported data from WeightRx members on a treatment plan that includes compounded GLP-1 medications and consultations with medical professionals.</p><p>We encourage all prospective users of compounded medications to speak with their clinician about the specific risks and benefits that may come with the use of compounded medication.</p>",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "media_type_1": "image",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "section_height": "large",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-5",
+        "toggle_overlay": true,
+        "overlay_color": "#00000026",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 40,
+        "padding-block-end": 40
       }
     }
   },
   "order": [
-    "landing_hero_88k89W",
-    "landing_customer_feedback_9TngNq",
-    "landing_offer_banner_aLx4Wr",
-    "landing_testimonials_section_8VemdJ",
-    "landing_faq_section_AT7HCy"
+    "landing_testimonials_section_NJiafM",
+    "hero_HamEMq"
   ]
 }
