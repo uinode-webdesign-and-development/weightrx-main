@@ -24,7 +24,7 @@
           "settings": {
             "icon": "shopify://shop_images/feature-2.png",
             "number_text": "",
-            "text": "<p>Save<strong>THOUSANDS</strong>per year in medication costs<br/><br/></p>"
+            "text": "<p>Save<strong>THOUSANDS</strong>per year in medication costs<br/></p>"
           }
         },
         "feature_WPyaGd": {
@@ -32,7 +32,7 @@
           "settings": {
             "icon": "shopify://shop_images/feature-3.png",
             "number_text": "",
-            "text": "<p>3 Months Of High Dose Fees WAIVED ($99/mo)<br/><br/></p>"
+            "text": "<p>3 Months Of High Dose Fees WAIVED ($99/mo)<br/></p>"
           }
         },
         "feature_FrUcWr": {
@@ -40,7 +40,7 @@
           "settings": {
             "icon": "shopify://shop_images/feature-4.png",
             "number_text": "",
-            "text": "<p>55% More EffectiveThan Semaglutide<br/><br/></p>"
+            "text": "<p>55% More EffectiveThan Semaglutide</p>"
           }
         },
         "feature_Tdt8jF": {
@@ -48,7 +48,7 @@
           "settings": {
             "icon": "shopify://shop_images/feature-5.png",
             "number_text": "",
-            "text": "<p>Payment Plans Available at Checkout<br/><br/></p>"
+            "text": "<p>Payment Plans Available at Checkout<br/></p>"
           }
         }
       },
