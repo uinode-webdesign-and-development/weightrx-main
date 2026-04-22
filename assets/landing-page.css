@@ -2588,3 +2588,14 @@ FAQS
   height: 79px;
   flex-shrink: 0;
 }
+.landing-hero__stars {
+    display: flex;
+    gap: 4px; /* Stars ke darmiyan gap */
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  .landing-hero__star-svg {
+    width: 20px;  /* Aap size yahan se chota bara kar sakte hain */
+    height: 20px;
+    display: block;
+  }
