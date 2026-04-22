@@ -2196,6 +2196,11 @@ FAQS
     max-width: 448px;
   }
 }
+@media (max-width: 768px) {
+.landing-hero__mobile-image{
+  max-width:288px ;
+}
+}
 @media (min-width: 768px) {
   .mobile-phone-support {
     display: none;
