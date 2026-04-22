@@ -161,336 +161,6 @@
         "padding_bottom": 80
       }
     },
-    "hero_jVaWmY": {
-      "type": "hero",
-      "blocks": {
-        "text_YLPk4p": {
-          "type": "text",
-          "name": "t:names.heading",
-          "settings": {
-            "text": "<p>Browse our latest products</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "button_H9gpTf": {
-          "type": "button",
-          "name": "t:names.button",
-          "settings": {
-            "label": "Shop all",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button-secondary",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
-      ],
-      "name": "t:names.hero",
-      "settings": {
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "link": "",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-end",
-        "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-6",
-        "toggle_overlay": true,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
-        "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
-      }
-    },
-    "product_list_fa6P9H": {
-      "type": "product-list",
-      "blocks": {
-        "static-header": {
-          "type": "_product-list-content",
-          "name": "t:names.header",
-          "static": true,
-          "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "flex-end",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_list_text_YFtzcL": {
-              "type": "_product-list-text",
-              "name": "t:names.collection_title",
-              "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_list_button_MWeP9V": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
-              "settings": {
-                "label": "View all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
-          ]
-        },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
-          "settings": {
-            "product_card_gap": 4,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_card_gallery_677WP3": {
-              "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
-              "settings": {
-                "image_ratio": "adapt",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_title_YXxMTj": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "price_JQzVV4": {
-              "type": "price",
-              "name": "t:names.product_price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "color": "var(--color-foreground)",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_card_gallery_677WP3",
-            "product_title_YXxMTj",
-            "price_JQzVV4"
-          ]
-        }
-      },
-      "name": "Featured collection",
-      "settings": {
-        "collection": "all",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 8,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 28,
-        "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
-      }
-    },
-    "landing_faq_section_cnjqM8": {
-      "type": "landing-faq-section",
-      "blocks": {
-        "faq_item_a9JQtD": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What's included with WeightRx?",
-            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
-          }
-        },
-        "faq_item_Qhgn7X": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What's included with WeightRx?",
-            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
-          }
-        },
-        "faq_item_Li8JgG": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What's included with WeightRx?",
-            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
-          }
-        },
-        "faq_item_HFQFec": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What's included with WeightRx?",
-            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
-          }
-        },
-        "faq_item_h3Tixh": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What's included with WeightRx?",
-            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
-          }
-        }
-      },
-      "block_order": [
-        "faq_item_a9JQtD",
-        "faq_item_Qhgn7X",
-        "faq_item_Li8JgG",
-        "faq_item_HFQFec",
-        "faq_item_h3Tixh"
-      ],
-      "name": "FAQ section",
-      "settings": {
-        "section_id": "faq",
-        "title": "Frequently Asked Questions",
-        "disclaimer": "<p>*The assessment made available on the WeightRx website does not create a clinician-patient relationship between the individual completing the assessment and WeightRx.</p><p>All claims and benefits on this website refer to self-reported data from WeightRx members on a treatment plan that includes compounded GLP-1 medications and consultations with medical professionals.</p><p>We encourage all prospective users of compounded medications to speak with their clinician about the specific risks and benefits that may come with the use of compounded medication.</p>",
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
     "landing_offer_banner_aLx4Wr": {
       "type": "landing-offer-banner",
       "blocks": {
@@ -544,14 +214,134 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "landing_testimonials_section_8VemdJ": {
+      "type": "landing-testimonials-section",
+      "blocks": {
+        "testimonial_4B7XBz": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Tim B.",
+            "weight_text": "40 lbs lost",
+            "badge_text": "Verified WeightRx Member"
+          }
+        },
+        "testimonial_U38eQm": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Tim B.",
+            "weight_text": "40 lbs lost",
+            "badge_text": "Verified WeightRx Member"
+          }
+        },
+        "testimonial_tNC8EE": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Tim B.",
+            "weight_text": "40 lbs lost",
+            "badge_text": "Verified WeightRx Member"
+          }
+        },
+        "testimonial_8iknUt": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Tim B.",
+            "weight_text": "40 lbs lost",
+            "badge_text": "Verified WeightRx Member"
+          }
+        },
+        "testimonial_dbEgDJ": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Tim B.",
+            "weight_text": "40 lbs lost",
+            "badge_text": "Verified WeightRx Member"
+          }
+        },
+        "testimonial_ERkJcC": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Tim B.",
+            "weight_text": "40 lbs lost",
+            "badge_text": "Verified WeightRx Member"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_4B7XBz",
+        "testimonial_U38eQm",
+        "testimonial_tNC8EE",
+        "testimonial_8iknUt",
+        "testimonial_dbEgDJ",
+        "testimonial_ERkJcC"
+      ],
+      "name": "Testimonials section",
+      "settings": {
+        "highlight_text": "Join 200,000+ members and transform your",
+        "heading_text": "health, body and life."
+      }
+    },
+    "landing_faq_section_AT7HCy": {
+      "type": "landing-faq-section",
+      "blocks": {
+        "faq_item_CAFzB8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's included with WeightRx?",
+            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
+          }
+        },
+        "faq_item_4MGNaK": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's included with WeightRx?",
+            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
+          }
+        },
+        "faq_item_9b6ppC": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's included with WeightRx?",
+            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
+          }
+        },
+        "faq_item_6dPLrz": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's included with WeightRx?",
+            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
+          }
+        },
+        "faq_item_trzfce": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's included with WeightRx?",
+            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_CAFzB8",
+        "faq_item_4MGNaK",
+        "faq_item_9b6ppC",
+        "faq_item_6dPLrz",
+        "faq_item_trzfce"
+      ],
+      "name": "FAQ section",
+      "settings": {
+        "section_id": "faq",
+        "title": "Frequently Asked Questions",
+        "disclaimer": "<p>*The assessment made available on the WeightRx website does not create a clinician-patient relationship between the individual completing the assessment and WeightRx.</p><p>All claims and benefits on this website refer to self-reported data from WeightRx members on a treatment plan that includes compounded GLP-1 medications and consultations with medical professionals.</p><p>We encourage all prospective users of compounded medications to speak with their clinician about the specific risks and benefits that may come with the use of compounded medication.</p>",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
     "landing_hero_88k89W",
     "landing_customer_feedback_9TngNq",
-    "hero_jVaWmY",
-    "product_list_fa6P9H",
-    "landing_faq_section_cnjqM8",
-    "landing_offer_banner_aLx4Wr"
+    "landing_offer_banner_aLx4Wr",
+    "landing_testimonials_section_8VemdJ",
+    "landing_faq_section_AT7HCy"
   ]
 }
