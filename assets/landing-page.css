@@ -2196,7 +2196,11 @@ FAQS
     max-width: 448px;
   }
 }
-
+@media (max-width: 768px) {
+.custom-main-container{
+  padding : 0px 16px ;
+}
+}
 @media (min-width: 768px) {
   .mobile-phone-support {
     display: none;
