@@ -22,22 +22,33 @@
         "feature_FLqCqm": {
           "type": "feature",
           "settings": {
+            "icon": "shopify://shop_images/feature-2.png",
             "number_text": "200,000+",
-            "text": "<p>Patients trusted.</p>"
+            "text": "<p>Save<strong>THOUSANDS</strong>per year in medication costs<br/><br/></p>"
           }
         },
         "feature_WPyaGd": {
           "type": "feature",
           "settings": {
+            "icon": "shopify://shop_images/feature-3.png",
             "number_text": "200,000+",
-            "text": "<p>Patients trusted.</p>"
+            "text": "<p>3 Months Of High Dose Fees WAIVED ($99/mo)<br/><br/></p>"
           }
         },
         "feature_FrUcWr": {
           "type": "feature",
           "settings": {
+            "icon": "shopify://shop_images/feature-4.png",
             "number_text": "200,000+",
-            "text": "<p>Patients trusted.</p>"
+            "text": "<p>55% More EffectiveThan Semaglutide<br/><br/></p>"
+          }
+        },
+        "feature_Tdt8jF": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/feature-5.png",
+            "number_text": "200,000+",
+            "text": "<p>Payment Plans Available at Checkout<br/><br/></p>"
           }
         }
       },
@@ -45,7 +56,8 @@
         "feature_CwDUTt",
         "feature_FLqCqm",
         "feature_WPyaGd",
-        "feature_FrUcWr"
+        "feature_FrUcWr",
+        "feature_Tdt8jF"
       ],
       "name": "Landing hero",
       "settings": {
