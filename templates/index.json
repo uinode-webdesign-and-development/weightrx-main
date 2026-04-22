@@ -40,7 +40,7 @@
           "settings": {
             "icon": "shopify://shop_images/feature-4.png",
             "number_text": "",
-            "text": "<p>55% More EffectiveThan Semaglutide<br/></p>"
+            "text": "<p>55% More Effective Than Semaglutide<br/></p>"
           }
         },
         "feature_Tdt8jF": {
@@ -67,6 +67,7 @@
         "mobile_image": "shopify://shop_images/tirz_vial_2.png",
         "button_label": "Start Your Weight Loss Journey",
         "button_link": "https://results.weightrx.com/start.html",
+        "button_icon": "shopify://shop_images/svgviewer-output.svg",
         "reviews_title": "Over 1,000+ reviews",
         "show_stars": true,
         "rating_label": "Excellent",
@@ -80,8 +81,7 @@
         "star_color": "#00b67a",
         "card_radius": 6,
         "padding_top": 48,
-        "padding_bottom": 48,
-        "button_icon": "shopify://shop_images/svgviewer-output.svg"
+        "padding_bottom": 48
       }
     },
     "landing_customer_feedback_9TngNq": {
