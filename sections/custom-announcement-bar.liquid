@@ -1,0 +1,102 @@
+{%- style -%}
+  .timer-section-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+    padding: 10px 0;
+    text-align: center;
+    font-size: {{ section.settings.font_size }}px;
+    font-weight: bold;
+  }
+  .timer-section-{{ section.id }} .timer-display {
+    text-decoration: underline;
+    margin-left: 5px;
+  }
+{%- endstyle -%}
+
+<div class="timer-section-{{ section.id }}">
+  <div class="page-width">
+    <span>{{ section.settings.message_text }}</span>
+    <span id="countdown-{{ section.id }}" class="timer-display">Loading...</span>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const second = 1000,
+          minute = second * 60,
+          hour = minute * 60,
+          day = hour * 24;
+
+    // Schema se date uthana
+    const endStr = "{{ section.settings.end_date }}"; 
+    if(!endStr) return;
+
+    const countDown = new Date(endStr).getTime();
+    
+    const x = setInterval(function() {
+      const now = new Date().getTime(),
+            distance = countDown - now;
+
+      if (distance < 0) {
+        document.getElementById("countdown-{{ section.id }}").innerHTML = "EXPIRED";
+        clearInterval(x);
+        return;
+      }
+
+      document.getElementById("countdown-{{ section.id }}").innerText = 
+        Math.floor(distance / (day)) + "d " +
+        Math.floor((distance % (day)) / (hour)) + "h " +
+        Math.floor((distance % (hour)) / (minute)) + "m " +
+        Math.floor((distance % (minute)) / second) + "s";
+        
+    }, 1000);
+  }());
+</script>
+
+{% schema %}
+{
+ "name": "Custom Announcement Bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "message_text",
+      "label": "Announcement Text",
+      "default": "🔥 Limited Time Offer - Ending In:"
+    },
+    {
+      "type": "text",
+      "id": "end_date",
+      "label": "End Date (Format: May 1, 2026 23:59:59)",
+      "info": "Month Day, Year HH:MM:SS",
+      "default": "May 1, 2026 23:59:59"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ff0000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font Size",
+      "default": 14
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Announcement Bar"
+    }
+  ]
+}
+{% endschema %}
