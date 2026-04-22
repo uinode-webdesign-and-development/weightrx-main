@@ -1634,7 +1634,7 @@ PORTAL FEATURES
   background-color: var(--background);
   background-size: cover;
   background-position: top;
-  background-image: url("https://cdn.shopify.com/s/files/1/0992/3569/2910/files/offer-banner-sm.png?v=1776871940");
+  background-image: url(https://cdn.shopify.com/s/files/1/0992/3569/2910/files/offer-banner-sm.png?v=1776871940);
 }
 
 .offer-banner__container {
