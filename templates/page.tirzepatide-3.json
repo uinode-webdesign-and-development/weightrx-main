@@ -245,11 +245,12 @@
           "type": "feedback",
           "settings": {
             "rating_label": "5 out of 5 stars",
-            "quote_title": "WeightRx helped me achieve my goal!",
-            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
+            "quote_title": "Quick and Easy",
+            "quote_text": "The experience to get on a semaglutide medication for weight loss was easy and quick. I filled out a short survey on the website, was able to make a video appointment, and spoke with a provider who was understanding and knowledgeable. I was able to start my medication quickly. The information given to me about how to take medication was so helpful. I would recommend to anyone wanted to start weight loss medication.",
             "show_read_more": true,
             "read_more_label": "Read More",
-            "author_name": "Hayley N.",
+            "author_avatar": "shopify://shop_images/customer6.png",
+            "author_name": "Britt A.",
             "verified_label": "Verified Member"
           }
         }
