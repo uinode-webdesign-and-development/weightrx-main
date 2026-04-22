@@ -19,7 +19,7 @@
         "end_date": "May 1, 2026 23:59:59",
         "bg_color": "#ff0000",
         "text_color": "#ffffff",
-        "font_size": 14
+        "font_size": 16
       }
     },
     "header_section": {
