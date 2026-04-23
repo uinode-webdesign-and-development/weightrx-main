@@ -286,7 +286,9 @@
         const mins = Math.floor((diff / (1000 * 60)) % 60);
         const secs = Math.floor((diff / 1000) % 60);
 
-        countdownEl.textContent = `${days} Days ${hours} Hours ${mins} mins ${secs} secs`;
+        if (countdownEl) {
+          countdownEl.textContent = `${days} Days ${hours} Hours ${mins} mins ${secs} secs`;
+        }
       }
 
       updateTimer();
