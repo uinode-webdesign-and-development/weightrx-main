@@ -55,14 +55,15 @@
   <script>
     const disclaimerButton = document.querySelector(".disclaimer-button");
     const hiddenText = document.querySelector(".disclaimer-hidden");
+    if (disclaimerButton && hiddenText) {
+        disclaimerButton.addEventListener("click", () => {
+          hiddenText.classList.toggle("active");
 
-    disclaimerButton.addEventListener("click", () => {
-      hiddenText.classList.toggle("active");
-
-      disclaimerButton.textContent = hiddenText.classList.contains("active")
-        ? "See Less"
-        : "See More";
-    });
+          disclaimerButton.textContent = hiddenText.classList.contains("active")
+            ? "See Less"
+            : "See More";
+        });
+    }
   </script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -285,8 +286,7 @@
         const mins = Math.floor((diff / (1000 * 60)) % 60);
         const secs = Math.floor((diff / 1000) % 60);
 
-        countdownEl.textContent =
-          `${days} Days ${hours} Hours ${mins} mins ${secs} secs`;
+        countdownEl.textContent = `${days} Days ${hours} Hours ${mins} mins ${secs} secs`;
       }
 
       updateTimer();
