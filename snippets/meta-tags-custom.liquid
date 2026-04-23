@@ -21,13 +21,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        console.log('sending DOMContentLoaded');
         var quizLinks = document.querySelectorAll('.js-quiz-link');
+        console.log('quizLinks', quizLinks);
         quizLinks.forEach(function (link) {
-        link.addEventListener('click', function () {
-            console.log('sending initiate_quiz event');
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({ event: 'initiate_quiz' });
-        });
+            link.addEventListener('click', function () {
+                console.log('sending initiate_quiz event');
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({ event: 'initiate_quiz' });
+            });
         });
     });
 </script>
