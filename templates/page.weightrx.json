@@ -206,7 +206,9 @@
       ],
       "name": "Service Tirzepatide",
       "settings": {
+        "desktop_bg": "shopify://shop_images/69b1226f01b0157f97647ccf_bg-2.webp",
         "desktop_bg_alt": "",
+        "mobile_bg": "shopify://shop_images/69b1226f01b0157f97647ccf_bg-2_bc6d50f2-b2d2-4418-849a-15b1ef229c41.webp",
         "mobile_bg_alt": "",
         "tag": "Tirzepatide",
         "top_heading": "The Most Effective Prescription for <em>Weight Loss</em>",
