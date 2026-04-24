@@ -114,10 +114,11 @@
         "result_item_at4TyH": {
           "type": "result_item",
           "settings": {
-            "name": "Sarah M.",
+            "image": "shopify://shop_images/69aa9b0f1d98388f4dd55703_thumb-3.webp",
+            "name": "Emily R.",
             "rating": "4.9 / 5.0",
-            "quote": "WeightRx made it simple to finally stick with a plan.",
-            "result_text": "Sarah lost 38 lbs with WeightRx"
+            "quote": "“The cravings slowed down and the weight followed.”",
+            "result_text": "Emily lost 41 lbs with Tirzepatide"
           }
         },
         "result_item_AWLAmy": {
