@@ -1,0 +1,223 @@
+<div class="review-section" id="section-{{ section.id }}">
+  <div class="section-spacing">
+    <div class="container review">
+
+      <!-- HEADING -->
+      <div class="section-heading center">
+        <div class="hero-tag-2">
+          <img
+            src="{{ section.settings.rating_icon | image_url }}"
+            loading="lazy"
+            alt=""
+            class="hero-tag-icon"
+          />
+          <p class="review-tag-text review">
+            <span class="text-span-8">{{ section.settings.rating_label }}</span>
+            <span class="text-span">{{ section.settings.rating_value }}</span>
+            {{ section.settings.rating_text }}
+          </p>
+        </div>
+
+        <h2 class="section-title center review">
+          {{ section.settings.heading }}
+          <span class="text-span-4">{{ section.settings.highlight_text }}</span>
+          {{ section.settings.heading_after }}
+        </h2>
+      </div>
+
+      <!-- SLIDER -->
+      <div class="review-slider-wrap">
+        <div class="review-slider w-slider">
+          <div class="review-slider-mask w-slider-mask">
+
+            {% for block in section.blocks %}
+            {% if block.type == 'review' %}
+            <div class="review-slide w-slide" {{ block.shopify_attributes }}>
+              <div class="review-item">
+
+                <div class="review-item-left">
+                  <img src="{{ block.settings.image_1 | image_url }}" class="review-item-thumb" loading="lazy" />
+                  <img src="{{ block.settings.image_2 | image_url }}" class="review-item-thumb" loading="lazy" />
+                  <div class="review-item-block">
+                    <div>{{ block.settings.duration }}</div>
+                  </div>
+                </div>
+
+                <div class="review-item-right">
+                  <div class="hero-tag">
+                    <img src="{{ section.settings.rating_icon | image_url }}" class="hero-tag-icon" loading="lazy" />
+                    <p class="review-tag-text">{{ block.settings.rating }}</p>
+                  </div>
+
+                  <p class="review-item-text">{{ block.settings.review_text }}</p>
+
+                  <h3 class="review-item-title">{{ block.settings.name }}</h3>
+
+                  <div class="review-item-bottom">
+                    <img src="{{ section.settings.verified_icon | image_url }}" class="review-item-icon" loading="lazy" />
+                    <p class="review-item-text-2">{{ block.settings.verified_text }}</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+          </div>
+
+          <div class="left-arrow w-slider-arrow-left">
+            <img src="{{ section.settings.left_arrow | image_url }}" class="arrow-icon" />
+          </div>
+
+          <div class="right-arrow w-slider-arrow-right">
+            <img src="{{ section.settings.right_arrow | image_url }}" class="arrow-icon" />
+          </div>
+
+          <div class="slide-nav w-slider-nav w-round"></div>
+        </div>
+
+        <!-- MARQUEE -->
+        <div class="review-marquee-layout">
+          {% for block in section.blocks %}
+          {% if block.type == 'review' %}
+          <div class="review-item">
+
+            <div class="review-item-left">
+              <img src="{{ block.settings.image_1 | image_url }}" class="review-item-thumb" />
+              <img src="{{ block.settings.image_2 | image_url }}" class="review-item-thumb" />
+              <div class="review-item-block">
+                <div>{{ block.settings.duration }}</div>
+              </div>
+            </div>
+
+            <div class="review-item-right">
+              <div class="hero-tag-3">
+                <img src="{{ section.settings.rating_icon | image_url }}" class="hero-tag-icon" />
+                <p class="review-tag-text">{{ block.settings.rating }}</p>
+              </div>
+
+              <p class="review-item-text">{{ block.settings.review_text }}</p>
+              <h3 class="review-item-title">{{ block.settings.name }}</h3>
+
+              <div class="review-item-bottom">
+                <img src="{{ section.settings.verified_icon | image_url }}" class="review-item-icon" />
+                <p class="review-item-text-2">{{ block.settings.verified_text }}</p>
+              </div>
+            </div>
+
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="hero-btn-wrap show">
+        <a href="{{ section.settings.cta_link }}" class="btn-blue w-inline-block">
+          <div>{{ section.settings.cta_text }}</div>
+          <img src="{{ section.settings.cta_icon | image_url }}" class="hero-btn-icon" />
+        </a>
+
+        <div class="hero-content-bottom">
+          <img src="{{ section.settings.bottom_icon | image_url }}" class="hero-icon-2" />
+          <p class="result-bottom-text">{{ section.settings.bottom_text }}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+{% comment %} <!-- Include Slick Slider (agar pehle se nahi hai) -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  $('.review-slider-mask').slick({
+    infinite: true,
+    slidesToShow: 3,      // Ek waqt mein 3 dikhayi dengi
+    slidesToScroll: 3,    // Ek click par 3 move hongi (Aapki main requirement)
+    prevArrow: $('.left-arrow'),
+    nextArrow: $('.right-arrow'),
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+});
+</script> {% endcomment %}
+
+
+{% schema %}
+{
+  "name": "LP Review Section",
+  "tag": "section",
+  "class": "lp-review-section",
+  "settings": [
+    { "type": "image_picker", "id": "rating_icon", "label": "Rating Icon" },
+    { "type": "text", "id": "rating_label", "label": "Rating Label", "default": "Rated" },
+    { "type": "text", "id": "rating_value", "label": "Rating Value", "default": "4.7/5.0" },
+    { "type": "text", "id": "rating_text", "label": "Rating Text", "default": "Excellent" },
+
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The Best Decision" },
+    { "type": "text", "id": "highlight_text", "label": "Highlight Text", "default": "60,000 Women" },
+    { "type": "text", "id": "heading_after", "label": "Heading After", "default": "Made This Year" },
+
+    { "type": "image_picker", "id": "verified_icon", "label": "Verified Icon" },
+
+    { "type": "image_picker", "id": "left_arrow", "label": "Left Arrow" },
+    { "type": "image_picker", "id": "right_arrow", "label": "Right Arrow" },
+
+    { "type": "text", "id": "cta_text", "label": "CTA Text", "default": "Get Started for $83/month" },
+    { "type": "url", "id": "cta_link", "label": "CTA Link" },
+    { "type": "image_picker", "id": "cta_icon", "label": "CTA Icon" },
+
+    { "type": "image_picker", "id": "bottom_icon", "label": "Bottom Icon" },
+    { "type": "text", "id": "bottom_text", "label": "Bottom Text", "default": "30-day weight loss guarantee" }
+  ],
+
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "image_picker", "id": "image_1", "label": "Before Image" },
+        { "type": "image_picker", "id": "image_2", "label": "After Image" },
+        { "type": "text", "id": "duration", "label": "Duration", "default": "After 3 months" },
+        { "type": "text", "id": "rating", "label": "Rating", "default": "4.9 / 5.0" },
+        { "type": "textarea", "id": "review_text", "label": "Review Text" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Customer Name" },
+        { "type": "text", "id": "verified_text", "label": "Verified Text", "default": "Verified Member" }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "LP Review Section",
+      "blocks": [
+        { "type": "review" },
+        { "type": "review" },
+        { "type": "review" }
+      ]
+    }
+  ]
+}
+{% endschema %}
