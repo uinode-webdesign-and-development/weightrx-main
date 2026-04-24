@@ -1,0 +1,173 @@
+{{ 'lp_1-style.css' | asset_url | stylesheet_tag: preload: true }}
+
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript" defer></script>
+
+<script
+  type="text/javascript"
+>
+  WebFont.load({ google: { families: ['Instrument Serif:300,400,500,600,700', 'Inter:300,400,500,600,700'] } });
+</script>
+
+<script
+  src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=69a937b4bb797706ea5994c3"
+  type="text/javascript"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"
+  defer
+></script>
+
+<div class="nav-section">
+  {%- if section.settings.top_text != blank -%}
+    <div class="nav-top">
+      <div class="nav-top-content">
+        {%- if section.settings.top_logo != blank -%}
+          {{ section.settings.top_logo | image_url: width: 100 | image_tag: class: 'nav-logo', loading: 'lazy' }}
+        {%- endif -%}
+        <p class="nav-text">{{ section.settings.top_text }}</p>
+      </div>
+    </div>
+  {%- endif -%}
+
+  <div class="section-spacing">
+    <div class="container">
+      <div class="nav-layout">
+        <div class="nav-left-wrap">
+          <div class="nav-left">
+            <a
+              href="{{ section.settings.logo_link | default: '#' }}"
+              aria-current="page"
+              class="logo-wrap w-inline-block w--current"
+            >
+              {%- if section.settings.main_logo != blank -%}
+                {{ section.settings.main_logo | image_url: width: 300 | image_tag: class: 'logo', loading: 'lazy' }}
+              {%- else -%}
+                {{ 'logo' | placeholder_svg_tag: 'logo placeholder' }}
+              {%- endif -%}
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-right">
+          <div class="nav-menu">
+            {%- if section.settings.contact_text != blank -%}
+              <a href="{{ section.settings.contact_link | default: '#' }}" class="nav-link-wrap">
+                {{ section.settings.contact_text }}
+              </a>
+            {%- endif -%}
+
+            <a href="{{ section.settings.signin_link | default: '#' }}" class="nav-link-wrap w-inline-block">
+              <div StaggerText="" class="nav-link">{{ section.settings.signin_text }}</div>
+              {%- if section.settings.signin_icon != blank -%}
+                {{ section.settings.signin_icon | image_url: width: 40 | image_tag: class: 'image', loading: 'lazy' }}
+              {%- endif -%}
+            </a>
+
+            <div class="show-mobile">
+              <a href="{{ section.settings.button_link | default: '#' }}" class="nav-btn w-inline-block">
+                <div>{{ section.settings.button_text }}</div>
+              </a>
+            </div>
+          </div>
+
+          <div class="nav-open">
+            <div class="nav-bar _1"></div>
+            <div class="nav-bar _2"></div>
+            <div class="nav-bar _3"></div>
+          </div>
+
+          <div class="hide-mobile">
+            <a href="{{ section.settings.button_link | default: '#' }}" class="nav-btn w-inline-block">
+              <div>{{ section.settings.button_text }}</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "LP Navigation",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Top Bar"
+    },
+    {
+      "type": "image_picker",
+      "id": "top_logo",
+      "label": "Top Bar Logo"
+    },
+    {
+      "type": "textarea",
+      "id": "top_text",
+      "label": "Top Bar Text",
+      "default": "60,000+ lives Changed with GLP-1s"
+    },
+    {
+      "type": "header",
+      "content": "Main Navigation"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_logo",
+      "label": "Main Logo"
+    },
+    {
+      "type": "url",
+      "id": "logo_link",
+      "label": "Logo Redirect URL"
+    },
+    {
+      "type": "text",
+      "id": "contact_text",
+      "label": "Contact Link Text",
+      "default": "Contact Us"
+    },
+    {
+      "type": "url",
+      "id": "contact_link",
+      "label": "Contact Link URL"
+    },
+    {
+      "type": "text",
+      "id": "signin_text",
+      "label": "Sign In Text",
+      "default": "Sign In"
+    },
+    {
+      "type": "url",
+      "id": "signin_link",
+      "label": "Sign In URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "signin_icon",
+      "label": "Sign In Icon"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Get Started"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "LP Navigation"
+    }
+  ]
+}
+{% endschema %}
