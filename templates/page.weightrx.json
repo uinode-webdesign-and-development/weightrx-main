@@ -124,10 +124,11 @@
         "result_item_AWLAmy": {
           "type": "result_item",
           "settings": {
-            "name": "Sarah M.",
+            "image": "shopify://shop_images/69aa9b0f14d2b655be556b10_thumb-5.webp",
+            "name": "Jessica B.",
             "rating": "4.9 / 5.0",
-            "quote": "WeightRx made it simple to finally stick with a plan.",
-            "result_text": "Sarah lost 38 lbs with WeightRx"
+            "quote": "‘’Weight loss felt simple and sustainable for once.”",
+            "result_text": "Jessica lost 34 lbs with WeightRx"
           }
         },
         "result_item_y8ygJh": {
