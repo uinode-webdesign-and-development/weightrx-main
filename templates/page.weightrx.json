@@ -176,13 +176,15 @@
         "offer_item_AAQzjT": {
           "type": "offer_item",
           "settings": {
+            "icon": "shopify://shop_images/svgviewer-png-output_17.png",
             "text": "<span class=\"text-span-3\">Dual-action</span> GLP-1 + GIP formula"
           }
         },
         "offer_item_GkUx6z": {
           "type": "offer_item",
           "settings": {
-            "text": "<span class=\"text-span-3\">Dual-action</span> GLP-1 + GIP formula"
+            "icon": "shopify://shop_images/svgviewer-png-output_17.png",
+            "text": "<span class=\"text-span-3\">only $83/month</span> ($997/year)"
           }
         },
         "offer_item_AgUVzB": {
@@ -230,6 +232,7 @@
         "card_2_feature_2_icon": "shopify://shop_images/svgviewer-png-output_11.png",
         "card_2_feature_2_label": "Energy",
         "card_2_feature_2_text": "Inconsistent energy throughout the day",
+        "rating_icon": "shopify://shop_images/svgviewer-png-output_16.png",
         "rating_text": "<span class=\"text-span-2\">Rated</span> <span class=\"text-span\">4.7/5.0</span> ‘’Excellent’’",
         "bottom_heading": "Tirzepatide, Without the $500–$1,200/Month Markup",
         "button_link": "",
