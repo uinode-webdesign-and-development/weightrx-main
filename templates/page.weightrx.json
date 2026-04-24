@@ -288,8 +288,12 @@
         "highlight_text": "60,000 Women",
         "heading_after": "Made This Year",
         "verified_icon": "shopify://shop_images/svgviewer-png-output_25.png",
+        "left_arrow": "shopify://shop_images/svgviewer-output_9.svg",
+        "right_arrow": "shopify://shop_images/svgviewer-output_8.svg",
         "cta_text": "Get Started for $83/month",
         "cta_link": "https://home.weightrx.com/tirzepatide1",
+        "cta_icon": "shopify://shop_images/svgviewer-png-output_21.png",
+        "bottom_icon": "shopify://shop_images/svgviewer-png-output_22.png",
         "bottom_text": "30-day weight loss guarantee"
       }
     },
