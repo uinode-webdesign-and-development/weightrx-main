@@ -187,24 +187,26 @@
             "text": "<span class=\"text-span-3\">only $83/month</span> ($997/year)"
           }
         },
-        "offer_item_AgUVzB": {
-          "type": "offer_item",
-          "settings": {
-            "text": "<span class=\"text-span-3\">Dual-action</span> GLP-1 + GIP formula"
-          }
-        },
         "offer_item_nWdDkC": {
           "type": "offer_item",
           "settings": {
-            "text": "<span class=\"text-span-3\">Dual-action</span> GLP-1 + GIP formula"
+            "icon": "shopify://shop_images/svgviewer-png-output_17.png",
+            "text": "consistent, sustainable <span class=\"text-span-3\">fat loss</span>"
+          }
+        },
+        "offer_item_AgUVzB": {
+          "type": "offer_item",
+          "settings": {
+            "icon": "shopify://shop_images/svgviewer-png-output_17.png",
+            "text": "<span class=\"text-span-3\">UNLIMITED</span>  DOCTOR ACCESS AND LABS"
           }
         }
       },
       "block_order": [
         "offer_item_AAQzjT",
         "offer_item_GkUx6z",
-        "offer_item_AgUVzB",
-        "offer_item_nWdDkC"
+        "offer_item_nWdDkC",
+        "offer_item_AgUVzB"
       ],
       "name": "Service Tirzepatide",
       "settings": {
