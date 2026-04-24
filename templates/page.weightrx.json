@@ -66,6 +66,7 @@
           "type": "product",
           "settings": {
             "product_image": "shopify://shop_images/69b10d56d605c378e7b3dd67_upscalemedia-transformed-removebg-preview_1_0377ebac-2bda-461b-a4a0-51b5692d8da9.webp",
+            "mobile_thumb": "shopify://shop_images/69b10d56d605c378e7b3dd67_upscalemedia-transformed-removebg-preview_1_0377ebac-2bda-461b-a4a0-51b5692d8da9.webp",
             "product_title": "Tirzepatide",
             "rating": "4.9 / 5.0",
             "subtitle": "Dual-action GLP-1 + GIP formula",
@@ -79,6 +80,8 @@
         "product_FjHaaY": {
           "type": "product",
           "settings": {
+            "product_image": "shopify://shop_images/69b10c4ee4e0cca114512265_upscalemedia-transformed_1.webp",
+            "mobile_thumb": "shopify://shop_images/69b10c4ee4e0cca114512265_upscalemedia-transformed_1_a0c1b1f3-b4f0-48c5-af1d-5246beff117f.webp",
             "product_title": "Semaglutide",
             "rating": "4.8 / 5.0",
             "subtitle": "Proven GLP-1 receptor agonist",
@@ -86,7 +89,7 @@
             "price_suffix": "per month",
             "stock_text": "In stock via WeightRX",
             "button_text": "Get Started",
-            "button_link": ""
+            "button_link": "https://weightrx.thrivecart.com/pharmacy-direct-1/"
           }
         }
       },
