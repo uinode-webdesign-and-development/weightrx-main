@@ -20,6 +20,22 @@
         "padding-block-end": 80
       }
     },
+    "lp_1_header_G4X4bH": {
+      "type": "lp_1-header",
+      "name": "LP Navigation",
+      "settings": {
+        "top_logo": "shopify://shop_images/69ab07cbf1c499727a6883b6_logo-4.webp",
+        "top_text": "60,000+ lives Changed with GLP-1s",
+        "main_logo": "shopify://shop_images/svgviewer-png-output_24.png",
+        "logo_link": "",
+        "contact_text": "Contact Us",
+        "contact_link": "",
+        "signin_text": "Sign In",
+        "signin_link": "",
+        "button_text": "Get Started",
+        "button_link": ""
+      }
+    },
     "landing_hero_iXWFMc": {
       "type": "landing-hero",
       "blocks": {
@@ -70,6 +86,7 @@
         "feature_DGVzPF",
         "feature_wH8CxE"
       ],
+      "disabled": true,
       "name": "Landing hero",
       "settings": {
         "title": "<strong>2026 Is Your Year. Start Tirzepatide for $83/mo</strong>",
@@ -169,6 +186,7 @@
         "testimonial_aLkKrj",
         "testimonial_c7eHpV"
       ],
+      "disabled": true,
       "name": "Testimonials section",
       "settings": {
         "section_background_color": "#f1f7fe",
@@ -266,6 +284,7 @@
         "feedback_qiXVRk",
         "feedback_hkakJG"
       ],
+      "disabled": true,
       "name": "Customer feedback",
       "settings": {
         "heading_line_1": "Real Stories.",
@@ -316,6 +335,7 @@
         "feature_NX8YfF",
         "feature_AUj4aP"
       ],
+      "disabled": true,
       "name": "Offer banner",
       "settings": {
         "background_image": "shopify://shop_images/offer-banner-lg.png",
@@ -382,6 +402,7 @@
         "faq_item_K3hxYQ",
         "faq_item_JLYPXz"
       ],
+      "disabled": true,
       "name": "FAQ section",
       "settings": {
         "section_id": "faq",
@@ -393,6 +414,7 @@
     },
     "custom_footer_WtBNLF": {
       "type": "custom-footer",
+      "disabled": true,
       "name": "Custom Footer",
       "settings": {
         "logo": "shopify://shop_images/footer-logo.svg",
@@ -415,6 +437,7 @@
   },
   "order": [
     "main",
+    "lp_1_header_G4X4bH",
     "landing_hero_iXWFMc",
     "landing_testimonials_section_4JgYfm",
     "landing_customer_feedback_Gxham3",
