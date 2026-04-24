@@ -32,6 +32,7 @@
         "contact_link": "",
         "signin_text": "Sign In",
         "signin_link": "",
+        "signin_icon": "shopify://shop_images/svgviewer-png-output_23.png",
         "button_text": "Get Started",
         "button_link": ""
       }
