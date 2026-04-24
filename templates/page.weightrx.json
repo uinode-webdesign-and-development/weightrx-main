@@ -24,6 +24,7 @@
       "type": "lp_1-header",
       "name": "LP Navigation",
       "settings": {
+        "top_logo": "shopify://shop_images/69ab07cbf1c499727a6883b6_logo-4.webp",
         "top_text": "60,000+ lives Changed with GLP-1s",
         "main_logo": "shopify://shop_images/svgviewer-png-output_24.png",
         "logo_link": "",
