@@ -6470,3 +6470,14 @@ img.offer-item-icon {
 img.hero-icon-2 {
     max-width: 19px;
 }
+
+@media screen and (max-width: 479px) {
+    .product-content-inner {
+        flex-flow: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        display: flex;
+        position: absolute;
+        inset: 10px;
+    }
+}
