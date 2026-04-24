@@ -1,4 +1,5 @@
 
+{{ 'landing-page.css' | asset_url | stylesheet_tag: preload: true }}
 
 {% liquid
   assign order = 'logo,menu,localization,search,drawer_search,actions'
