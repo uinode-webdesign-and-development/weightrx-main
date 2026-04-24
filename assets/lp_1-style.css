@@ -6205,3 +6205,8 @@ img.footer-logo {
     width: auto;
     object-fit: contain;
 }
+
+.nav-link-wrap img {
+    width: 18px;
+    height: auto;
+}
