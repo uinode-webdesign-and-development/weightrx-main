@@ -65,6 +65,7 @@
         "product_YVrJ6w": {
           "type": "product",
           "settings": {
+            "product_image": "shopify://shop_images/69b10d56d605c378e7b3dd67_upscalemedia-transformed-removebg-preview_1_0377ebac-2bda-461b-a4a0-51b5692d8da9.webp",
             "product_title": "Tirzepatide",
             "rating": "4.9 / 5.0",
             "subtitle": "Dual-action GLP-1 + GIP formula",
@@ -72,7 +73,7 @@
             "price_suffix": "per month",
             "stock_text": "In stock via WeightRX",
             "button_text": "Get Started",
-            "button_link": ""
+            "button_link": "https://home.weightrx.com/tirzepatide1"
           }
         },
         "product_FjHaaY": {
