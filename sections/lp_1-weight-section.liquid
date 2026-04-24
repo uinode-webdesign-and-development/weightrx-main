@@ -1,0 +1,219 @@
+<div class="weight-section" id="section-{{ section.id }}">
+  <div class="section-spacing">
+    <div class="container">
+      <div class="weight-layout">
+        <div class="weight-left">
+          {%- if section.settings.subheading != blank -%}
+            <p class="weight-tag">{{ section.settings.subheading }}</p>
+          {%- endif -%}
+          
+          {%- if section.settings.heading != blank -%}
+            <h2 class="section-title weight">
+              {{ section.settings.heading | replace: '<span>', '<span class="text-span-4">' }}
+            </h2>
+          {%- endif -%}
+
+          <div class="hero-btn-wrap">
+            <a href="{{ section.settings.button_link }}" class="btn-blue w-inline-block">
+              <div>{{ section.settings.button_label }}</div>
+              {%- if section.settings.button_icon != blank -%}
+                <img src="{{ section.settings.button_icon | image_url: width: 40 }}" loading="lazy" alt="" class="hero-btn-icon" width="20" height="20" />
+              {%- else -%}
+                 <img src="https://cdn.prod.website-files.com/69a937b4bb797706ea5994c3/69aa9bb30b981754d6b9d079_icon-9.svg" loading="lazy" alt="" class="hero-btn-icon" />
+              {%- endif -%}
+            </a>
+            <div class="hero-content-bottom">
+              <img src="https://cdn.prod.website-files.com/69a937b4bb797706ea5994c3/69aa9bb3f0071c12a2b7bc09_icon-10.svg" loading="lazy" alt="" class="hero-icon-2" />
+              <p class="result-bottom-text">{{ section.settings.guarantee_text }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="weight-loss-slider">
+          <div class="calculator-box">
+            <div class="calculator-wrap">
+              <div class="calculator-text">{{ section.settings.slider_instruction }}</div>
+              <div class="current-weight-wrap">
+                <div id="weight-{{ section.id }}" class="current-weight">{{ section.settings.default_weight }}</div>
+                <p class="lbs">lbs</p>
+              </div>
+              <div class="slider-wrap">
+                <div class="w-embed w-script">
+                  <input type="range" 
+                         value="{{ section.settings.default_weight }}" 
+                         id="weight-slider-{{ section.id }}" 
+                         step="1" 
+                         min="{{ section.settings.min_weight }}" 
+                         max="{{ section.settings.max_weight }}" 
+                         class="slider" />
+
+                  <style>
+                    #section-{{ section.id }} .slider {
+                      -webkit-appearance: none;
+                      width: 100%;
+                      height: 7px;
+                      border-radius: 100px;
+                      background: #E9E9E9;
+                      outline: none;
+                      cursor: pointer;
+                    }
+                    #section-{{ section.id }} .slider::-webkit-slider-thumb {
+                      -webkit-appearance: none;
+                      width: 28px;
+                      height: 28px;
+                      border-radius: 50%;
+                      background: #E9E9E9;
+                      cursor: pointer;
+                    }
+                  </style>
+
+                  <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                      const slider = document.getElementById("weight-slider-{{ section.id }}");
+                      const weightDisplay = document.getElementById("weight-{{ section.id }}");
+                      const resultDisplay = document.getElementById("result-{{ section.id }}");
+                      
+                      function updateValues() {
+                        const lossPercentage = {{ section.settings.loss_percentage }};
+                        const lossFactor = lossPercentage / 100.0;
+                        let value = parseFloat(slider.value);
+                        
+                        if (weightDisplay) weightDisplay.textContent = value;
+                        
+                        let calc = value * lossFactor;
+                        if (resultDisplay) resultDisplay.textContent = Math.round(calc);
+
+                        let percent = (value - slider.min) / (slider.max - slider.min) * 100;
+                        slider.style.background = "linear-gradient(to right, #006BFF " + percent + "%, #E9E9E9 " + percent + "%)";
+                      }
+
+                      slider.addEventListener("input", updateValues);
+                      updateValues();
+                    });
+                  </script>
+                </div>
+              </div>
+              <div class="calculator-result-wrap">
+                <div class="calculator-text centred">{{ section.settings.result_text }}</div>
+                <div class="result">
+                  <div id="result-{{ section.id }}" class="loose-weight">0</div>
+                  <p class="lbs blue">lbs*</p>
+                  <img loading="lazy" src="https://cdn.prod.website-files.com/69a937b4bb797706ea5994c3/69aabc4187dc2c8286c873a3_Arrow-Thick-Circle-Down-1--Streamline-Ultimate.svg" alt="" class="result-icon" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slider-shape-wrap">
+            <img sizes="100vw" src="https://cdn.prod.website-files.com/69a937b4bb797706ea5994c3/69aabc4187dc2c8286c873a1_slider-bg.webp" loading="lazy" class="slider-shape" alt="Background Shape" />
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-btn-wrap-m">
+        <a href="{{ section.settings.button_link }}" class="btn-blue w-inline-block">
+          <div>{{ section.settings.button_label }}</div>
+          <img src="https://cdn.prod.website-files.com/69a937b4bb797706ea5994c3/69aa9bb30b981754d6b9d079_icon-9.svg" loading="lazy" alt="" class="hero-btn-icon" />
+        </a>
+        <div class="hero-content-bottom">
+          <img src="https://cdn.prod.website-files.com/69a937b4bb797706ea5994c3/69aa9bb3f0071c12a2b7bc09_icon-10.svg" loading="lazy" alt="" class="hero-icon-2" />
+          <p class="result-bottom-text">{{ section.settings.guarantee_text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "LP Weight Section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Calculate Your Weight Loss"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "See How Much You Could Lose, <span>Based on Your Body</span>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Get Started for $83/month"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "button_icon",
+      "label": "Custom Button Icon"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Guarantee Text",
+      "default": "30-day weight loss guarantee"
+    },
+    {
+      "type": "header",
+      "content": "Calculator Settings"
+    },
+    {
+      "type": "text",
+      "id": "slider_instruction",
+      "label": "Slider Instruction",
+      "default": "Drag the slider to input your weight"
+    },
+    {
+      "type": "text",
+      "id": "result_text",
+      "label": "Result Heading",
+      "default": "In 6 months, you could lose up to"
+    },
+    {
+      "type": "number",
+      "id": "default_weight",
+      "label": "Default Weight (lbs)",
+      "default": 235
+    },
+    {
+      "type": "number",
+      "id": "min_weight",
+      "label": "Min Weight",
+      "default": 100
+    },
+    {
+      "type": "number",
+      "id": "max_weight",
+      "label": "Max Weight",
+      "default": 400
+    },
+    {
+      "type": "range",
+      "id": "loss_percentage",
+      "min": 0,
+      "max": 50,
+      "step": 0.5,
+      "unit": "%",
+      "label": "Weight Loss Calculation %",
+      "default": 16.0
+    }
+  ],
+  "presets": [
+    {
+      "name": "LP Weight Section"
+    }
+  ]
+}
+{% endschema %}

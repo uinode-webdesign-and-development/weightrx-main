@@ -1,0 +1,144 @@
+<div class="work-section" id="section-{{ section.id }}">
+  <div class="section-spacing">
+    <div class="container">
+      <div class="work-layout">
+        {% if section.settings.tagline != blank %}
+          <p class="work-tag">{{ section.settings.tagline }}</p>
+        {% endif %}
+        
+        {% if section.settings.title != blank %}
+          {% comment %} Using liquid filter to allow the span class to render {% endcomment %}
+          <h2 class="section-title work">{{ section.settings.title }}</h2>
+        {% endif %}
+
+        <div class="work-tab-wrap">
+          <div data-current="Tab 1" data-easing="ease" data-duration-in="300" data-duration-out="100" class="tabs w-tabs">
+            
+            <div class="tabs-menu w-tab-menu">
+              {% for block in section.blocks %}
+                <a data-w-tab="Tab {{ forloop.index }}" class="work-tab w-inline-block w-tab-link {% if forloop.first %}w--current{% endif %}">
+                  <div>{{ block.settings.tab_label }}</div>
+                </a>
+              {% endfor %}
+            </div>
+
+            <div class="w-tab-content">
+              {% for block in section.blocks %}
+                <div data-w-tab="Tab {{ forloop.index }}" class="w-tab-pane {% if forloop.first %}w--tab-active{% endif %}" {{ block.shopify_attributes }}>
+                  <div class="work-content">
+                    <div class="work-content-top">
+                      <div>{{ block.settings.step_number }}</div>
+                    </div>
+                    <h2 class="work-title">{{ block.settings.heading }}</h2>
+                    <p class="work-text">{{ block.settings.text }}</p>
+                    <div class="work-bottom">
+                      {% if block.settings.icon != blank %}
+                        {{ block.settings.icon | image_url: width: 40 | image_tag: class: 'work-bottom-icon', loading: 'lazy' }}
+                      {% else %}
+                         <img src="https://cdn.prod.website-files.com/69a937b4bb797706ea5994c3/69a93be5f5942258929c6549_icon-2.svg" loading="lazy" alt="" class="work-bottom-icon" />
+                      {% endif %}
+                      <div>{{ block.settings.footer_text }}</div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+
+          </div>
+        </div>
+
+        {% if section.settings.main_image != blank %}
+          {{ section.settings.main_image | image_url: width: 1400 | image_tag: 
+            class: 'work-thumb', 
+            loading: 'lazy', 
+            widths: '500, 800, 1080, 1400',
+            sizes: '100vw' 
+          }}
+        {% else %}
+          <img src="https://cdn.prod.website-files.com/69a937b4bb797706ea5994c3/69b10f12f54902bfe0e87a74_upscalemedia-transformed%20(2).webp" loading="lazy" alt="" class="work-thumb" />
+        {% endif %}
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "LP Work Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "How It Works"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title (HTML allowed)",
+      "default": "Three Simple Steps to <span class=\"text-span-4\">Real Weight Loss</span>",
+      "info": "You can use <span> tags with classes here."
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Section Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_label",
+          "label": "Tab Label",
+          "default": "Step 1"
+        },
+        {
+          "type": "text",
+          "id": "step_number",
+          "label": "Step Header (Internal Content)",
+          "default": "Step 1"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Complete Your Free Assessment"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Complete a quick form and meet with a licensed physician 100% online."
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Footer Icon"
+        },
+        {
+          "type": "text",
+          "id": "footer_text",
+          "label": "Footer Text",
+          "default": "Takes 10 Minutes"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LP Work Section",
+      "blocks": [
+        { "type": "step", "settings": { "tab_label": "Step 1", "step_number": "Step 1", "footer_text": "Takes 10 Minutes" } },
+        { "type": "step", "settings": { "tab_label": "Step 2", "step_number": "Step 2", "footer_text": "DELIVERED IN 48 HOURS" } },
+        { "type": "step", "settings": { "tab_label": "Step 3", "step_number": "Step 3", "footer_text": "24/7 Ongoing Care" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

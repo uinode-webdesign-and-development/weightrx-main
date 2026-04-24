@@ -6210,3 +6210,162 @@ img.footer-logo {
     width: 18px;
     height: auto;
 }
+
+/* extra style */
+
+.brand-marquee-layout {
+  animation: marquee var(--marquee-duration, 20s) linear infinite;
+}
+img.product-item-icon{
+  width : 17px ;
+}
+img.product-item-stock-icon{
+    width : 19px ;
+
+}
+img.result-item-icon{
+  max-width: 97px ;
+}
+img.service-item-icon{
+  max-width : 97px ;
+}
+img.service-item-bottom-icon{
+  max-width:17px;
+}
+img.hero-tag-icon{
+    max-width : 97px ;
+}
+img.why-item-tag-icon{
+      max-width :18px ;
+
+}
+img.work-bottom-icon{
+        max-width :18px ;
+}
+
+
+/* Container & General Reset */
+.nav-section {
+  width: 100%;
+  font-family: 'Inter', sans-serif; /* Ya jo bhi aapka theme font ho */
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Top Bar (Navy Blue) */
+.nav-top {
+  background-color: #00234b; /* Deep Navy Blue */
+  color: #ffffff;
+  padding: 8px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-top-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo {
+  height: 24px; /* Avatar group size */
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-text {
+  font-size: 14px;
+  margin: 0;
+  font-weight: 400;
+}
+.nav-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  height: 32px; /* Adjust based on WeightRx logo */
+  width: auto;
+}
+
+/* Menu Rights */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-link-wrap {
+  text-decoration: none;
+  color: #00234b;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-link-wrap img {
+  width: 18px; /* Sign in icon */
+  height: auto;
+}
+
+/* Button (Blue Style) */
+.nav-btn {
+  background-color: #007bff; /* Bright Blue */
+  color: #ffffff;
+  padding: 10px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Mobile Controls */
+.nav-open {
+  display: none; /* Hidden on desktop */
+  cursor: pointer;
+}
+
+.nav-bar {
+  width: 25px;
+  height: 2px;
+  background-color: #00234b;
+  margin: 5px 0;
+}
+
+.show-mobile {
+  display: none;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 991px) {
+  .nav-menu {
+    display: none; /* Basic mobile hide - adjust as per your JS */
+  }
+  
+  .nav-open {
+    display: block;
+  }
+  
+  .hide-mobile {
+    display: none;
+  }
+}
