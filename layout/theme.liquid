@@ -46,10 +46,12 @@
 
   <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
     {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
-    <div id="header-group">
-      {% sections 'header-group' %}
-    </div>
 
+    {% unless page.metafields.custom.hide_header == true %}
+        <div id="header-group">
+          {% sections 'header-group' %}
+        </div>
+    {% endunless %}
     <script>
       // Inline header height and menu style calculations to prevent layout shift
       // Note: Updates in calculateHeaderGroupHeight(), updateTransparentHeaderOffset() and setHeaderMenuStyle() utilities.js should be kept in sync with this function
@@ -129,9 +131,11 @@
       {{ content_for_layout }}
     </main>
 
-    <footer>
-      {% sections 'footer-group' %}
-    </footer>
+    {% unless page.metafields.custom.hide_footer == true %}
+      <footer>
+        {% sections 'footer-group' %}
+      </footer>
+    {% endunless %}
 
     {% render 'search-modal' %}
 
