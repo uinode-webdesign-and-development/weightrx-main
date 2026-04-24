@@ -77,10 +77,10 @@
           {% for block in section.blocks %}
             <div class="p-slide w-slide">
               <div class="product-item">
-                {% if block.settings.mobile_thumb != blank %}
-                  <img src="{{ block.settings.mobile_thumb | image_url: width: 996 }}" loading="lazy" alt="" class="product-item-thumb-m" />
-                {% endif %}
                 <div class="product-item-thumb-wrap">
+                  {% if block.settings.mobile_thumb != blank %}
+                    <img src="{{ block.settings.mobile_thumb | image_url: width: 996 }}" loading="lazy" alt="" class="product-item-thumb-m" />
+                  {% endif %}
                   <div class="product-content-inner">
                     <div class="product-item-text-wrap-m">
                       <img src="https://cdn.prod.website-files.com/69a937b4bb797706ea5994c3/69a94796d10badf1ca1b7fb9_icon-5.svg" loading="lazy" width="17" alt="" class="product-item-icon" />
