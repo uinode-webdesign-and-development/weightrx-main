@@ -1,3 +1,5 @@
+{{ 'lp_1-style.css' | asset_url | stylesheet_tag: preload: true }}
+
 <style>
   #shopify-section-{{ section.id }} .brand-marquee-layout {
     animation: lp1-marquee var(--marquee-duration, 20s) linear infinite;
