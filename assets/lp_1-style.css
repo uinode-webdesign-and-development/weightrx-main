@@ -5496,7 +5496,7 @@ p {
     .hero-content {
         padding-right: 16px;
         top: 0px;
-        /* bottom: 32px; */
+        bottom: 32px;
         left: 16px;
     }
 
