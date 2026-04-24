@@ -6293,3 +6293,9 @@ img.s-contact-item-icon{
     max-width:21px;
 
 }
+img.hero-btn-icon {
+    width: 25px!important;
+}
+img.offer-item-icon {
+    width: 18px!important;
+}
