@@ -1,0 +1,443 @@
+{{ 'lp_1-style.css' | asset_url | stylesheet_tag: preload: true }}
+
+<div class="service-section">
+  <div class="section-spacing">
+    <div class="container">
+      <div class="service-thumb-wrap">
+
+        {% if section.settings.desktop_bg != blank %}
+          {{ section.settings.desktop_bg | image_url: width: 1500 | image_tag: 
+            loading: 'lazy', 
+            class: 'service-thumb', 
+            widths: '600, 800, 1200, 1600, 2000',
+            alt: section.settings.desktop_bg_alt 
+          }}
+        {% endif %}
+
+        {% if section.settings.mobile_bg != blank %}
+          <img
+            src="{{ section.settings.mobile_bg | image_url: width: 800 }}"
+            loading="lazy"
+            alt="{{ section.settings.mobile_bg_alt }}"
+            class="service-thumb-m"
+          >
+        {% endif %}
+
+        <div class="service-content">
+          <div class="service-top">
+            <div class="service-top-left">
+              <p class="service-tag">{{ section.settings.tag }}</p>
+
+              <h2 class="section-title service-2">
+                {{ section.settings.top_heading }}
+              </h2>
+
+              <p class="service-text">
+                {{ section.settings.top_text }}
+              </p>
+            </div>
+
+            <div class="service-top-right">
+              <div class="service-item">
+                <div class="service-item-top">
+                  <h3 class="service-item-title">{{ section.settings.card_1_title }}</h3>
+                  {% if section.settings.card_1_icon != blank %}
+                    <img src="{{ section.settings.card_1_icon | image_url: width: 50 }}" loading="lazy" alt="" class="service-item-icon">
+                  {% endif %}
+                </div>
+
+                <p class="service-item-text">{{ section.settings.card_1_text }}</p>
+
+                <div class="service-item-bottom">
+                  <div class="service-item-bottom-block">
+                    <div class="service-item-bottom-content">
+                      {% if section.settings.card_1_feature_1_icon != blank %}
+                        <img src="{{ section.settings.card_1_feature_1_icon | image_url: width: 40 }}" loading="lazy" alt="" class="service-item-bottom-icon">
+                      {% endif %}
+                      <div class="text-block">{{ section.settings.card_1_feature_1_label }}</div>
+                    </div>
+                    <p class="service-item-bottom-text">{{ section.settings.card_1_feature_1_text }}</p>
+                  </div>
+
+                  <div class="service-item-bottom-block">
+                    <div class="service-item-bottom-content">
+                      {% if section.settings.card_1_feature_2_icon != blank %}
+                        <img src="{{ section.settings.card_1_feature_2_icon | image_url: width: 40 }}" loading="lazy" alt="" class="service-item-bottom-icon">
+                      {% endif %}
+                      <div>{{ section.settings.card_1_feature_2_label }}</div>
+                    </div>
+                    <p class="service-item-bottom-text">{{ section.settings.card_1_feature_2_text }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="service-item _2">
+                <div class="service-item-top">
+                  <h3 class="service-item-title">{{ section.settings.card_2_title }}</h3>
+                </div>
+
+                <p class="service-item-text">{{ section.settings.card_2_text }}</p>
+
+                <div class="service-item-bottom">
+                  <div class="service-item-bottom-block">
+                    <div class="service-item-bottom-content red">
+                      {% if section.settings.card_2_feature_1_icon != blank %}
+                        <img src="{{ section.settings.card_2_feature_1_icon | image_url: width: 40 }}" loading="lazy" alt="" class="service-item-bottom-icon">
+                      {% endif %}
+                      <div>{{ section.settings.card_2_feature_1_label }}</div>
+                    </div>
+                    <p class="service-item-bottom-text">{{ section.settings.card_2_feature_1_text }}</p>
+                  </div>
+
+                  <div class="service-item-bottom-block">
+                    <div class="service-item-bottom-content red">
+                      {% if section.settings.card_2_feature_2_icon != blank %}
+                        <img src="{{ section.settings.card_2_feature_2_icon | image_url: width: 40 }}" loading="lazy" alt="" class="service-item-bottom-icon">
+                      {% endif %}
+                      <div>{{ section.settings.card_2_feature_2_label }}</div>
+                    </div>
+                    <p class="service-item-bottom-text">{{ section.settings.card_2_feature_2_text }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-bottom">
+            <div class="hero-tag-4 service">
+              {% if section.settings.rating_icon != blank %}
+                <img src="{{ section.settings.rating_icon | image_url: width: 100 }}" loading="lazy" alt="" class="hero-tag-icon">
+              {% endif %}
+              <p class="hero-tag-text">{{ section.settings.rating_text }}</p>
+            </div>
+
+            <h1 class="section-title service">
+              {{ section.settings.bottom_heading }}
+            </h1>
+
+            <div class="s-offer-item-wrap">
+              {% for block in section.blocks %}
+                {% if block.type == 'offer_item' %}
+                  <div class="offer-item" {{ block.shopify_attributes }}>
+                    {% if block.settings.icon != blank %}
+                      <img src="{{ block.settings.icon | image_url: width: 30 }}" loading="lazy" alt="" class="offer-item-icon">
+                    {% endif %}
+                    <p class="offer-item-text service">{{ block.settings.text }}</p>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+
+            <div class="service-btn-wrap">
+              <a href="{{ section.settings.button_link }}" target="_blank" class="hero-btn service w-inline-block">
+                <div>{{ section.settings.button_text }}</div>
+                {% if section.settings.button_icon != blank %}
+                  <img src="{{ section.settings.button_icon | image_url: width: 30 }}" loading="lazy" alt="" class="hero-btn-icon">
+                {% endif %}
+              </a>
+
+              <div class="hero-content-bottom">
+                {% if section.settings.guarantee_icon != blank %}
+                  <img src="{{ section.settings.guarantee_icon | image_url: width: 40 }}" loading="lazy" alt="" class="hero-icon-2">
+                {% endif %}
+                <p class="hero-bottom-text">{{ section.settings.guarantee_text }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% if section.settings.shape_1 != blank %}
+          <img src="{{ section.settings.shape_1 | image_url: width: 200 }}" loading="lazy" alt="" class="service-shape">
+        {% endif %}
+        {% if section.settings.shape_3 != blank %}
+          <img src="{{ section.settings.shape_3 | image_url: width: 200 }}" loading="lazy" alt="" class="service-shape-3">
+        {% endif %}
+        {% if section.settings.shape_2 != blank %}
+          <img src="{{ section.settings.shape_2 | image_url: width: 200 }}" loading="lazy" alt="" class="service-shape-2">
+        {% endif %}
+      </div>
+
+      <div class="hero-btn-wrap-m">
+        <a href="{{ section.settings.mobile_button_link }}" target="_blank" class="btn-blue w-inline-block">
+          <div>{{ section.settings.mobile_button_text }}</div>
+          {% if section.settings.mobile_button_icon != blank %}
+            <img src="{{ section.settings.mobile_button_icon | image_url: width: 30 }}" loading="lazy" alt="" class="hero-btn-icon">
+          {% endif %}
+        </a>
+
+        <div class="hero-content-bottom">
+          {% if section.settings.mobile_guarantee_icon != blank %}
+            <img src="{{ section.settings.mobile_guarantee_icon | image_url: width: 40 }}" loading="lazy" alt="" class="hero-icon-2">
+          {% endif %}
+          <p class="result-bottom-text">{{ section.settings.mobile_guarantee_text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Service Tirzepatide",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desktop_bg",
+      "label": "Desktop background image"
+    },
+    {
+      "type": "text",
+      "id": "desktop_bg_alt",
+      "label": "Desktop image alt text"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_bg",
+      "label": "Mobile background image"
+    },
+    {
+      "type": "text",
+      "id": "mobile_bg_alt",
+      "label": "Mobile image alt text"
+    },
+    {
+      "type": "text",
+      "id": "tag",
+      "label": "Tag",
+      "default": "Tirzepatide"
+    },
+    {
+      "type": "textarea",
+      "id": "top_heading",
+      "label": "Top heading",
+      "default": "The Most Effective Prescription for <em>Weight Loss</em>"
+    },
+    {
+      "type": "textarea",
+      "id": "top_text",
+      "label": "Top text",
+      "default": "<span class='text-span-7'>Tirzepatide works differently from older GLP-1–only medications by</span> supporting both appetite regulation and metabolic response<span class='text-span-7'>, which helps many patients lose weight more efficiently.</span>"
+    },
+    {
+      "type": "text",
+      "id": "card_1_title",
+      "label": "Card 1 title",
+      "default": "Tirzepatide"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_1_icon",
+      "label": "Card 1 icon"
+    },
+    {
+      "type": "text",
+      "id": "card_1_text",
+      "label": "Card 1 text",
+      "default": "Dual-action GLP-1 + GIP formula"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_1_feature_1_icon",
+      "label": "Card 1 feature 1 icon"
+    },
+    {
+      "type": "text",
+      "id": "card_1_feature_1_label",
+      "label": "Card 1 feature 1 label",
+      "default": "Weight Loss"
+    },
+    {
+      "type": "text",
+      "id": "card_1_feature_1_text",
+      "label": "Card 1 feature 1 text",
+      "default": "Consistent, more sustainable weight loss"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_1_feature_2_icon",
+      "label": "Card 1 feature 2 icon"
+    },
+    {
+      "type": "text",
+      "id": "card_1_feature_2_label",
+      "label": "Card 1 feature 2 label",
+      "default": "Energy"
+    },
+    {
+      "type": "text",
+      "id": "card_1_feature_2_text",
+      "label": "Card 1 feature 2 text",
+      "default": "Less sluggish, steadier energy, fewer crashes"
+    },
+    {
+      "type": "text",
+      "id": "card_2_title",
+      "label": "Card 2 title",
+      "default": "Other GLP-1 Medication"
+    },
+    {
+      "type": "text",
+      "id": "card_2_text",
+      "label": "Card 2 text",
+      "default": "Single-pathway GLP-1 support"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_2_feature_1_icon",
+      "label": "Card 2 feature 1 icon"
+    },
+    {
+      "type": "text",
+      "id": "card_2_feature_1_label",
+      "label": "Card 2 feature 1 label",
+      "default": "Weight Loss"
+    },
+    {
+      "type": "text",
+      "id": "card_2_feature_1_text",
+      "label": "Card 2 feature 1 text",
+      "default": "Appetite-focused results only"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_2_feature_2_icon",
+      "label": "Card 2 feature 2 icon"
+    },
+    {
+      "type": "text",
+      "id": "card_2_feature_2_label",
+      "label": "Card 2 feature 2 label",
+      "default": "Energy"
+    },
+    {
+      "type": "text",
+      "id": "card_2_feature_2_text",
+      "label": "Card 2 feature 2 text",
+      "default": "Inconsistent energy throughout the day"
+    },
+    {
+      "type": "image_picker",
+      "id": "rating_icon",
+      "label": "Rating icon"
+    },
+    {
+      "type": "textarea",
+      "id": "rating_text",
+      "label": "Rating text",
+      "default": "<span class='text-span-2'>Rated</span> <span class='text-span'>4.7/5.0</span> ‘’Excellent’’"
+    },
+    {
+      "type": "textarea",
+      "id": "bottom_heading",
+      "label": "Bottom heading",
+      "default": "Tirzepatide, Without the $500–$1,200/Month Markup"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Get Started for $83/month"
+    },
+    {
+      "type": "image_picker",
+      "id": "button_icon",
+      "label": "Button icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "guarantee_icon",
+      "label": "Guarantee icon"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Guarantee text",
+      "default": "30-day weight loss guarantee"
+    },
+    {
+      "type": "image_picker",
+      "id": "shape_1",
+      "label": "Shape 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "shape_2",
+      "label": "Shape 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "shape_3",
+      "label": "Shape 3"
+    },
+    {
+      "type": "url",
+      "id": "mobile_button_link",
+      "label": "Mobile button link"
+    },
+    {
+      "type": "text",
+      "id": "mobile_button_text",
+      "label": "Mobile button text",
+      "default": "Get Started for $83/month"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_button_icon",
+      "label": "Mobile button icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_guarantee_icon",
+      "label": "Mobile guarantee icon"
+    },
+    {
+      "type": "text",
+      "id": "mobile_guarantee_text",
+      "label": "Mobile guarantee text",
+      "default": "30-day weight loss guarantee"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "offer_item",
+      "name": "Offer item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "<span class='text-span-3'>Dual-action</span> GLP-1 + GIP formula"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Service Tirzepatide",
+      "blocks": [
+        {
+          "type": "offer_item"
+        },
+        {
+          "type": "offer_item"
+        },
+        {
+          "type": "offer_item"
+        },
+        {
+          "type": "offer_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
