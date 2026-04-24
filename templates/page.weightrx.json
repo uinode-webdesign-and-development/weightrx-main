@@ -37,413 +37,428 @@
         "button_link": "https://results.weightrx.com/start.html"
       }
     },
-    "landing_hero_iXWFMc": {
-      "type": "landing-hero",
+    "lp_1_hero_section_6jgcpE": {
+      "type": "lp_1-hero-section",
+      "name": "LP 1 Hero Section",
+      "settings": {
+        "tag_label": "Rated",
+        "tag_rating": "4.7/5.0",
+        "tag_suffix": "''Excellent''",
+        "hero_title": "Stop Overpaying for Prescription Weight Loss.",
+        "hero_title_em": "Weight Loss.",
+        "hero_subtitle": "The same medication clinics charge $1200+ for, without insurance or appointments.",
+        "offer_1_text": "100% online, start in minutes",
+        "offer_1_highlight": "100% online,",
+        "offer_2_text": "pricing from $83/month",
+        "offer_2_highlight": "$83/month",
+        "offer_3_text": "ships IN 48 HOURS",
+        "offer_3_highlight": "48 HOURS",
+        "button_link": "",
+        "button_text": "Get Started for $83/month",
+        "button_icon": "shopify://shop_images/svgviewer-png-output_23.png",
+        "button_icon_mobile": "shopify://shop_images/svgviewer-png-output_23.png",
+        "guarantee_text": "30-day weight loss guarantee",
+        "guarantee_icon": "shopify://shop_images/svgviewer-png-output_3_8662f5da-8075-4bb5-8fe5-aac49a890dcf.png",
+        "guarantee_icon_mobile": "shopify://shop_images/svgviewer-png-output_3_8662f5da-8075-4bb5-8fe5-aac49a890dcf.png",
+        "marquee_speed": 20
+      }
+    },
+    "lp_1_product_section_pBRJm3": {
+      "type": "lp_1-product-section",
       "blocks": {
-        "feature_4JFLXL": {
-          "type": "feature",
+        "product_YVrJ6w": {
+          "type": "product",
           "settings": {
-            "feature_number": "200,000+",
-            "feature_text": "Patients trusted."
+            "product_image": "shopify://shop_images/69b10d56d605c378e7b3dd67_upscalemedia-transformed-removebg-preview_1_0377ebac-2bda-461b-a4a0-51b5692d8da9.webp",
+            "mobile_thumb": "shopify://shop_images/69b10d56d605c378e7b3dd67_upscalemedia-transformed-removebg-preview_1_0377ebac-2bda-461b-a4a0-51b5692d8da9.webp",
+            "product_title": "Tirzepatide",
+            "rating": "4.9 / 5.0",
+            "subtitle": "Dual-action GLP-1 + GIP formula",
+            "price_prefix": "$83.00",
+            "price_suffix": "per month",
+            "stock_text": "In stock via WeightRX",
+            "button_text": "Get Started",
+            "button_link": "https://home.weightrx.com/tirzepatide1"
           }
         },
-        "feature_3wAh9Q": {
-          "type": "feature",
+        "product_FjHaaY": {
+          "type": "product",
           "settings": {
-            "feature_number": "",
-            "feature_icon": "shopify://shop_images/feature-2.png",
-            "feature_text": "Save <strong>THOUSANDS</strong> per year in medication costs"
-          }
-        },
-        "feature_64JiGn": {
-          "type": "feature",
-          "settings": {
-            "feature_number": "",
-            "feature_icon": "shopify://shop_images/feature-3.png",
-            "feature_text": "3 Months Of High Dose Fees WAIVED ($99/mo)"
-          }
-        },
-        "feature_DGVzPF": {
-          "type": "feature",
-          "settings": {
-            "feature_number": "",
-            "feature_icon": "shopify://shop_images/feature-4.png",
-            "feature_text": "55% More Effective Than Semaglutide"
-          }
-        },
-        "feature_wH8CxE": {
-          "type": "feature",
-          "settings": {
-            "feature_number": "",
-            "feature_icon": "shopify://shop_images/feature-5.png",
-            "feature_text": "Payment Plans Available at Checkout"
+            "product_image": "shopify://shop_images/69b10c4ee4e0cca114512265_upscalemedia-transformed_1.webp",
+            "mobile_thumb": "shopify://shop_images/69b10c4ee4e0cca114512265_upscalemedia-transformed_1_a0c1b1f3-b4f0-48c5-af1d-5246beff117f.webp",
+            "product_title": "Semaglutide",
+            "rating": "4.8 / 5.0",
+            "subtitle": "Proven GLP-1 receptor agonist",
+            "price_prefix": "$250.00",
+            "price_suffix": "per month",
+            "stock_text": "In stock via WeightRX",
+            "button_text": "Get Started",
+            "button_link": "https://weightrx.thrivecart.com/pharmacy-direct-1/"
           }
         }
       },
       "block_order": [
-        "feature_4JFLXL",
-        "feature_3wAh9Q",
-        "feature_64JiGn",
-        "feature_DGVzPF",
-        "feature_wH8CxE"
+        "product_YVrJ6w",
+        "product_FjHaaY"
       ],
-      "disabled": true,
-      "name": "Landing hero",
+      "name": "LP Product Section",
       "settings": {
-        "title": "<strong>2026 Is Your Year. Start Tirzepatide for $83/mo</strong>",
-        "subheading": "Price locked in forever. Ships in 48 hours",
-        "mobile_image": "shopify://shop_images/tirz_vial_2.png",
-        "desktop_image": "shopify://shop_images/tirz_vial_2.png",
-        "btn_label": "Start Your Weight Loss Journey",
-        "btn_link": "https://results.weightrx.com/start.html",
-        "reviews_count": "Over 1,000+ reviews",
-        "rating_val": "4.7",
-        "disclaimer": "WeightRx offers compounded GLP-1s exclusively from U.S. pharmacies. While these pharmacies are regulated, the FDA has not evaluated the medications for safety, quality, or efficacy. WeightRx is not affiliated with Eli Lilly & Co"
+        "tagline": "Available Now",
+        "title_start": "Best-in-Class GLP-1s at",
+        "title_highlight": "Unbeatable Prices"
       }
     },
-    "landing_testimonials_section_4JgYfm": {
-      "type": "landing-testimonials-section",
+    "lp_1_result_section_Y4VJL6": {
+      "type": "lp_1-result-section",
       "blocks": {
-        "testimonial_BMWQEB": {
-          "type": "testimonial",
+        "result_item_at4TyH": {
+          "type": "result_item",
           "settings": {
-            "image": "shopify://shop_images/test-1.webp",
-            "name": "Tim B.",
-            "weight_text": "40 lbs lost",
-            "badge_text": "Verified WeightRx Member"
+            "image": "shopify://shop_images/69aa9b0f1d98388f4dd55703_thumb-3.webp",
+            "name": "Emily R.",
+            "rating": "4.9 / 5.0",
+            "quote": "“The cravings slowed down and the weight followed.”",
+            "result_text": "Emily lost 41 lbs with Tirzepatide"
           }
         },
-        "testimonial_xJeNqp": {
-          "type": "testimonial",
+        "result_item_AWLAmy": {
+          "type": "result_item",
           "settings": {
-            "image": "shopify://shop_images/test-2.webp",
-            "name": "Jennifer P.",
-            "weight_text": "34 lbs lost",
-            "badge_text": "Verified WeightRx Member"
+            "image": "shopify://shop_images/69aa9b0f14d2b655be556b10_thumb-5.webp",
+            "name": "Jessica B.",
+            "rating": "4.9 / 5.0",
+            "quote": "‘’Weight loss felt simple and sustainable for once.”",
+            "result_text": "Jessica lost 34 lbs with WeightRx"
           }
         },
-        "testimonial_xPwkeU": {
-          "type": "testimonial",
+        "result_item_y8ygJh": {
+          "type": "result_item",
           "settings": {
-            "image": "shopify://shop_images/test-11.webp",
-            "name": "Susan S.",
-            "weight_text": "36 lbs lost",
-            "badge_text": "Verified WeightRx Member"
+            "image": "shopify://shop_images/69aa983ab38e6b72968b4977_thumb-2.webp",
+            "name": "Sarah M.",
+            "rating": "4.9 / 5.0",
+            "quote": "WeightRx made it simple to finally stick with a plan.",
+            "result_text": "Sarah lost 38 lbs with WeightRx"
           }
         },
-        "testimonial_neFfNh": {
-          "type": "testimonial",
+        "result_item_bPXDmY": {
+          "type": "result_item",
           "settings": {
-            "image": "shopify://shop_images/test-10.webp",
-            "name": "Noelle D.",
-            "weight_text": "26 lbs lost",
-            "badge_text": "Verified WeightRx Member"
-          }
-        },
-        "testimonial_V8VXjr": {
-          "type": "testimonial",
-          "settings": {
-            "image": "shopify://shop_images/test-7.webp",
-            "name": "Michelle C.",
-            "weight_text": "30 lbs lost",
-            "badge_text": "Verified WeightRx Member"
-          }
-        },
-        "testimonial_w6hqTz": {
-          "type": "testimonial",
-          "settings": {
-            "image": "shopify://shop_images/test-9_1.webp",
-            "name": "Meghan S.",
-            "weight_text": "29 lbs lost",
-            "badge_text": "Verified WeightRx Member"
-          }
-        },
-        "testimonial_aLkKrj": {
-          "type": "testimonial",
-          "settings": {
-            "image": "shopify://shop_images/test-8.webp",
-            "name": "Ashley H.",
-            "weight_text": "25 lbs lost",
-            "badge_text": "Verified WeightRx Member"
-          }
-        },
-        "testimonial_c7eHpV": {
-          "type": "testimonial",
-          "settings": {
-            "image": "shopify://shop_images/test-6.webp",
-            "name": "Scott H.",
-            "weight_text": "32 lbs lost",
-            "badge_text": "Verified WeightRx Member"
+            "image": "shopify://shop_images/69aa9b0fb8e32d8dbfd4a290_thumb-4.webp",
+            "name": "Andy G.",
+            "rating": "4.9 / 5.0",
+            "quote": "“It just felt easier than anything I’ve tried before.”",
+            "result_text": "Andy lost 46 lbs with Tirzepatide"
           }
         }
       },
       "block_order": [
-        "testimonial_BMWQEB",
-        "testimonial_xJeNqp",
-        "testimonial_xPwkeU",
-        "testimonial_neFfNh",
-        "testimonial_V8VXjr",
-        "testimonial_w6hqTz",
-        "testimonial_aLkKrj",
-        "testimonial_c7eHpV"
+        "result_item_at4TyH",
+        "result_item_AWLAmy",
+        "result_item_y8ygJh",
+        "result_item_bPXDmY"
       ],
-      "disabled": true,
-      "name": "Testimonials section",
+      "name": "LP Result Section",
       "settings": {
-        "section_background_color": "#f1f7fe",
-        "highlight_text": "Join 200,000+ members and transform your",
-        "heading_text": "health, body and life."
+        "scroll_speed": 30,
+        "tagline": "Verified Results",
+        "title_start": "Trusted by",
+        "title_highlight": "60,000+",
+        "title_end": "Patients Nationwide",
+        "button_link": "",
+        "button_text": "Get Started for $83/month",
+        "guarantee_text": "30-day weight loss guarantee"
       }
     },
-    "landing_customer_feedback_Gxham3": {
-      "type": "landing-customer-feedback",
+    "lp_1_service_section_HF4Dya": {
+      "type": "lp_1-service-section",
       "blocks": {
-        "feedback_nFVHyw": {
-          "type": "feedback",
+        "offer_item_AAQzjT": {
+          "type": "offer_item",
           "settings": {
-            "rating_label": "5 out of 5 stars",
-            "quote_title": "WeightRx helped me achieve my goal!",
-            "quote_text": "WeightRx helped me achieve my goal weight! The providers I worked with throughout the process were professional and always quick to respond to my questions and concerns. I would recommend!",
-            "show_read_more": true,
-            "read_more_label": "Read More",
-            "author_avatar": "shopify://shop_images/customer1.png",
-            "author_name": "Hayley N.",
-            "verified_label": "Verified Member"
+            "text": "<span class=\"text-span-3\">Dual-action</span> GLP-1 + GIP formula"
           }
         },
-        "feedback_3QWRnb": {
-          "type": "feedback",
+        "offer_item_GkUx6z": {
+          "type": "offer_item",
           "settings": {
-            "rating_label": "5 out of 5 stars",
-            "quote_title": "WeightRx was miraculous!",
-            "quote_text": "From start to finish, customer service representatives made the entire process simple. The doctors I interacted with were friendly and concerned about my goals and concerns. I was able to quickly and safely meet my goal weight with the support I received. My meds were delivered promptly and the refill process was uncomplicated. I will definitely return to WeightRx in the future if I need additional assistance. Highly recommend!",
-            "show_read_more": true,
-            "read_more_label": "Read More",
-            "author_avatar": "shopify://shop_images/customer3.png",
-            "author_name": "Niko N.",
-            "verified_label": "Verified Member"
+            "text": "<span class=\"text-span-3\">Dual-action</span> GLP-1 + GIP formula"
           }
         },
-        "feedback_L7iFJX": {
-          "type": "feedback",
+        "offer_item_AgUVzB": {
+          "type": "offer_item",
           "settings": {
-            "rating_label": "5 out of 5 stars",
-            "quote_title": "The best choice for weight loss",
-            "quote_text": "From start to finish, customer service representatives made the entire process simple. The doctors I interacted with were friendly and concerned about my goals and concerns. I was able to quickly and safely",
-            "show_read_more": true,
-            "read_more_label": "Read More",
-            "author_avatar": "shopify://shop_images/customer2.png",
-            "author_name": "Courtney D.",
-            "verified_label": "Verified Member"
+            "text": "<span class=\"text-span-3\">Dual-action</span> GLP-1 + GIP formula"
           }
         },
-        "feedback_jYeLf9": {
-          "type": "feedback",
+        "offer_item_nWdDkC": {
+          "type": "offer_item",
           "settings": {
-            "rating_label": "5 out of 5 stars",
-            "quote_title": "WeightRx helped me achieve my goal!",
-            "quote_text": "The process was flawless. From signing up, speaking to the physician, and shipping! I've tried other companies, but never got the results I wanted until trying WeightRx. I have referred multiple friend and family members. Will definitely be a long-term customer!",
-            "show_read_more": true,
-            "read_more_label": "Read More",
-            "author_avatar": "shopify://shop_images/customer4.png",
-            "author_name": "Khalia L.",
-            "verified_label": "Verified Member"
-          }
-        },
-        "feedback_qiXVRk": {
-          "type": "feedback",
-          "settings": {
-            "rating_label": "5 out of 5 stars",
-            "quote_title": "WeightRx helped me achieve my goal!",
-            "quote_text": "The WeightRx team, and its doctors/NPs were extremely knowledgeable, professional, and supportive throughout this process. I paired the medication with a more active lifestyle (working out 4 times per week), and I am so very happy to have finally reached my goal. I have lost a total of 60 pounds and feel great. Thank you so much for this opportunity to get to a place where I am healthier.",
-            "show_read_more": true,
-            "read_more_label": "Read More",
-            "author_avatar": "shopify://shop_images/customer5.png",
-            "author_name": "Jason W.",
-            "verified_label": "Verified Member"
-          }
-        },
-        "feedback_hkakJG": {
-          "type": "feedback",
-          "settings": {
-            "rating_label": "5 out of 5 stars",
-            "quote_title": "Quick and Easy",
-            "quote_text": "The experience to get on a semaglutide medication for weight loss was easy and quick. I filled out a short survey on the website, was able to make a video appointment, and spoke with a provider who was understanding and knowledgeable. I was able to start my medication quickly. The information given to me about how to take medication was so helpful. I would recommend to anyone wanted to start weight loss medication.",
-            "show_read_more": true,
-            "read_more_label": "Read More",
-            "author_avatar": "shopify://shop_images/customer6.png",
-            "author_name": "Britt A.",
-            "verified_label": "Verified Member"
+            "text": "<span class=\"text-span-3\">Dual-action</span> GLP-1 + GIP formula"
           }
         }
       },
       "block_order": [
-        "feedback_nFVHyw",
-        "feedback_3QWRnb",
-        "feedback_L7iFJX",
-        "feedback_jYeLf9",
-        "feedback_qiXVRk",
-        "feedback_hkakJG"
+        "offer_item_AAQzjT",
+        "offer_item_GkUx6z",
+        "offer_item_AgUVzB",
+        "offer_item_nWdDkC"
       ],
-      "disabled": true,
-      "name": "Customer feedback",
+      "name": "Service Tirzepatide",
       "settings": {
-        "heading_line_1": "Real Stories.",
-        "heading_highlight": "Real Results.",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "desktop_bg_alt": "",
+        "mobile_bg_alt": "",
+        "tag": "Tirzepatide",
+        "top_heading": "The Most Effective Prescription for <em>Weight Loss</em>",
+        "top_text": "<span class=\"text-span-7\">Tirzepatide works differently from older GLP-1–only medications by</span> supporting both appetite regulation and metabolic response<span class=\"text-span-7\">, which helps many patients lose weight more efficiently.</span>",
+        "card_1_title": "Tirzepatide",
+        "card_1_text": "Dual-action GLP-1 + GIP formula",
+        "card_1_feature_1_label": "Weight Loss",
+        "card_1_feature_1_text": "Consistent, more sustainable weight loss",
+        "card_1_feature_2_label": "Energy",
+        "card_1_feature_2_text": "Less sluggish, steadier energy, fewer crashes",
+        "card_2_title": "Other GLP-1 Medication",
+        "card_2_text": "Single-pathway GLP-1 support",
+        "card_2_feature_1_label": "Weight Loss",
+        "card_2_feature_1_text": "Appetite-focused results only",
+        "card_2_feature_2_label": "Energy",
+        "card_2_feature_2_text": "Inconsistent energy throughout the day",
+        "rating_text": "<span class=\"text-span-2\">Rated</span> <span class=\"text-span\">4.7/5.0</span> ‘’Excellent’’",
+        "bottom_heading": "Tirzepatide, Without the $500–$1,200/Month Markup",
+        "button_link": "",
+        "button_text": "Get Started for $83/month",
+        "guarantee_text": "30-day weight loss guarantee",
+        "mobile_button_link": "",
+        "mobile_button_text": "Get Started for $83/month",
+        "mobile_guarantee_text": "30-day weight loss guarantee"
       }
     },
-    "landing_offer_banner_eYtqfQ": {
-      "type": "landing-offer-banner",
+    "lp_1_review_section_CDz4k3": {
+      "type": "lp_1-review-section",
       "blocks": {
-        "feature_e4HPDT": {
-          "type": "feature",
+        "review_xrTkUQ": {
+          "type": "review",
           "settings": {
-            "icon_image": "shopify://shop_images/svgviewer-output_2.svg",
-            "icon_size": 24,
-            "feature_text": "<p><strong>UNLIMITED</strong> doctor access & lab reviews</p>"
+            "duration": "After 3 months",
+            "rating": "4.9 / 5.0",
+            "review_text": "",
+            "name": "Customer Name",
+            "verified_text": "Verified Member"
           }
         },
-        "feature_FtJU8C": {
-          "type": "feature",
+        "review_iJk888": {
+          "type": "review",
           "settings": {
-            "icon_image": "shopify://shop_images/gemini-svg.svg",
-            "icon_size": 24,
-            "feature_text": "<p>Medication + Shipping + Doctors <strong>INCLUDED </strong>in price</p>"
+            "duration": "After 3 months",
+            "rating": "4.9 / 5.0",
+            "review_text": "",
+            "name": "Customer Name",
+            "verified_text": "Verified Member"
           }
         },
-        "feature_NX8YfF": {
-          "type": "feature",
+        "review_87YBQH": {
+          "type": "review",
           "settings": {
-            "icon_image": "shopify://shop_images/gemini-svg_1.svg",
-            "icon_size": 24,
-            "feature_text": "<p><strong>Prices LOCKED for 12 Months (Inflation-Proof)</strong></p>"
-          }
-        },
-        "feature_AUj4aP": {
-          "type": "feature",
-          "settings": {
-            "icon_image": "shopify://shop_images/gemini-svg_2.svg",
-            "icon_size": 24,
-            "feature_text": "<p>100% Satisfaction <strong>GUARANTEE</strong></p>"
+            "duration": "After 3 months",
+            "rating": "4.9 / 5.0",
+            "review_text": "",
+            "name": "Customer Name",
+            "verified_text": "Verified Member"
           }
         }
       },
       "block_order": [
-        "feature_e4HPDT",
-        "feature_FtJU8C",
-        "feature_NX8YfF",
-        "feature_AUj4aP"
+        "review_xrTkUQ",
+        "review_iJk888",
+        "review_87YBQH"
       ],
-      "disabled": true,
-      "name": "Offer banner",
+      "name": "LP Review Section",
       "settings": {
-        "background_image": "shopify://shop_images/offer-banner-lg.png",
-        "background_size": "cover",
-        "background_position": "center center",
-        "show_overlay": true,
-        "overlay_color": "#000000",
-        "overlay_opacity": 0,
-        "counter_first": "2",
-        "counter_second": "5",
-        "spots_text": "spots left",
-        "title_prefix": "Secure",
-        "title_highlight": "your",
-        "title_middle": "spot",
-        "title_bold": "TODAY!",
-        "press_text": "",
-        "button_label": "Get Started Now",
-        "button_link": "https://results.weightrx.com/start.html"
+        "rating_label": "Rated",
+        "rating_value": "4.7/5.0",
+        "rating_text": "Excellent",
+        "heading": "The Best Decision",
+        "highlight_text": "60,000 Women",
+        "heading_after": "Made This Year",
+        "cta_text": "Get Started for $83/month",
+        "cta_link": "",
+        "bottom_text": "30-day weight loss guarantee"
       }
     },
-    "landing_faq_section_eGA4jH": {
-      "type": "landing-faq-section",
+    "lp_1_review_section_9AjPEJ": {
+      "type": "lp_1-review-section",
       "blocks": {
-        "faq_item_FXdPej": {
-          "type": "faq_item",
+        "review_wP9F9Q": {
+          "type": "review",
           "settings": {
-            "question": "What's included with WeightRx?",
-            "answer": "You get the complete medical protocol: The Compounded Tirzepatide Medication, Overnight Cold-Chain Shipping, 1-on-1 Doctor Consultations, and Metabolic Lab Audits."
+            "duration": "After 3 months",
+            "rating": "4.9 / 5.0",
+            "review_text": "",
+            "name": "Customer Name",
+            "verified_text": "Verified Member"
           }
         },
-        "faq_item_W4Vxt4": {
-          "type": "faq_item",
+        "review_9XmJph": {
+          "type": "review",
           "settings": {
-            "question": "How fast will I recieve my medication?",
-            "answer": "Fast. Once your licensed medical provider reviews and approves your intake (usually within 4 hours), your medication ships via priority overnight cooling packs. Most patients receive their Black Friday box within 48 to 72 hours."
+            "duration": "After 3 months",
+            "rating": "4.9 / 5.0",
+            "review_text": "",
+            "name": "Customer Name",
+            "verified_text": "Verified Member"
           }
         },
-        "faq_item_Rrypqz": {
-          "type": "faq_item",
+        "review_GgcTHt": {
+          "type": "review",
           "settings": {
-            "question": "Do I need insurance to get this price?",
-            "answer": "No insurance needed! This is the final price. We do not require insurance, and there are no copays or deductible surprises. We also offer HSA/FSA reimbursement documentation (contact support once you've gottten your prescription approved')."
-          }
-        },
-        "faq_item_K3hxYQ": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is my price locked in?",
-            "answer": "Yes. By claiming the Black Friday offer, you lock in this rate for your entire term. You are protected from price increases, even if the market price of Compounded Tirzepatide goes up."
-          }
-        },
-        "faq_item_JLYPXz": {
-          "type": "faq_item",
-          "settings": {
-            "question": "I'm already on Semaglutide/Tirzepatide. Can I switch to a higher dose?",
-            "answer": "Yes. We specialize in \"Switching\" patients. Upload your current prescription or vial during intake, and our providers will match your dosage so you don't lose any progress. Plus, you get the First 3 Months of High-Dose Surcharges WAIVED with this offer."
+            "duration": "After 3 months",
+            "rating": "4.9 / 5.0",
+            "review_text": "",
+            "name": "Customer Name",
+            "verified_text": "Verified Member"
           }
         }
       },
       "block_order": [
-        "faq_item_FXdPej",
-        "faq_item_W4Vxt4",
-        "faq_item_Rrypqz",
-        "faq_item_K3hxYQ",
-        "faq_item_JLYPXz"
+        "review_wP9F9Q",
+        "review_9XmJph",
+        "review_GgcTHt"
       ],
-      "disabled": true,
-      "name": "FAQ section",
+      "name": "LP Review Section",
       "settings": {
-        "section_id": "faq",
-        "title": "Frequently Asked Questions",
-        "disclaimer": "<p>*The assessment made available on the WeightRx website does not create a clinician-patient relationship between the individual completing the assessment and WeightRx. WeightRx is not a provider of medical services. WeightRx acts primarily as a technology platform to connect you with professional clinicians who may be available to provide you with non-emergency care. Such providers include MDI Medical Group, and certain other medical groups (collectively, the \"Providers\").  The Providers include a network of US-licensed clinicians that adhere to rigorous medical protocols designed for patient safety and have established exclusionary criteria to determine if an individual does not qualify for GLP-1s. Each WeightRx assessment will be reviewed by a clinician who will determine if the individual is eligible for GLP-1 medication and qualifies for a prescription. Provider clinicians retain the decision to prescribe compounded GLP-1s to patients.<br/><br/>All claims and benefits on this website refer to self-reported data from WeightRx members on a treatment plan that includes compounded GLP-1 medications and consultations with medical professionals. Members reported their weight on their initial medical intake questionnaire every 3-12 weeks thereafter. Results from compounded medications found on the Weightrx platform may vary and be affected by an individual's adherence to the program and their clinician's recommendations. Although compounded GLP-1s are produced in facilities that are regulated, the medications are not FDA-approved or evaluated for safety, efficacy, or quality. The decision to use compounded drugs is guided by the licensed clinician's medical judgment, which is informed by a telehealth consultation and medical history.<br/><br/>We encourage all prospective users of compounded medications to speak with their clinician about the specific risks and benefits that may come with the use of compounded medication. WeightRx does not produce compounded medications, and individuals may receive medication that looks different than what is portrayed on the website.<br/></p>",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "rating_label": "Rated",
+        "rating_value": "4.7/5.0",
+        "rating_text": "Excellent",
+        "heading": "The Best Decision",
+        "highlight_text": "60,000 Women",
+        "heading_after": "Made This Year",
+        "cta_text": "Get Started for $83/month",
+        "cta_link": "",
+        "bottom_text": "30-day weight loss guarantee"
       }
     },
-    "custom_footer_WtBNLF": {
-      "type": "custom-footer",
-      "disabled": true,
-      "name": "Custom Footer",
+    "lp_1_thumbs_marquee_ThBeQP": {
+      "type": "lp_1-thumbs-marquee",
+      "blocks": {
+        "image_3BCgAw": {
+          "type": "image",
+          "settings": {}
+        },
+        "image_3UPp6H": {
+          "type": "image",
+          "settings": {}
+        },
+        "image_FqgkMi": {
+          "type": "image",
+          "settings": {}
+        },
+        "image_peqkgD": {
+          "type": "image",
+          "settings": {}
+        },
+        "image_xECLXJ": {
+          "type": "image",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "image_3BCgAw",
+        "image_3UPp6H",
+        "image_FqgkMi",
+        "image_peqkgD",
+        "image_xECLXJ"
+      ],
+      "name": "LP Thumbs Marquee",
       "settings": {
-        "logo": "shopify://shop_images/footer-logo.svg",
-        "logo_width": 160,
-        "brand_name": "WeightRx",
-        "copyright_text": "© 2026 WeightRx",
-        "center_image": "shopify://shop_images/18557581.png",
-        "center_image_width": 70,
-        "center_image_alt": "LegitScript Certified",
-        "center_image_link": "",
-        "contact_heading": "Contact Care Team",
-        "footer_menu": "footer",
-        "bg_color": "#062089",
-        "text_color": "#ffffff",
-        "max_width": 1200,
-        "padding_top": 80,
-        "padding_bottom": 80
+        "speed": 30,
+        "direction": "left",
+        "pause_on_hover": true
+      }
+    },
+    "lp_1_weight_section_qWKMGN": {
+      "type": "lp_1-weight-section",
+      "name": "LP Weight Section",
+      "settings": {
+        "subheading": "Calculate Your Weight Loss",
+        "heading": "See How Much You Could Lose, Based on Your Body",
+        "button_label": "Get Started for $83/month",
+        "button_link": "",
+        "guarantee_text": "30-day weight loss guarantee",
+        "slider_instruction": "Drag the slider to input your weight",
+        "result_text": "In 6 months, you could lose up to",
+        "default_weight": 235,
+        "min_weight": 100,
+        "max_weight": 400,
+        "loss_percentage": 16
+      }
+    },
+    "lp_1_why_section_WDCUrn": {
+      "type": "lp_1-why-section",
+      "blocks": {
+        "why_item_rJa4bR": {
+          "type": "why_item",
+          "settings": {
+            "title": "100% Online Care",
+            "tag_1": "No clinic visits",
+            "tag_2": "ONLINE ASSESSMENT",
+            "dark_text": false
+          }
+        },
+        "why_item_gA7nKp": {
+          "type": "why_item",
+          "settings": {
+            "title": "100% Online Care",
+            "tag_1": "No clinic visits",
+            "tag_2": "ONLINE ASSESSMENT",
+            "dark_text": false
+          }
+        },
+        "why_item_UKfx94": {
+          "type": "why_item",
+          "settings": {
+            "title": "100% Online Care",
+            "tag_1": "No clinic visits",
+            "tag_2": "ONLINE ASSESSMENT",
+            "dark_text": false
+          }
+        },
+        "why_item_4Jp4Qg": {
+          "type": "why_item",
+          "settings": {
+            "title": "100% Online Care",
+            "tag_1": "No clinic visits",
+            "tag_2": "ONLINE ASSESSMENT",
+            "dark_text": false
+          }
+        }
+      },
+      "block_order": [
+        "why_item_rJa4bR",
+        "why_item_gA7nKp",
+        "why_item_UKfx94",
+        "why_item_4Jp4Qg"
+      ],
+      "name": "LP Why Section",
+      "settings": {
+        "sub_heading": "Why WeightRx",
+        "accent_color": "#007aff",
+        "btn_link": "",
+        "btn_text": "Get Started for $83/month",
+        "guarantee_text": "30-day weight loss guarantee"
       }
     }
   },
   "order": [
     "main",
     "lp_1_header_G4X4bH",
-    "landing_hero_iXWFMc",
-    "landing_testimonials_section_4JgYfm",
-    "landing_customer_feedback_Gxham3",
-    "landing_offer_banner_eYtqfQ",
-    "landing_faq_section_eGA4jH",
-    "custom_footer_WtBNLF"
+    "lp_1_hero_section_6jgcpE",
+    "lp_1_product_section_pBRJm3",
+    "lp_1_result_section_Y4VJL6",
+    "lp_1_service_section_HF4Dya",
+    "lp_1_review_section_CDz4k3",
+    "lp_1_review_section_9AjPEJ",
+    "lp_1_thumbs_marquee_ThBeQP",
+    "lp_1_weight_section_qWKMGN",
+    "lp_1_why_section_WDCUrn"
   ]
 }
