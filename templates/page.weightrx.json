@@ -24,6 +24,7 @@
       "type": "lp_1-header",
       "name": "LP Navigation",
       "settings": {
+        "top_logo": "shopify://shop_images/WeightRx_Blue_Logo_SVG.svg",
         "top_text": "60,000+ lives Changed with GLP-1s",
         "logo_link": "",
         "contact_text": "Contact Us",
