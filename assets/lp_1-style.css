@@ -6266,6 +6266,8 @@ img.work-bottom-icon{
   }
 }
 
+/* FAQ Item Text Wrap for Smooth Transition */
+
 .faq-item-text-wrap {
   overflow: hidden;
   transition: height 0.4s ease, opacity 0.4s ease;
@@ -6291,11 +6293,13 @@ img.s-promise-icon{
 }
 img.s-contact-item-icon{
     max-width:21px;
-
 }
 img.hero-btn-icon {
-    width: 25px!important;
+    max-width: 25px!important;
 }
 img.offer-item-icon {
-    width: 18px!important;
+    max-width: 18px!important;
+}
+img.offer-item-icon {
+    max-width: 18px;
 }
