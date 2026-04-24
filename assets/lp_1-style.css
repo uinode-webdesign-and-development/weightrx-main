@@ -6300,12 +6300,6 @@ img.work-bottom-icon {
     /* Ya jo bhi aapka theme font ho */
 }
 
-.container {
-    /* max-width: 1280px; */
-    margin: 0 auto;
-    /* padding: 0 20px; */
-}
-
 /* Top Bar (Navy Blue) */
 .nav-top {
     background-color: #00234b;
