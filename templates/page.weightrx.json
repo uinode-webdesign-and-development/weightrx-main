@@ -70,7 +70,7 @@
           "type": "product",
           "settings": {
             "product_image": "shopify://shop_images/69b10d56d605c378e7b3dd67_upscalemedia-transformed-removebg-preview_1_0377ebac-2bda-461b-a4a0-51b5692d8da9.webp",
-            "mobile_thumb": "shopify://shop_images/69b10d56d605c378e7b3dd67_upscalemedia-transformed-removebg-preview_1_0377ebac-2bda-461b-a4a0-51b5692d8da9.webp",
+            "mobile_thumb": "shopify://shop_images/69abb3a9d9df6e0e0dbd5ea5_thumb-18.webp",
             "product_title": "Tirzepatide",
             "rating": "4.9 / 5.0",
             "subtitle": "Dual-action GLP-1 + GIP formula",
@@ -176,59 +176,76 @@
         "offer_item_AAQzjT": {
           "type": "offer_item",
           "settings": {
+            "icon": "shopify://shop_images/svgviewer-png-output_17.png",
             "text": "<span class=\"text-span-3\">Dual-action</span> GLP-1 + GIP formula"
           }
         },
         "offer_item_GkUx6z": {
           "type": "offer_item",
           "settings": {
-            "text": "<span class=\"text-span-3\">Dual-action</span> GLP-1 + GIP formula"
-          }
-        },
-        "offer_item_AgUVzB": {
-          "type": "offer_item",
-          "settings": {
-            "text": "<span class=\"text-span-3\">Dual-action</span> GLP-1 + GIP formula"
+            "icon": "shopify://shop_images/svgviewer-png-output_17.png",
+            "text": "<span class=\"text-span-3\">only $83/month</span> ($997/year)"
           }
         },
         "offer_item_nWdDkC": {
           "type": "offer_item",
           "settings": {
-            "text": "<span class=\"text-span-3\">Dual-action</span> GLP-1 + GIP formula"
+            "icon": "shopify://shop_images/svgviewer-png-output_17.png",
+            "text": "consistent, sustainable <span class=\"text-span-3\">fat loss</span>"
+          }
+        },
+        "offer_item_AgUVzB": {
+          "type": "offer_item",
+          "settings": {
+            "icon": "shopify://shop_images/svgviewer-png-output_17.png",
+            "text": "<span class=\"text-span-3\">UNLIMITED</span>  DOCTOR ACCESS AND LABS"
           }
         }
       },
       "block_order": [
         "offer_item_AAQzjT",
         "offer_item_GkUx6z",
-        "offer_item_AgUVzB",
-        "offer_item_nWdDkC"
+        "offer_item_nWdDkC",
+        "offer_item_AgUVzB"
       ],
       "name": "Service Tirzepatide",
       "settings": {
+        "desktop_bg": "shopify://shop_images/69b1226f01b0157f97647ccf_bg-2.webp",
         "desktop_bg_alt": "",
+        "mobile_bg": "shopify://shop_images/69ab25c41f138cfccecfc59f_Frame_2147239589.webp",
         "mobile_bg_alt": "",
         "tag": "Tirzepatide",
         "top_heading": "The Most Effective Prescription for <em>Weight Loss</em>",
         "top_text": "<span class=\"text-span-7\">Tirzepatide works differently from older GLP-1–only medications by</span> supporting both appetite regulation and metabolic response<span class=\"text-span-7\">, which helps many patients lose weight more efficiently.</span>",
         "card_1_title": "Tirzepatide",
+        "card_1_icon": "shopify://shop_images/svgviewer-output_7.svg",
         "card_1_text": "Dual-action GLP-1 + GIP formula",
+        "card_1_feature_1_icon": "shopify://shop_images/svgviewer-png-output_14.png",
         "card_1_feature_1_label": "Weight Loss",
         "card_1_feature_1_text": "Consistent, more sustainable weight loss",
+        "card_1_feature_2_icon": "shopify://shop_images/svgviewer-png-output_11.png",
         "card_1_feature_2_label": "Energy",
         "card_1_feature_2_text": "Less sluggish, steadier energy, fewer crashes",
         "card_2_title": "Other GLP-1 Medication",
         "card_2_text": "Single-pathway GLP-1 support",
+        "card_2_feature_1_icon": "shopify://shop_images/svgviewer-png-output_14.png",
         "card_2_feature_1_label": "Weight Loss",
         "card_2_feature_1_text": "Appetite-focused results only",
+        "card_2_feature_2_icon": "shopify://shop_images/svgviewer-png-output_11.png",
         "card_2_feature_2_label": "Energy",
         "card_2_feature_2_text": "Inconsistent energy throughout the day",
+        "rating_icon": "shopify://shop_images/svgviewer-png-output_16.png",
         "rating_text": "<span class=\"text-span-2\">Rated</span> <span class=\"text-span\">4.7/5.0</span> ‘’Excellent’’",
         "bottom_heading": "Tirzepatide, Without the $500–$1,200/Month Markup",
-        "button_link": "",
+        "button_link": "https://home.weightrx.com/tirzepatide1",
         "button_text": "Get Started for $83/month",
+        "button_icon": "shopify://shop_images/svgviewer-png-output_2.png",
+        "guarantee_icon": "shopify://shop_images/svgviewer-png-output_3_8662f5da-8075-4bb5-8fe5-aac49a890dcf.png",
         "guarantee_text": "30-day weight loss guarantee",
-        "mobile_button_link": "",
+        "shape_1": "shopify://shop_images/69b12671366431631cd4f2fb_upscalemedia-transformed_3.webp",
+        "shape_2": "shopify://shop_images/69b1272aea0a0937fab3d582_thumb-4.webp",
+        "shape_3": "shopify://shop_images/69b12671366431631cd4f2fb_upscalemedia-transformed_3_1.webp",
+        "mobile_button_link": "https://home.weightrx.com/tirzepatide1",
         "mobile_button_text": "Get Started for $83/month",
         "mobile_guarantee_text": "30-day weight loss guarantee"
       }
@@ -239,31 +256,37 @@
         "review_xrTkUQ": {
           "type": "review",
           "settings": {
+            "image_1": "shopify://shop_images/69aaaefc90aec45baa5a4994_thumb-11.webp",
+            "image_2": "shopify://shop_images/69aaaefba2a88b823dbad262_thumb-12.webp",
             "duration": "After 3 months",
             "rating": "4.9 / 5.0",
-            "review_text": "",
-            "name": "Customer Name",
-            "verified_text": "Verified Member"
+            "review_text": "‘’In just 5 months I lost over 20% of my body weight (42 lbs) with the GLP-1 injectable Tirzepatide compounded medications I was prescribed. The prescriptions were always on-time, the health care providers were very helpful.’’",
+            "name": "Danielle R.",
+            "verified_text": "Verified WeightRX Member"
           }
         },
         "review_iJk888": {
           "type": "review",
           "settings": {
+            "image_1": "shopify://shop_images/69aab1389d0ae1e5f58486c9_thumb-14.webp",
+            "image_2": "shopify://shop_images/69aab1399687d8c3fd141551_thumb-13.webp",
             "duration": "After 3 months",
             "rating": "4.9 / 5.0",
-            "review_text": "",
-            "name": "Customer Name",
-            "verified_text": "Verified Member"
+            "review_text": "The WeightRx team were extremely knowledgeable, professional, and supportive throughout this process. I paired the medication with a more active lifestyle/ I have lost a total of 60 pounds and feel great. Thank you so much!’’",
+            "name": "Amy P.",
+            "verified_text": "Verified WeightRX Member"
           }
         },
         "review_87YBQH": {
           "type": "review",
           "settings": {
+            "image_1": "shopify://shop_images/69aab138d42b8d102773dbae_thumb-15.webp",
+            "image_2": "shopify://shop_images/69aab13839d820015d199ad3_thumb-16.webp",
             "duration": "After 3 months",
             "rating": "4.9 / 5.0",
-            "review_text": "",
-            "name": "Customer Name",
-            "verified_text": "Verified Member"
+            "review_text": "When I joined WeightRx I was at rock bottom. My self esteem was close to nothing and I felt hopeless. I'm 3 months in and I've already lost 45 lbs! I have tons of energy, I have zero food cravings, and it's so easy to keep on track.",
+            "name": "Ashley O.",
+            "verified_text": "Verified WeightRX Member"
           }
         }
       },
@@ -274,14 +297,20 @@
       ],
       "name": "LP Review Section",
       "settings": {
+        "rating_icon": "shopify://shop_images/svgviewer-png-output_16.png",
         "rating_label": "Rated",
         "rating_value": "4.7/5.0",
         "rating_text": "Excellent",
         "heading": "The Best Decision",
         "highlight_text": "60,000 Women",
         "heading_after": "Made This Year",
+        "verified_icon": "shopify://shop_images/svgviewer-png-output_25.png",
+        "left_arrow": "shopify://shop_images/svgviewer-output_9.svg",
+        "right_arrow": "shopify://shop_images/svgviewer-output_8.svg",
         "cta_text": "Get Started for $83/month",
-        "cta_link": "",
+        "cta_link": "https://home.weightrx.com/tirzepatide1",
+        "cta_icon": "shopify://shop_images/svgviewer-png-output_21.png",
+        "bottom_icon": "shopify://shop_images/svgviewer-png-output_22.png",
         "bottom_text": "30-day weight loss guarantee"
       }
     },
