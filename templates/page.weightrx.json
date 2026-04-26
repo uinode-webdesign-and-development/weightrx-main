@@ -298,54 +298,6 @@
         "pause_on_hover": true
       }
     },
-    "lp_1_thumbs_marquee_VT3L4K": {
-      "type": "lp_1-thumbs-marquee",
-      "blocks": {
-        "image_b4nnKz": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/69aaa3e74547921f66cada84_thumb-1.webp"
-          }
-        },
-        "image_HH9mpy": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/69aaa3e70da63ea63fed3743_thumb-2.webp"
-          }
-        },
-        "image_NhHxXw": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/69aaa3e7c0427e5b60f42431_thumb-3.webp"
-          }
-        },
-        "image_nELwkA": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/69aaa42a58cf8cde8a846440_thumb-4.webp"
-          }
-        },
-        "image_3JexbT": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/69aaa42a9dde3f5900574636_thumb-5.webp"
-          }
-        }
-      },
-      "block_order": [
-        "image_b4nnKz",
-        "image_HH9mpy",
-        "image_NhHxXw",
-        "image_nELwkA",
-        "image_3JexbT"
-      ],
-      "name": "LP Thumbs Marquee",
-      "settings": {
-        "speed": 30,
-        "direction": "left",
-        "pause_on_hover": true
-      }
-    },
     "lp_1_why_section_WDCUrn": {
       "type": "lp_1-why-section",
       "blocks": {
@@ -606,6 +558,54 @@
         "button_icon": "shopify://shop_images/svgviewer-png-output_21.png",
         "trust_icon": "shopify://shop_images/svgviewer-png-output_22.png",
         "trust_text": "30-day weight loss guarantee"
+      }
+    },
+    "lp_1_thumbs_marquee_VT3L4K": {
+      "type": "lp_1-thumbs-marquee",
+      "blocks": {
+        "image_b4nnKz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/69aaa3e74547921f66cada84_thumb-1.webp"
+          }
+        },
+        "image_HH9mpy": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/69aaa3e70da63ea63fed3743_thumb-2.webp"
+          }
+        },
+        "image_NhHxXw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/69aaa3e7c0427e5b60f42431_thumb-3.webp"
+          }
+        },
+        "image_nELwkA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/69aaa42a58cf8cde8a846440_thumb-4.webp"
+          }
+        },
+        "image_3JexbT": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/69aaa42a9dde3f5900574636_thumb-5.webp"
+          }
+        }
+      },
+      "block_order": [
+        "image_b4nnKz",
+        "image_HH9mpy",
+        "image_NhHxXw",
+        "image_nELwkA",
+        "image_3JexbT"
+      ],
+      "name": "LP Thumbs Marquee",
+      "settings": {
+        "speed": 30,
+        "direction": "left",
+        "pause_on_hover": true
       }
     }
   },
