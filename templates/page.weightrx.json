@@ -493,6 +493,120 @@
         "bottom_icon": "shopify://shop_images/svgviewer-png-output_22.png",
         "bottom_text": "30-day weight loss guarantee"
       }
+    },
+    "lp_1_faq_section_nXmW9g": {
+      "type": "lp_1-faq-section",
+      "blocks": {
+        "faq_item_AUeXWY": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What’s included with WeightRx?",
+            "answer": "Your plan includes your prescribed medication, licensed provider review, ongoing doctor support, and cold-chain home delivery. Medication, care, and shipping are all included in one simple price - no hidden fees."
+          }
+        },
+        "faq_item_XwNUM8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need insurance to get this price?",
+            "answer": "No insurance is required. WeightRx is cash-pay, so there are no copays, deductibles, or surprise bills. The price you see is your final price. HSA/FSA receipts are available once your prescription has been approved."
+          }
+        },
+        "faq_item_JtkXbh": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is tirzepatide safe and prescribed  by real doctors?",
+            "answer": "Yes. Your rate is locked for your full term, protecting you from price increases - even if market prices for GLP-1 medications go up."
+          }
+        },
+        "faq_item_36JPiK": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How fast will I receive my medication?",
+            "answer": "Most patients are reviewed and approved the same day. Once approved, your medication ships within 48 hours using temperature-controlled packaging and typically arrives within 48 hours."
+          }
+        },
+        "faq_item_RjmM3g": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is my price protected from increases?",
+            "answer": "Yes. Your rate is locked for your full term, protecting you from price increases - even if market prices for GLP-1 medications go up."
+          }
+        },
+        "faq_item_dCFbPa": {
+          "type": "faq_item",
+          "settings": {
+            "question": "I'm on Semaglutide/Tirzepatide  already. Can I swap to a higher dose?",
+            "answer": "Absolutely. Many patients switch or upgrade their dose through WeightRx. Upload your current prescription during intake and our providers will safely match or adjust your dose so you don’t lose progress."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_AUeXWY",
+        "faq_item_XwNUM8",
+        "faq_item_JtkXbh",
+        "faq_item_36JPiK",
+        "faq_item_RjmM3g",
+        "faq_item_dCFbPa"
+      ],
+      "name": "LP FAQ Section",
+      "settings": {
+        "tag_text": "FAQ’S",
+        "title": "Everything You Need to Know",
+        "bg_image": "shopify://shop_images/69b1226f01b0157f97647ccf_bg-2.webp",
+        "button_label": "Get Started for $83/month",
+        "button_url": "https://home.weightrx.com/tirzepatide1",
+        "button_icon": "shopify://shop_images/svgviewer-png-output_21.png",
+        "trust_icon": "shopify://shop_images/svgviewer-png-output_22.png",
+        "trust_text": "30-day weight loss guarantee"
+      }
+    },
+    "lp_1_thumbs_marquee_VT3L4K": {
+      "type": "lp_1-thumbs-marquee",
+      "blocks": {
+        "image_b4nnKz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/69aaa3e74547921f66cada84_thumb-1.webp"
+          }
+        },
+        "image_HH9mpy": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/69aaa3e70da63ea63fed3743_thumb-2.webp"
+          }
+        },
+        "image_NhHxXw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/69aaa3e7c0427e5b60f42431_thumb-3.webp"
+          }
+        },
+        "image_nELwkA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/69aaa42a58cf8cde8a846440_thumb-4.webp"
+          }
+        },
+        "image_3JexbT": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/69aaa42a9dde3f5900574636_thumb-5.webp"
+          }
+        }
+      },
+      "block_order": [
+        "image_b4nnKz",
+        "image_HH9mpy",
+        "image_NhHxXw",
+        "image_nELwkA",
+        "image_3JexbT"
+      ],
+      "name": "LP Thumbs Marquee",
+      "settings": {
+        "speed": 30,
+        "direction": "left",
+        "pause_on_hover": true
+      }
     }
   },
   "order": [
@@ -506,6 +620,8 @@
     "lp_1_why_section_WDCUrn",
     "lp_1_work_section_7y3Cqi",
     "lp_1_weight_section_qWKMGN",
-    "lp_1_review_section_CDz4k3"
+    "lp_1_review_section_CDz4k3",
+    "lp_1_faq_section_nXmW9g",
+    "lp_1_thumbs_marquee_VT3L4K"
   ]
 }
