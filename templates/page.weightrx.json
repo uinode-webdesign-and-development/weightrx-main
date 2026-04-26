@@ -250,6 +250,111 @@
         "mobile_guarantee_text": "30-day weight loss guarantee"
       }
     },
+    "lp_1_thumbs_marquee_ThBeQP": {
+      "type": "lp_1-thumbs-marquee",
+      "blocks": {
+        "image_3BCgAw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/69aaa3e74547921f66cada84_thumb-1.webp"
+          }
+        },
+        "image_3UPp6H": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/69aaa3e70da63ea63fed3743_thumb-2.webp"
+          }
+        },
+        "image_FqgkMi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/69aaa3e7c0427e5b60f42431_thumb-3.webp"
+          }
+        },
+        "image_YFwUQF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/69aaa42a58cf8cde8a846440_thumb-4.webp"
+          }
+        },
+        "image_peqkgD": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/69aaa42a9dde3f5900574636_thumb-5.webp"
+          }
+        }
+      },
+      "block_order": [
+        "image_3BCgAw",
+        "image_3UPp6H",
+        "image_FqgkMi",
+        "image_YFwUQF",
+        "image_peqkgD"
+      ],
+      "name": "LP Thumbs Marquee",
+      "settings": {
+        "speed": 30,
+        "direction": "left",
+        "pause_on_hover": true
+      }
+    },
+    "lp_1_why_section_WDCUrn": {
+      "type": "lp_1-why-section",
+      "blocks": {
+        "why_item_rJa4bR": {
+          "type": "why_item",
+          "settings": {
+            "image": "shopify://shop_images/69aaa8dea9a7c538560f5067_thumb-7.webp",
+            "title": "100% Online Care",
+            "tag_icon": "shopify://shop_images/svgviewer-png-output_20.png",
+            "tag_1": "No clinic visits",
+            "tag_2": "ONLINE ASSESSMENT",
+            "dark_text": false
+          }
+        },
+        "why_item_gA7nKp": {
+          "type": "why_item",
+          "settings": {
+            "title": "100% Online Care",
+            "tag_1": "No clinic visits",
+            "tag_2": "ONLINE ASSESSMENT",
+            "dark_text": false
+          }
+        },
+        "why_item_UKfx94": {
+          "type": "why_item",
+          "settings": {
+            "title": "100% Online Care",
+            "tag_1": "No clinic visits",
+            "tag_2": "ONLINE ASSESSMENT",
+            "dark_text": false
+          }
+        },
+        "why_item_4Jp4Qg": {
+          "type": "why_item",
+          "settings": {
+            "title": "100% Online Care",
+            "tag_1": "No clinic visits",
+            "tag_2": "ONLINE ASSESSMENT",
+            "dark_text": false
+          }
+        }
+      },
+      "block_order": [
+        "why_item_rJa4bR",
+        "why_item_gA7nKp",
+        "why_item_UKfx94",
+        "why_item_4Jp4Qg"
+      ],
+      "name": "LP Why Section",
+      "settings": {
+        "sub_heading": "Why WeightRx",
+        "accent_color": "#007aff",
+        "btn_link": "",
+        "btn_text": "Get Started for $83/month",
+        "guarantee_text": "30-day weight loss guarantee"
+      }
+    },
     "lp_1_review_section_CDz4k3": {
       "type": "lp_1-review-section",
       "blocks": {
@@ -366,44 +471,6 @@
         "bottom_text": "30-day weight loss guarantee"
       }
     },
-    "lp_1_thumbs_marquee_ThBeQP": {
-      "type": "lp_1-thumbs-marquee",
-      "blocks": {
-        "image_3BCgAw": {
-          "type": "image",
-          "settings": {}
-        },
-        "image_3UPp6H": {
-          "type": "image",
-          "settings": {}
-        },
-        "image_FqgkMi": {
-          "type": "image",
-          "settings": {}
-        },
-        "image_peqkgD": {
-          "type": "image",
-          "settings": {}
-        },
-        "image_xECLXJ": {
-          "type": "image",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "image_3BCgAw",
-        "image_3UPp6H",
-        "image_FqgkMi",
-        "image_peqkgD",
-        "image_xECLXJ"
-      ],
-      "name": "LP Thumbs Marquee",
-      "settings": {
-        "speed": 30,
-        "direction": "left",
-        "pause_on_hover": true
-      }
-    },
     "lp_1_weight_section_qWKMGN": {
       "type": "lp_1-weight-section",
       "name": "LP Weight Section",
@@ -420,61 +487,6 @@
         "max_weight": 400,
         "loss_percentage": 16
       }
-    },
-    "lp_1_why_section_WDCUrn": {
-      "type": "lp_1-why-section",
-      "blocks": {
-        "why_item_rJa4bR": {
-          "type": "why_item",
-          "settings": {
-            "title": "100% Online Care",
-            "tag_1": "No clinic visits",
-            "tag_2": "ONLINE ASSESSMENT",
-            "dark_text": false
-          }
-        },
-        "why_item_gA7nKp": {
-          "type": "why_item",
-          "settings": {
-            "title": "100% Online Care",
-            "tag_1": "No clinic visits",
-            "tag_2": "ONLINE ASSESSMENT",
-            "dark_text": false
-          }
-        },
-        "why_item_UKfx94": {
-          "type": "why_item",
-          "settings": {
-            "title": "100% Online Care",
-            "tag_1": "No clinic visits",
-            "tag_2": "ONLINE ASSESSMENT",
-            "dark_text": false
-          }
-        },
-        "why_item_4Jp4Qg": {
-          "type": "why_item",
-          "settings": {
-            "title": "100% Online Care",
-            "tag_1": "No clinic visits",
-            "tag_2": "ONLINE ASSESSMENT",
-            "dark_text": false
-          }
-        }
-      },
-      "block_order": [
-        "why_item_rJa4bR",
-        "why_item_gA7nKp",
-        "why_item_UKfx94",
-        "why_item_4Jp4Qg"
-      ],
-      "name": "LP Why Section",
-      "settings": {
-        "sub_heading": "Why WeightRx",
-        "accent_color": "#007aff",
-        "btn_link": "",
-        "btn_text": "Get Started for $83/month",
-        "guarantee_text": "30-day weight loss guarantee"
-      }
     }
   },
   "order": [
@@ -484,10 +496,10 @@
     "lp_1_product_section_pBRJm3",
     "lp_1_result_section_Y4VJL6",
     "lp_1_service_section_HF4Dya",
+    "lp_1_thumbs_marquee_ThBeQP",
+    "lp_1_why_section_WDCUrn",
     "lp_1_review_section_CDz4k3",
     "lp_1_review_section_9AjPEJ",
-    "lp_1_thumbs_marquee_ThBeQP",
-    "lp_1_weight_section_qWKMGN",
-    "lp_1_why_section_WDCUrn"
+    "lp_1_weight_section_qWKMGN"
   ]
 }
