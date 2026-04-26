@@ -649,6 +649,25 @@
         "guarantee_text": "30-day weight loss guarantee",
         "main_image": "shopify://shop_images/69b128c3ee4c9e12afa3f294_thumb-30.webp"
       }
+    },
+    "lp_1_promise_section_qR9CzC": {
+      "type": "lp_1-promise-section",
+      "name": "LP Promise Section",
+      "settings": {
+        "brand_image": "shopify://shop_images/svgviewer-png-output_35.png",
+        "thumb_image": "shopify://shop_images/69aaab1853b5d1b5b05e12d3_thumb-7.webp",
+        "icon_image": "shopify://shop_images/svgviewer-png-output_36.png",
+        "tag_text": "Our Promise",
+        "title": "30-Day Weight Loss <span><em class=\"clr\">Guarantee</em></span>",
+        "description": "We're so confident you'll see results, we guarantee it. If you follow the program and don't lose weight in 30 days, we'll refund your money.",
+        "button_text": "Get Started for $83/month",
+        "button_link": "https://home.weightrx.com/tirzepatide1",
+        "btn_icon": "shopify://shop_images/svgviewer-png-output_21.png",
+        "btn_icon_mobile": "shopify://shop_images/svgviewer-png-output_21.png",
+        "bottom_text": "30-day weight loss guarantee",
+        "bottom_icon": "shopify://shop_images/svgviewer-png-output_22.png",
+        "bottom_icon_mobile": "shopify://shop_images/svgviewer-png-output_22.png"
+      }
     }
   },
   "order": [
@@ -665,6 +684,7 @@
     "lp_1_review_section_CDz4k3",
     "lp_1_faq_section_nXmW9g",
     "lp_1_thumbs_marquee_VT3L4K",
-    "lp_1_data_section_YijnKe"
+    "lp_1_data_section_YijnKe",
+    "lp_1_promise_section_qR9CzC"
   ]
 }
