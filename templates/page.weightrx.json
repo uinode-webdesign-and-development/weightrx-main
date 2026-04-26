@@ -372,7 +372,8 @@
             "tab_label": "Step 1",
             "step_number": "Step 1",
             "heading": "Complete Your Free Assessment",
-            "text": "Complete a quick form and meet with a licensed physician 100% online.",
+            "text": "Complete a quick form and meet with a licensed physician 100% online. They'll determine if a personalized treatment plan is right for you.",
+            "icon": "shopify://shop_images/svgviewer-png-output_17.png",
             "footer_text": "Takes 10 Minutes"
           }
         },
@@ -381,8 +382,9 @@
           "settings": {
             "tab_label": "Step 2",
             "step_number": "Step 2",
-            "heading": "Complete Your Free Assessment",
-            "text": "Complete a quick form and meet with a licensed physician 100% online.",
+            "heading": "Get Your Medication Delivered",
+            "text": "Your personalized prescription ships directly to your door in discreet, temperature-controlled packaging. No pharmacy trips required.",
+            "icon": "shopify://shop_images/svgviewer-png-output_17.png",
             "footer_text": "DELIVERED IN 48 HOURS"
           }
         },
@@ -391,8 +393,9 @@
           "settings": {
             "tab_label": "Step 3",
             "step_number": "Step 3",
-            "heading": "Complete Your Free Assessment",
-            "text": "Complete a quick form and meet with a licensed physician 100% online.",
+            "heading": "Lose Weight with Expert Support",
+            "text": "Unlimited access to your physician for dosage adjustments, questions, and regular check-ins to keep you on track.",
+            "icon": "shopify://shop_images/svgviewer-png-output_17.png",
             "footer_text": "24/7 Ongoing Care"
           }
         }
