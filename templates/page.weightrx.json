@@ -326,19 +326,23 @@
         "why_item_UKfx94": {
           "type": "why_item",
           "settings": {
-            "title": "100% Online Care",
-            "tag_1": "No clinic visits",
-            "tag_2": "ONLINE ASSESSMENT",
-            "dark_text": false
+            "image": "shopify://shop_images/69aaac0ad4e67535fe1b40d9_thumb-9.webp",
+            "title": "48 Hour<br>\nDiscreet<br>\nHome<br>\nDelivery",
+            "tag_icon": "shopify://shop_images/svgviewer-png-output_20.png",
+            "tag_1": "Ships in 2 days",
+            "tag_2": "No pharmacy visits",
+            "dark_text": true
           }
         },
         "why_item_4Jp4Qg": {
           "type": "why_item",
           "settings": {
-            "title": "100% Online Care",
-            "tag_1": "No clinic visits",
-            "tag_2": "ONLINE ASSESSMENT",
-            "dark_text": false
+            "image": "shopify://shop_images/69b1291a451310a84fa53b0c_thumb-32.webp",
+            "title": "Best Overall<br>\nPricing",
+            "tag_icon": "shopify://shop_images/svgviewer-png-output_20.png",
+            "tag_1": "Significant savings",
+            "tag_2": "Everything included",
+            "dark_text": true
           }
         }
       },
