@@ -315,9 +315,11 @@
         "why_item_gA7nKp": {
           "type": "why_item",
           "settings": {
-            "title": "100% Online Care",
-            "tag_1": "No clinic visits",
-            "tag_2": "ONLINE ASSESSMENT",
+            "image": "shopify://shop_images/69aaac0ae80aa03e88a9bb68_thumb-8.webp",
+            "title": "Unlimited doctor access & lab reviews",
+            "tag_icon": "shopify://shop_images/svgviewer-png-output_20.png",
+            "tag_1": "LABS PRESCRIBED",
+            "tag_2": "LICENSED PHYSICIANS",
             "dark_text": false
           }
         },
