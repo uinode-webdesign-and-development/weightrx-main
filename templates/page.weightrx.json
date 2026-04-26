@@ -356,9 +356,11 @@
       "settings": {
         "sub_heading": "Why WeightRx",
         "accent_color": "#007aff",
-        "btn_link": "",
+        "btn_link": "https://home.weightrx.com/tirzepatide1",
         "btn_text": "Get Started for $83/month",
-        "guarantee_text": "30-day weight loss guarantee"
+        "btn_icon": "shopify://shop_images/svgviewer-png-output_21.png",
+        "guarantee_text": "30-day weight loss guarantee",
+        "guarantee_icon": "shopify://shop_images/svgviewer-png-output_22.png"
       }
     },
     "lp_1_review_section_CDz4k3": {
