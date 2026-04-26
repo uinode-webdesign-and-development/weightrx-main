@@ -412,6 +412,24 @@
         "main_image": "shopify://shop_images/69b122a44bea7538e87d07d4_upscalemedia-transformed_4.webp"
       }
     },
+    "lp_1_weight_section_qWKMGN": {
+      "type": "lp_1-weight-section",
+      "name": "LP Weight Section",
+      "settings": {
+        "subheading": "Calculate Your Weight Loss",
+        "heading": "See How Much You Could Lose, Based on Your Body",
+        "button_label": "Get Started for $83/month",
+        "button_link": "",
+        "button_icon": "shopify://shop_images/svgviewer-png-output_21.png",
+        "guarantee_text": "30-day weight loss guarantee",
+        "slider_instruction": "Drag the slider to input your weight",
+        "result_text": "In 6 months, you could lose up to",
+        "default_weight": 235,
+        "min_weight": 100,
+        "max_weight": 400,
+        "loss_percentage": 16
+      }
+    },
     "lp_1_review_section_CDz4k3": {
       "type": "lp_1-review-section",
       "blocks": {
@@ -475,23 +493,6 @@
         "bottom_icon": "shopify://shop_images/svgviewer-png-output_22.png",
         "bottom_text": "30-day weight loss guarantee"
       }
-    },
-    "lp_1_weight_section_qWKMGN": {
-      "type": "lp_1-weight-section",
-      "name": "LP Weight Section",
-      "settings": {
-        "subheading": "Calculate Your Weight Loss",
-        "heading": "See How Much You Could Lose, Based on Your Body",
-        "button_label": "Get Started for $83/month",
-        "button_link": "",
-        "guarantee_text": "30-day weight loss guarantee",
-        "slider_instruction": "Drag the slider to input your weight",
-        "result_text": "In 6 months, you could lose up to",
-        "default_weight": 235,
-        "min_weight": 100,
-        "max_weight": 400,
-        "loss_percentage": 16
-      }
     }
   },
   "order": [
@@ -504,7 +505,7 @@
     "lp_1_thumbs_marquee_ThBeQP",
     "lp_1_why_section_WDCUrn",
     "lp_1_work_section_7y3Cqi",
-    "lp_1_review_section_CDz4k3",
-    "lp_1_weight_section_qWKMGN"
+    "lp_1_weight_section_qWKMGN",
+    "lp_1_review_section_CDz4k3"
   ]
 }
