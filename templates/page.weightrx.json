@@ -554,7 +554,9 @@
         "title": "Everything You Need to Know",
         "bg_image": "shopify://shop_images/69b1226f01b0157f97647ccf_bg-2.webp",
         "button_label": "Get Started for $83/month",
-        "button_url": "",
+        "button_url": "https://home.weightrx.com/tirzepatide1",
+        "button_icon": "shopify://shop_images/svgviewer-png-output_21.png",
+        "trust_icon": "shopify://shop_images/svgviewer-png-output_22.png",
         "trust_text": "30-day weight loss guarantee"
       }
     }
