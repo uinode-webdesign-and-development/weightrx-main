@@ -493,6 +493,70 @@
         "bottom_icon": "shopify://shop_images/svgviewer-png-output_22.png",
         "bottom_text": "30-day weight loss guarantee"
       }
+    },
+    "lp_1_faq_section_nXmW9g": {
+      "type": "lp_1-faq-section",
+      "blocks": {
+        "faq_item_AUeXWY": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Enter the question here",
+            "answer": "Enter the answer here"
+          }
+        },
+        "faq_item_XwNUM8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Enter the question here",
+            "answer": "Enter the answer here"
+          }
+        },
+        "faq_item_JtkXbh": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Enter the question here",
+            "answer": "Enter the answer here"
+          }
+        },
+        "faq_item_36JPiK": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Enter the question here",
+            "answer": "Enter the answer here"
+          }
+        },
+        "faq_item_RjmM3g": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Enter the question here",
+            "answer": "Enter the answer here"
+          }
+        },
+        "faq_item_dCFbPa": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Enter the question here",
+            "answer": "Enter the answer here"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_AUeXWY",
+        "faq_item_XwNUM8",
+        "faq_item_JtkXbh",
+        "faq_item_36JPiK",
+        "faq_item_RjmM3g",
+        "faq_item_dCFbPa"
+      ],
+      "name": "LP FAQ Section",
+      "settings": {
+        "tag_text": "FAQ’S",
+        "title": "Everything You Need to Know",
+        "bg_image": "shopify://shop_images/69b1226f01b0157f97647ccf_bg-2.webp",
+        "button_label": "Get Started for $83/month",
+        "button_url": "",
+        "trust_text": "30-day weight loss guarantee"
+      }
     }
   },
   "order": [
@@ -506,6 +570,7 @@
     "lp_1_why_section_WDCUrn",
     "lp_1_work_section_7y3Cqi",
     "lp_1_weight_section_qWKMGN",
-    "lp_1_review_section_CDz4k3"
+    "lp_1_review_section_CDz4k3",
+    "lp_1_faq_section_nXmW9g"
   ]
 }
