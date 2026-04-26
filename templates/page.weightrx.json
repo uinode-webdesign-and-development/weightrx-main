@@ -668,6 +668,21 @@
         "bottom_icon": "shopify://shop_images/svgviewer-png-output_22.png",
         "bottom_icon_mobile": "shopify://shop_images/svgviewer-png-output_22.png"
       }
+    },
+    "lp_1_contact_section_xCWYE7": {
+      "type": "lp_1-contact-section",
+      "name": "LP Contact Section",
+      "settings": {
+        "tagline": "Contact Us",
+        "title": "Questions? We're Here and Happy To Help.",
+        "text": "No Question Is Too Small. Our team is here to answer your questions and find the best path forward for you.",
+        "email_icon": "shopify://shop_images/svgviewer-png-output_37.png",
+        "email_link": "support@weightrx.com",
+        "phone_icon": "shopify://shop_images/svgviewer-png-output_38.png",
+        "phone_link": "+1 (866) 286 4886",
+        "form_instruction": "Or fill out the form and our team will respond as soon as possible:",
+        "button_text": "Send Message"
+      }
     }
   },
   "order": [
@@ -685,6 +700,7 @@
     "lp_1_faq_section_nXmW9g",
     "lp_1_thumbs_marquee_VT3L4K",
     "lp_1_data_section_YijnKe",
-    "lp_1_promise_section_qR9CzC"
+    "lp_1_promise_section_qR9CzC",
+    "lp_1_contact_section_xCWYE7"
   ]
 }
