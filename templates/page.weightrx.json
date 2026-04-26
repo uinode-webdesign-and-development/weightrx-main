@@ -363,6 +363,52 @@
         "guarantee_icon": "shopify://shop_images/svgviewer-png-output_22.png"
       }
     },
+    "lp_1_work_section_7y3Cqi": {
+      "type": "lp_1-work-section",
+      "blocks": {
+        "step_CzQkKg": {
+          "type": "step",
+          "settings": {
+            "tab_label": "Step 1",
+            "step_number": "Step 1",
+            "heading": "Complete Your Free Assessment",
+            "text": "Complete a quick form and meet with a licensed physician 100% online.",
+            "footer_text": "Takes 10 Minutes"
+          }
+        },
+        "step_RaA79D": {
+          "type": "step",
+          "settings": {
+            "tab_label": "Step 2",
+            "step_number": "Step 2",
+            "heading": "Complete Your Free Assessment",
+            "text": "Complete a quick form and meet with a licensed physician 100% online.",
+            "footer_text": "DELIVERED IN 48 HOURS"
+          }
+        },
+        "step_NK8GEA": {
+          "type": "step",
+          "settings": {
+            "tab_label": "Step 3",
+            "step_number": "Step 3",
+            "heading": "Complete Your Free Assessment",
+            "text": "Complete a quick form and meet with a licensed physician 100% online.",
+            "footer_text": "24/7 Ongoing Care"
+          }
+        }
+      },
+      "block_order": [
+        "step_CzQkKg",
+        "step_RaA79D",
+        "step_NK8GEA"
+      ],
+      "name": "LP Work Section",
+      "settings": {
+        "tagline": "How It Works",
+        "title": "Three Simple Steps to Real Weight Loss",
+        "main_image": "shopify://shop_images/69b122a44bea7538e87d07d4_upscalemedia-transformed_4.webp"
+      }
+    },
     "lp_1_review_section_CDz4k3": {
       "type": "lp_1-review-section",
       "blocks": {
@@ -427,58 +473,6 @@
         "bottom_text": "30-day weight loss guarantee"
       }
     },
-    "lp_1_review_section_9AjPEJ": {
-      "type": "lp_1-review-section",
-      "blocks": {
-        "review_wP9F9Q": {
-          "type": "review",
-          "settings": {
-            "duration": "After 3 months",
-            "rating": "4.9 / 5.0",
-            "review_text": "",
-            "name": "Customer Name",
-            "verified_text": "Verified Member"
-          }
-        },
-        "review_9XmJph": {
-          "type": "review",
-          "settings": {
-            "duration": "After 3 months",
-            "rating": "4.9 / 5.0",
-            "review_text": "",
-            "name": "Customer Name",
-            "verified_text": "Verified Member"
-          }
-        },
-        "review_GgcTHt": {
-          "type": "review",
-          "settings": {
-            "duration": "After 3 months",
-            "rating": "4.9 / 5.0",
-            "review_text": "",
-            "name": "Customer Name",
-            "verified_text": "Verified Member"
-          }
-        }
-      },
-      "block_order": [
-        "review_wP9F9Q",
-        "review_9XmJph",
-        "review_GgcTHt"
-      ],
-      "name": "LP Review Section",
-      "settings": {
-        "rating_label": "Rated",
-        "rating_value": "4.7/5.0",
-        "rating_text": "Excellent",
-        "heading": "The Best Decision",
-        "highlight_text": "60,000 Women",
-        "heading_after": "Made This Year",
-        "cta_text": "Get Started for $83/month",
-        "cta_link": "",
-        "bottom_text": "30-day weight loss guarantee"
-      }
-    },
     "lp_1_weight_section_qWKMGN": {
       "type": "lp_1-weight-section",
       "name": "LP Weight Section",
@@ -506,8 +500,8 @@
     "lp_1_service_section_HF4Dya",
     "lp_1_thumbs_marquee_ThBeQP",
     "lp_1_why_section_WDCUrn",
+    "lp_1_work_section_7y3Cqi",
     "lp_1_review_section_CDz4k3",
-    "lp_1_review_section_9AjPEJ",
     "lp_1_weight_section_qWKMGN"
   ]
 }
