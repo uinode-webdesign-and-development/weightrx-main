@@ -607,6 +607,48 @@
         "direction": "left",
         "pause_on_hover": true
       }
+    },
+    "lp_1_data_section_YijnKe": {
+      "type": "lp_1-data-section",
+      "blocks": {
+        "data_item_MEwCcy": {
+          "type": "data_item",
+          "settings": {
+            "item_title": "Up to 12%",
+            "item_text": "body weight loss within the first 6 months"
+          }
+        },
+        "data_item_6n7HQB": {
+          "type": "data_item",
+          "settings": {
+            "item_title": "Up to 12%",
+            "item_text": "body weight loss within the first 6 months"
+          }
+        },
+        "data_item_JGhjew": {
+          "type": "data_item",
+          "settings": {
+            "item_title": "Up to 12%",
+            "item_text": "body weight loss within the first 6 months"
+          }
+        }
+      },
+      "block_order": [
+        "data_item_MEwCcy",
+        "data_item_6n7HQB",
+        "data_item_JGhjew"
+      ],
+      "name": "LP Data Section",
+      "settings": {
+        "tag": "The Data",
+        "title": "Results, Backed by Data From Our Members",
+        "button_label": "Get Started for $83/month",
+        "button_link": "https://home.weightrx.com/tirzepatide1",
+        "button_icon": "shopify://shop_images/svgviewer-png-output_21.png",
+        "guarantee_icon": "shopify://shop_images/svgviewer-png-output_22.png",
+        "guarantee_text": "30-day weight loss guarantee",
+        "main_image": "shopify://shop_images/69b128c3ee4c9e12afa3f294_thumb-30.webp"
+      }
     }
   },
   "order": [
@@ -622,6 +664,7 @@
     "lp_1_weight_section_qWKMGN",
     "lp_1_review_section_CDz4k3",
     "lp_1_faq_section_nXmW9g",
-    "lp_1_thumbs_marquee_VT3L4K"
+    "lp_1_thumbs_marquee_VT3L4K",
+    "lp_1_data_section_YijnKe"
   ]
 }
