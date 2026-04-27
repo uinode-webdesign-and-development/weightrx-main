@@ -7,6 +7,8 @@
           <div class="footer-tag-wrap">
             {%- if section.settings.tag_icon != blank -%}
               <img
+                width="40"
+                height="auto"
                 loading="lazy"
                 src="{{ section.settings.tag_icon | image_url: width: 40 }}"
                 alt="{{ section.settings.tag_icon.alt | escape }}"
@@ -21,7 +23,8 @@
 
         <div class="footer-content">
           {%- if section.settings.logo != blank -%}
-            <img
+            <img width="200"
+              height="auto"
               loading="lazy"
               src="{{ section.settings.logo | image_url: width: 200 }}"
               alt="{{ section.settings.logo.alt | escape }}"
@@ -110,12 +113,6 @@
 
 <style>
   /* Ensuring the 2-column link layout from your screenshot */
-  .footer-link-wrap {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px 100px;
-    margin-top: 20px;
-  }
   .footer-text-2 {
     margin-top: 30px;
     margin-bottom: 20px;
