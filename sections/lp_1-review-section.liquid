@@ -1,8 +1,6 @@
-
 <div class="review-section" id="section-{{ section.id }}">
   <div class="section-spacing">
     <div class="container review">
-
       <!-- HEADING -->
       <div class="section-heading center">
         <div class="hero-tag-2">
@@ -11,7 +9,7 @@
             loading="lazy"
             alt=""
             class="hero-tag-icon"
-          />
+          >
           <p class="review-tag-text review">
             <span class="text-span-8">{{ section.settings.rating_label }}</span>
             <span class="text-span">{{ section.settings.rating_value }}</span>
@@ -30,87 +28,142 @@
       <div class="review-slider-wrap">
         <div class="review-slider w-slider">
           <div class="review-slider-mask w-slider-mask">
-
             {% for block in section.blocks %}
-            {% if block.type == 'review' %}
-            <div class="review-slide w-slide" {{ block.shopify_attributes }}>
-              <div class="review-item">
+              {% if block.type == 'review' %}
+                <div class="review-slide w-slide" {{ block.shopify_attributes }}>
+                  <div class="review-item">
+                    <div class="review-item-left">
+                      <img src="{{ block.settings.image_1 | image_url }}" class="review-item-thumb" loading="lazy">
+                      <img src="{{ block.settings.image_2 | image_url }}" class="review-item-thumb" loading="lazy">
+                      <div class="review-item-block">
+                        <div>{{ block.settings.duration }}</div>
+                      </div>
+                    </div>
 
-                <div class="review-item-left">
-                  <img src="{{ block.settings.image_1 | image_url }}" class="review-item-thumb" loading="lazy" />
-                  <img src="{{ block.settings.image_2 | image_url }}" class="review-item-thumb" loading="lazy" />
-                  <div class="review-item-block">
-                    <div>{{ block.settings.duration }}</div>
+                    <div class="review-item-right">
+                      <div class="hero-tag">
+                        <img src="{{ section.settings.rating_icon | image_url }}" class="hero-tag-icon" loading="lazy">
+                        <p class="review-tag-text">{{ block.settings.rating }}</p>
+                      </div>
+
+                      <p class="review-item-text">{{ block.settings.review_text }}</p>
+
+                      <h3 class="review-item-title">{{ block.settings.name }}</h3>
+
+                      <div class="review-item-bottom">
+                        <img
+                          src="{{ section.settings.verified_icon | image_url }}"
+                          class="review-item-icon"
+                          loading="lazy"
+                        >
+                        <p class="review-item-text-2">{{ block.settings.verified_text }}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-
-                <div class="review-item-right">
-                  <div class="hero-tag">
-                    <img src="{{ section.settings.rating_icon | image_url }}" class="hero-tag-icon" loading="lazy" />
-                    <p class="review-tag-text">{{ block.settings.rating }}</p>
-                  </div>
-
-                  <p class="review-item-text">{{ block.settings.review_text }}</p>
-
-                  <h3 class="review-item-title">{{ block.settings.name }}</h3>
-
-                  <div class="review-item-bottom">
-                    <img src="{{ section.settings.verified_icon | image_url }}" class="review-item-icon" loading="lazy" />
-                    <p class="review-item-text-2">{{ block.settings.verified_text }}</p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-            {% endif %}
+              {% endif %}
             {% endfor %}
-
           </div>
 
           <div class="left-arrow w-slider-arrow-left">
-            <img src="{{ section.settings.left_arrow | image_url }}" class="arrow-icon" />
+            <img src="{{ section.settings.left_arrow | image_url }}" class="arrow-icon">
           </div>
 
           <div class="right-arrow w-slider-arrow-right">
-            <img src="{{ section.settings.right_arrow | image_url }}" class="arrow-icon" />
+            <img src="{{ section.settings.right_arrow | image_url }}" class="arrow-icon">
           </div>
 
           <div class="slide-nav w-slider-nav w-round"></div>
         </div>
 
         <!-- MARQUEE -->
-        <div class="review-marquee-layout">
+        {% comment %} <div class="review-marquee-layout">
           {% for block in section.blocks %}
-          {% if block.type == 'review' %}
-          <div class="review-item">
+              <div class="review-item">
+                <div class="review-item-left">
+                  <img src="{{ block.settings.image_1 | image_url }}" class="review-item-thumb">
+                  <img src="{{ block.settings.image_2 | image_url }}" class="review-item-thumb">
+                  <div class="review-item-block">
+                    <div>{{ block.settings.duration }}</div>
+                  </div>
+                </div>
 
-            <div class="review-item-left">
-              <img src="{{ block.settings.image_1 | image_url }}" class="review-item-thumb" />
-              <img src="{{ block.settings.image_2 | image_url }}" class="review-item-thumb" />
-              <div class="review-item-block">
-                <div>{{ block.settings.duration }}</div>
+                <div class="review-item-right">
+                  <div class="hero-tag-3">
+                    <img src="{{ section.settings.rating_icon | image_url }}" class="hero-tag-icon">
+                    <p class="review-tag-text">{{ block.settings.rating }}</p>
+                  </div>
+
+                  <p class="review-item-text">{{ block.settings.review_text }}</p>
+                  <h3 class="review-item-title">{{ block.settings.name }}</h3>
+
+                  <div class="review-item-bottom">
+                    <img src="{{ section.settings.verified_icon | image_url }}" class="review-item-icon">
+                    <p class="review-item-text-2">{{ block.settings.verified_text }}</p>
+                  </div>
+                </div>
               </div>
-            </div>
-
-            <div class="review-item-right">
-              <div class="hero-tag-3">
-                <img src="{{ section.settings.rating_icon | image_url }}" class="hero-tag-icon" />
-                <p class="review-tag-text">{{ block.settings.rating }}</p>
-              </div>
-
-              <p class="review-item-text">{{ block.settings.review_text }}</p>
-              <h3 class="review-item-title">{{ block.settings.name }}</h3>
-
-              <div class="review-item-bottom">
-                <img src="{{ section.settings.verified_icon | image_url }}" class="review-item-icon" />
-                <p class="review-item-text-2">{{ block.settings.verified_text }}</p>
-              </div>
-            </div>
-
-          </div>
-          {% endif %}
           {% endfor %}
+        </div> {% endcomment %}
+        <div class="review-marquee-wrapper">
+  <div class="review-marquee-layout">
+    {% for block in section.blocks %}
+      <div class="review-item">
+        <div class="review-item-left">
+          <img src="{{ block.settings.image_1 | image_url }}" class="review-item-thumb">
+          <img src="{{ block.settings.image_2 | image_url }}" class="review-item-thumb">
+
+          <div class="review-item-block">
+            <div>{{ block.settings.duration }}</div>
+          </div>
         </div>
+
+        <div class="review-item-right">
+          <div class="hero-tag-3">
+            <img src="{{ section.settings.rating_icon | image_url }}" class="hero-tag-icon">
+            <p class="review-tag-text">{{ block.settings.rating }}</p>
+          </div>
+
+          <p class="review-item-text">{{ block.settings.review_text }}</p>
+          <h3 class="review-item-title">{{ block.settings.name }}</h3>
+
+          <div class="review-item-bottom">
+            <img src="{{ section.settings.verified_icon | image_url }}" class="review-item-icon">
+            <p class="review-item-text-2">{{ block.settings.verified_text }}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+    {% for block in section.blocks %}
+      <div class="review-item">
+        <div class="review-item-left">
+          <img src="{{ block.settings.image_1 | image_url }}" class="review-item-thumb">
+          <img src="{{ block.settings.image_2 | image_url }}" class="review-item-thumb">
+
+          <div class="review-item-block">
+            <div>{{ block.settings.duration }}</div>
+          </div>
+        </div>
+
+        <div class="review-item-right">
+          <div class="hero-tag-3">
+            <img src="{{ section.settings.rating_icon | image_url }}" class="hero-tag-icon">
+            <p class="review-tag-text">{{ block.settings.rating }}</p>
+          </div>
+
+          <p class="review-item-text">{{ block.settings.review_text }}</p>
+          <h3 class="review-item-title">{{ block.settings.name }}</h3>
+
+          <div class="review-item-bottom">
+            <img src="{{ section.settings.verified_icon | image_url }}" class="review-item-icon">
+            <p class="review-item-text-2">{{ block.settings.verified_text }}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
 
       </div>
 
@@ -118,53 +171,78 @@
       <div class="hero-btn-wrap show">
         <a href="{{ section.settings.cta_link }}" class="btn-blue w-inline-block">
           <div>{{ section.settings.cta_text }}</div>
-          <img src="{{ section.settings.cta_icon | image_url }}" class="hero-btn-icon" />
+          <img src="{{ section.settings.cta_icon | image_url }}" class="hero-btn-icon">
         </a>
 
         <div class="hero-content-bottom">
-          <img src="{{ section.settings.bottom_icon | image_url }}" class="hero-icon-2" />
+          <img src="{{ section.settings.bottom_icon | image_url }}" class="hero-icon-2">
           <p class="result-bottom-text">{{ section.settings.bottom_text }}</p>
         </div>
       </div>
-
     </div>
   </div>
 </div>
 
+{% style %}
+.review-marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
 
+.review-marquee-layout {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: reviewMarquee 30s linear infinite;
+}
 
-{% comment %} <!-- Include Slick Slider (agar pehle se nahi hai) -->
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+.review-item {
+  flex: 0 0 auto;
+}
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  $('.review-slider-mask').slick({
-    infinite: true,
-    slidesToShow: 3,      // Ek waqt mein 3 dikhayi dengi
-    slidesToScroll: 3,    // Ek click par 3 move hongi (Aapki main requirement)
-    prevArrow: $('.left-arrow'),
-    nextArrow: $('.right-arrow'),
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
+@keyframes reviewMarquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}{% endstyle %}
+
+{% comment %}
+  <!-- Include Slick Slider (agar pehle se nahi hai) -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    $('.review-slider-mask').slick({
+      infinite: true,
+      slidesToShow: 3,      // Ek waqt mein 3 dikhayi dengi
+      slidesToScroll: 3,    // Ek click par 3 move hongi (Aapki main requirement)
+      prevArrow: $('.left-arrow'),
+      nextArrow: $('.right-arrow'),
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
         }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+      ]
+    });
   });
-});
-</script> {% endcomment %}
-
+  </script>
+{% endcomment %}
 
 {% schema %}
 {
@@ -213,11 +291,7 @@ document.addEventListener('DOMContentLoaded', function() {
   "presets": [
     {
       "name": "LP Review Section",
-      "blocks": [
-        { "type": "review" },
-        { "type": "review" },
-        { "type": "review" }
-      ]
+      "blocks": [{ "type": "review" }, { "type": "review" }, { "type": "review" }]
     }
   ]
 }
