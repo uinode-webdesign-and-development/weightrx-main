@@ -5495,7 +5495,7 @@ p {
 @media screen and (max-width: 479px) {
     .hero-content {
         padding-right: 16px;
-        top: 0px;
+        top: 24px;
         bottom: 32px;
         left: 16px;
     }
