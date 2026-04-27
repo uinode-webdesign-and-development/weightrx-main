@@ -6461,3 +6461,7 @@ img.offer-item-icon {
 img.hero-icon-2 {
     max-width: 19px;
 }
+
+.faq-item.active .faq-icon-minus {
+    opacity: 0;
+}
