@@ -4333,6 +4333,14 @@ p {
     position: relative;
 }
 
+
+@media screen and (max-width: 479px) {
+    .p-slide .product-item .product-item-thumb-wrap {
+        width: 100%;
+        display: block;
+    }
+}
+
 .product-item-stock-2 {
     grid-column-gap: 6px;
     grid-row-gap: 6px;
