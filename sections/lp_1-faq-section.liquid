@@ -2,23 +2,6 @@
   #section-{{ section.id }} .s-faq-content { position: relative; z-index: 1; overflow: hidden; }
   #section-{{ section.id }} .s-faq-bg-wrap { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
   #section-{{ section.id }} .s-faq-bg { width: 100%; height: 100%; object-fit: cover; display: block; }
-  
-  /* FAQ Item States */
-  .faq-item { cursor: pointer; }
-  .faq-item-text-wrap { 
-    height: 0; 
-    overflow: hidden; 
-    transition: height 0.35s ease-out; 
-  }
-  
-  /* Icon Logic */
-  .faq-icon-plus { opacity: 1; transition: opacity 0.3s; }
-  .faq-icon-minus { opacity: 0; transition: opacity 0.3s; position: absolute; top: 0; left: 0; }
-  .faq-item-right { position: relative; }
-
-  /* Active State for Icons */
-  .faq-item.is-active .faq-icon-plus { opacity: 0; }
-  .faq-item.is-active .faq-icon-minus { opacity: 1; }
 </style>
 
 <div class="s-faq-section" id="section-{{ section.id }}">
