@@ -74,8 +74,8 @@
 </div>
 
 
-<script>
-{% comment %} document.addEventListener('DOMContentLoaded', function() {
+{% comment %} <script>
+document.addEventListener('DOMContentLoaded', function() {
   const faqItems = document.querySelectorAll('.faq-item');
 
   faqItems.forEach(item => {
@@ -112,8 +112,50 @@
       }
     });
   });
-}); {% endcomment %}
+});
 
+</script> {% endcomment %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const textWrap = item.querySelector('.faq-item-text-wrap');
+
+    if (textWrap) {
+      textWrap.style.height = '0px';
+      textWrap.style.overflow = 'hidden';
+    }
+
+    item.addEventListener('click', function () {
+      const textWrap = this.querySelector('.faq-item-text-wrap');
+
+      if (!textWrap) return;
+
+      const isOpen = this.classList.contains('active');
+
+      faqItems.forEach(otherItem => {
+        if (otherItem !== this) {
+          otherItem.classList.remove('active');
+
+          const otherTextWrap = otherItem.querySelector('.faq-item-text-wrap');
+          if (otherTextWrap) {
+            otherTextWrap.style.height = '0px';
+          }
+        }
+      });
+
+      if (!isOpen) {
+        this.classList.add('active');
+        textWrap.style.height = textWrap.scrollHeight + 'px';
+      } else {
+        this.classList.remove('active');
+        textWrap.style.height = '0px';
+      }
+    });
+  });
+});
 </script>
 
 
