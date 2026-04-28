@@ -6376,16 +6376,15 @@ img.work-bottom-icon {
 }
 
 /* Button (Blue Style) */
-.nav-btn {
+/* .nav-btn {
     background-color: #007bff;
-    /* Bright Blue */
     color: #ffffff;
     padding: 10px 24px;
     border-radius: 4px;
     text-decoration: none;
     font-weight: 600;
     transition: background 0.3s ease;
-}
+} */
 
 .nav-btn:hover {
     background-color: #0056b3;
