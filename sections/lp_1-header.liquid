@@ -87,6 +87,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5K7VBDH8" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) --> {% endcomment %}
+<style>
+  .nav-text {
+    color: {{ section.settings.top_text_color }};
+    font-size: {{ section.settings.top_text_size }}px;
+  }
+</style>
 
 <div class="nav-section">
   {%- if section.settings.top_text != blank -%}
@@ -172,6 +178,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       "id": "top_text",
       "label": "Top Bar Text",
       "default": "60,000+ lives Changed with GLP-1s"
+    },
+    {
+      "type": "color",
+      "id": "top_text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "top_text_size",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Font Size",
+      "default": 14
     },
     {
       "type": "header",
