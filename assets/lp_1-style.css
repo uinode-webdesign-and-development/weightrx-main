@@ -6285,7 +6285,9 @@ img.service-item-bottom-icon {
 img.hero-tag-icon {
     max-width: 107px;
 }
-
+.hero-tag-4 .service img.hero-tag-icon{
+        max-width: 97px;
+}
 img.why-item-tag-icon {
     max-width: 18px;
 
