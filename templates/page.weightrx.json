@@ -37,7 +37,7 @@
         "main_logo": "shopify://shop_images/svgviewer-png-output_24.png",
         "logo_link": "",
         "contact_text": "Contact Us",
-        "contact_link": "",
+        "contact_link": "/#contact",
         "signin_text": "Sign In",
         "signin_link": "https://portal.weightrx.com/",
         "signin_icon": "shopify://shop_images/svgviewer-png-output_23.png",
