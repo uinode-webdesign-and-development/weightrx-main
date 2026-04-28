@@ -6359,7 +6359,7 @@ img.work-bottom-icon {
     gap: 25px;
 }
 
-.nav-link-wrap {
+/* .nav-link-wrap {
     text-decoration: none;
     color: #00234b;
     font-size: 16px;
@@ -6367,7 +6367,7 @@ img.work-bottom-icon {
     display: flex;
     align-items: center;
     gap: 6px;
-}
+} */
 
 .nav-link-wrap img {
     width: 18px;
