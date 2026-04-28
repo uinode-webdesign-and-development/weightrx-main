@@ -6277,6 +6277,9 @@ img.result-item-icon {
 img.service-item-icon {
     max-width: 97px;
 }
+.service-item-top img.service-item-icon{
+        max-width: 95px;
+}
 
 img.service-item-bottom-icon {
     max-width: 17px;
