@@ -87,31 +87,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5K7VBDH8" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) --> {% endcomment %}
-{% comment %} <style>
-  /* Part 1: 60,000+ */
-  .text-part-1 {
-    color: {{ section.settings.color_1 }};
-    font-size: {{ section.settings.size_1 }}px;
+<style>
+  /* Sirf announcement bar ke parts ki styling */
+  .p1-style {
+    color: {{ section.settings.p1_color }};
+    font-size: {{ section.settings.p1_size }}px;
   }
-  
-  /* Part 2: lives Changed */
-  .text-part-2 {
-    color: {{ section.settings.color_2 }};
-    font-size: {{ section.settings.size_2 }}px;
+  .p2-style {
+    color: {{ section.settings.p2_color }};
+    font-size: {{ section.settings.p2_size }}px;
   }
-
-  /* Part 3: with GLP-1s */
-  .text-part-3 {
-    color: {{ section.settings.color_3 }};
-    font-size: {{ section.settings.size_3 }}px;
+  .p3-style {
+    color: {{ section.settings.p3_color }};
+    font-size: {{ section.settings.p3_size }}px;
   }
-
   .nav-top-content {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    flex-wrap: wrap; 
+    gap: 5px;
   }
 </style>
 
@@ -123,9 +117,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       {%- endif -%}
       
       <p class="nav-text">
-        <span class="text-part-1">{{ section.settings.text_1 }}</span>
-        <span class="text-part-2">{{ section.settings.text_2 }}</span>
-        <span class="text-part-3">{{ section.settings.text_3 }}</span>
+        <span class="p1-style">{{ section.settings.text_part_1 }}</span>
+        <span class="p2-style">{{ section.settings.text_part_2 }}</span>
+        <span class="p3-style">{{ section.settings.text_part_3 }}</span>
       </p>
     </div>
   </div>
@@ -135,22 +129,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="nav-layout">
         <div class="nav-left-wrap">
           <div class="nav-left">
-            <a href="{{ section.settings.logo_link | default: '#' }}" class="logo-wrap w-inline-block">
+            <a href="{{ section.settings.logo_link | default: '#' }}" aria-current="page" class="logo-wrap w-inline-block w--current">
               {%- if section.settings.main_logo != blank -%}
-                {{ section.settings.main_logo | image_url: width: 300 | image_tag: class: 'logo' }}
+                {{ section.settings.main_logo | image_url: width: 300 | image_tag: class: 'logo', loading: 'lazy' }}
+              {%- else -%}
+                {{ 'logo' | placeholder_svg_tag: 'logo placeholder' }}
               {%- endif -%}
             </a>
           </div>
         </div>
+
         <div class="nav-right">
-           <div class="nav-menu">
-             <a href="{{ section.settings.signin_link | default: '#' }}" class="nav-link-wrap">
-               <div class="nav-link">{{ section.settings.signin_text }}</div>
-             </a>
-             <a href="{{ section.settings.button_link | default: '#' }}" class="nav-btn w-inline-block">
-               <div>{{ section.settings.button_text }}</div>
-             </a>
-           </div>
+          <div class="nav-menu">
+            {%- if section.settings.contact_text != blank -%}
+              <a href="{{ section.settings.contact_link | default: '#' }}" class="nav-link-wrap">
+                {{ section.settings.contact_text }}
+              </a>
+            {%- endif -%}
+
+            <a href="{{ section.settings.signin_link | default: '#' }}" class="nav-link-wrap w-inline-block">
+              <div StaggerText="" class="nav-link">{{ section.settings.signin_text }}</div>
+              {%- if section.settings.signin_icon != blank -%}
+                {{ section.settings.signin_icon | image_url: width: 40 | image_tag: class: 'image', loading: 'lazy' }}
+              {%- endif -%}
+            </a>
+
+            <div class="show-mobile">
+              <a href="{{ section.settings.button_link | default: '#' }}" class="nav-btn w-inline-block">
+                <div>{{ section.settings.button_text }}</div>
+              </a>
+            </div>
+          </div>
+
+          <div class="nav-open">
+            <div class="nav-bar _1"></div>
+            <div class="nav-bar _2"></div>
+            <div class="nav-bar _3"></div>
+          </div>
+
+          <div class="hide-mobile">
+            <a href="{{ section.settings.button_link | default: '#' }}" class="nav-btn w-inline-block">
+              <div>{{ section.settings.button_text }}</div>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -163,7 +184,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   "settings": [
     {
       "type": "header",
-      "content": "Top Bar Logo"
+      "content": "Top Bar Content"
     },
     {
       "type": "image_picker",
@@ -171,86 +192,74 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       "label": "Top Bar Logo"
     },
     {
-      "type": "header",
-      "content": "Part 1: (e.g., 60,000+)"
-    },
-    {
       "type": "text",
-      "id": "text_1",
-      "label": "Text Part 1",
+      "id": "text_part_1",
+      "label": "Text Part 1 (60,000+)",
       "default": "60,000+"
     },
     {
       "type": "color",
-      "id": "color_1",
-      "label": "Color Part 1",
+      "id": "p1_color",
+      "label": "Part 1 Color",
       "default": "#ffffff"
     },
     {
       "type": "range",
-      "id": "size_1",
-      "min": 10,
-      "max": 50,
+      "id": "p1_size",
+      "min": 8,
+      "max": 40,
       "step": 1,
       "unit": "px",
-      "label": "Font Size Part 1",
-      "default": 16
-    },
-    {
-      "type": "header",
-      "content": "Part 2: (e.g., lives Changed)"
+      "label": "Part 1 Font Size",
+      "default": 14
     },
     {
       "type": "text",
-      "id": "text_2",
-      "label": "Text Part 2",
+      "id": "text_part_2",
+      "label": "Text Part 2 (lives Changed)",
       "default": " lives Changed "
     },
     {
       "type": "color",
-      "id": "color_2",
-      "label": "Color Part 2",
+      "id": "p2_color",
+      "label": "Part 2 Color",
       "default": "#ffffff"
     },
     {
       "type": "range",
-      "id": "size_2",
-      "min": 10,
-      "max": 50,
+      "id": "p2_size",
+      "min": 8,
+      "max": 40,
       "step": 1,
       "unit": "px",
-      "label": "Font Size Part 2",
+      "label": "Part 2 Font Size",
       "default": 14
     },
     {
-      "type": "header",
-      "content": "Part 3: (e.g., with GLP-1s)"
-    },
-    {
       "type": "text",
-      "id": "text_3",
-      "label": "Text Part 3",
+      "id": "text_part_3",
+      "label": "Text Part 3 (with GLP-1s)",
       "default": "with GLP-1s"
     },
     {
       "type": "color",
-      "id": "color_3",
-      "label": "Color Part 3",
+      "id": "p3_color",
+      "label": "Part 3 Color",
       "default": "#ffffff"
     },
     {
       "type": "range",
-      "id": "size_3",
-      "min": 10,
-      "max": 50,
+      "id": "p3_size",
+      "min": 8,
+      "max": 40,
       "step": 1,
       "unit": "px",
-      "label": "Font Size Part 3",
+      "label": "Part 3 Font Size",
       "default": 14
     },
     {
       "type": "header",
-      "content": "Main Navigation Settings"
+      "content": "Main Navigation"
     },
     {
       "type": "image_picker",
@@ -264,6 +273,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     },
     {
       "type": "text",
+      "id": "contact_text",
+      "label": "Contact Link Text",
+      "default": "Contact Us"
+    },
+    {
+      "type": "url",
+      "id": "contact_link",
+      "label": "Contact Link URL"
+    },
+    {
+      "type": "text",
       "id": "signin_text",
       "label": "Sign In Text",
       "default": "Sign In"
@@ -272,6 +292,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       "type": "url",
       "id": "signin_link",
       "label": "Sign In URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "signin_icon",
+      "label": "Sign In Icon"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
     },
     {
       "type": "text",
@@ -291,11 +320,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   ]
 }
-{% endschema %} {% endcomment %}
+{% endschema %}
 
 
 
-
+{% comment %} 
 
 <div class="nav-section">
 
@@ -593,4 +622,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 }
 
-{% endschema %}
+{% endschema %} {% endcomment %}
