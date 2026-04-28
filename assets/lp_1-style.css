@@ -6347,11 +6347,11 @@ img.work-bottom-icon {
 }
 
 /* Menu Rights */
-.nav-right {
+/* .nav-right {
     display: flex;
     align-items: center;
     gap: 30px;
-}
+} */
 
 .nav-menu {
     display: flex;
