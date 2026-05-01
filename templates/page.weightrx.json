@@ -49,6 +49,10 @@
       "type": "lp_1-hero-section",
       "name": "LP 1 Hero Section",
       "settings": {
+        "hero_bg": "shopify://shop_images/hero-bg-p-1080.webp",
+        "hero_thumb_mobile": "shopify://shop_images/Frame_2147227941.webp",
+        "hero_shape": "shopify://shop_images/thumb-2-p-1080.png",
+        "hero_shape_2": "shopify://shop_images/upscalemedia-transformed_4.webp",
         "tag_label": "Rated",
         "tag_rating": "4.7/5.0",
         "tag_suffix": "''Excellent''",
