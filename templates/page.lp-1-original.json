@@ -49,6 +49,10 @@
       "type": "lp_1-hero-section",
       "name": "LP 1 Hero Section",
       "settings": {
+        "hero_bg": "shopify://shop_images/hero-bg-p-1080.webp",
+        "hero_thumb_mobile": "shopify://shop_images/Frame_2147227941.webp",
+        "hero_shape": "shopify://shop_images/thumb-2-p-1080.png",
+        "hero_shape_2": "shopify://shop_images/upscalemedia-transformed_4.webp",
         "tag_label": "Rated",
         "tag_rating": "4.7/5.0",
         "tag_suffix": "''Excellent''",
@@ -61,7 +65,7 @@
         "offer_2_highlight": "$83/month",
         "offer_3_text": "ships IN 48 HOURS",
         "offer_3_highlight": "48 HOURS",
-        "button_link": "",
+        "button_link": "https://home.weightrx.com/tirzepatide1",
         "button_text": "Get Started for $83/month",
         "button_icon": "shopify://shop_images/svgviewer-png-output_2.png",
         "button_icon_mobile": "shopify://shop_images/svgviewer-png-output_21.png",
@@ -173,7 +177,7 @@
         "title_start": "Trusted by",
         "title_highlight": "60,000+",
         "title_end": "Patients Nationwide",
-        "button_link": "",
+        "button_link": "https://home.weightrx.com/tirzepatide1",
         "button_text": "Get Started for $83/month",
         "guarantee_text": "30-day weight loss guarantee"
       }
