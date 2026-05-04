@@ -115,6 +115,7 @@
       "block_order": [
         "contact_form_UwiCkQ"
       ],
+      "disabled": true,
       "name": "t:names.contact_form",
       "settings": {
         "content_direction": "column",
@@ -153,9 +154,9 @@
             "form_id": "977684",
             "text_color": "#202020",
             "button_background_color": "#202020",
-            "button_label_color": "#FFFFFF",
-            "links_color": "#1878B9",
-            "errors_color": "#E02229",
+            "button_label_color": "#ffffff",
+            "links_color": "#1878b9",
+            "errors_color": "#e02229",
             "text_alignment": "left",
             "form_alignment": "flex-start",
             "padding_top": 0,
