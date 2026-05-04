@@ -15,13 +15,13 @@
       "settings": {
         "top_logo": "shopify://shop_images/69ab07cbf1c499727a6883b6_logo-4.webp",
         "text_part_1": "60,000+",
-        "p1_color": "#ffffff",
+        "p1_color": "#d8efff",
         "p1_size": 14,
         "text_part_2": "lives Changed",
         "p2_color": "#ffffff",
         "p2_size": 14,
         "text_part_3": "with GLP-1s",
-        "p3_color": "#ffffff",
+        "p3_color": "#ccd3dd",
         "p3_size": 14,
         "main_logo": "shopify://shop_images/svgviewer-png-output_24.png",
         "logo_link": "",
@@ -31,7 +31,7 @@
         "signin_link": "",
         "signin_icon": "shopify://shop_images/svgviewer-png-output_23.png",
         "button_text": "Get Started",
-        "button_link": ""
+        "button_link": "https://results.weightrx.com/start.html"
       }
     },
     "main": {
