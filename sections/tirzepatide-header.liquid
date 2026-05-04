@@ -1,0 +1,105 @@
+{%- style -%}
+  .timer-section-{{ section.id }} .timer-display {
+    text-decoration: underline;
+    margin-left: 5px;
+  }
+{%- endstyle -%}
+
+<div class="timer-section-{{ section.id }}">
+  <div class="sale-banner">
+    {{ section.settings.message_text }}
+    <span id="countdown" class="timer-display">Loading...</span>
+  </div>
+</div>
+
+<script>
+  function startCountdown() {
+    const baseEndDate = new Date('2026-02-26T01:59:30').getTime();
+    const extensionDays = 3; // change to 6 if you want 6-day extensions
+    const extensionMs = extensionDays * 24 * 60 * 60 * 1000;
+    const countdownEl = document.getElementById('countdown');
+
+    function getNextEndDate(now) {
+      if (now < baseEndDate) return baseEndDate;
+
+      const timePassed = now - baseEndDate;
+      const extensionsNeeded = Math.floor(timePassed / extensionMs) + 1;
+      return baseEndDate + extensionsNeeded * extensionMs;
+    }
+
+    function updateTimer() {
+      const now = Date.now();
+      const nextEndDate = getNextEndDate(now);
+      const diff = nextEndDate - now;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
+
+      countdownEl.textContent = `${days} Days ${hours} Hours ${mins} mins ${secs} secs`;
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  }
+
+  startCountdown();
+</script>
+
+
+{% schema %}
+{
+ "name": "Tirzepatide Header",
+  "settings": [
+    {
+        "type": "header",
+        "content": "Announcement Bar"
+    },
+    {
+      "type": "text",
+      "id": "message_text",
+      "label": "Announcement Text",
+      "default": "🔥 Limited Time Offer - Ending In:"
+    },
+    {
+      "type": "text",
+      "id": "end_date",
+      "label": "End Date (Format: May 1, 2026 23:59:59)",
+      "info": "Month Day, Year HH:MM:SS",
+      "default": "May 1, 2026 23:59:59"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ff0000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font Size",
+      "default": 14
+    },
+    {
+        "type": "header",
+        "content": "Tirzepatide Header Content"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Announcement Bar"
+    }
+  ]
+}
+{% endschema %}
