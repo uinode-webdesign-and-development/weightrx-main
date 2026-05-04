@@ -13,6 +13,7 @@
   "sections": {
     "custom_announcement_bar_MjcExJ": {
       "type": "custom-announcement-bar",
+      "disabled": true,
       "custom_css": [
         "span {font-weight: 700;}"
       ],
@@ -62,6 +63,7 @@
           "blocks": {}
         }
       },
+      "disabled": true,
       "settings": {
         "logo_position": "left",
         "custom_button_1_label": "Sign In",
