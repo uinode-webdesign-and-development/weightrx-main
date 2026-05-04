@@ -11,21 +11,6 @@
   "type": "header",
   "name": "Header",
   "sections": {
-    "custom_announcement_bar_MjcExJ": {
-      "type": "custom-announcement-bar",
-      "disabled": true,
-      "custom_css": [
-        "span {font-weight: 700;}"
-      ],
-      "name": "Custom Announcement Bar",
-      "settings": {
-        "message_text": "🔥 Your 2026 Transformation Starts Now - Offer Ending In",
-        "end_date": "April 23, 2026 23:59:59",
-        "bg_color": "#ff0000",
-        "text_color": "#ffffff",
-        "font_size": 16
-      }
-    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -63,7 +48,6 @@
           "blocks": {}
         }
       },
-      "disabled": true,
       "settings": {
         "logo_position": "left",
         "custom_button_1_label": "Sign In",
@@ -107,7 +91,6 @@
     }
   },
   "order": [
-    "custom_announcement_bar_MjcExJ",
     "header_section"
   ]
 }
