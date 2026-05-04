@@ -56,9 +56,32 @@
         "padding-block-start": 40,
         "padding-block-end": 80
       }
+    },
+    "lp_1_header_qGTiGc": {
+      "type": "lp_1-header",
+      "name": "LP Navigation",
+      "settings": {
+        "text_part_1": "60,000+",
+        "p1_color": "#ffffff",
+        "p1_size": 14,
+        "text_part_2": "lives Changed",
+        "p2_color": "#ffffff",
+        "p2_size": 14,
+        "text_part_3": "with GLP-1s",
+        "p3_color": "#ffffff",
+        "p3_size": 14,
+        "logo_link": "",
+        "contact_text": "Contact Us",
+        "contact_link": "",
+        "signin_text": "Sign In",
+        "signin_link": "",
+        "button_text": "Get Started",
+        "button_link": ""
+      }
     }
   },
   "order": [
+    "lp_1_header_qGTiGc",
     "main"
   ]
 }
