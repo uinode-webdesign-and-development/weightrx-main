@@ -116,9 +116,21 @@
         "custom_button_2_label": "Get Started Now",
         "custom_button_2_url": ""
       }
+    },
+    "custom_announcement_bar_nhhmQY": {
+      "type": "custom-announcement-bar",
+      "name": "Custom Announcement Bar",
+      "settings": {
+        "message_text": "🔥 Limited Time Offer - Ending In:",
+        "end_date": "May 1, 2026 23:59:59",
+        "bg_color": "#ff0000",
+        "text_color": "#ffffff",
+        "font_size": 14
+      }
     }
   },
   "order": [
+    "custom_announcement_bar_nhhmQY",
     "header_section",
     "tirzepatide_header_L8cYWq"
   ]
