@@ -6478,6 +6478,6 @@ img.hero-icon-2 {
 .faq-item.active .faq-icon-minus {
     opacity: 0;
 }
-.page-width-content.paragraph-2 p{
+.page-width-content p.paragraph-2{
     line-height: 1.6 !important;
 }
