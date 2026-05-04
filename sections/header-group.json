@@ -48,7 +48,6 @@
           "blocks": {}
         }
       },
-      "disabled": true,
       "settings": {
         "logo_position": "left",
         "custom_button_1_label": "Sign In",
@@ -104,6 +103,7 @@
           "blocks": {}
         }
       },
+      "disabled": true,
       "name": "Tirzepatide Header",
       "settings": {
         "message_text": "🔥 Limited Time Offer - Ending In:",
