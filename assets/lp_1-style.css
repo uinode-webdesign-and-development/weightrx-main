@@ -6479,5 +6479,5 @@ img.hero-icon-2 {
     opacity: 0;
 }
 .page-width-content.paragraph-2 p{
-    line-height: 1.6;
+    line-height: 1.6 !important;
 }
