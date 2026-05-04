@@ -1,6 +1,5 @@
 {{ 'landing-page.css' | asset_url | stylesheet_tag: preload: true }}
 
-
 {%- style -%}
   .timer-section-{{ section.id }} .timer-display {
     text-decoration: underline;
@@ -50,9 +49,8 @@
   startCountdown();
 </script>
 
-
-{%- liquid 
-    capture logo
+{%- liquid
+  capture logo
     content_for 'block', type: '_header-logo', id: 'header-logo'
   endcapture
 -%}
@@ -61,22 +59,7 @@
   <div class="header-content">
     <nav class="nav">
       <div>
-        <div>
-          {{ logo }}
-          <!--
-            <div class="mobile-phone-support phone-support">
-                <div class="phone-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
-                    </svg>
-                </div>
-                 hero section
-                <div class="phone-text">
-                    <p>Questions?</p> <a class="phone-link" href="tel: +1 (551) 239-9025">+1 (551) 239-9025</a>
-                </div>
-            </div>
-          -->
-        </div>
+        {{ logo }}
       </div>
       {% if section.settings.custom_button_1_url or section.settings.custom_button_1_label %}
         <div class="nav-buttons">
@@ -119,14 +102,13 @@
   }
 </script>
 
-
 {% schema %}
 {
- "name": "Tirzepatide Header",
+  "name": "Tirzepatide Header",
   "settings": [
     {
-        "type": "header",
-        "content": "Announcement Bar"
+      "type": "header",
+      "content": "Announcement Bar"
     },
     {
       "type": "text",
@@ -164,8 +146,8 @@
       "default": 14
     },
     {
-        "type": "header",
-        "content": "Tirzepatide Header Content"
+      "type": "header",
+      "content": "Tirzepatide Header Content"
     },
     {
       "type": "header",
