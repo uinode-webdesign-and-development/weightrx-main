@@ -37,6 +37,7 @@
         "trust_card_JKcyrY",
         "trust_card_hKQCBQ"
       ],
+      "disabled": true,
       "name": "LP Footer Section",
       "settings": {
         "tag_icon": "shopify://shop_images/69aab4ee8f9f82a8231069db_thumb-17.webp",

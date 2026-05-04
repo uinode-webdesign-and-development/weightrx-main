@@ -9,73 +9,6 @@
  */
 {
   "sections": {
-    "landing_testimonials_section_NJiafM": {
-      "type": "landing-testimonials-section",
-      "blocks": {
-        "testimonial_6f3X9E": {
-          "type": "testimonial",
-          "settings": {
-            "name": "Tim B.",
-            "weight_text": "40 lbs lost",
-            "badge_text": "Verified WeightRx Member"
-          }
-        },
-        "testimonial_rE3VFJ": {
-          "type": "testimonial",
-          "settings": {
-            "name": "Tim B.",
-            "weight_text": "40 lbs lost",
-            "badge_text": "Verified WeightRx Member"
-          }
-        },
-        "testimonial_Afzf3e": {
-          "type": "testimonial",
-          "settings": {
-            "name": "Tim B.",
-            "weight_text": "40 lbs lost",
-            "badge_text": "Verified WeightRx Member"
-          }
-        },
-        "testimonial_dBAWCc": {
-          "type": "testimonial",
-          "settings": {
-            "name": "Tim B.",
-            "weight_text": "40 lbs lost",
-            "badge_text": "Verified WeightRx Member"
-          }
-        },
-        "testimonial_adVCLL": {
-          "type": "testimonial",
-          "settings": {
-            "name": "Tim B.",
-            "weight_text": "40 lbs lost",
-            "badge_text": "Verified WeightRx Member"
-          }
-        },
-        "testimonial_BzDFeC": {
-          "type": "testimonial",
-          "settings": {
-            "name": "Tim B.",
-            "weight_text": "40 lbs lost",
-            "badge_text": "Verified WeightRx Member"
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_6f3X9E",
-        "testimonial_rE3VFJ",
-        "testimonial_Afzf3e",
-        "testimonial_dBAWCc",
-        "testimonial_adVCLL",
-        "testimonial_BzDFeC"
-      ],
-      "disabled": true,
-      "name": "Testimonials section",
-      "settings": {
-        "highlight_text": "Join 200,000+ members and transform your",
-        "heading_text": "health, body and life."
-      }
-    },
     "hero_HamEMq": {
       "type": "hero",
       "blocks": {
@@ -184,7 +117,6 @@
     }
   },
   "order": [
-    "landing_testimonials_section_NJiafM",
     "hero_HamEMq"
   ]
 }
