@@ -11,6 +11,17 @@
   "type": "header",
   "name": "Header",
   "sections": {
+    "custom_announcement_bar_nhhmQY": {
+      "type": "custom-announcement-bar",
+      "name": "Custom Announcement Bar",
+      "settings": {
+        "message_text": "🔥 Limited Time Offer - Ending In:",
+        "end_date": "May 1, 2026 23:59:59",
+        "bg_color": "#ff0000",
+        "text_color": "#ffffff",
+        "font_size": 14
+      }
+    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -88,50 +99,10 @@
         "enable_transparent_header_collection": false,
         "collection_color_scheme": "default"
       }
-    },
-    "tirzepatide_header_L8cYWq": {
-      "type": "tirzepatide-header",
-      "blocks": {
-        "header-logo": {
-          "type": "_header-logo",
-          "static": true,
-          "settings": {
-            "hide_logo_on_home_page": false,
-            "padding-block-start": 0,
-            "padding-block-end": 0
-          },
-          "blocks": {}
-        }
-      },
-      "disabled": true,
-      "name": "Tirzepatide Header",
-      "settings": {
-        "message_text": "🔥 Limited Time Offer - Ending In:",
-        "end_date": "May 1, 2026 23:59:59",
-        "bg_color": "#ff0000",
-        "text_color": "#ffffff",
-        "font_size": 14,
-        "custom_button_1_label": "Sign In",
-        "custom_button_1_url": "",
-        "custom_button_2_label": "Get Started Now",
-        "custom_button_2_url": ""
-      }
-    },
-    "custom_announcement_bar_nhhmQY": {
-      "type": "custom-announcement-bar",
-      "name": "Custom Announcement Bar",
-      "settings": {
-        "message_text": "🔥 Limited Time Offer - Ending In:",
-        "end_date": "May 1, 2026 23:59:59",
-        "bg_color": "#ff0000",
-        "text_color": "#ffffff",
-        "font_size": 14
-      }
     }
   },
   "order": [
     "custom_announcement_bar_nhhmQY",
-    "header_section",
-    "tirzepatide_header_L8cYWq"
+    "header_section"
   ]
 }
