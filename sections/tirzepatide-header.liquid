@@ -1,3 +1,6 @@
+{{ 'landing-page.css' | asset_url | stylesheet_tag: preload: true }}
+
+
 {%- style -%}
   .timer-section-{{ section.id }} .timer-display {
     text-decoration: underline;
