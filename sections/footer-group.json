@@ -16,28 +16,63 @@
       "blocks": {
         "trust_card_kCFiXq": {
           "type": "trust_card",
-          "settings": {}
+          "settings": {
+            "card_img": "shopify://shop_images/svgviewer-png-output_26.png"
+          }
         },
         "trust_card_tanfwg": {
           "type": "trust_card",
-          "settings": {}
+          "settings": {
+            "card_img": "shopify://shop_images/svgviewer-png-output_27.png"
+          }
         },
         "trust_card_JKcyrY": {
           "type": "trust_card",
-          "settings": {}
+          "settings": {
+            "card_img": "shopify://shop_images/svgviewer-png-output_28.png"
+          }
         },
         "trust_card_hKQCBQ": {
           "type": "trust_card",
-          "settings": {}
+          "settings": {
+            "card_img": "shopify://shop_images/svgviewer-png-output_29.png"
+          }
+        },
+        "trust_card_crgcAg": {
+          "type": "trust_card",
+          "settings": {
+            "card_img": "shopify://shop_images/svgviewer-png-output_30.png"
+          }
+        },
+        "trust_card_hWirhw": {
+          "type": "trust_card",
+          "settings": {
+            "card_img": "shopify://shop_images/svgviewer-png-output_31.png"
+          }
+        },
+        "trust_card_Jbm9jP": {
+          "type": "trust_card",
+          "settings": {
+            "card_img": "shopify://shop_images/svgviewer-png-output_32.png"
+          }
+        },
+        "trust_card_Ng8NxC": {
+          "type": "trust_card",
+          "settings": {
+            "card_img": "shopify://shop_images/svgviewer-png-output_34.png"
+          }
         }
       },
       "block_order": [
         "trust_card_kCFiXq",
         "trust_card_tanfwg",
         "trust_card_JKcyrY",
-        "trust_card_hKQCBQ"
+        "trust_card_hKQCBQ",
+        "trust_card_crgcAg",
+        "trust_card_hWirhw",
+        "trust_card_Jbm9jP",
+        "trust_card_Ng8NxC"
       ],
-      "disabled": true,
       "name": "LP Footer Section",
       "settings": {
         "tag_icon": "shopify://shop_images/69aab4ee8f9f82a8231069db_thumb-17.webp",
