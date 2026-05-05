@@ -59,7 +59,11 @@
   <div class="header-content">
     <nav class="nav">
       <div class="site-logo">
-        {{ logo }}
+        {% if section.settings.logo != blank %}
+          <img src="{{ section.settings.logo | image_url: width: 200 }}" alt="{{ shop.name }}">
+        {% else %}
+          {{ logo }}
+        {% endif %}
       </div>
       {% if section.settings.custom_button_1_url or section.settings.custom_button_1_label %}
         <div class="nav-buttons">
@@ -106,6 +110,15 @@
 {
   "name": "Tirzepatide Header",
   "settings": [
+    {
+      "type": "header",
+      "content": "Page Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Upload logo Here"
+    },
     {
       "type": "header",
       "content": "Announcement Bar"
