@@ -1,4 +1,6 @@
 {% comment %} Build background image styles {% endcomment %}
+{{ 'landing-page.css' | asset_url | stylesheet_tag: preload: true }}
+
 {% assign bg_styles = '' %}
 {% if section.settings.background_image != blank %}
   {% assign bg_image_url = section.settings.background_image | image_url: width: 1920 %}

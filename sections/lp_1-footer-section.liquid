@@ -1,0 +1,229 @@
+<div class="footer-section" id="section-{{ section.id }}">
+  <div class="section-spacing">
+    <div class="container">
+      <div class="footer-layout">
+        <!-- Top Blue Bar -->
+        <div class="footer-top">
+          <div class="footer-tag-wrap">
+            {%- if section.settings.tag_icon != blank -%}
+              <img
+                width="200"
+                height="auto"
+                loading="lazy"
+                src="{{ section.settings.tag_icon | image_url: width: 200 }}"
+                alt="{{ section.settings.tag_icon.alt | escape }}"
+                class="footer-tag-icon"
+              >
+            {%- endif -%}
+            <p class="footer-tag-text">
+              <span class="text-span-9">{{ section.settings.tag_highlight }}</span> {{ section.settings.tag_text }}
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-content">
+          {%- if section.settings.logo != blank -%}
+            <img width="200"
+              height="auto"
+              loading="lazy"
+              src="{{ section.settings.logo | image_url: width: 200 }}"
+              alt="{{ section.settings.logo.alt | escape }}"
+              class="footer-logo"
+            >
+          {%- endif -%}
+
+          <div class="footer-main-grid">
+            <div class="columns w-row">
+              <div class="column col-7 w-col w-col-8">
+                <p class="footer-text">{{ section.settings.main_description }}</p>
+
+                <!-- Customizer Menu Links -->
+                <div class="footer-link-wrap">
+                  {%- if section.settings.menu != blank -%}
+                    {%- for link in section.settings.menu.links -%}
+                      <div class="footer-menu-item">
+                        <a href="{{ link.url }}" class="footer-link">{{ link.title }}</a>
+                      </div>
+                    {%- endfor -%}
+                  {%- endif -%}
+                </div>
+              </div>
+              <div class="column-2 w-col w-col-4">
+                <!-- Optional second column content -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Disclaimer Text -->
+          <div class="footer-text-2">
+            {{ section.settings.disclaimer_text }}
+          </div>
+
+          <!-- LegitScript Section -->
+          {%- if section.settings.show_legitscript -%}
+            <div class="legitlogo w-embed w-script">
+              <script src="https://static.legitscript.com/seals/{{ section.settings.legitscript_id }}.js"></script>
+              <style>
+                .legitlogo img {
+                  max-width: 100px;
+                  width: 100%;
+                  height: auto;
+                  {% comment %} margin-bottom: 15px; {% endcomment %}
+                }
+                @media (min-width: 1280px) {
+                  .legitlogo img {
+                    max-width: 120px;
+                  }
+                }
+                 @media (max-width: 768px) {
+
+                .footer-card-item{
+                  width:32px;
+                }
+                 }
+              </style>
+            </div>
+          {%- endif -%}
+
+          <!-- Payment/Trust Cards Picker (37px Width) -->
+          <div class="footer-cards-wrap" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'trust_card' -%}
+                <div class="footer-card-item" {{ block.shopify_attributes }}>
+                  {%- if block.settings.card_img != blank -%}
+                    <img
+                      src="{{ block.settings.card_img | image_url: width: 74 }}"
+                      alt="{{ block.settings.card_img.alt }}"
+                      style="width: 37px; height: auto; display: block;"
+                      loading="lazy"
+                    >
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+
+          <!-- Copyright & Address -->
+          <div class="footer-text-3">
+            <p>
+              © Copyright {{ 'now' | date: '%Y' }}
+              {{ section.settings.copyright_name }}. All Rights Reserved
+            </p>
+            <p>{{ section.settings.address_text }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% comment %} <style>
+  /* Ensuring the 2-column link layout from your screenshot */
+  .footer-text-2 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+</style> {% endcomment %}
+
+{% schema %}
+{
+  "name": "LP Footer Section",
+  "class": "lp_1_footer_section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Top Blue Bar"
+    },
+    {
+      "type": "image_picker",
+      "id": "tag_icon",
+      "label": "Tag Icon"
+    },
+    {
+      "type": "text",
+      "id": "tag_highlight",
+      "label": "Tag Highlight",
+      "default": "60,000+"
+    },
+    {
+      "type": "text",
+      "id": "tag_text",
+      "label": "Tag Text",
+      "default": "lives Changed with GP1-S"
+    },
+    {
+      "type": "header",
+      "content": "Main Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Footer Logo"
+    },
+    {
+      "type": "textarea",
+      "id": "main_description",
+      "label": "Main Description",
+      "default": "The same medication clinics charge $1200+ for, without insurance or appointments."
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Footer Menu",
+      "info": "Select the menu containing Terms, Privacy, etc."
+    },
+    {
+      "type": "richtext",
+      "id": "disclaimer_text",
+      "label": "Legal Disclaimer Text"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_legitscript",
+      "label": "Show LegitScript",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "legitscript_id",
+      "label": "LegitScript ID",
+      "default": "18557581"
+    },
+    {
+      "type": "text",
+      "id": "copyright_name",
+      "label": "Copyright Company Name",
+      "default": "WeightRx, Inc"
+    },
+    {
+      "type": "text",
+      "id": "address_text",
+      "label": "Address",
+      "default": "169 Madison Ave STE 38335 New York, New York 10016"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "trust_card",
+      "name": "Payment/Trust Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "card_img",
+          "label": "Card Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LP Footer Section",
+      "blocks": [{ "type": "trust_card" }, { "type": "trust_card" }, { "type": "trust_card" }, { "type": "trust_card" }]
+    }
+  ]
+}
+{% endschema %}

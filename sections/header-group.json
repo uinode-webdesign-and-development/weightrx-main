@@ -11,18 +11,15 @@
   "type": "header",
   "name": "Header",
   "sections": {
-    "custom_announcement_bar_MjcExJ": {
+    "custom_announcement_bar_nhhmQY": {
       "type": "custom-announcement-bar",
-      "custom_css": [
-        "span {font-weight: 700;}"
-      ],
       "name": "Custom Announcement Bar",
       "settings": {
-        "message_text": "🔥 Your 2026 Transformation Starts Now - Offer Ending In",
-        "end_date": "April 23, 2026 23:59:59",
+        "message_text": "🔥 Limited Time Offer - Ending In:",
+        "end_date": "May 1, 2026 23:59:59",
         "bg_color": "#ff0000",
         "text_color": "#ffffff",
-        "font_size": 16
+        "font_size": 14
       }
     },
     "header_section": {
@@ -67,7 +64,7 @@
         "custom_button_1_label": "Sign In",
         "custom_button_1_url": "https://portal.weightrx.com/",
         "custom_button_2_label": "Get Started Now",
-        "custom_button_2_url": "https://results.weightrx.com/start.html",
+        "custom_button_2_url": "https://home.weightrx.com/tirzepatide1",
         "header_actions": false,
         "menu_position": "left",
         "menu_row": "top",
@@ -105,7 +102,7 @@
     }
   },
   "order": [
-    "custom_announcement_bar_MjcExJ",
+    "custom_announcement_bar_nhhmQY",
     "header_section"
   ]
 }

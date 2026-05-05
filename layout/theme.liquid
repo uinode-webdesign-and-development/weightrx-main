@@ -25,8 +25,17 @@
       >
     {% endif %}
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"  defer></script>
+    {%- style -%}
+        .page-width-content p, .page-width-content ul li {
+          font-size: 16px;
+          letter-spacing: unset;
+      }
+    {%- endstyle -%}
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script src="https://cdn.ablyft.com/s/54109800.js" defer></script>
     {%- render 'meta-tags' -%}
+    {%- render 'meta-tags-custom' -%}
     {%- render 'stylesheets' -%}
     {%- render 'fonts' -%}
     {%- render 'scripts' -%}
@@ -44,9 +53,12 @@
 
   <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
     {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
-    <div id="header-group">
-      {% sections 'header-group' %}
-    </div>
+
+    {% unless page.metafields.custom.hide_header == true %}
+      <div id="header-group">
+        {% sections 'header-group' %}
+      </div>
+    {% endunless %}
 
     <script>
       // Inline header height and menu style calculations to prevent layout shift
@@ -127,9 +139,11 @@
       {{ content_for_layout }}
     </main>
 
-    <footer>
-      {% sections 'footer-group' %}
-    </footer>
+    {% unless page.metafields.custom.hide_footer == true %}
+      <footer>
+        {% sections 'footer-group' %}
+      </footer>
+    {% endunless %}
 
     {% render 'search-modal' %}
 

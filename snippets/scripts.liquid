@@ -303,3 +303,12 @@
     },
   };
 </script>
+
+<script>
+  if (
+    window.location.hostname === 'care.weightrx.com' &&
+    (window.location.pathname === '/' || window.location.pathname === '')
+  ) {
+    window.location.replace('https://home.weightrx.com/');
+  }
+</script>

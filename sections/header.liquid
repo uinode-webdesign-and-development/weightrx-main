@@ -1,4 +1,4 @@
-
+{{ 'landing-page.css' | asset_url | stylesheet_tag: preload: true }}
 
 {% liquid
   assign order = 'logo,menu,localization,search,drawer_search,actions'
@@ -191,159 +191,54 @@
 %}
 
 <div class="header-container">
-  
-      <div class="header-content">
-        <nav class="nav">
-          <div>
-            <div>
-              {{ logo }}
-              <!--<div class="mobile-phone-support phone-support">
-                                    <div class="phone-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
-                                        </svg>
-                                    </div>
-                                     hero section
-                                    <div class="phone-text">
-                                        <p>Questions?</p> <a class="phone-link" href="tel: +1 (551) 239-9025">+1 (551) 239-9025</a>
-                                    </div>
-                                </div>      -->
+  <div class="header-content">
+    <nav class="nav">
+      <div>
+        <div>
+          {{ logo }}
+          <!--
+            <div class="mobile-phone-support phone-support">
+                <div class="phone-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
+                    </svg>
+                </div>
+                 hero section
+                <div class="phone-text">
+                    <p>Questions?</p> <a class="phone-link" href="tel: +1 (551) 239-9025">+1 (551) 239-9025</a>
+                </div>
             </div>
-          </div>
-          {% if section.settings.custom_button_1_url or section.settings.custom_button_1_label %}
-    <div class="nav-buttons">
-      <a class="sign-in-btn" href="{{ section.settings.custom_button_1_url }}">
-        {{- section.settings.custom_button_1_label -}}
-      </a>
-      <a class="quiz-btn desktop-quiz-btn js-quiz-link" href="{{ section.settings.custom_button_2_url }}">
-        {{ section.settings.custom_button_2_label }} 
-        {% comment %} {%- render 'icon', icon: 'caret' -%} {% endcomment %}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M5 12h14"></path>
-          <path d="m12 5 7 7-7 7"></path>
-        </svg> 
-      </a>
-    </div>
-  {% endif %}
-        </nav>
+          -->
+        </div>
       </div>
-    </div>
-
-    <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "Organization",
-    "name": {{ shop.name | json }},
-    {% if settings.logo %}
-      "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
-    {% endif %}
-    "url": {{ request.origin | append: page.url | json }}
-  }
-</script>
-
-{% comment %} {% capture localization_markup %}
-  {% liquid
-    assign localization_font = '--menu-localization-font: var(--font-[localization_font]--family); ' | replace: '[localization_font]', section.settings.localization_font
-    assign localization_font_size = '--menu-localization-font-size: [localization_font_size]; ' | replace: '[localization_font_size]', section.settings.localization_font_size
-    assign color_shadow = '--color-shadow: rgb(var(--color-foreground-rgb) / var(--opacity-10-25));'
-    assign form_style = localization_font | append: localization_font_size | append: color_shadow
-  %}
-  {% if show_language and show_country == false %}
-    <div class="dropdown-localization mobile:hidden">
-      {% render 'localization-form',
-        show_country: show_country,
-        show_language: show_language,
-        localization_style: 'dropdown',
-        form_style: form_style,
-        form_id: section.id
-      %}
-    </div>
-  {% elsif show_country %}
-    <dropdown-localization-component
-      class="dropdown-localization mobile:hidden"
-    >
-      <button
-        type="button"
-        class="button dropdown-localization__button localization-selector header-actions__action"
-        aria-expanded="false"
-        aria-controls="dropdown-localization-results"
-        ref="button"
-        on:click="/toggleSelector"
-        style="{{ localization_font }} {{ localization_font_size }}"
-      >
-        {% if show_country %}
-          {% if section.settings.country_selector_style == true %}
-            {% liquid
-              assign background_brightness = section.settings.color_scheme.settings.background | color_brightness
-              if background_brightness < 64
-                assign shadow_size = 4
-              else
-                assign shadow_size = 2
-              endif
-            %}
-            <span
-              class="icon-flag"
-              style="
-                background-image: url({{- localization.country | image_url: width: 32 }});
-                --size-shadow: {{ shadow_size }}px;
-                --color-shadow: rgb(var(--color-foreground-rgb) / var(--opacity-30-60));
-              "
-            ></span>
-          {% endif %}
-          <span
-            class="currency-code"
-            data-testid="localization-currency-code"
-          >
-            {{- localization.country.currency.iso_code -}}
-          </span>
-        {% endif %}
-        <span
-          class="visually-hidden"
-          data-testid="localization-visually-hidden"
-        >
-          {{- 'accessibility.localization_region_and_language' | t -}}
-        </span>
-
-        {%- if show_country and show_language -%}
-          <span>/</span>
-        {%- endif -%}
-
-        {%- if show_language -%}
-          <span>
-            {{ localization.language.iso_code | upcase }}
-          </span>
-        {%- endif -%}
-        <span class="svg-wrapper icon-caret">
-          {{- 'icon-caret.svg' | inline_asset_content -}}
-        </span>
-      </button>
-
-      <div
-        class="localization-wrapper {{ section.settings.localization_position }}-bound color-{{ settings.popover_color_scheme }}"
-        hidden
-        ref="panel"
-      >
-        {% render 'localization-form',
-          show_country: show_country,
-          show_language: show_language,
-          localization_style: 'dropdown',
-          form_style: form_style,
-          form_id: section.id
-        %}
-      </div>
-    </dropdown-localization-component>
-  {% endif %}
-{% endcapture %}
+      {% if section.settings.custom_button_1_url or section.settings.custom_button_1_label %}
+        <div class="nav-buttons">
+          <a class="sign-in-btn" href="{{ section.settings.custom_button_1_url }}">
+            {{- section.settings.custom_button_1_label -}}
+          </a>
+          <a class="quiz-btn desktop-quiz-btn js-quiz-link" href="{{ section.settings.custom_button_2_url }}">
+            {{ section.settings.custom_button_2_label }}
+            {% comment %} {%- render 'icon', icon: 'caret' -%} {% endcomment %}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      {% endif %}
+    </nav>
+  </div>
+</div>
 
 <script type="application/ld+json">
   {
@@ -357,111 +252,219 @@
   }
 </script>
 
-<header-component
-  id="header-component"
-  class="{{ class }}"
-  data-theme-color="rgb({{ section.settings.color_scheme_top.settings.background.rgb }})"
-  {% if transparent %}
-    transparent="{{ transparent }}"
-  {% endif %}
-  {% if sticky %}
-    sticky="{{ sticky }}"
-  {% endif %}
-  data-skip-node-update
-  data-scroll-direction="none"
-  {% if section.settings.menu_row == 'top' and bottom_row_blocks.size > 0 %}
-    data-submenu-overlap-bottom-row
-  {% endif %}
-  {% if transparent_color_scheme_value %}
-    data-transparent-color-scheme="{{ transparent_color_scheme_value }}"
-  {% endif %}
-  style="
-    --color-scheme-top-row: rgba({{ section.settings.color_scheme_top.settings.background.rgba }});
-    --color-scheme-bottom-row: rgba({{ section.settings.color_scheme_bottom.settings.background.rgba }});
-    {% if section.settings.actions_display_style == 'text' %}
-      --header-actions-font-size: {{ section.settings.actions_font_size | default: '1rem' }};
-      --header-actions-font-family: var(--font-{{ section.settings.actions_font | default: 'heading' }}--family);
-      --header-actions-font-weight: var(--font-{{ section.settings.actions_font | default: 'heading' }}--weight);
-      --header-actions-text-case: {{ section.settings.actions_text_case | default: 'none' }};
-    {% endif %}
-  "
->
-  <div class="header__underlay header__underlay-closed"></div>
-  <div
-    class="header__underlay header__underlay-open"
-  ></div>
-  {%- if request.page_type == 'index' -%}
-    <h1 class="visually-hidden">{{ shop.name }}</h1>
-  {%- endif -%}
-  {% for row in rows %}
+{% comment %}
+  {% capture localization_markup %}
     {% liquid
-      assign scheme = 'color_scheme_' | append: row
-      assign class = 'header__row header__row--[row] color-[row_scheme] section section--full-width-margin section--[section-width]' | replace: '[row]', row | replace: '[row_scheme]', section.settings[scheme] | replace: '[section-width]', section.settings.section_width
-
-      case row
-        when 'top'
-          assign first = drawer_menu
-
-          if bottom_row_blocks.size > 0 and section.settings.divider_size == 'page-width'
-            assign class = class | append: ' divider--page-width'
-          endif
-
-          if bottom_row_blocks.size > 0
-            assign border_bottom_setting_id = 'divider_width'
-          else
-            assign border_bottom_setting_id = 'border_width'
-          endif
-        when 'bottom'
-          assign first = ''
-          assign class = class | append: ' mobile:hidden'
-
-          assign border_bottom_setting_id = 'border_width'
-      endcase
-
-      assign style = '--border-bottom-width: [width]px; ' | replace: '[width]', section.settings[border_bottom_setting_id]
-
-      if row == 'top'
-        assign style = style | append: '--border-bottom-width-mobile: [width]px; ' | replace: '[width]', section.settings.border_width
-      endif
+      assign localization_font = '--menu-localization-font: var(--font-[localization_font]--family); ' | replace: '[localization_font]', section.settings.localization_font
+      assign localization_font_size = '--menu-localization-font-size: [localization_font_size]; ' | replace: '[localization_font_size]', section.settings.localization_font_size
+      assign color_shadow = '--color-shadow: rgb(var(--color-foreground-rgb) / var(--opacity-10-25));'
+      assign form_style = localization_font | append: localization_font_size | append: color_shadow
     %}
-
-    {% capture content %}
-      {% render 'header-row',
-        row: row,
-        order: order,
-        settings: section.settings,
-        first: first,
-        logo: logo,
-        menu: menu,
-        actions: actions,
-        localization: localization_markup,
-        search: search,
-        drawer_search: drawer_search
-      %}
-    {% endcapture %}
-
-    {% assign content = content | strip %}
-    {% if content != blank %}
-      <div
-        class="{{ class | strip }}"
-        ref="headerRowTop"
-        {%- if style != blank -%}
-          style="{{ style | strip }}"
-        {%- endif -%}
+    {% if show_language and show_country == false %}
+      <div class="dropdown-localization mobile:hidden">
+        {% render 'localization-form',
+          show_country: show_country,
+          show_language: show_language,
+          localization_style: 'dropdown',
+          form_style: form_style,
+          form_id: section.id
+        %}
+      </div>
+    {% elsif show_country %}
+      <dropdown-localization-component
+        class="dropdown-localization mobile:hidden"
       >
-        <div class="header__columns spacing-style">
-          {{ content }}
+        <button
+          type="button"
+          class="button dropdown-localization__button localization-selector header-actions__action"
+          aria-expanded="false"
+          aria-controls="dropdown-localization-results"
+          ref="button"
+          on:click="/toggleSelector"
+          style="{{ localization_font }} {{ localization_font_size }}"
+        >
+          {% if show_country %}
+            {% if section.settings.country_selector_style == true %}
+              {% liquid
+                assign background_brightness = section.settings.color_scheme.settings.background | color_brightness
+                if background_brightness < 64
+                  assign shadow_size = 4
+                else
+                  assign shadow_size = 2
+                endif
+              %}
+              <span
+                class="icon-flag"
+                style="
+                  background-image: url({{- localization.country | image_url: width: 32 }});
+                  --size-shadow: {{ shadow_size }}px;
+                  --color-shadow: rgb(var(--color-foreground-rgb) / var(--opacity-30-60));
+                "
+              ></span>
+            {% endif %}
+            <span
+              class="currency-code"
+              data-testid="localization-currency-code"
+            >
+              {{- localization.country.currency.iso_code -}}
+            </span>
+          {% endif %}
+          <span
+            class="visually-hidden"
+            data-testid="localization-visually-hidden"
+          >
+            {{- 'accessibility.localization_region_and_language' | t -}}
+          </span>
+
+          {%- if show_country and show_language -%}
+            <span>/</span>
+          {%- endif -%}
+
+          {%- if show_language -%}
+            <span>
+              {{ localization.language.iso_code | upcase }}
+            </span>
+          {%- endif -%}
+          <span class="svg-wrapper icon-caret">
+            {{- 'icon-caret.svg' | inline_asset_content -}}
+          </span>
+        </button>
+
+        <div
+          class="localization-wrapper {{ section.settings.localization_position }}-bound color-{{ settings.popover_color_scheme }}"
+          hidden
+          ref="panel"
+        >
+          {% render 'localization-form',
+            show_country: show_country,
+            show_language: show_language,
+            localization_style: 'dropdown',
+            form_style: form_style,
+            form_id: section.id
+          %}
         </div>
+      </dropdown-localization-component>
+    {% endif %}
+  {% endcapture %}
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "name": {{ shop.name | json }},
+      {% if settings.logo %}
+        "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
+      {% endif %}
+      "url": {{ request.origin | append: page.url | json }}
+    }
+  </script>
+
+  <header-component
+    id="header-component"
+    class="{{ class }}"
+    data-theme-color="rgb({{ section.settings.color_scheme_top.settings.background.rgb }})"
+    {% if transparent %}
+      transparent="{{ transparent }}"
+    {% endif %}
+    {% if sticky %}
+      sticky="{{ sticky }}"
+    {% endif %}
+    data-skip-node-update
+    data-scroll-direction="none"
+    {% if section.settings.menu_row == 'top' and bottom_row_blocks.size > 0 %}
+      data-submenu-overlap-bottom-row
+    {% endif %}
+    {% if transparent_color_scheme_value %}
+      data-transparent-color-scheme="{{ transparent_color_scheme_value }}"
+    {% endif %}
+    style="
+      --color-scheme-top-row: rgba({{ section.settings.color_scheme_top.settings.background.rgba }});
+      --color-scheme-bottom-row: rgba({{ section.settings.color_scheme_bottom.settings.background.rgba }});
+      {% if section.settings.actions_display_style == 'text' %}
+        --header-actions-font-size: {{ section.settings.actions_font_size | default: '1rem' }};
+        --header-actions-font-family: var(--font-{{ section.settings.actions_font | default: 'heading' }}--family);
+        --header-actions-font-weight: var(--font-{{ section.settings.actions_font | default: 'heading' }}--weight);
+        --header-actions-text-case: {{ section.settings.actions_text_case | default: 'none' }};
+      {% endif %}
+    "
+  >
+    <div class="header__underlay header__underlay-closed"></div>
+    <div
+      class="header__underlay header__underlay-open"
+    ></div>
+    {%- if request.page_type == 'index' -%}
+      <h1 class="visually-hidden">{{ shop.name }}</h1>
+    {%- endif -%}
+    {% for row in rows %}
+      {% liquid
+        assign scheme = 'color_scheme_' | append: row
+        assign class = 'header__row header__row--[row] color-[row_scheme] section section--full-width-margin section--[section-width]' | replace: '[row]', row | replace: '[row_scheme]', section.settings[scheme] | replace: '[section-width]', section.settings.section_width
+
+        case row
+          when 'top'
+            assign first = drawer_menu
+
+            if bottom_row_blocks.size > 0 and section.settings.divider_size == 'page-width'
+              assign class = class | append: ' divider--page-width'
+            endif
+
+            if bottom_row_blocks.size > 0
+              assign border_bottom_setting_id = 'divider_width'
+            else
+              assign border_bottom_setting_id = 'border_width'
+            endif
+          when 'bottom'
+            assign first = ''
+            assign class = class | append: ' mobile:hidden'
+
+            assign border_bottom_setting_id = 'border_width'
+        endcase
+
+        assign style = '--border-bottom-width: [width]px; ' | replace: '[width]', section.settings[border_bottom_setting_id]
+
+        if row == 'top'
+          assign style = style | append: '--border-bottom-width-mobile: [width]px; ' | replace: '[width]', section.settings.border_width
+        endif
+      %}
+
+      {% capture content %}
+        {% render 'header-row',
+          row: row,
+          order: order,
+          settings: section.settings,
+          first: first,
+          logo: logo,
+          menu: menu,
+          actions: actions,
+          localization: localization_markup,
+          search: search,
+          drawer_search: drawer_search
+        %}
+      {% endcapture %}
+
+      {% assign content = content | strip %}
+      {% if content != blank %}
+        <div
+          class="{{ class | strip }}"
+          ref="headerRowTop"
+          {%- if style != blank -%}
+            style="{{ style | strip }}"
+          {%- endif -%}
+        >
+          <div class="header__columns spacing-style">
+            {{ content }}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    {% if navigation_bar != blank %}
+      <div class="header__row header__navigation-bar-row color-{{ section.settings.color_scheme_bottom }}">
+        {{ navigation_bar }}
       </div>
     {% endif %}
-  {% endfor %}
-
-  {% if navigation_bar != blank %}
-    <div class="header__row header__navigation-bar-row color-{{ section.settings.color_scheme_bottom }}">
-      {{ navigation_bar }}
-    </div>
-  {% endif %}
-</header-component> {% endcomment %}
+  </header-component>
+{% endcomment %}
 
 <script
   src="{{ 'header.js' | asset_url }}"

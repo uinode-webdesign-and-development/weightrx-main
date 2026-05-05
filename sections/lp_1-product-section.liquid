@@ -1,0 +1,248 @@
+
+<div class="product-section" id="section-{{ section.id }}">
+  <div class="section-spacing">
+    <div class="container">
+      <div class="section-heading">
+        {% if section.settings.tagline != blank %}
+          <p class="section-tag">{{ section.settings.tagline }}</p>
+        {% endif %}
+        <h2 class="section-title">{{ section.settings.title_start }} <span class="text-span-4">{{ section.settings.title_highlight }}</span></h2>
+      </div>
+
+      {% comment %} Desktop Grid View {% endcomment %}
+      <div class="product-item-wrap">
+        {% for block in section.blocks %}
+          <div class="product-item" {{ block.shopify_attributes }}>
+            {% if block.settings.product_image != blank %}
+              <img
+                src="{{ block.settings.product_image | image_url: width: 1000 }}"
+                loading="lazy"
+                alt="{{ block.settings.product_image.alt | escape }}"
+                class="product-item-thumb"
+              />
+            {% endif %}
+            
+            <div class="product-item-thumb-wrap">
+              {% if block.settings.mobile_thumb != blank %}
+                <img
+                  src="{{ block.settings.mobile_thumb | image_url: width: 996 }}"
+                  loading="lazy"
+                  sizes="(max-width: 996px) 100vw, 996px"
+                  srcset="{{ block.settings.mobile_thumb | image_url: width: 500 }} 500w, {{ block.settings.mobile_thumb | image_url: width: 800 }} 800w, {{ block.settings.mobile_thumb | image_url: width: 996 }} 996w"
+                  alt="{{ block.settings.mobile_thumb.alt | escape }}"
+                  class="product-item-thumb-m"
+                />
+              {% endif %}
+              
+              <div class="product-content-inner">
+                <div class="product-item-text-wrap-m">
+                  <img src="https://cdn.prod.website-files.com/69a937b4bb797706ea5994c3/69a94796d10badf1ca1b7fb9_icon-5.svg" loading="lazy" width="17" alt="" class="product-item-icon" />
+                  <p class="product-item-text">{{ block.settings.rating }}</p>
+                </div>
+                <div class="product-item-stock-2">
+                  <img src="https://cdn.prod.website-files.com/69a937b4bb797706ea5994c3/69a94796aadd6cc8fdb10f33_icon-6.svg" loading="lazy" alt="" class="product-item-stock-icon" />
+                  <div>{{ block.settings.stock_text }}</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-item-content">
+              <div class="product-item-top">
+                <h2 class="product-item-title">{{ block.settings.product_title }}</h2>
+                <div class="product-item-text-wrap">
+                  <img src="https://cdn.prod.website-files.com/69a937b4bb797706ea5994c3/69a94796d10badf1ca1b7fb9_icon-5.svg" loading="lazy" width="17" alt="" class="product-item-icon" />
+                  <p class="product-item-text">{{ block.settings.rating }}</p>
+                </div>
+              </div>
+              <p class="product-item-text-2">{{ block.settings.subtitle }}</p>
+              <h2 class="product-item-price">
+                <span class="text-span-5">{{ block.settings.price_prefix }}</span> {{ block.settings.price_suffix }}
+              </h2>
+              <div class="product-item-stock">
+                <img src="https://cdn.prod.website-files.com/69a937b4bb797706ea5994c3/69a94796aadd6cc8fdb10f33_icon-6.svg" loading="lazy" alt="" class="product-item-stock-icon" />
+                <div>{{ block.settings.stock_text }}</div>
+              </div>
+              <a href="{{ block.settings.button_link }}" target="_blank" class="product-btn w-inline-block">
+                <div>{{ block.settings.button_text }}</div>
+                <img src="https://cdn.prod.website-files.com/69a937b4bb797706ea5994c3/69a948f02f96c48120b09c2b_icon-7.svg" loading="lazy" alt="" class="hero-btn-icon" />
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% comment %} Mobile Slider Mask {% endcomment %}
+      <div data-delay="4000" data-animation="slide" class="p-slider w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="true" data-disable-swipe="false" data-nav-spacing="3" data-duration="500" data-infinite="true">
+        <div class="p-slider-mask w-slider-mask">
+          {% for block in section.blocks %}
+            <div class="p-slide w-slide">
+              <div class="product-item">
+                <div class="product-item-thumb-wrap">
+                  {% if block.settings.mobile_thumb != blank %}
+                    <img src="{{ block.settings.mobile_thumb | image_url: width: 996 }}" loading="lazy" alt="" class="product-item-thumb-m" />
+                  {% endif %}
+                  <div class="product-content-inner">
+                    <div class="product-item-text-wrap-m">
+                      <img src="https://cdn.prod.website-files.com/69a937b4bb797706ea5994c3/69a94796d10badf1ca1b7fb9_icon-5.svg" loading="lazy" width="17" alt="" class="product-item-icon" />
+                      <p class="product-item-text">{{ block.settings.rating }}</p>
+                    </div>
+                    <div class="product-item-stock-2">
+                      <img src="https://cdn.prod.website-files.com/69a937b4bb797706ea5994c3/69a94796aadd6cc8fdb10f33_icon-6.svg" loading="lazy" alt="" class="product-item-stock-icon" />
+                      <div>{{ block.settings.stock_text }}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-item-content">
+                  <div class="product-item-top">
+                    <h2 class="product-item-title">{{ block.settings.product_title }}</h2>
+                    <div class="product-item-text-wrap">
+                      <img src="https://cdn.prod.website-files.com/69a937b4bb797706ea5994c3/69a94796d10badf1ca1b7fb9_icon-5.svg" loading="lazy" width="17" alt="" class="product-item-icon" />
+                      <p class="product-item-text">{{ block.settings.rating }}</p>
+                    </div>
+                  </div>
+                  <p class="product-item-text-2">{{ block.settings.subtitle }}</p>
+                  <h2 class="product-item-price"><span class="text-span-5">{{ block.settings.price_prefix }}</span> {{ block.settings.price_suffix }}</h2>
+                  <div class="product-item-stock">
+                    <img src="https://cdn.prod.website-files.com/69a937b4bb797706ea5994c3/69a94796aadd6cc8fdb10f33_icon-6.svg" loading="lazy" alt="" class="product-item-stock-icon" />
+                    <div>{{ block.settings.stock_text }}</div>
+                  </div>
+                  <a href="{{ block.settings.button_link }}" class="product-btn w-inline-block">
+                    <div>{{ block.settings.button_text }}</div>
+                    <img src="https://cdn.prod.website-files.com/69a937b4bb797706ea5994c3/69a948f02f96c48120b09c2b_icon-7.svg" loading="lazy" alt="" class="hero-btn-icon" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="hide w-slider-arrow-left"></div>
+        <div class="hide w-slider-arrow-right"></div>
+        <div class="hide w-slider-nav"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "LP Product Section",
+  "tag": "section",
+  "class": "lp-product-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Section Tagline",
+      "default": "Available Now"
+    },
+    {
+      "type": "text",
+      "id": "title_start",
+      "label": "Section Title (before highlight)",
+      "default": "Best-in-Class GLP-1s at"
+    },
+    {
+      "type": "text",
+      "id": "title_highlight",
+      "label": "Section Title (highlighted word)",
+      "default": "Unbeatable Prices"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Main Desktop Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_thumb",
+          "label": "Mobile/Slider Thumbnail"
+        },
+        {
+          "type": "text",
+          "id": "product_title",
+          "label": "Product Title",
+          "default": "Tirzepatide"
+        },
+        {
+          "type": "text",
+          "id": "rating",
+          "label": "Rating Score",
+          "default": "4.9 / 5.0"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Dual-action GLP-1 + GIP formula"
+        },
+        {
+          "type": "text",
+          "id": "price_prefix",
+          "label": "Price Value (Green)",
+          "default": "$83.00"
+        },
+        {
+          "type": "text",
+          "id": "price_suffix",
+          "label": "Price Text",
+          "default": "per month"
+        },
+        {
+          "type": "text",
+          "id": "stock_text",
+          "label": "Stock Text",
+          "default": "In stock via WeightRX"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Label",
+          "default": "Get Started"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LP Product Section",
+      "blocks": [
+        {
+          "type": "product",
+          "settings": {
+            "product_title": "Tirzepatide",
+            "rating": "4.9 / 5.0",
+            "subtitle": "Dual-action GLP-1 + GIP formula",
+            "price_prefix": "$83.00",
+            "price_suffix": "per month",
+            "stock_text": "In stock via WeightRX",
+            "button_text": "Get Started"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "product_title": "Semaglutide",
+            "rating": "4.8 / 5.0",
+            "subtitle": "Proven GLP-1 receptor agonist",
+            "price_prefix": "$250.00",
+            "price_suffix": "per month",
+            "stock_text": "In stock via WeightRX",
+            "button_text": "Get Started"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

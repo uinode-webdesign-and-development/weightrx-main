@@ -1,0 +1,201 @@
+
+<div class="why-section">
+  <div class="section-spacing">
+    <div class="container">
+      <div class="section-heading center">
+        <p class="section-tag">{{ section.settings.sub_heading }}</p>
+        
+        <h2 class="section-title center">
+          Clinical-Grade Care, 
+          <span class="text-span-4" style="color: {{ section.settings.accent_color }}; font-style: italic;">
+            Delivered to Your Door
+          </span>
+        </h2>
+      </div>
+
+      {% comment %} Desktop View {% endcomment %}
+      <div class="why-item-wrap">
+        {% for block in section.blocks %}
+          <div class="why-item" {{ block.shopify_attributes }}>
+            <div class="why-item-thumb-wrap">
+              {% if block.settings.image != blank %}
+                <img src="{{ block.settings.image | image_url: width: 800 }}" loading="lazy" alt="{{ block.settings.image.alt | escape }}" class="why-item-thumb" />
+              {% endif %}
+              <div class="why-item-content">
+                <h3 class="why-item-title {% if block.settings.dark_text %}black{% endif %}">{{ block.settings.title }}</h3>
+                <div class="why-item-tag-wrap">
+                  {% if block.settings.tag_1 != blank %}
+                    <div class="why-item-tag first {% if block.settings.dark_text %}black{% endif %}">
+                      {% if block.settings.tag_icon != blank %}
+                        <img src="{{ block.settings.tag_icon | image_url: width: 50 }}" loading="lazy" alt="" class="why-item-tag-icon" />
+                      {% endif %}
+                      <div>{{ block.settings.tag_1 }}</div>
+                    </div>
+                  {% endif %}
+                  {% if block.settings.tag_2 != blank %}
+                    <div class="why-item-tag _2 {% if block.settings.dark_text %}black{% endif %}">
+                      {% if block.settings.tag_icon != blank %}
+                        <img src="{{ block.settings.tag_icon | image_url: width: 50 }}" loading="lazy" alt="" class="why-item-tag-icon" />
+                      {% endif %}
+                      <div>{{ block.settings.tag_2 }}</div>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% comment %} Mobile Slider {% endcomment %}
+      <div data-delay="4000" data-animation="slide" class="why-slider w-slider">
+        <div class="why-slider-mask w-slider-mask">
+          {% for block in section.blocks %}
+            <div class="why-slide w-slide">
+              <div class="why-item">
+                <div class="why-item-thumb-wrap">
+                  {% if block.settings.image != blank %}
+                    <img src="{{ block.settings.image | image_url: width: 600 }}" loading="lazy" alt="" class="why-item-thumb" />
+                  {% endif %}
+                  <div class="why-item-content">
+                    <h3 class="why-item-title {% if block.settings.dark_text %}black{% endif %}">{{ block.settings.title }}</h3>
+                    <div class="why-item-tag-wrap">
+                      <div class="why-item-tag first {% if block.settings.dark_text %}black{% endif %}">
+                        {% if block.settings.tag_icon != blank %}
+                          <img src="{{ block.settings.tag_icon | image_url: width: 50 }}" loading="lazy" alt="" class="why-item-tag-icon" />
+                        {% endif %}
+                        <div>{{ block.settings.tag_1 }}</div>
+                      </div>
+                      <div class="why-item-tag _2 {% if block.settings.dark_text %}black{% endif %}">
+                        {% if block.settings.tag_icon != blank %}
+                          <img src="{{ block.settings.tag_icon | image_url: width: 50 }}" loading="lazy" alt="" class="why-item-tag-icon" />
+                        {% endif %}
+                        <div>{{ block.settings.tag_2 }}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      {% comment %} Button & Guarantee Section {% endcomment %}
+      <div class="hero-btn-wrap show">
+        <a href="{{ section.settings.btn_link }}" class="btn-blue w-inline-block">
+          <div>{{ section.settings.btn_text }}</div>
+          {% if section.settings.btn_icon != blank %}
+            <img src="{{ section.settings.btn_icon | image_url: width: 50 }}" loading="lazy" alt="" class="hero-btn-icon" />
+          {% endif %}
+        </a>
+        <div class="hero-content-bottom">
+          {% if section.settings.guarantee_icon != blank %}
+            <img src="{{ section.settings.guarantee_icon | image_url: width: 50 }}" loading="lazy" alt="" class="hero-icon-2" />
+          {% endif %}
+          <p class="result-bottom-text">{{ section.settings.guarantee_text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "LP Why Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "Sub Heading",
+      "default": "Why WeightRx"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Heading Accent Color",
+      "default": "#007aff"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text",
+      "default": "Get Started for $83/month"
+    },
+    {
+      "type": "image_picker",
+      "id": "btn_icon",
+      "label": "Button Icon (Arrow)"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Guarantee Text",
+      "default": "30-day weight loss guarantee"
+    },
+    {
+      "type": "image_picker",
+      "id": "guarantee_icon",
+      "label": "Guarantee Icon (Shield)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "why_item",
+      "name": "Why Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Background Image"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Item Title",
+          "default": "100% Online Care"
+        },
+        {
+          "type": "image_picker",
+          "id": "tag_icon",
+          "label": "Checkmark Icon"
+        },
+        {
+          "type": "text",
+          "id": "tag_1",
+          "label": "Tag 1 Text",
+          "default": "No clinic visits"
+        },
+        {
+          "type": "text",
+          "id": "tag_2",
+          "label": "Tag 2 Text",
+          "default": "ONLINE ASSESSMENT"
+        },
+        {
+          "type": "checkbox",
+          "id": "dark_text",
+          "label": "Use Dark Text Theme",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LP Why Section",
+      "blocks": [
+        { "type": "why_item" },
+        { "type": "why_item" },
+        { "type": "why_item" },
+        { "type": "why_item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

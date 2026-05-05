@@ -55,14 +55,15 @@
   <script>
     const disclaimerButton = document.querySelector(".disclaimer-button");
     const hiddenText = document.querySelector(".disclaimer-hidden");
+    if (disclaimerButton && hiddenText) {
+        disclaimerButton.addEventListener("click", () => {
+          hiddenText.classList.toggle("active");
 
-    disclaimerButton.addEventListener("click", () => {
-      hiddenText.classList.toggle("active");
-
-      disclaimerButton.textContent = hiddenText.classList.contains("active")
-        ? "See Less"
-        : "See More";
-    });
+          disclaimerButton.textContent = hiddenText.classList.contains("active")
+            ? "See Less"
+            : "See More";
+        });
+    }
   </script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -285,8 +286,9 @@
         const mins = Math.floor((diff / (1000 * 60)) % 60);
         const secs = Math.floor((diff / 1000) % 60);
 
-        countdownEl.textContent =
-          `${days} Days ${hours} Hours ${mins} mins ${secs} secs`;
+        if (countdownEl) {
+          countdownEl.textContent = `${days} Days ${hours} Hours ${mins} mins ${secs} secs`;
+        }
       }
 
       updateTimer();
@@ -297,18 +299,7 @@
   </script>
 
   <script>
-    fbq('track', 'ViewContent');
+    //fbq('track', 'ViewContent');
   </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var quizLinks = document.querySelectorAll('.js-quiz-link');
-      quizLinks.forEach(function (link) {
-        link.addEventListener('click', function () {
-          console.log('sending initiate_quiz event');
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({ event: 'initiate_quiz' });
-        });
-      });
-    });
-  </script>
+ 

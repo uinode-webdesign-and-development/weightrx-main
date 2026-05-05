@@ -1,0 +1,122 @@
+
+
+{%- style -%}
+  #section-{{ section.id }} .s-thumb-marquee {
+    display: flex;
+    width: max-content;
+    animation: scroll-{{ section.id }} {{ section.settings.speed }}s linear infinite;
+    {% if section.settings.direction == 'right' %}
+      animation-direction: reverse;
+    {% endif %}
+  }
+
+  #section-{{ section.id }} .s-thumb-marquee-wrapper {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  #section-{{ section.id }}:hover .s-thumb-marquee {
+    {% if section.settings.pause_on_hover %}
+      animation-play-state: paused;
+    {% endif %}
+  }
+
+  @keyframes scroll-{{ section.id }} {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      /* Moves exactly one layout's width to create seamless loop */
+      transform: translateX(-25%); 
+    }
+  }
+{%- endstyle -%}
+
+<div class="s-thumb-marquee-wrapper" id="section-{{ section.id }}">
+  <div class="s-thumb-marquee">
+    {%- comment -%}
+      We loop 4 times. Keyframes move -25% because 1/4 of the total width is one full set.
+    {%- endcomment -%}
+    {%- for i in (1..4) -%}
+      <div class="s-thumb-marquee-layout">
+        {%- for block in section.blocks -%}
+          <div class="s-thumb-marquee-item" {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 400 | image_tag: 
+                loading: 'lazy', 
+                class: 's-thumb-marquee-thumb', 
+                widths: '200, 300, 400',
+                alt: block.settings.image.alt | escape 
+              }}
+            {%- else -%}
+              {{ 'image' | placeholder_svg_tag: 's-thumb-marquee-thumb placeholder-svg' }}
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "LP Thumbs Marquee",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Animation Settings"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 5,
+      "max": 100,
+      "step": 5,
+      "unit": "s",
+      "label": "Scroll Speed",
+      "default": 30
+    },
+    {
+      "type": "select",
+      "id": "direction",
+      "label": "Direction",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on Hover",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Thumbnail",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Thumbnail Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LP Thumbs Marquee",
+      "blocks": [
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" }
+      ]
+    }
+  ]
+}
+{% endschema %}

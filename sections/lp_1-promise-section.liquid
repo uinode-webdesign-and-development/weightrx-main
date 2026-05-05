@@ -1,0 +1,182 @@
+<div class="s-promise-section" id="section-{{ section.id }}">
+  <div class="section-spacing">
+    <div class="container">
+      <div class="s-promise-layout">
+        <div class="s-promise-left">
+          {%- if section.settings.brand_image != blank -%}
+            {{
+              section.settings.brand_image
+              | image_url: width: 300
+              | image_tag: class: 's-promise-brand', loading: 'lazy'
+            }}
+          {%- endif -%}
+          {%- if section.settings.thumb_image != blank -%}
+            {{
+              section.settings.thumb_image
+              | image_url: width: 800
+              | image_tag: class: 's-promise-thumb', loading: 'lazy'
+            }}
+          {%- endif -%}
+        </div>
+
+        <div class="s-promise-content">
+          {%- if section.settings.icon_image != blank -%}
+            {{
+              section.settings.icon_image
+              | image_url: width: 100
+              | image_tag: class: 's-promise-icon', loading: 'lazy'
+            }}
+          {%- endif -%}
+
+          <div class="s-promise-tag">{{ section.settings.tag_text }}</div>
+          <h2 class="s-promise-title">{{ section.settings.title }}</h2>
+          <p class="s-promise-text">{{ section.settings.description }}</p>
+
+          <div class="s-promise-bottom">
+            <a href="{{ section.settings.button_link }}" class="s-promise-btn w-inline-block">
+              <div>{{ section.settings.button_text }}</div>
+              {%- if section.settings.btn_icon != blank -%}
+                {{
+                  section.settings.btn_icon
+                  | image_url: width: 40
+                  | image_tag: class: 'hero-btn-icon', loading: 'lazy'
+                }}
+              {%- endif -%}
+            </a>
+            <div class="s-promise-content-bottom">
+              {%- if section.settings.bottom_icon != blank -%}
+                {{
+                  section.settings.bottom_icon
+                  | image_url: width: 40
+                  | image_tag: class: 'hero-icon-2', loading: 'lazy'
+                }}
+              {%- endif -%}
+              <p class="s-faq-bottom-text">{{ section.settings.bottom_text }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% comment %} Mobile/Bottom Action Wrap {% endcomment %}
+      <div class="hero-btn-wrap-m">
+        <a href="{{ section.settings.button_link }}" class="btn-blue w-inline-block">
+          <div>{{ section.settings.button_text }}</div>
+          {%- if section.settings.btn_icon_mobile != blank -%}
+            {{
+              section.settings.btn_icon_mobile
+              | image_url: width: 40
+              | image_tag: class: 'hero-btn-icon', loading: 'lazy'
+            }}
+          {%- endif -%}
+        </a>
+        <div class="hero-content-bottom">
+          {%- if section.settings.bottom_icon_mobile != blank -%}
+            {{
+              section.settings.bottom_icon_mobile
+              | image_url: width: 40
+              | image_tag: class: 'hero-icon-2', loading: 'lazy'
+            }}
+          {%- endif -%}
+          <p class="result-bottom-text">{{ section.settings.bottom_text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "LP Promise Section",
+  "class": "lp_1_promise_section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_image",
+      "label": "Brand SVG/Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "thumb_image",
+      "label": "Main Thumbnail Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_image",
+      "label": "Section Icon (Top)"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "tag_text",
+      "label": "Tagline",
+      "default": "Our Promise"
+    },
+    {
+      "type": "html",
+      "id": "title",
+      "label": "Title (HTML Allowed)",
+      "default": "30-Day Weight Loss <span><em class='clr'>Guarantee</em></span>"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "We're so confident you'll see results, we guarantee it. If you follow the program and don't lose weight in 30 days, we'll refund your money."
+    },
+    {
+      "type": "header",
+      "content": "Button & Footer"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Get Started for $83/month"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "btn_icon",
+      "label": "Button Icon (Desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "btn_icon_mobile",
+      "label": "Button Icon (Mobile)"
+    },
+    {
+      "type": "text",
+      "id": "bottom_text",
+      "label": "Bottom Guarantee Text",
+      "default": "30-day weight loss guarantee"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_icon",
+      "label": "Bottom Icon (Desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_icon_mobile",
+      "label": "Bottom Icon (Mobile)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "LP Promise Section"
+    }
+  ]
+}
+{% endschema %}

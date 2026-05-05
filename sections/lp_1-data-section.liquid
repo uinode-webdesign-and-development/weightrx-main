@@ -1,0 +1,148 @@
+<div class="s-data-section">
+  <div class="section-spacing">
+    <div class="container">
+      <div class="s-data-content">
+        {%- if section.settings.tag != blank -%}
+          <div class="s-data-tag">{{ section.settings.tag }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.title != blank -%}
+          <h2 class="s-data-title">{{ section.settings.title }}</h2>
+        {%- endif -%}
+
+        <div class="s-data-item-layout">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'data_item' -%}
+              <div class="s-data-item" {{ block.shopify_attributes }}>
+                <h3 class="s-data-item-title">{{ block.settings.item_title }}</h3>
+                <p class="s-data-item-text">{{ block.settings.item_text }}</p>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        <div class="s-data-bottom">
+          {%- if section.settings.button_label != blank -%}
+            <a href="{{ section.settings.button_link | default: '#' }}" class="s-data-btn w-inline-block">
+              <div>{{ section.settings.button_label }}</div>
+              {%- if section.settings.button_icon != blank -%}
+                <img loading="lazy" src="{{ section.settings.button_icon | image_url }}" alt="" class="hero-btn-icon" width="20" height="20" />
+              {%- endif -%}
+            </a>
+          {%- endif -%}
+
+          <div class="s-data-content-bottom">
+            {%- if section.settings.guarantee_icon != blank -%}
+              <img loading="lazy" src="{{ section.settings.guarantee_icon | image_url }}" alt="" class="hero-icon-2" width="24" height="24" />
+            {%- endif -%}
+            <p class="s-faq-bottom-text">{{ section.settings.guarantee_text }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-data-thumb-wrap">
+    {%- if section.settings.main_image != blank -%}
+      {{ section.settings.main_image | image_url: width: 2352 | image_tag: 
+        class: 's-data-thumb', 
+        widths: '500, 800, 1080, 1600, 2000, 2352',
+        loading: 'lazy',
+        sizes: '100vw' 
+      }}
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "LP Data Section",
+  "class": "lp_1_data_section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tag",
+      "label": "Tag Label",
+      "default": "The Data"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Results, Backed by Data From Our Members"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Get Started for $83/month"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "button_icon",
+      "label": "Button Icon"
+    },
+    {
+      "type": "header",
+      "content": "Guarantee & Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "guarantee_icon",
+      "label": "Guarantee Icon"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Guarantee Text",
+      "default": "30-day weight loss guarantee"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Background Thumbnail Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "data_item",
+      "name": "Data Stat",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "item_title",
+          "label": "Stat Value",
+          "default": "Up to 12%"
+        },
+        {
+          "type": "text",
+          "id": "item_text",
+          "label": "Stat Description",
+          "default": "body weight loss within the first 6 months"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LP Data Section",
+      "blocks": [
+        { "type": "data_item" },
+        { "type": "data_item" },
+        { "type": "data_item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

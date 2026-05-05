@@ -10,6 +10,51 @@
 {
   "type": "footer",
   "name": "Footer",
-  "sections": {},
-  "order": []
+  "sections": {
+    "lp_1_footer_section_JEV8y4": {
+      "type": "lp_1-footer-section",
+      "blocks": {
+        "trust_card_kCFiXq": {
+          "type": "trust_card",
+          "settings": {}
+        },
+        "trust_card_tanfwg": {
+          "type": "trust_card",
+          "settings": {}
+        },
+        "trust_card_JKcyrY": {
+          "type": "trust_card",
+          "settings": {}
+        },
+        "trust_card_hKQCBQ": {
+          "type": "trust_card",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "trust_card_kCFiXq",
+        "trust_card_tanfwg",
+        "trust_card_JKcyrY",
+        "trust_card_hKQCBQ"
+      ],
+      "disabled": true,
+      "name": "LP Footer Section",
+      "settings": {
+        "tag_icon": "shopify://shop_images/69aab4ee8f9f82a8231069db_thumb-17.webp",
+        "tag_highlight": "60,000+",
+        "tag_text": "lives Changed with GP1-S",
+        "logo": "shopify://shop_images/svgviewer-output_7.svg",
+        "main_description": "The same medication clinics charge $1200+ for, without insurance or appointments.",
+        "menu": "lp-1-footer-menu",
+        "disclaimer_text": "<p>*The assessment made available on the WeightRx website does not create a clinician-patient relationship between the individual completing the assessment and WeightRx. WeightRx is not a provider of medical services. WeightRx acts primarily as a technology platform to connect you with professional clinicians who may be available to provide you with non-emergency care. Such providers include MDI Medical Group, and certain other medical groups (collectively, the \"Providers\").  The Providers include a network of US-licensed clinicians that adhere to rigorous medical protocols designed for patient safety and have established exclusionary criteria to determine if an individual does not qualify for GLP-1s. Each WeightRx assessment will be reviewed by a clinician who will determine if the individual is eligible for GLP-1 medication and qualifies for a prescription. Provider clinicians retain the decision to prescribe compounded GLP-1s to patients.<br/><br/>Although compounded GLP-1s are produced in facilities that are regulated, the medications are not FDA-approved or evaluated for safety, efficacy, or quality. The decision to use compounded drugs is guided by the licensed clinician's medical judgment, which is informed by a telehealth consultation and medical history.<br/><br/>We encourage all prospective users of compounded medications to speak with their clinician about the specific risks and benefits that may come with the use of compounded medication. WeightRx does not produce compounded medications, and individuals may receive medication that looks different than what is portrayed on the website.</p>",
+        "show_legitscript": true,
+        "legitscript_id": "18557581",
+        "copyright_name": "WeightRx, Inc",
+        "address_text": "169 Madison Ave STE 38335 New York, New York 10016"
+      }
+    }
+  },
+  "order": [
+    "lp_1_footer_section_JEV8y4"
+  ]
 }
