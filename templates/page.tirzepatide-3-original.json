@@ -411,10 +411,38 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "tirzepatide_header_BTapMm": {
+      "type": "tirzepatide-header",
+      "blocks": {
+        "header-logo": {
+          "type": "_header-logo",
+          "static": true,
+          "settings": {
+            "hide_logo_on_home_page": false,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "name": "Tirzepatide Header",
+      "settings": {
+        "message_text": "🔥 Limited Time Offer - Ending In:",
+        "end_date": "May 1, 2026 23:59:59",
+        "bg_color": "#ff0000",
+        "text_color": "#ffffff",
+        "font_size": 14,
+        "custom_button_1_label": "Sign In",
+        "custom_button_1_url": "",
+        "custom_button_2_label": "Get Started Now",
+        "custom_button_2_url": ""
+      }
     }
   },
   "order": [
     "main",
+    "tirzepatide_header_BTapMm",
     "landing_hero_iXWFMc",
     "landing_testimonials_section_4JgYfm",
     "landing_customer_feedback_Gxham3",
