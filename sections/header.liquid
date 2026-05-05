@@ -190,43 +190,6 @@
   endif
 %}
 
-<div class="header-container">
-  <div class="header-content">
-    <nav class="nav">
-      <div>
-        <div>
-          {{ logo }}
-        </div>
-      </div>
-      {% if section.settings.custom_button_1_url or section.settings.custom_button_1_label %}
-        <div class="nav-buttons">
-          <a class="sign-in-btn" href="{{ section.settings.custom_button_1_url }}">
-            {{- section.settings.custom_button_1_label -}}
-          </a>
-          <a class="quiz-btn desktop-quiz-btn js-quiz-link" href="{{ section.settings.custom_button_2_url }}">
-            {{ section.settings.custom_button_2_label }}
-            {% comment %} {%- render 'icon', icon: 'caret' -%} {% endcomment %}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-      {% endif %}
-    </nav>
-  </div>
-</div>
-
 <script type="application/ld+json">
   {
     "@context": "http://schema.org",
@@ -239,7 +202,6 @@
   }
 </script>
 
-{% comment %}
   {% capture localization_markup %}
     {% liquid
       assign localization_font = '--menu-localization-font: var(--font-[localization_font]--family); ' | replace: '[localization_font]', section.settings.localization_font
@@ -451,7 +413,6 @@
       </div>
     {% endif %}
   </header-component>
-{% endcomment %}
 
 <script
   src="{{ 'header.js' | asset_url }}"
@@ -1174,6 +1135,44 @@
     hydrate('{{ section.id }}', url);
   </script>
 {% endunless %}
+
+
+<div class="header-container">
+  <div class="header-content">
+    <nav class="nav">
+      <div>
+        <div>
+          {{ logo }}
+        </div>
+      </div>
+      {% if section.settings.custom_button_1_url or section.settings.custom_button_1_label %}
+        <div class="nav-buttons">
+          <a class="sign-in-btn" href="{{ section.settings.custom_button_1_url }}">
+            {{- section.settings.custom_button_1_label -}}
+          </a>
+          <a class="quiz-btn desktop-quiz-btn js-quiz-link" href="{{ section.settings.custom_button_2_url }}">
+            {{ section.settings.custom_button_2_label }}
+            {% comment %} {%- render 'icon', icon: 'caret' -%} {% endcomment %}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      {% endif %}
+    </nav>
+  </div>
+</div>
 
 {% schema %}
 {
