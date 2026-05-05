@@ -20,31 +20,6 @@
         "padding-block-end": 80
       }
     },
-    "lp_1_header_G4X4bH": {
-      "type": "lp_1-header",
-      "name": "LP Navigation",
-      "settings": {
-        "top_logo": "shopify://shop_images/69ab07cbf1c499727a6883b6_logo-4.webp",
-        "text_part_1": "60,000+",
-        "p1_color": "#d8efff",
-        "p1_size": 18,
-        "text_part_2": "lives Changed",
-        "p2_color": "#ffffff",
-        "p2_size": 18,
-        "text_part_3": "with GLP-1s",
-        "p3_color": "#ccd3dd",
-        "p3_size": 18,
-        "main_logo": "shopify://shop_images/svgviewer-png-output_24.png",
-        "logo_link": "",
-        "contact_text": "Contact Us",
-        "contact_link": "#contact",
-        "signin_text": "Sign In",
-        "signin_link": "https://portal.weightrx.com/",
-        "signin_icon": "shopify://shop_images/svgviewer-png-output_23.png",
-        "button_text": "Get Started",
-        "button_link": "https://results.weightrx.com/start.html"
-      }
-    },
     "lp_1_hero_section_6jgcpE": {
       "type": "lp_1-hero-section",
       "name": "LP 1 Hero Section",
@@ -697,88 +672,10 @@
         "form_instruction": "Or fill out the form and our team will respond as soon as possible:",
         "button_text": "Send Message"
       }
-    },
-    "lp_1_footer_section_83mjtn": {
-      "type": "lp_1-footer-section",
-      "blocks": {
-        "trust_card_GTTE6B": {
-          "type": "trust_card",
-          "settings": {
-            "card_img": "shopify://shop_images/svgviewer-png-output_26.png"
-          }
-        },
-        "trust_card_hLVdEW": {
-          "type": "trust_card",
-          "settings": {
-            "card_img": "shopify://shop_images/svgviewer-png-output_27.png"
-          }
-        },
-        "trust_card_tq3PWi": {
-          "type": "trust_card",
-          "settings": {
-            "card_img": "shopify://shop_images/svgviewer-png-output_28.png"
-          }
-        },
-        "trust_card_w4nUMK": {
-          "type": "trust_card",
-          "settings": {
-            "card_img": "shopify://shop_images/svgviewer-png-output_29.png"
-          }
-        },
-        "trust_card_pzhjFP": {
-          "type": "trust_card",
-          "settings": {
-            "card_img": "shopify://shop_images/svgviewer-png-output_30.png"
-          }
-        },
-        "trust_card_VEfiVG": {
-          "type": "trust_card",
-          "settings": {
-            "card_img": "shopify://shop_images/svgviewer-png-output_31.png"
-          }
-        },
-        "trust_card_jfrRBm": {
-          "type": "trust_card",
-          "settings": {
-            "card_img": "shopify://shop_images/svgviewer-png-output_32.png"
-          }
-        },
-        "trust_card_6paUH3": {
-          "type": "trust_card",
-          "settings": {
-            "card_img": "shopify://shop_images/svgviewer-png-output_34.png"
-          }
-        }
-      },
-      "block_order": [
-        "trust_card_GTTE6B",
-        "trust_card_hLVdEW",
-        "trust_card_tq3PWi",
-        "trust_card_w4nUMK",
-        "trust_card_pzhjFP",
-        "trust_card_VEfiVG",
-        "trust_card_jfrRBm",
-        "trust_card_6paUH3"
-      ],
-      "name": "LP Footer Section",
-      "settings": {
-        "tag_icon": "shopify://shop_images/69aab4ee8f9f82a8231069db_thumb-17.webp",
-        "tag_highlight": "60,000+",
-        "tag_text": "lives Changed with GP1-S",
-        "logo": "shopify://shop_images/svgviewer-output_7.svg",
-        "main_description": "The same medication clinics charge $1200+ for, without insurance or appointments.",
-        "menu": "lp-1-footer-menu",
-        "disclaimer_text": "<p>*The assessment made available on the WeightRx website does not create a clinician-patient relationship between the individual completing the assessment and WeightRx. WeightRx is not a provider of medical services. WeightRx acts primarily as a technology platform to connect you with professional clinicians who may be available to provide you with non-emergency care. Such providers include MDI Medical Group, and certain other medical groups (collectively, the \"Providers\").  The Providers include a network of US-licensed clinicians that adhere to rigorous medical protocols designed for patient safety and have established exclusionary criteria to determine if an individual does not qualify for GLP-1s. Each WeightRx assessment will be reviewed by a clinician who will determine if the individual is eligible for GLP-1 medication and qualifies for a prescription. Provider clinicians retain the decision to prescribe compounded GLP-1s to patients.<br/><br/>Although compounded GLP-1s are produced in facilities that are regulated, the medications are not FDA-approved or evaluated for safety, efficacy, or quality. The decision to use compounded drugs is guided by the licensed clinician's medical judgment, which is informed by a telehealth consultation and medical history.<br/><br/>We encourage all prospective users of compounded medications to speak with their clinician about the specific risks and benefits that may come with the use of compounded medication. WeightRx does not produce compounded medications, and individuals may receive medication that looks different than what is portrayed on the website.</p>",
-        "show_legitscript": true,
-        "legitscript_id": "18557581",
-        "copyright_name": "WeightRx, Inc",
-        "address_text": "169 Madison Ave STE 38335 New York, New York 10016"
-      }
     }
   },
   "order": [
     "main",
-    "lp_1_header_G4X4bH",
     "lp_1_hero_section_6jgcpE",
     "lp_1_product_section_pBRJm3",
     "lp_1_result_section_Y4VJL6",
@@ -792,7 +689,6 @@
     "lp_1_thumbs_marquee_VT3L4K",
     "lp_1_data_section_YijnKe",
     "lp_1_promise_section_qR9CzC",
-    "lp_1_contact_section_xCWYE7",
-    "lp_1_footer_section_83mjtn"
+    "lp_1_contact_section_xCWYE7"
   ]
 }
