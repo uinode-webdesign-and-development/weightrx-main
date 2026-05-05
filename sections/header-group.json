@@ -11,17 +11,6 @@
   "type": "header",
   "name": "Header",
   "sections": {
-    "custom_announcement_bar_nhhmQY": {
-      "type": "custom-announcement-bar",
-      "name": "Custom Announcement Bar",
-      "settings": {
-        "message_text": "🔥 Limited Time Offer - Ending In:",
-        "end_date": "May 1, 2026 23:59:59",
-        "bg_color": "#ff0000",
-        "text_color": "#ffffff",
-        "font_size": 14
-      }
-    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -60,11 +49,25 @@
         }
       },
       "settings": {
+        "top_logo": "shopify://shop_images/69aab4ee8f9f82a8231069db_thumb-17.webp",
+        "text_part_1": "60,000+",
+        "p1_color": "#ffffff",
+        "p1_size": 14,
+        "text_part_2": "lives Changed",
+        "p2_color": "#ffffff",
+        "p2_size": 14,
+        "text_part_3": "with GLP-1s",
+        "p3_color": "#ffffff",
+        "p3_size": 14,
+        "main_logo": "shopify://shop_images/svgviewer-png-output_24.png",
+        "logo_link": "",
+        "contact_text": "Contact Us",
+        "contact_link": "",
+        "signin_text": "Sign In",
+        "signin_link": "",
+        "button_text": "Get Started",
+        "button_link": "",
         "logo_position": "left",
-        "custom_button_1_label": "Sign In",
-        "custom_button_1_url": "https://portal.weightrx.com/",
-        "custom_button_2_label": "Get Started Now",
-        "custom_button_2_url": "https://home.weightrx.com/tirzepatide1",
         "header_actions": false,
         "menu_position": "left",
         "menu_row": "top",
@@ -102,7 +105,6 @@
     }
   },
   "order": [
-    "custom_announcement_bar_nhhmQY",
     "header_section"
   ]
 }
