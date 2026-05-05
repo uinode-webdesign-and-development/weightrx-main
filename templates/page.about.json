@@ -299,7 +299,7 @@
       ],
       "name": "t:names.marquee_section",
       "settings": {
-        "movement_direction": "reverse",
+        "movement_direction": "normal",
         "color_scheme": "",
         "padding-block-start": 20,
         "padding-block-end": 20,
