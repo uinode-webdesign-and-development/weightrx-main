@@ -17,6 +17,7 @@
           "name": "Title",
           "disabled": true,
           "settings": {
+            "code": "",
             "text": "<h1>{{ closest.page.title }}</h1>",
             "width": "100%",
             "max_width": "normal",
@@ -74,9 +75,13 @@
             "paragraph_size": 16,
             "paragraph_color": "#333333",
             "text_spacing": 16,
+            "image_1": "shopify://shop_images/68e43607c81315661df1af9b_ffa1f4228644899a7f523a65993e0c5d_about-glp1s.webp",
             "image_1_link": "",
+            "image_2": "shopify://shop_images/68e43607c81315661df1af9b_ffa1f4228644899a7f523a65993e0c5d_about-glp1s.webp",
             "image_2_link": "",
+            "image_3": "shopify://shop_images/68e43607c81315661df1af9b_ffa1f4228644899a7f523a65993e0c5d_about-glp1s.webp",
             "image_3_link": "",
+            "image_4": "shopify://shop_images/69aaa8dea9a7c538560f5067_thumb-7.webp",
             "image_4_link": "",
             "image_gap": 16,
             "image_border_radius": 8,
@@ -124,10 +129,11 @@
     "marquee_zEirKr": {
       "type": "marquee",
       "blocks": {
-        "text_Bq647W": {
+        "text_gznaUb": {
           "type": "text",
           "settings": {
-            "text": "<p>We make things that work better and last longer.</p>",
+            "code": "<svg width=\"16\" height=\"16\" viewbox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M2.66602 9.99992C2.66602 9.99992 3.33268 9.33325 5.33268 9.33325C7.33268 9.33325 8.66602 10.6666 10.666 10.6666C12.666 10.6666 13.3327 9.99992 13.3327 9.99992V1.99992C13.3327 1.99992 12.666 2.66659 10.666 2.66659C8.66602 2.66659 7.33268 1.33325 5.33268 1.33325C3.33268 1.33325 2.66602 1.99992 2.66602 1.99992V9.99992Z\" stroke=\"#171717\" stroke-opacity=\"0.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M2.66602 14.6667V10\" stroke=\"#171717\" stroke-opacity=\"0.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "text": "<p>Compounded in the USA</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -148,18 +154,156 @@
             "padding-inline-end": 0
           },
           "blocks": {}
+        },
+        "text_UzpKwY": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "code": "<svg width=\"16\" height=\"16\" viewbox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M7.33398 1.33325V2.66659\" stroke=\"#171717\" stroke-opacity=\"0.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M3.33398 1.33325V2.66659\" stroke=\"#171717\" stroke-opacity=\"0.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M3.33398 2H2.66732C2.3137 2 1.97456 2.14048 1.72451 2.39052C1.47446 2.64057 1.33398 2.97971 1.33398 3.33333V6C1.33398 7.06087 1.75541 8.07828 2.50556 8.82843C3.2557 9.57857 4.27312 10 5.33398 10C6.39485 10 7.41227 9.57857 8.16241 8.82843C8.91256 8.07828 9.33398 7.06087 9.33398 6V3.33333C9.33398 2.97971 9.19351 2.64057 8.94346 2.39052C8.69341 2.14048 8.35427 2 8.00065 2H7.33398\" stroke=\"#171717\" stroke-opacity=\"0.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M5.33398 10C5.33398 11.0609 5.75541 12.0783 6.50556 12.8284C7.2557 13.5786 8.27312 14 9.33398 14C10.3949 14 11.4123 13.5786 12.1624 12.8284C12.9126 12.0783 13.334 11.0609 13.334 10V8\" stroke=\"#171717\" stroke-opacity=\"0.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M13.3333 7.99992C14.0697 7.99992 14.6667 7.40297 14.6667 6.66659C14.6667 5.93021 14.0697 5.33325 13.3333 5.33325C12.597 5.33325 12 5.93021 12 6.66659C12 7.40297 12.597 7.99992 13.3333 7.99992Z\" stroke=\"#171717\" stroke-opacity=\"0.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "text": "<p>Same-day doctor visits & prescriptions</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_JB4mrk": {
+          "type": "text",
+          "settings": {
+            "code": "<svg width=\"16\" height=\"16\" viewbox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M2.66602 9.99992C2.66602 9.99992 3.33268 9.33325 5.33268 9.33325C7.33268 9.33325 8.66602 10.6666 10.666 10.6666C12.666 10.6666 13.3327 9.99992 13.3327 9.99992V1.99992C13.3327 1.99992 12.666 2.66659 10.666 2.66659C8.66602 2.66659 7.33268 1.33325 5.33268 1.33325C3.33268 1.33325 2.66602 1.99992 2.66602 1.99992V9.99992Z\" stroke=\"#171717\" stroke-opacity=\"0.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M2.66602 14.6667V10\" stroke=\"#171717\" stroke-opacity=\"0.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "text": "<p>Compounded in the USA</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "tight",
+            "letter_spacing": "tight",
+            "case": "none",
+            "wrap": "nowrap",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_G4Nk9W": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "code": "<svg width=\"16\" height=\"16\" viewbox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M7.33398 1.33325V2.66659\" stroke=\"#171717\" stroke-opacity=\"0.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M3.33398 1.33325V2.66659\" stroke=\"#171717\" stroke-opacity=\"0.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M3.33398 2H2.66732C2.3137 2 1.97456 2.14048 1.72451 2.39052C1.47446 2.64057 1.33398 2.97971 1.33398 3.33333V6C1.33398 7.06087 1.75541 8.07828 2.50556 8.82843C3.2557 9.57857 4.27312 10 5.33398 10C6.39485 10 7.41227 9.57857 8.16241 8.82843C8.91256 8.07828 9.33398 7.06087 9.33398 6V3.33333C9.33398 2.97971 9.19351 2.64057 8.94346 2.39052C8.69341 2.14048 8.35427 2 8.00065 2H7.33398\" stroke=\"#171717\" stroke-opacity=\"0.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M5.33398 10C5.33398 11.0609 5.75541 12.0783 6.50556 12.8284C7.2557 13.5786 8.27312 14 9.33398 14C10.3949 14 11.4123 13.5786 12.1624 12.8284C12.9126 12.0783 13.334 11.0609 13.334 10V8\" stroke=\"#171717\" stroke-opacity=\"0.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M13.3333 7.99992C14.0697 7.99992 14.6667 7.40297 14.6667 6.66659C14.6667 5.93021 14.0697 5.33325 13.3333 5.33325C12.597 5.33325 12 5.93021 12 6.66659C12 7.40297 12.597 7.99992 13.3333 7.99992Z\" stroke=\"#171717\" stroke-opacity=\"0.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "text": "<p>Same-day doctor visits & prescriptions</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_Bq647W": {
+          "type": "text",
+          "settings": {
+            "code": "<svg width=\"16\" height=\"16\" viewbox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M2.66602 9.99992C2.66602 9.99992 3.33268 9.33325 5.33268 9.33325C7.33268 9.33325 8.66602 10.6666 10.666 10.6666C12.666 10.6666 13.3327 9.99992 13.3327 9.99992V1.99992C13.3327 1.99992 12.666 2.66659 10.666 2.66659C8.66602 2.66659 7.33268 1.33325 5.33268 1.33325C3.33268 1.33325 2.66602 1.99992 2.66602 1.99992V9.99992Z\" stroke=\"#171717\" stroke-opacity=\"0.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M2.66602 14.6667V10\" stroke=\"#171717\" stroke-opacity=\"0.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "text": "<p>Compounded in the USA</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "tight",
+            "letter_spacing": "tight",
+            "case": "none",
+            "wrap": "nowrap",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_PzgUH8": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "code": "<svg width=\"16\" height=\"16\" viewbox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M7.33398 1.33325V2.66659\" stroke=\"#171717\" stroke-opacity=\"0.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M3.33398 1.33325V2.66659\" stroke=\"#171717\" stroke-opacity=\"0.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M3.33398 2H2.66732C2.3137 2 1.97456 2.14048 1.72451 2.39052C1.47446 2.64057 1.33398 2.97971 1.33398 3.33333V6C1.33398 7.06087 1.75541 8.07828 2.50556 8.82843C3.2557 9.57857 4.27312 10 5.33398 10C6.39485 10 7.41227 9.57857 8.16241 8.82843C8.91256 8.07828 9.33398 7.06087 9.33398 6V3.33333C9.33398 2.97971 9.19351 2.64057 8.94346 2.39052C8.69341 2.14048 8.35427 2 8.00065 2H7.33398\" stroke=\"#171717\" stroke-opacity=\"0.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M5.33398 10C5.33398 11.0609 5.75541 12.0783 6.50556 12.8284C7.2557 13.5786 8.27312 14 9.33398 14C10.3949 14 11.4123 13.5786 12.1624 12.8284C12.9126 12.0783 13.334 11.0609 13.334 10V8\" stroke=\"#171717\" stroke-opacity=\"0.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M13.3333 7.99992C14.0697 7.99992 14.6667 7.40297 14.6667 6.66659C14.6667 5.93021 14.0697 5.33325 13.3333 5.33325C12.597 5.33325 12 5.93021 12 6.66659C12 7.40297 12.597 7.99992 13.3333 7.99992Z\" stroke=\"#171717\" stroke-opacity=\"0.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "text": "<p>Same-day doctor visits & prescriptions</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "text_Bq647W"
+        "text_gznaUb",
+        "text_UzpKwY",
+        "text_JB4mrk",
+        "text_G4Nk9W",
+        "text_Bq647W",
+        "text_PzgUH8"
       ],
       "name": "t:names.marquee_section",
       "settings": {
-        "movement_direction": "normal",
+        "movement_direction": "reverse",
         "color_scheme": "",
-        "padding-block-start": 24,
-        "padding-block-end": 24,
-        "gap_between_elements": 24
+        "padding-block-start": 20,
+        "padding-block-end": 20,
+        "gap_between_elements": 20
       }
     }
   },
