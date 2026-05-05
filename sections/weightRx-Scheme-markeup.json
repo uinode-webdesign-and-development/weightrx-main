@@ -1,0 +1,232 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "WeightRx® | GLP-1 Medications from $49/mo (No Insurance Needed)",
+  "description": "Stop overpaying for prescription weight loss. Get compounded tirzepatide for $83/month if medically eligible with 100% online care, 48-hour delivery, and a 30-day satisfaction guarantee. Trusted by 60,000+.",
+  "url": "https://weightrx.com",
+  "inLanguage": "en",
+  "about": {
+    "@type": "MedicalBusiness",
+    "name": "WeightRx",
+    "description": "Stop overpaying for prescription weight loss. Get compounded tirzepatide for $83/month if medically eligible with 100% online care, 48-hour delivery, and a 30-day satisfaction guarantee. Trusted by 60,000+.",
+    "url": "https://weightrx.com",
+    "logo": "https://cdn.prod.website-files.com/69a937b4bb797706ea5994c3/69ab0617b6d42fc509308021_logo-2.svg",
+    "email": "support@weightrx.com",
+    "telephone": "+1-866-286-4886",
+    "sameAs": [
+      "https://www.instagram.com/joinweightrx",
+      "https://www.facebook.com/people/WeightRxcom/100089871998869/"
+    ],
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "url": "https://help.weightrx.com",
+        "availableLanguage": "English"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.7",
+      "bestRating": "5.0"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Weight Loss Medications",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Tirzepatide",
+            "description": "Dual-action GLP-1 + GIP formula for prescription weight loss",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "bestRating": "5.0"
+            }
+          },
+          "price": "83.00",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://home.weightrx.com/tirzepatide1"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Semaglutide",
+            "description": "GLP-1 medication for prescription weight loss",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.7",
+              "bestRating": "5.0"
+            }
+          },
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://weightrx.thrivecart.com/pharmacy-direct-1/"
+        }
+      ]
+    }
+  },
+  "mainEntity": {
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What's included with WeightRx?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Your plan includes your prescribed medication, licensed provider review, ongoing doctor support, and cold-chain home delivery. Medication, care, and shipping are all included in one simple price - no hidden fees."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need insurance to get this price?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No insurance is required. WeightRx is cash-pay, so there are no copays, deductibles, or surprise bills. The price you see is your final price. HSA/FSA receipts are available once your prescription has been approved."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is tirzepatide safe and prescribed by real doctors?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Your rate is locked for your full term, protecting you from price increases - even if market prices for GLP-1 medications go up."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How fast will I receive my medication?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most patients are reviewed and approved the same day. Once approved, your medication ships within 48 hours using temperature-controlled packaging and typically arrives within 48 hours."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my price protected from increases?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Your rate is locked for your full term, protecting you from price increases - even if market prices for GLP-1 medications go up."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "I'm on Semaglutide/Tirzepatide already. Can I swap to a higher dose?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. Many patients switch or upgrade their dose through WeightRx. Upload your current prescription during intake and our providers will safely match or adjust your dose so you don't lose progress."
+        }
+      }
+    ]
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Danielle R."
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "4.9",
+        "bestRating": "5.0"
+      },
+      "reviewBody": "In just 5 months I lost over 20% of my body weight (42 lbs) with the GLP-1 injectable Tirzepatide compounded medications I was prescribed. The prescriptions were always on-time, the health care providers were very helpful."
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Amy P."
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "4.9",
+        "bestRating": "5.0"
+      },
+      "reviewBody": "The WeightRx team were extremely knowledgeable, professional, and supportive throughout this process. I paired the medication with a more active lifestyle/ I have lost a total of 60 pounds and feel great. Thank you so much!"
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Ashley O."
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "4.9",
+        "bestRating": "5.0"
+      },
+      "reviewBody": "When I joined WeightRx I was at rock bottom. My self esteem was close to nothing and I felt hopeless. I'm 3 months in and I've already lost 45 lbs! I have tons of energy, I have zero food cravings, and it's so easy to keep on track."
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Steven P."
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "4.9",
+        "bestRating": "5.0"
+      },
+      "reviewBody": "I struggled with my weight for years and nothing ever worked. Starting Tirzepatide with WeightRx changed my life. My appetite felt under control and the weight finally came off consistently. I'm down 65+ lbs and feel like myself again."
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Sarah M."
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "4.9",
+        "bestRating": "5.0"
+      },
+      "reviewBody": "WeightRx made it simple to finally stick with a plan."
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Emily R."
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "4.9",
+        "bestRating": "5.0"
+      },
+      "reviewBody": "The cravings slowed down and the weight followed."
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Jessica B."
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "4.9",
+        "bestRating": "5.0"
+      },
+      "reviewBody": "Weight loss felt simple and sustainable for once."
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Andy G."
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "4.9",
+        "bestRating": "5.0"
+      },
+      "reviewBody": "It just felt easier than anything I've tried before."
+    }
+  ]
+}
