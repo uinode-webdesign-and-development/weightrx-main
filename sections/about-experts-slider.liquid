@@ -188,22 +188,18 @@
 
 <!-- Swiper JS -->
 <script>
-  function initExpertsSlider{{ section.id | replace: '-', '_' }}() {
+document.addEventListener('DOMContentLoaded', function() {
     new Swiper('.experts-swiper-{{ section.id }}', {
         speed: 500,
         slidesPerView: 'auto',
-        spaceBetween: 20,
+        spaceBetween: 24,
         centeredSlides: false,
-        grabCursor: true,
         navigation: {
-          nextEl: ".exp-next-{{ section.id }}",
-          prevEl: ".exp-prev-{{ section.id }}",
+          nextEl: '.exp-next-{{ section.id }}',
+          prevEl: '.exp-prev-{{ section.id }}'
         },
-        watchSlidesProgress: true,
     });
-  }
-  document.addEventListener('DOMContentLoaded', initExpertsSlider{{ section.id | replace: '-', '_' }});
-  document.addEventListener('shopify:section:load', initExpertsSlider{{ section.id | replace: '-', '_' }});
+});
 </script>
 
 {% schema %}
