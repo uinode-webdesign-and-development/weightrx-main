@@ -554,6 +554,50 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "about_testimonial_slider_section_wBTVn6": {
+      "type": "about-testimonial-slider-section",
+      "blocks": {
+        "testimonial_w6UMYc": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "“I feel healthier. I don't have constant food cravings. My energy levels have increased.”",
+            "author_name": "Mandy G."
+          }
+        },
+        "testimonial_GgGQCG": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "“I lost over 50 pounds.”",
+            "author_name": "Laura N."
+          }
+        },
+        "testimonial_XQdYpk": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "\"Eden's staff and doctors are incredibly responsive. Highly recommend Eden for anyone seeking professional service.\"",
+            "author_name": "Chelsea"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_w6UMYc",
+        "testimonial_GgGQCG",
+        "testimonial_XQdYpk"
+      ],
+      "name": "Testimonial Cards Slider",
+      "settings": {
+        "heading": "Our members love us",
+        "fine_print": "<p>Individual results may vary. Testimonials reflect personal experiences and do not guarantee outcomes.</p>",
+        "btn_1_text": "Get started",
+        "btn_1_link": "",
+        "btn_2_text": "See if you're eligible",
+        "btn_2_link": "",
+        "verified_text": "Verified Customer",
+        "bg_color": "#f9f9f9",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
@@ -563,6 +607,7 @@
     "about_marquee_GTnbWi",
     "about_experts_slider_miGMmX",
     "about_pharmacy_v2_4Ugq8Q",
-    "about_leadership_nYYDwV"
+    "about_leadership_nYYDwV",
+    "about_testimonial_slider_section_wBTVn6"
   ]
 }
