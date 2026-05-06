@@ -1,208 +1,224 @@
 {%- style -%}
-  .section_experts-{{ section.id }} {
-    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
-    background-color: {{ section.settings.bg_color }};
-    overflow: hidden;
-    width: 100%; /* Full width section */
-  }
+    .section_experts-{{ section.id }} {
+      padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+      background-color: {{ section.settings.bg_color }};
+      overflow: hidden;
+      width: 100%; /* Full width section */
+    }
 
-  .section_experts-{{ section.id }} .container {
-    overflow: visible;
-  }
+    .section_experts-{{ section.id }} .container {
+      overflow: visible;
+    }
 
-  .experts-swiper-{{ section.id }} {
-    overflow: visible;
-  }
+    .experts-swiper-{{ section.id }} {
+      overflow: visible !important;
+    }
 
-  .experts_v2-image-wrap {
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    border-radius: 2.6px;
-  }
+    .experts_v2-image-wrap {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 2.6px;
+    }
 
-  .experts_v2-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+    .experts_v2-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-  .experts-v2.swiper-slide {
-    height: auto;
-    background: #fff;
-    border-radius: 2.6px;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #e1e1e1;
-    width: 85%; 
-  }
+    .experts-v2.swiper-slide {
+      height: auto;
+      background: #fff;
+      border-radius: 2.6px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #e1e1e1;
+      width: 85%;
+    }
 
-  .experts_v2-content {
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
+    .experts_v2-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
 
-  .experts_v2-title { margin-bottom: 16px; }
-  .experts-v2-name { font-size: 1.25rem; font-weight: 700; margin-bottom: 4px; color: #000; }
-  .experts_v2-bio { flex-grow: 1; font-size: 0.95rem; line-height: 1.5; color: #333; }
-  
-  .experts_v2-creds-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-   
-  }
+    .experts_v2-title { margin-bottom: 16px; }
+    .experts-v2-name { font-size: 1.25rem; font-weight: 700; margin-bottom: 4px; color: #000; }
+    .experts_v2-bio { flex-grow: 1; font-size: 0.95rem; line-height: 1.5; color: #333; }
 
-  .experts_v2-cred { display: flex; align-items: center; gap: 12px; }
-  .experts_v2-cred-image-wrap { width: 32px; height: 32px; flex-shrink: 0; }
-  .experts_v2-cred-image { width: 100%; height: 100%; object-fit: contain; }
-  .text-size-small { font-size: 0.85rem; line-height: 1.3; }
-  
-  /* Navigation Arrows Styling */
-  .swiper-nav-wrap { 
-    margin-top: 40px; 
-    display: flex; 
-    justify-content: center; 
-    padding-right: 20px;
-  }
-  .swiper-nav { display: flex; gap: 20px; align-items: center; }
-  
-  .swiper_nav-button {
-    cursor: pointer;
-    /* background: none; */
-    border: none;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.3s ease;
-    width: 50px; /* Icon size control */
-    height: 50px;
-  }
+    .experts_v2-creds-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
 
-  .swiper_nav-button img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
+    }
 
-  .swiper_nav-button.swiper-button-disabled { 
-    opacity: 0.2; 
-    cursor: not-allowed; 
-  }
+    .experts_v2-cred { display: flex; align-items: center; gap: 12px; }
+    .experts_v2-cred-image-wrap { width: 32px; height: 32px; flex-shrink: 0; }
+    .experts_v2-cred-image { width: 100%; height: 100%; object-fit: contain; }
+    .text-size-small { font-size: 0.85rem; line-height: 1.3; }
 
-  @media (min-width: 768px) {
-    .experts-v2.swiper-slide { width: 45%; }
-  }
+    /* Navigation Arrows Styling */
+    .swiper-nav-wrap {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      padding-right: 20px;
+    }
+    .swiper-nav { display: flex; gap: 20px; align-items: center; }
 
-  @media (min-width: 1024px) {
-    .experts-v2.swiper-slide { width: 350px; }
-  }
+    .swiper_nav-button {
+      cursor: pointer;
+      /* background: none; */
+      border: none;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s ease;
+      width: 50px; /* Icon size control */
+      height: 50px;
+    }
+
+    .swiper_nav-button img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .swiper_nav-button.swiper-button-disabled {
+      opacity: 0.2;
+      cursor: not-allowed;
+    }
+
+    @media (min-width: 768px) {
+      .experts-v2.swiper-slide { width: 45%; }
+    }
+
+    @media (min-width: 1024px) {
+      .experts-v2.swiper-slide { width: 350px; }
+    }
 {%- endstyle -%}
 
 <section class="section_experts-{{ section.id }}">
   <div class="container">
-  <div class="experts_component-{{ section.id }}">
-    
-    {% if section.settings.heading != blank %}
-      <div style="text-align: center; margin-bottom: 40px; padding: 0 20px;">
-        <h2 style="font-size: 2rem; margin: 0;">{{ section.settings.heading }}</h2>
-      </div>
-    {% endif %}
+    <div class="experts_component-{{ section.id }}">
+      {% if section.settings.heading != blank %}
+        <div style="text-align: center; margin-bottom: 40px; padding: 0 20px;">
+          <h2 style="font-size: 2rem; margin: 0;">{{ section.settings.heading }}</h2>
+        </div>
+      {% endif %}
 
-    <div class="swiper experts-swiper-{{ section.id }}">
-      <div class="swiper-wrapper">
-        {% for block in section.blocks %}
-          <div class="swiper-slide experts-v2" {{ block.shopify_attributes }}>
-            <div class="experts_v2-image-wrap">
-              {% if block.settings.expert_image != blank %}
-                {{ block.settings.expert_image | image_url: width: 800 | image_tag: class: 'experts_v2-image', loading: 'lazy' }}
-              {% else %}
-                {{ 'image' | placeholder_svg_tag: 'experts_v2-image' }}
-              {% endif %}
-            </div>
-            <div class="experts_v2-content">
-              <div class="experts_v2-title">
-                <div class="experts-v2-name">{{ block.settings.name }}</div>
-                <div style="font-weight: 500; color: #666;">{{ block.settings.role }}</div>
+      <div class="swiper experts-swiper-{{ section.id }}">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="swiper-slide experts-v2" {{ block.shopify_attributes }}>
+              <div class="experts_v2-image-wrap">
+                {% if block.settings.expert_image != blank %}
+                  {{
+                    block.settings.expert_image
+                    | image_url: width: 800
+                    | image_tag: class: 'experts_v2-image', loading: 'lazy'
+                  }}
+                {% else %}
+                  {{ 'image' | placeholder_svg_tag: 'experts_v2-image' }}
+                {% endif %}
               </div>
-              <div class="experts_v2-bio">
-                {{ block.settings.bio }}
-              </div>
-              
-              {% if block.settings.school_1_name != blank or block.settings.school_2_name != blank %}
-                <div class="experts_v2-creds-wrap">
-                  {% if block.settings.school_1_name != blank %}
-                    <div class="experts_v2-cred">
-                      <div class="experts_v2-cred-image-wrap">
-                        {% if block.settings.school_1_icon != blank %}
-                          {{ block.settings.school_1_icon | image_url: width: 64 | image_tag: class: 'experts_v2-cred-image' }}
-                        {% endif %}
-                      </div>
-                      <div class="text-size-small">{{ block.settings.school_1_name }}</div>
-                    </div>
-                  {% endif %}
-                  
-                  {% if block.settings.school_2_name != blank %}
-                    <div class="experts_v2-cred">
-                      <div class="experts_v2-cred-image-wrap">
-                        {% if block.settings.school_2_icon != blank %}
-                          {{ block.settings.school_2_icon | image_url: width: 64 | image_tag: class: 'experts_v2-cred-image' }}
-                        {% endif %}
-                      </div>
-                      <div class="text-size-small">{{ block.settings.school_2_name }}</div>
-                    </div>
-                  {% endif %}
+              <div class="experts_v2-content">
+                <div class="experts_v2-title">
+                  <div class="experts-v2-name">{{ block.settings.name }}</div>
+                  <div style="font-weight: 500; color: #666;">{{ block.settings.role }}</div>
                 </div>
-              {% endif %}
+                <div class="experts_v2-bio">
+                  {{ block.settings.bio }}
+                </div>
+
+                {% if block.settings.school_1_name != blank or block.settings.school_2_name != blank %}
+                  <div class="experts_v2-creds-wrap">
+                    {% if block.settings.school_1_name != blank %}
+                      <div class="experts_v2-cred">
+                        <div class="experts_v2-cred-image-wrap">
+                          {% if block.settings.school_1_icon != blank %}
+                            {{
+                              block.settings.school_1_icon
+                              | image_url: width: 64
+                              | image_tag: class: 'experts_v2-cred-image'
+                            }}
+                          {% endif %}
+                        </div>
+                        <div class="text-size-small">{{ block.settings.school_1_name }}</div>
+                      </div>
+                    {% endif %}
+
+                    {% if block.settings.school_2_name != blank %}
+                      <div class="experts_v2-cred">
+                        <div class="experts_v2-cred-image-wrap">
+                          {% if block.settings.school_2_icon != blank %}
+                            {{
+                              block.settings.school_2_icon
+                              | image_url: width: 64
+                              | image_tag: class: 'experts_v2-cred-image'
+                            }}
+                          {% endif %}
+                        </div>
+                        <div class="text-size-small">{{ block.settings.school_2_name }}</div>
+                      </div>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              </div>
             </div>
-          </div>
-        {% endfor %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Custom Navigation Arrows -->
+      <div class="swiper-nav-wrap">
+        <div class="swiper-nav">
+          <button class="swiper_nav-button exp-prev-{{ section.id }}">
+            {% if section.settings.arrow_prev != blank %}
+              {{ section.settings.arrow_prev | image_url: width: 100 | image_tag }}
+            {% else %}
+              <!-- Fallback Arrow -->
+              <img
+                src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fc8de7c203054cbc11_Arrow_Prev.svg"
+                alt="Prev"
+              >
+            {% endif %}
+          </button>
+
+          <button class="swiper_nav-button exp-next-{{ section.id }}">
+            {% if section.settings.arrow_next != blank %}
+              {{ section.settings.arrow_next | image_url: width: 100 | image_tag }}
+            {% else %}
+              <!-- Fallback Arrow -->
+              <img
+                src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fcebd2f456b997e139_Arrow-Next.svg"
+                alt="Next"
+              >
+            {% endif %}
+          </button>
+        </div>
       </div>
     </div>
-
-    <!-- Custom Navigation Arrows -->
-    <div class="swiper-nav-wrap">
-      <div class="swiper-nav">
-        <button class="swiper_nav-button exp-prev-{{ section.id }}">
-          {% if section.settings.arrow_prev != blank %}
-            {{ section.settings.arrow_prev | image_url: width: 100 | image_tag }}
-          {% else %}
-            <!-- Fallback Arrow -->
-            <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fc8de7c203054cbc11_Arrow_Prev.svg" alt="Prev">
-          {% endif %}
-        </button>
-        
-        <button class="swiper_nav-button exp-next-{{ section.id }}">
-          {% if section.settings.arrow_next != blank %}
-            {{ section.settings.arrow_next | image_url: width: 100 | image_tag }}
-          {% else %}
-            <!-- Fallback Arrow -->
-            <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fcebd2f456b997e139_Arrow-Next.svg" alt="Next">
-          {% endif %}
-        </button>
-      </div>
-    </div>
-
-  </div>
   </div>
 </section>
 
 <!-- Swiper JS -->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     new Swiper('.experts-swiper-{{ section.id }}', {
-        speed: 500,
-        slidesPerView: 'auto',
-        spaceBetween: 24,
-        centeredSlides: false,
-        navigation: {
-          nextEl: '.exp-next-{{ section.id }}',
-          prevEl: '.exp-prev-{{ section.id }}'
-        },
+      speed: 500,
+      slidesPerView: 'auto',
+      spaceBetween: 24,
+      centeredSlides: false,
+      navigation: {
+        nextEl: '.exp-next-{{ section.id }}',
+        prevEl: '.exp-prev-{{ section.id }}',
+      },
     });
-});
+  });
 </script>
 
 {% schema %}
@@ -322,11 +338,7 @@ document.addEventListener('DOMContentLoaded', function() {
   "presets": [
     {
       "name": "Experts Slider Full Width",
-      "blocks": [
-        { "type": "expert" },
-        { "type": "expert" },
-        { "type": "expert" }
-      ]
+      "blocks": [{ "type": "expert" }, { "type": "expert" }, { "type": "expert" }]
     }
   ]
 }
