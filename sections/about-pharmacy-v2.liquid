@@ -3,10 +3,17 @@
     background-color: {{ section.settings.bg_color }};
   }
   .pharmacy-v2_wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
+    grid-column-gap: 4rem;
+    grid-row-gap: 4rem;
+    background-color: var(--neutrals--white);
+    border-radius: 1.75rem;
     align-items: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 4rem;
+    display: flex;
+    box-shadow: 2px 4px 12px #00000014;
   }
   @media screen and (min-width: 992px) {
     .pharmacy-v2_wrapper {
