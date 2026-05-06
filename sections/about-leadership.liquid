@@ -91,7 +91,9 @@
     
     {%- if section.settings.heading != blank -%}
       <div class="heading-wrapper">
-        <h2>{{ section.settings.heading }}</h2>
+        <div class="rte-style-text">
+          <h2>{{ section.settings.heading }}</h2>
+        </div>
       </div>
     {%- endif -%}
 
@@ -111,8 +113,10 @@
           </div>
           
           <div class="about-lead_text">
-            <div class="name">{{ block.settings.name }}</div>
-            <div class="position">{{ block.settings.position }}</div>
+            <div class="rte-style-text">
+              <div class="name">{{ block.settings.name }}</div>
+              <div class="position">{{ block.settings.position }}</div>
+            </div>
           </div>
         </li>
       {%- endfor -%}
