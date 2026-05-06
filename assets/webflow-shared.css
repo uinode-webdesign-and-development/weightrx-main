@@ -2139,16 +2139,6 @@ p {
   margin-bottom: 0;
 }
 
-.hero-section {
-  padding-top: 20px;
-  padding-bottom: 80px;
-}
-
-.section-spacing {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
 .container {
   width: 100%;
   max-width: 1408px;
