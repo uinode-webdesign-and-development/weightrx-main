@@ -298,6 +298,7 @@ a.btn {
 
 .btn.btn-secondary {
     background-color: #9eeaff;
+    color: #000;
 }
 
 .rte-style-text p {
