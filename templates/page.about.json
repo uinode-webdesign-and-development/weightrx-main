@@ -316,11 +316,11 @@
           "type": "expert",
           "settings": {
             "expert_image": "shopify://shop_images/68404533d8359647ea4f5615_770db5f2b333981c41f90221aaaa3217_doctor_chen.webp",
-            "name": "Dr. Name",
-            "role": "Chief Medical Officer",
-            "bio": "<p>Expertise in medicine and longevity.</p>",
-            "school_1_name": "",
-            "school_2_name": ""
+            "name": "Dr. Halland Chen, M.D.",
+            "role": "Chief Medical Innovation Officer",
+            "bio": "<p>Longevity medicine, regenerative medicine, NAD therapy, stem cell therapy, functional medicine, and anti-aging.<br/><br/></p>",
+            "school_1_name": "University of Miami Miller School of Medicine",
+            "school_2_name": "Albert Einstein College of Medicine"
           }
         },
         "expert_idpxfj": {
