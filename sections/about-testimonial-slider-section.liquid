@@ -1,6 +1,4 @@
-<!-- 
-  Shopify Testimonial Slider - Fixed Width & Centered Layout
--->
+<!-- Shopify Testimonial Slider - Fixed Width & Centered Layout -->
 {% style %}
   .section-{{ section.id }} {
     padding-top: {{ section.settings.padding_top }}px;
@@ -8,7 +6,7 @@
     background-color: {{ section.settings.bg_color }};
     overflow: hidden;
   }
-  
+
   /* .testimonial_cards-component {
     max-width: 1200px;
     margin: 0 auto;
@@ -58,16 +56,16 @@
     border-radius: 24px;
     border: 1px solid #f0f0f0;
     box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-    
+
     /* Center alignment */
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    
+
     /* Fixed height ensure uniformity */
     height: 100%;
-    min-height: 420px; 
+    min-height: 420px;
     box-sizing: border-box;
     justify-content: space-between;
   }
@@ -198,83 +196,114 @@
 
 <section class="section-{{ section.id }} section_testimonial-cards">
   <div class="testimonial_cards-component">
-    
-    <div class="margin-bottom margin-medium text-align-center">
-      <h2 class="heading-style-h3">{{ section.settings.heading }}</h2>
-    </div>
-
-    <div class="margin-bottom margin-large">
-      <div class="button-group is-v2-center">
-        {% if section.settings.btn_1_text != blank %}
-          <a href="{{ section.settings.btn_1_link }}" class="button-main">{{ section.settings.btn_1_text }}</a>
-        {% endif %}
-        {% if section.settings.btn_2_text != blank %}
-          <a href="{{ section.settings.btn_2_link }}" class="button-gradient">{{ section.settings.btn_2_text }}</a>
-        {% endif %}
+    <div class="container">
+      <div class="margin-bottom margin-medium text-align-center">
+        <h2 class="heading-style-h3">{{ section.settings.heading }}</h2>
       </div>
-    </div>
 
-    <div class="swiper testimonials">
-      <div class="swiper-wrapper">
-        {% for block in section.blocks %}
-          <div class="swiper-slide testimonials" {{ block.shopify_attributes }}>
-            <div class="testimonial-card">
-              
-              <div class="testimonial-stars">
-                {% for i in (1..5) %}
-                   <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68b9f54f86ecd2c2bb2ea940_Star.svg" loading="lazy" alt="Star" class="icon-1x1-xsmall">
-                {% endfor %}
-              </div>
+      <div class="margin-bottom margin-large">
+        <div class="button-group is-v2-center">
+          {% if section.settings.btn_1_text != blank %}
+            <a href="{{ section.settings.btn_1_link }}" class="button-main">{{ section.settings.btn_1_text }}</a>
+          {% endif %}
+          {% if section.settings.btn_2_text != blank %}
+            <a href="{{ section.settings.btn_2_link }}" class="button-gradient">{{ section.settings.btn_2_text }}</a>
+          {% endif %}
+        </div>
+      </div>
 
-              <div class="testimonial-txt">
-                <span>{{ block.settings.testimonial_text }}</span>
-              </div>
+      <div class="swiper testimonials">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="swiper-slide testimonials" {{ block.shopify_attributes }}>
+              <div class="testimonial-card">
+                <div class="testimonial-stars">
+                  {% for i in (1..5) %}
+                    <img
+                      src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68b9f54f86ecd2c2bb2ea940_Star.svg"
+                      loading="lazy"
+                      alt="Star"
+                      class="icon-1x1-xsmall"
+                      width="100%"
+                      height="auto"
+                    >
+                  {% endfor %}
+                </div>
 
-              <div class="author-info-wrap">
-                <div class="author-name">{{ block.settings.author_name }}</div>
-                <div class="verfied-customer">
-                  <img loading="lazy" src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68b9f54f86ecd2c2bb2ea940_Star.svg" style="display:none;"> <!-- preload check fix -->
-                  <img loading="lazy" src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68b9dd124536f85dafb8f046_Check.svg" alt="Verified" class="check-icon">
-                  <div class="vc-text">{{ section.settings.verified_text }}</div>
+                <div class="testimonial-txt">
+                  <span>{{ block.settings.testimonial_text }}</span>
+                </div>
+
+                <div class="author-info-wrap">
+                  <div class="author-name">{{ block.settings.author_name }}</div>
+                  <div class="verfied-customer">
+                    <img
+                      loading="lazy"
+                      src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68b9f54f86ecd2c2bb2ea940_Star.svg"
+                      style="display:none;"
+                      width="100%"
+                      height="auto"
+                    >
+                    <!-- preload check fix -->
+                    <img
+                      loading="lazy"
+                      src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68b9dd124536f85dafb8f046_Check.svg"
+                      alt="Verified"
+                      class="check-icon"
+                      width="100%"
+                      height="auto"
+                    >
+                    <div class="vc-text">{{ section.settings.verified_text }}</div>
+                  </div>
                 </div>
               </div>
-
             </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="swiper-nav-wrap">
+        <div class="text-style-fineprint">
+          {{ section.settings.fine_print }}
+        </div>
+        <div class="swiper-nav">
+          <div class="swiper_nav-button test-prev">
+            <img
+              src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fc8de7c203054cbc11_Arrow_Prev.svg"
+              loading="lazy"
+              width="20"
+              height="20"
+              alt="Prev"
+            >
           </div>
-        {% endfor %}
-      </div>
-    </div>
-
-    <div class="swiper-nav-wrap">
-      <div class="text-style-fineprint">
-        {{ section.settings.fine_print }}
-      </div>
-      <div class="swiper-nav">
-        <div class="swiper_nav-button test-prev">
-          <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fc8de7c203054cbc11_Arrow_Prev.svg" loading="lazy" width="20" height="20" alt="Prev">
-        </div>
-        <div class="swiper_nav-button test-next">
-          <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fcebd2f456b997e139_Arrow-Next.svg" loading="lazy" width="20" height="20" alt="Next">
+          <div class="swiper_nav-button test-next">
+            <img
+              src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fcebd2f456b997e139_Arrow-Next.svg"
+              loading="lazy"
+              width="20"
+              height="20"
+              alt="Next"
+            >
+          </div>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     new Swiper('.section-{{ section.id }} .swiper.testimonials', {
-        speed: 500,
-        slidesPerView: 'auto',
-        spaceBetween: 24,
-        centeredSlides: false,
-        navigation: {
-          nextEl: '.section-{{ section.id }} .test-next',
-          prevEl: '.section-{{ section.id }} .test-prev'
-        },
+      speed: 500,
+      slidesPerView: 'auto',
+      spaceBetween: 24,
+      centeredSlides: false,
+      navigation: {
+        nextEl: '.section-{{ section.id }} .test-next',
+        prevEl: '.section-{{ section.id }} .test-prev',
+      },
     });
-});
+  });
 </script>
 
 {% schema %}
@@ -375,11 +404,7 @@ document.addEventListener('DOMContentLoaded', function() {
   "presets": [
     {
       "name": "Testimonial Fixed Slider",
-      "blocks": [
-        { "type": "testimonial" },
-        { "type": "testimonial" },
-        { "type": "testimonial" }
-      ]
+      "blocks": [{ "type": "testimonial" }, { "type": "testimonial" }, { "type": "testimonial" }]
     }
   ]
 }
