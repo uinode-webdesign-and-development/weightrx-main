@@ -495,6 +495,65 @@
         "description": "<p>Our partner pharmacies are dedicated to providing you with top-tier medications, personalized service, and a seamless healthcare experience.</p>",
         "show_badges": true
       }
+    },
+    "about_leadership_nYYDwV": {
+      "type": "about-leadership",
+      "blocks": {
+        "member_ARG8Pj": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/6799fa607c43e825711f5a89_Photo-1.webp",
+            "name": "Adam McBride",
+            "position": "CEO, Cofounder"
+          }
+        },
+        "member_aFE6U3": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/6799fa608fe48e395c9eef54_8e684fe0e978534b3a89b70ad4f87998_Photo.webp",
+            "name": "Josh Khan",
+            "position": "President, Cofounder"
+          }
+        },
+        "member_hBENGU": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/6799fa60377284d742258d3c_Photo-2.webp",
+            "name": "Daniel Dietz",
+            "position": "COO, Cofounder"
+          }
+        },
+        "member_MABmqe": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/6953f6cafecb666cfcf46c90_b44b10aff6c65dbd474b1a6623472034_hescock.webp",
+            "name": "Jonah Hescock",
+            "position": "CFO"
+          }
+        },
+        "member_HaBWBY": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/6953f6cacb29b2223fa63f8e_94efc376c7185cd941cfb4b47bf5aefa_widseth.webp",
+            "name": "Jared Widseth",
+            "position": "CAO & General Counsel"
+          }
+        }
+      },
+      "block_order": [
+        "member_ARG8Pj",
+        "member_aFE6U3",
+        "member_hBENGU",
+        "member_MABmqe",
+        "member_HaBWBY"
+      ],
+      "name": "Team Section Round",
+      "settings": {
+        "heading": "Leading with vision, integrity and innovation",
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
@@ -503,6 +562,7 @@
     "about_hero_WHm7q4",
     "about_marquee_GTnbWi",
     "about_experts_slider_miGMmX",
-    "about_pharmacy_v2_4Ugq8Q"
+    "about_pharmacy_v2_4Ugq8Q",
+    "about_leadership_nYYDwV"
   ]
 }
