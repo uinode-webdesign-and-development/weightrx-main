@@ -319,7 +319,9 @@
             "name": "Dr. Halland Chen, M.D.",
             "role": "Chief Medical Innovation Officer",
             "bio": "<p>Longevity medicine, regenerative medicine, NAD therapy, stem cell therapy, functional medicine, and anti-aging.<br/><br/></p>",
+            "school_1_icon": "shopify://shop_images/68404534e713fe96af12b3e5_a05af594d97825e5df4b1ce2cb44a756_school_miami.webp",
             "school_1_name": "University of Miami Miller School of Medicine",
+            "school_2_icon": "shopify://shop_images/6840453463e16dc4d6122a18_6f0e6fe113f34634dda6ab8976304999_school_einstein.webp",
             "school_2_name": "Albert Einstein College of Medicine"
           }
         },
@@ -330,7 +332,9 @@
             "name": "Dr. Rebecca Emch",
             "role": "VP of Pharmacy Operations",
             "bio": "<p>Non-sterile compounding, functional medicine, telehealth pharmacy operations, and regulatory compliance.<br/><br/></p>",
+            "school_1_icon": "shopify://shop_images/68404535b7af2641fb8438e2_e83207699ac809e8471735e66b03e8cd_school_mercer.webp",
             "school_1_name": "Mercer University School of Pharmacy",
+            "school_2_icon": "shopify://shop_images/68404534e536221b00d6931c_cc012edd2ec1825c198fc5b5b7cec674_school_csu.webp",
             "school_2_name": "Columbus State University"
           }
         },
@@ -341,7 +345,9 @@
             "name": "Dr. Matthew Bennett, M.D.",
             "role": "Medical Advisory Board",
             "bio": "<p>Anti-aging and regenerative medicine, metabolic health, nutrition and movement science, and lifestyle optimization.<br/><br/></p>",
+            "school_1_icon": "shopify://shop_images/6840453463e16dc4d6122a11_8dca3f84d6f36cb845f1bf267020c3e0_school_upstate.webp",
             "school_1_name": "Upstate Medical University",
+            "school_2_icon": "shopify://shop_images/6840453450577e1d01dadc84_183b5c0d2c5a12b48517c9da6272fcc4_school_cornell.webp",
             "school_2_name": "Cornell University"
           }
         },
@@ -352,6 +358,7 @@
             "name": "Dr. William Lee, M.D.",
             "role": "Medical Advisory Board",
             "bio": "<p>Cardiology, metabolic health, chronic disease prevention, functional medicine, lifestyle and nutrition-based care.<br/><br/></p>",
+            "school_1_icon": "shopify://shop_images/684045348565c79201b7b817_5308849d8ea1bcd037892c285206d9d6_school_pittsburgh.webp",
             "school_1_name": "University of Pittsburgh",
             "school_2_name": ""
           }
