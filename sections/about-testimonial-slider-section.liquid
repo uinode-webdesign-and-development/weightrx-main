@@ -1,0 +1,401 @@
+<!-- 
+  Shopify Testimonial Slider Section - Centered Layout
+  Dependencies: Swiper.js
+-->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+{% style %}
+  .section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+    overflow: hidden;
+    font-family: inherit;
+  }
+  
+  .testimonial_cards-component {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .text-align-center { text-align: center; }
+  .margin-bottom.margin-medium { margin-bottom: 2rem; }
+  .margin-bottom.margin-large { margin-bottom: 3rem; }
+
+  /* Buttons */
+  .button-group.is-v2-center {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .button-main {
+    background: #000;
+    color: #fff;
+    padding: 14px 28px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .button-gradient {
+    padding: 14px 28px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    background: #fff;
+    font-size: 15px;
+  }
+
+  /* Centered Card Design from Image */
+  .testimonial-card {
+    background: #fff;
+    padding: 3rem 2rem;
+    border-radius: 24px; /* More rounded as per image */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center everything */
+    justify-content: center;
+    text-align: center;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03); /* Soft shadow */
+    box-sizing: border-box;
+  }
+
+  .testimonial-stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 2rem;
+    justify-content: center;
+  }
+
+  .icon-1x1-xsmall {
+    width: 20px;
+    height: 20px;
+  }
+
+  .testimonial-txt {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    color: #333;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+    max-width: 90%;
+  }
+
+  .author-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Verified Badge Capsule */
+  .verfied-customer {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f4f4f4; /* Grey background from image */
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-top: 5px;
+  }
+
+  .check-icon {
+    width: 16px;
+    height: 16px;
+    filter: brightness(0.5); /* Makes the icon look like the grey stroke in image */
+  }
+
+  .vc-text {
+    font-size: 0.85rem;
+    color: #666;
+    font-weight: 500;
+  }
+
+  /* Swiper Nav */
+  .swiper-nav-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 3rem;
+  }
+
+  .swiper-nav {
+    display: flex;
+    gap: 12px;
+  }
+
+  .swiper_nav-button {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: transparent;
+    transition: all 0.3s ease;
+  }
+
+  .swiper_nav-button:hover {
+    background: #000;
+  }
+  .swiper_nav-button:hover img {
+    filter: invert(1);
+  }
+
+  .swiper-button-disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+  }
+
+  .swiper_nav-icon {
+    width: 20px;
+  }
+
+  .text-style-fineprint {
+    font-size: 0.85rem;
+    max-width: 450px;
+    color: #888;
+    line-height: 1.4;
+  }
+
+  /* Swiper Slide Widths */
+  .swiper.testimonials {
+    width: 100%;
+    overflow: visible !important;
+  }
+  
+  @media (min-width: 1280px) {
+    .swiper-slide.testimonials {
+      width: 420px !important;
+    }
+  }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;
+  }
+{% endstyle %}
+
+<section class="section-{{ section.id }} section_testimonial-cards">
+  <div class="testimonial_cards-component">
+    
+    <!-- Heading Area -->
+    <div class="margin-bottom margin-medium">
+      <div class="text-align-center">
+        <h2 class="heading-style-h3 text-wrap-balance">{{ section.settings.heading }}</h2>
+      </div>
+    </div>
+
+    <!-- CTA Buttons -->
+    <div class="margin-bottom margin-large">
+      <div class="button-group is-v2-center">
+        {% if section.settings.btn_1_text != blank %}
+          <a href="{{ section.settings.btn_1_link }}" class="button-main">{{ section.settings.btn_1_text }}</a>
+        {% endif %}
+        {% if section.settings.btn_2_text != blank %}
+          <a href="{{ section.settings.btn_2_link }}" class="button-gradient">
+            <div class="button-gradient-text">{{ section.settings.btn_2_text }}</div>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Slider -->
+    <div class="swiper testimonials">
+      <div role="list" class="swiper-wrapper testimonials">
+        {% for block in section.blocks %}
+          <div role="listitem" class="swiper-slide testimonials" {{ block.shopify_attributes }}>
+            <div class="testimonial-card">
+              
+              <!-- Stars -->
+              <div class="testimonial-stars">
+                {% for i in (1..5) %}
+                   <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68b9f54f86ecd2c2bb2ea940_Star.svg" loading="lazy" alt="Star" class="icon-1x1-xsmall">
+                {% endfor %}
+              </div>
+
+              <!-- Content -->
+              <p class="testimonial-txt">
+                {{ block.settings.testimonial_text }}
+              </p>
+
+              <!-- Author Info -->
+              <div class="author-name">{{ block.settings.author_name }}</div>
+              
+              <div class="verfied-customer">
+                <div class="vc_icon-wrap">
+                  <img loading="lazy" src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68b9dd124536f85dafb8f046_Check.svg" alt="Verified" class="check-icon">
+                </div>
+                <div class="vc-text">{{ section.settings.verified_text }}</div>
+              </div>
+
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Navigation & Fine Print -->
+    <div class="swiper-nav-wrap">
+      <div class="swiper-fine">
+        <div class="text-style-fineprint">
+          {{ section.settings.fine_print }}
+        </div>
+      </div>
+      <div class="swiper-nav">
+        <div class="swiper_nav-button test-prev">
+          <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fc8de7c203054cbc11_Arrow_Prev.svg" loading="lazy" alt="Prev" class="swiper_nav-icon">
+          <span class="sr-only">Previous Slide</span>
+        </div>
+        <div class="swiper_nav-button test-next">
+          <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fcebd2f456b997e139_Arrow-Next.svg" loading="lazy" alt="Next" class="swiper_nav-icon">
+          <span class="sr-only">Next Slide</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const testimonialSwiper = new Swiper('.section-{{ section.id }} .swiper.testimonials', {
+        speed: 500,
+        loop: false,
+        slidesPerView: 1.1,
+        spaceBetween: 24,
+        centeredSlides: false,
+        grabCursor: true,
+        navigation: {
+          nextEl: '.section-{{ section.id }} .test-next',
+          prevEl: '.section-{{ section.id }} .test-prev'
+        },
+        breakpoints: {
+            480: { slidesPerView: 1.2 },
+            768: { slidesPerView: 2.1 },
+            992: { slidesPerView: 2.5 },
+            1280: { slidesPerView: "auto" }
+        },
+    });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Testimonial Cards Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our members love us"
+    },
+    {
+      "type": "richtext",
+      "id": "fine_print",
+      "label": "Fine Print",
+      "default": "<p>Individual results may vary. Testimonials reflect personal experiences and do not guarantee outcomes.</p>"
+    },
+    {
+      "type": "text",
+      "id": "btn_1_text",
+      "label": "Button 1 Text",
+      "default": "Get started"
+    },
+    {
+      "type": "url",
+      "id": "btn_1_link",
+      "label": "Button 1 Link"
+    },
+    {
+      "type": "text",
+      "id": "btn_2_text",
+      "label": "Button 2 Text",
+      "default": "See if you're eligible"
+    },
+    {
+      "type": "url",
+      "id": "btn_2_link",
+      "label": "Button 2 Link"
+    },
+    {
+      "type": "text",
+      "id": "verified_text",
+      "label": "Verified Badge Text",
+      "default": "Verified Customer"
+    },
+    {
+      "type": "header",
+      "content": "Styling"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "testimonial_text",
+          "label": "Testimonial Content",
+          "default": "“I feel healthier. I don't have constant food cravings. My energy levels have increased.”"
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author Name",
+          "default": "Mandy G."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonial Cards Slider",
+      "blocks": [
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" }
+      ]
+    }
+  ]
+}
+{% endschema %}
