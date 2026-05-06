@@ -1,0 +1,186 @@
+{%- style -%}
+  .section_about-lead {
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+  }
+  
+  .about-lead_list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .about-lead_img-wrap {
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    border-radius: {{ section.settings.image_radius }}px;
+  }
+
+  .about-lead_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .text-align-center { text-align: center; }
+  .text-wrap-balance { text-wrap: balance; }
+  .margin-bottom.margin-xlarge { margin-bottom: 3rem; }
+  .text-weight-semibold { font-weight: 600; }
+  
+  @media screen and (max-width: 768px) {
+    .about-lead_list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+    .margin-bottom.margin-xlarge { margin-bottom: 2rem; }
+  }
+
+  @media screen and (max-width: 480px) {
+    .about-lead_list {
+      grid-template-columns: 1fr;
+    }
+  }
+{%- endstyle -%}
+
+<section class="section_about-lead" id="section-{{ section.id }}">
+  <div class="container-main">
+    <div class="padding-section-large">
+      <div class="about-lead_component">
+        
+        {%- if section.settings.heading != blank -%}
+          <div class="margin-bottom margin-xlarge">
+            <div class="text-align-center">
+              <h2 class="heading-style-h3 text-wrap-balance">
+                {{ section.settings.heading }}
+              </h2>
+            </div>
+          </div>
+        {%- endif -%}
+
+        <ul role="list" class="about-lead_list">
+          {%- for block in section.blocks -%}
+            <li {{ block.shopify_attributes }}>
+              <div class="about-lead_img-wrap">
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 800 | image_tag: 
+                    loading: 'lazy', 
+                    class: 'about-lead_img',
+                    widths: '300, 400, 600, 800',
+                    alt: block.settings.name
+                  }}
+                {%- else -%}
+                  {{ 'image' | placeholder_svg_tag: 'about-lead_img placeholder-svg' }}
+                {%- endif -%}
+              </div>
+              
+              <div class="about-lead_text">
+                <div class="text-size-large text-weight-semibold">
+                  {{ block.settings.name }}
+                </div>
+                <div class="text-size-small">
+                  {{ block.settings.position }}
+                </div>
+              </div>
+            </li>
+          {%- endfor -%}
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About Leadership",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Leading with vision, integrity and innovation"
+    },
+    {
+      "type": "header",
+      "content": "Styling"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "transparent"
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Image Border Radius",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "member",
+      "name": "Team Member",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Member Photo"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Team Member Name"
+        },
+        {
+          "type": "text",
+          "id": "position",
+          "label": "Position/Title",
+          "default": "Position"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Leadership",
+      "blocks": [
+        { "type": "member" },
+        { "type": "member" },
+        { "type": "member" },
+        { "type": "member" }
+      ]
+    }
+  ]
+}
+{% endschema %}
