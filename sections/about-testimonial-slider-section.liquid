@@ -1,6 +1,5 @@
 <!-- 
-  Shopify Testimonial Slider Section - Centered Layout
-  Dependencies: Swiper.js
+  Shopify Testimonial Slider - Fixed Width & Centered Layout
 -->
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -11,7 +10,6 @@
     padding-bottom: {{ section.settings.padding_bottom }}px;
     background-color: {{ section.settings.bg_color }};
     overflow: hidden;
-    font-family: inherit;
   }
   
   .testimonial_cards-component {
@@ -41,6 +39,7 @@
     border-radius: 50px;
     font-weight: 600;
     font-size: 15px;
+    display: inline-block;
   }
 
   .button-gradient {
@@ -52,29 +51,34 @@
     font-weight: 600;
     background: #fff;
     font-size: 15px;
+    display: inline-block;
   }
 
-  /* Centered Card Design from Image */
+  /* Fixed Width Card Design */
   .testimonial-card {
     background: #fff;
     padding: 3rem 2rem;
-    border-radius: 24px; /* More rounded as per image */
-    height: 100%;
+    border-radius: 24px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    
+    /* Center alignment */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center everything */
-    justify-content: center;
+    align-items: center;
     text-align: center;
-    border: 1px solid #f0f0f0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.03); /* Soft shadow */
+    
+    /* Fixed height ensure uniformity */
+    height: 100%;
+    min-height: 420px; 
     box-sizing: border-box;
+    justify-content: space-between;
   }
 
   .testimonial-stars {
     display: flex;
     gap: 4px;
-    margin-bottom: 2rem;
-    justify-content: center;
+    margin-bottom: 1.5rem;
   }
 
   .icon-1x1-xsmall {
@@ -83,12 +87,21 @@
   }
 
   .testimonial-txt {
-    font-size: 1.25rem;
-    line-height: 1.4;
+    font-size: 1.15rem;
+    line-height: 1.5;
     color: #333;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     font-weight: 400;
-    max-width: 90%;
+    flex-grow: 1; /* Pushes author info to bottom */
+    display: flex;
+    align-items: center;
+  }
+
+  .author-info-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .author-name {
@@ -103,16 +116,15 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    background: #f4f4f4; /* Grey background from image */
+    background: #f4f4f4;
     padding: 6px 16px;
     border-radius: 50px;
-    margin-top: 5px;
   }
 
   .check-icon {
     width: 16px;
     height: 16px;
-    filter: brightness(0.5); /* Makes the icon look like the grey stroke in image */
+    opacity: 0.6;
   }
 
   .vc-text {
@@ -121,11 +133,11 @@
     font-weight: 500;
   }
 
-  /* Swiper Nav */
+  /* Swiper Controls */
   .swiper-nav-wrap {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     margin-top: 3rem;
   }
 
@@ -135,22 +147,21 @@
   }
 
   .swiper_nav-button {
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     border: 1px solid #000;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background: transparent;
-    transition: all 0.3s ease;
+    transition: 0.3s ease;
   }
 
-  .swiper_nav-button:hover {
+  .swiper_nav-button:not(.swiper-button-disabled):hover {
     background: #000;
   }
-  .swiper_nav-button:hover img {
+  .swiper_nav-button:not(.swiper-button-disabled):hover img {
     filter: invert(1);
   }
 
@@ -159,26 +170,27 @@
     cursor: not-allowed;
   }
 
-  .swiper_nav-icon {
-    width: 20px;
-  }
-
   .text-style-fineprint {
     font-size: 0.85rem;
-    max-width: 450px;
+    max-width: 500px;
     color: #888;
-    line-height: 1.4;
   }
 
-  /* Swiper Slide Widths */
+  /* Swiper Slide Fix */
   .swiper.testimonials {
     width: 100%;
     overflow: visible !important;
   }
-  
-  @media (min-width: 1280px) {
+
+  /* desktop par card width fix rahegi */
+  .swiper-slide.testimonials {
+    height: auto;
+    width: 380px; /* Fixed width for all cards */
+  }
+
+  @media (max-width: 480px) {
     .swiper-slide.testimonials {
-      width: 420px !important;
+      width: 290px; /* Smaller fixed width for mobile */
     }
   }
 
@@ -190,54 +202,44 @@
 <section class="section-{{ section.id }} section_testimonial-cards">
   <div class="testimonial_cards-component">
     
-    <!-- Heading Area -->
-    <div class="margin-bottom margin-medium">
-      <div class="text-align-center">
-        <h2 class="heading-style-h3 text-wrap-balance">{{ section.settings.heading }}</h2>
-      </div>
+    <div class="margin-bottom margin-medium text-align-center">
+      <h2 class="heading-style-h3">{{ section.settings.heading }}</h2>
     </div>
 
-    <!-- CTA Buttons -->
     <div class="margin-bottom margin-large">
       <div class="button-group is-v2-center">
         {% if section.settings.btn_1_text != blank %}
           <a href="{{ section.settings.btn_1_link }}" class="button-main">{{ section.settings.btn_1_text }}</a>
         {% endif %}
         {% if section.settings.btn_2_text != blank %}
-          <a href="{{ section.settings.btn_2_link }}" class="button-gradient">
-            <div class="button-gradient-text">{{ section.settings.btn_2_text }}</div>
-          </a>
+          <a href="{{ section.settings.btn_2_link }}" class="button-gradient">{{ section.settings.btn_2_text }}</a>
         {% endif %}
       </div>
     </div>
 
-    <!-- Slider -->
     <div class="swiper testimonials">
-      <div role="list" class="swiper-wrapper testimonials">
+      <div class="swiper-wrapper">
         {% for block in section.blocks %}
-          <div role="listitem" class="swiper-slide testimonials" {{ block.shopify_attributes }}>
+          <div class="swiper-slide testimonials" {{ block.shopify_attributes }}>
             <div class="testimonial-card">
               
-              <!-- Stars -->
               <div class="testimonial-stars">
                 {% for i in (1..5) %}
                    <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68b9f54f86ecd2c2bb2ea940_Star.svg" loading="lazy" alt="Star" class="icon-1x1-xsmall">
                 {% endfor %}
               </div>
 
-              <!-- Content -->
-              <p class="testimonial-txt">
-                {{ block.settings.testimonial_text }}
-              </p>
+              <div class="testimonial-txt">
+                <span>{{ block.settings.testimonial_text }}</span>
+              </div>
 
-              <!-- Author Info -->
-              <div class="author-name">{{ block.settings.author_name }}</div>
-              
-              <div class="verfied-customer">
-                <div class="vc_icon-wrap">
+              <div class="author-info-wrap">
+                <div class="author-name">{{ block.settings.author_name }}</div>
+                <div class="verfied-customer">
+                  <img loading="lazy" src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68b9f54f86ecd2c2bb2ea940_Star.svg" style="display:none;"> <!-- preload check fix -->
                   <img loading="lazy" src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68b9dd124536f85dafb8f046_Check.svg" alt="Verified" class="check-icon">
+                  <div class="vc-text">{{ section.settings.verified_text }}</div>
                 </div>
-                <div class="vc-text">{{ section.settings.verified_text }}</div>
               </div>
 
             </div>
@@ -246,21 +248,16 @@
       </div>
     </div>
 
-    <!-- Navigation & Fine Print -->
     <div class="swiper-nav-wrap">
-      <div class="swiper-fine">
-        <div class="text-style-fineprint">
-          {{ section.settings.fine_print }}
-        </div>
+      <div class="text-style-fineprint">
+        {{ section.settings.fine_print }}
       </div>
       <div class="swiper-nav">
         <div class="swiper_nav-button test-prev">
-          <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fc8de7c203054cbc11_Arrow_Prev.svg" loading="lazy" alt="Prev" class="swiper_nav-icon">
-          <span class="sr-only">Previous Slide</span>
+          <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fc8de7c203054cbc11_Arrow_Prev.svg" loading="lazy" width="20" height="20" alt="Prev">
         </div>
         <div class="swiper_nav-button test-next">
-          <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fcebd2f456b997e139_Arrow-Next.svg" loading="lazy" alt="Next" class="swiper_nav-icon">
-          <span class="sr-only">Next Slide</span>
+          <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fcebd2f456b997e139_Arrow-Next.svg" loading="lazy" width="20" height="20" alt="Next">
         </div>
       </div>
     </div>
@@ -271,22 +268,14 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const testimonialSwiper = new Swiper('.section-{{ section.id }} .swiper.testimonials', {
+    new Swiper('.section-{{ section.id }} .swiper.testimonials', {
         speed: 500,
-        loop: false,
-        slidesPerView: 1.1,
+        slidesPerView: 'auto',
         spaceBetween: 24,
         centeredSlides: false,
-        grabCursor: true,
         navigation: {
           nextEl: '.section-{{ section.id }} .test-next',
           prevEl: '.section-{{ section.id }} .test-prev'
-        },
-        breakpoints: {
-            480: { slidesPerView: 1.2 },
-            768: { slidesPerView: 2.1 },
-            992: { slidesPerView: 2.5 },
-            1280: { slidesPerView: "auto" }
         },
     });
 });
@@ -294,7 +283,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 {% schema %}
 {
-  "name": "Testimonial Cards Slider",
+  "name": "Testimonial Fixed Slider",
   "settings": [
     {
       "type": "text",
@@ -306,7 +295,7 @@ document.addEventListener('DOMContentLoaded', function() {
       "type": "richtext",
       "id": "fine_print",
       "label": "Fine Print",
-      "default": "<p>Individual results may vary. Testimonials reflect personal experiences and do not guarantee outcomes.</p>"
+      "default": "<p>Individual results may vary. Testimonials reflect personal experiences.</p>"
     },
     {
       "type": "text",
@@ -389,7 +378,7 @@ document.addEventListener('DOMContentLoaded', function() {
   ],
   "presets": [
     {
-      "name": "Testimonial Cards Slider",
+      "name": "Testimonial Fixed Slider",
       "blocks": [
         { "type": "testimonial" },
         { "type": "testimonial" },
