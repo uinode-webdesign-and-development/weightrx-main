@@ -274,7 +274,7 @@ body {
     line-height: 20px;
 }
 
-.btn {
+a.btn {
     font-family: var(--inter-display);
     color: var(--_color---white);
     letter-spacing: -.01em;
@@ -292,11 +292,11 @@ body {
     align-items: center;
 }
 
-.btn-primary {
+.btn.btn-primary {
     background-color: #006bff;  
 }
 
-.btn-secondary {
+.btn.btn-secondary {
     background-color: var(--_color---9eeaff);
 }
 
