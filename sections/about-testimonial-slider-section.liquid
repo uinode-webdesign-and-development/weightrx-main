@@ -204,10 +204,10 @@
       <div class="margin-bottom margin-large">
         <div class="button-group is-v2-center">
           {% if section.settings.btn_1_text != blank %}
-            <a href="{{ section.settings.btn_1_link }}" class="button-main">{{ section.settings.btn_1_text }}</a>
+            <a href="{{ section.settings.btn_1_link }}" class="btn button-primary">{{ section.settings.btn_1_text }}</a>
           {% endif %}
           {% if section.settings.btn_2_text != blank %}
-            <a href="{{ section.settings.btn_2_link }}" class="button-gradient">{{ section.settings.btn_2_text }}</a>
+            <a href="{{ section.settings.btn_2_link }}" class="btn button-secondary">{{ section.settings.btn_2_text }}</a>
           {% endif %}
         </div>
       </div>
@@ -253,7 +253,7 @@
                       width="100%"
                       height="auto"
                     >
-                    <div class="vc-text">{{ section.settings.verified_text }}</div>
+                    <div class="rte-style-text"><div class="vc-text">{{ section.settings.verified_text }}</div></div>
                   </div>
                 </div>
               </div>
