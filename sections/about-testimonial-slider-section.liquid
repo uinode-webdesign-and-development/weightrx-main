@@ -1,9 +1,6 @@
 <!-- 
   Shopify Testimonial Slider - Fixed Width & Centered Layout
 -->
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
 {% style %}
   .section-{{ section.id }} {
     padding-top: {{ section.settings.padding_top }}px;
@@ -265,7 +262,6 @@
   </div>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     new Swiper('.section-{{ section.id }} .swiper.testimonials', {
