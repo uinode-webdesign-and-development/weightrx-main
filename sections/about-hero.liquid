@@ -160,15 +160,17 @@
 
       <!-- Text Content -->
       <div class="about-hero_content">
-        {% if section.settings.heading != blank %}
-          <h1 class="heading-style-h1">{{ section.settings.heading }}</h1>
-        {% endif %}
-        {% if section.settings.subheading != blank %}
-          <p style="font-size: 1.2rem; font-weight: 500;">{{ section.settings.subheading }}</p>
-        {% endif %}
-        {% if section.settings.body_text != blank %}
-          <p style="color: #515154; line-height: 1.6;">{{ section.settings.body_text }}</p>
-        {% endif %}
+        <div class="rte-style-text">
+          {% if section.settings.heading != blank %}
+            <h1 class="heading-style-h1">{{ section.settings.heading }}</h1>
+          {% endif %}
+          {% if section.settings.subheading != blank %}
+            <p>{{ section.settings.subheading }}</p>
+          {% endif %}
+          {% if section.settings.body_text != blank %}
+            <p>{{ section.settings.body_text }}</p>
+          {% endif %}
+        </div>
       </div>
 
       <!-- Cards Grid -->
