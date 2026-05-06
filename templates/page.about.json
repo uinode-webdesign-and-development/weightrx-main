@@ -614,6 +614,70 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "about_article_carousel_hbtn36": {
+      "type": "about-article-carousel",
+      "blocks": {
+        "article_LggbDd": {
+          "type": "article",
+          "settings": {
+            "image": "shopify://shop_images/69fa00dcfaafb5cdf29543e2_oral-minoxidil-women-hair-loss-treatment.webp",
+            "title": "Article Title",
+            "link_text": "Read More",
+            "link_url": ""
+          }
+        },
+        "article_eiU4HM": {
+          "type": "article",
+          "settings": {
+            "image": "shopify://shop_images/69f8d9262c6b5dfc4208ec2e_women-walking-park-weight-management-lifestyle.webp",
+            "title": "Article Title",
+            "link_text": "Read More",
+            "link_url": ""
+          }
+        },
+        "article_MBLYQ4": {
+          "type": "article",
+          "settings": {
+            "image": "shopify://shop_images/69ef9de499735075ac297327_online-hrt-consultation-with-licensed-provider.webp",
+            "title": "Article Title",
+            "link_text": "Read More",
+            "link_url": ""
+          }
+        },
+        "article_taEJBh": {
+          "type": "article",
+          "settings": {
+            "image": "shopify://shop_images/69ef9b7cede54a3671cf9538_sermorelin-cost-payment-plan-options.webp",
+            "title": "Article Title",
+            "link_text": "Read More",
+            "link_url": ""
+          }
+        },
+        "article_Rtxz9X": {
+          "type": "article",
+          "settings": {
+            "image": "shopify://shop_images/69e627efc1a425dbda4f39eb_glp-1-microdosing-vs-standard-dosing-vial.webp",
+            "title": "Article Title",
+            "link_text": "Read More",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "article_LggbDd",
+        "article_eiU4HM",
+        "article_MBLYQ4",
+        "article_taEJBh",
+        "article_Rtxz9X"
+      ],
+      "name": "Article Carousel",
+      "settings": {
+        "heading": "Your guide to health and wellness starts here.",
+        "description": "<p>Total wellness starts and ends here. Browse our most popular articles below:</p>",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
     }
   },
   "order": [
@@ -624,6 +688,7 @@
     "about_experts_slider_miGMmX",
     "about_pharmacy_v2_4Ugq8Q",
     "about_leadership_nYYDwV",
-    "about_testimonial_slider_section_wBTVn6"
+    "about_testimonial_slider_section_wBTVn6",
+    "about_article_carousel_hbtn36"
   ]
 }
