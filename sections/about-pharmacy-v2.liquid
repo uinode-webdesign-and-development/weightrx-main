@@ -1,0 +1,266 @@
+{%- style -%}
+  .section_pharmacy-v2 {
+    background-color: {{ section.settings.bg_color }};
+  }
+  .pharmacy-v2_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+  }
+  @media screen and (min-width: 992px) {
+    .pharmacy-v2_wrapper {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .pharmacy-v2_image, .pharmacy-v2_content {
+      width: 48%;
+    }
+  }
+  .pharmacy-v2_img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+  .pharmacy-v2_list {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .pharmacy-v2_list-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .icon-1x1-small {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+  .pharmacy-v2_logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    align-items: center;
+  }
+  .pharmacy-v2_logo-img {
+    height: 40px;
+    width: auto;
+    max-width: 100%;
+  }
+  .harmony_cards-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin-top: 3rem;
+  }
+  @media screen and (min-width: 768px) {
+    .harmony_cards-list {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+  .harmony_cards-item {
+    padding: 1.5rem;
+    text-align: center;
+    background: #fff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+  .box-shadow-primary {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+  .harmony_card-icon {
+    width: 32px;
+    height: 32px;
+  }
+{%- endstyle -%}
+
+<section class="section_pharmacy-v2" id="section-{{ section.id }}">
+  <div class="padding-section-large" style="padding: {{ section.settings.padding_y }}px 0;">
+    <div class="container-main" style="max-width: 1200px; margin: 0 auto; padding: 0 5%;">
+      
+      <div class="pharmacy-v2_wrapper">
+        {%- if section.settings.main_image != blank -%}
+          <div class="pharmacy-v2_image">
+            <img 
+              src="{{ section.settings.main_image | image_url: width: 1000 }}" 
+              alt="{{ section.settings.main_image.alt }}"
+              class="pharmacy-v2_img"
+              loading="lazy"
+              width="{{ section.settings.main_image.width }}"
+              height="{{ section.settings.main_image.height }}"
+            >
+          </div>
+        {%- endif -%}
+
+        <div class="pharmacy-v2_content">
+          <div class="pharmacy-v2_text">
+            <h2 class="heading-style-h2">{{ section.settings.title }}</h2>
+            <div class="text-size-regular">{{ section.settings.description }}</div>
+          </div>
+
+          <div class="pharmacy-v2_list">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'list_item' -%}
+                <div class="pharmacy-v2_list-item" {{ block.shopify_attributes }}>
+                  {%- if block.settings.icon != blank -%}
+                    <img src="{{ block.settings.icon | image_url: width: 50 }}" class="icon-1x1-small" loading="lazy">
+                  {%- endif -%}
+                  <div class="text-weight-medium">{{ block.settings.text }}</div>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+
+          <!-- Logos Section -->
+          <div class="pharmacy-v2_logos">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'logo' -%}
+                <div class="pharmacy-v2_logo" {{ block.shopify_attributes }}>
+                  {%- if block.settings.logo_img != blank -%}
+                    <img src="{{ block.settings.logo_img | image_url: height: 80 }}" alt="{{ block.settings.logo_img.alt }}" class="pharmacy-v2_logo-img" loading="lazy">
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+
+      <!-- Badges Section -->
+      {%- if section.settings.show_badges -%}
+        <div class="margin-top margin-medium">
+          <ul class="harmony_cards-list" role="list">
+            {%- for block in section.blocks -%} {% comment %} <--- This was the missing line {% endcomment %}
+              {%- if block.type == 'badge' -%}
+                <li class="harmony_cards-item box-shadow-primary" {{ block.shopify_attributes }}>
+                  {%- if block.settings.badge_icon != blank -%}
+                    <img src="{{ block.settings.badge_icon | image_url: width: 64 }}" class="harmony_card-icon" loading="lazy">
+                  {%- endif -%}
+                  <div>{{ block.settings.badge_label | newline_to_br }}</div>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+
+    </div> <!-- Close Container-main -->
+  </div> <!-- Close Padding-section-large -->
+</section>
+
+{% schema %}
+{
+  "name": "Pharmacy V2",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Vertical Padding",
+      "default": 60
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Section Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Heading",
+      "default": "Safe, reliable, and compassionate healthcare services"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Our partner pharmacies are dedicated to providing you with top-tier medications, personalized service, and a seamless healthcare experience.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badges",
+      "label": "Show Bottom Badges",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "list_item",
+      "name": "Checklist Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon (SVG recommended)"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "List detail goes here"
+        }
+      ]
+    },
+    {
+      "type": "logo",
+      "name": "Accreditation Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo_img",
+          "label": "Logo Image"
+        }
+      ]
+    },
+{
+  "type": "badge",
+  "name": "Footer Badge",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "badge_icon",
+      "label": "Badge Icon"
+    },
+    {
+      "type": "textarea",
+      "id": "badge_label",
+      "label": "Badge Label",
+      "default": "Cruelty\nFree",
+      "info": "Press Enter to create a line break"
+    }
+  ]
+}
+  ],
+  "presets": [
+    {
+      "name": "Pharmacy V2",
+      "blocks": [
+        { "type": "list_item" },
+        { "type": "list_item" },
+        { "type": "logo" },
+        { "type": "badge" }
+      ]
+    }
+  ]
+}
+{% endschema %}
