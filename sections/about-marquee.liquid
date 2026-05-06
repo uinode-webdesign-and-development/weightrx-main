@@ -1,0 +1,222 @@
+{%- style -%}
+  .usp-marquee-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    user-select: none;
+  }
+
+  .usp_carousel-content {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .usp_carousel-item {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 0 40px;
+    gap: 12px;
+  }
+
+  .usp_carousel-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+  }
+
+  .usp_carousel-icon img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .usp_carousel-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .usp_carousel-txt {
+    font-size: 14px;
+    line-height: 1.4;
+    color: {{ section.settings.text_color }};
+    white-space: nowrap;
+  }
+
+  @keyframes scroll-marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
+
+  .start-scroll {
+    animation: scroll-marquee {{ section.settings.speed }}s linear infinite;
+  }
+  .usp_carousel-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, {{ section.settings.bg_color }} 0%, rgba(255,255,255,0) 15%, rgba(255,255,255,0) 85%, {{ section.settings.bg_color }} 100%);
+    z-index: 2;
+  }
+{%- endstyle -%}
+
+<div class="usp-marquee-{{ section.id }} usp_carousel" role="region" aria-label="USP Carousel">
+  <ul class="usp_carousel-content start-scroll">
+    {%- for block in section.blocks -%}
+      <li class="usp_carousel-item" {{ block.shopify_attributes }}>
+        <div class="usp_carousel-icon">
+          {%- if block.settings.custom_svg != blank -%}
+            {{ block.settings.custom_svg }}
+          {%- elsif block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 40 | image_tag: loading: 'lazy' }}
+          {%- endif -%}
+        </div>
+        <div class="usp_carousel-txt">
+          {{ block.settings.text }}
+        </div>
+      </li>
+    {%- endfor -%}
+  </ul>
+
+  {% comment %} Duplicate list for seamless looping {% endcomment %}
+  <ul class="usp_carousel-content start-scroll" aria-hidden="true">
+    {%- for block in section.blocks -%}
+      <li class="usp_carousel-item">
+        <div class="usp_carousel-icon">
+          {%- if block.settings.custom_svg != blank -%}
+            {{ block.settings.custom_svg }}
+          {%- elsif block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 40 | image_tag: loading: 'lazy' }}
+          {%- endif -%}
+        </div>
+        <div class="usp_carousel-txt">
+          {{ block.settings.text }}
+        </div>
+      </li>
+    {%- endfor -%}
+  </ul>
+
+  {%- if section.settings.show_overlay -%}
+    <div class="usp_carousel-overlay"></div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "USP Marquee",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#171717"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Show Side Fading Gradients",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Animation"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 10,
+      "max": 200,
+      "step": 5,
+      "unit": "s",
+      "label": "Scroll Duration (Lower is Faster)",
+      "default": 60
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on Hover",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "usp_item",
+      "name": "USP Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon Image"
+        },
+        {
+          "type": "html",
+          "id": "custom_svg",
+          "label": "Custom SVG (Overrides Image)",
+          "info": "Paste SVG code here for crisp icons."
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "Add your USP message here"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "USP Marquee",
+      "blocks": [
+        { "type": "usp_item", "settings": { "text": "127,000+ members" } },
+        { "type": "usp_item", "settings": { "text": "No surprises, upfront pricing" } },
+        { "type": "usp_item", "settings": { "text": "Free & discreet shipping" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
