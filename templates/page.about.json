@@ -349,10 +349,10 @@
           "type": "expert",
           "settings": {
             "expert_image": "shopify://shop_images/684045332d9dfa82126daf8f_doctor_lee.webp",
-            "name": "Dr. Name",
-            "role": "Chief Medical Officer",
-            "bio": "<p>Expertise in medicine and longevity.</p>",
-            "school_1_name": "",
+            "name": "Dr. William Lee, M.D.",
+            "role": "Medical Advisory Board",
+            "bio": "<p>Cardiology, metabolic health, chronic disease prevention, functional medicine, lifestyle and nutrition-based care.<br/><br/></p>",
+            "school_1_name": "University of Pittsburgh",
             "school_2_name": ""
           }
         }
