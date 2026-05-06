@@ -578,12 +578,28 @@
             "testimonial_text": "\"Eden's staff and doctors are incredibly responsive. Highly recommend Eden for anyone seeking professional service.\"",
             "author_name": "Chelsea"
           }
+        },
+        "testimonial_bKq4Hp": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "\"The support and responsiveness of Eden's team are commendable.\"",
+            "author_name": "Jan L."
+          }
+        },
+        "testimonial_wWmqmP": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "\"Eden and the customer team have been FABULOUS! You've made my health journey positive and encouraging.\"",
+            "author_name": "Bethany"
+          }
         }
       },
       "block_order": [
         "testimonial_w6UMYc",
         "testimonial_GgGQCG",
-        "testimonial_XQdYpk"
+        "testimonial_XQdYpk",
+        "testimonial_bKq4Hp",
+        "testimonial_wWmqmP"
       ],
       "name": "Testimonial Cards Slider",
       "settings": {
