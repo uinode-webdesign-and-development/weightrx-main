@@ -1,19 +1,27 @@
 {% comment %}
-  Eden - About Hero Section
+  Eden - Professional About Hero Section
   Shopify Section: about-hero
 {% endcomment %}
 
 <style>
+  :root {
+    --transition-base: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --card-radius: 1.5rem;
+    --dark-bg: #1d1d1f;
+    --light-bg: #f5f5f7;
+  }
+
   .section_about-hero {
-    background-color: #f5f5f7;
-    padding: 60px 0;
+    background-color: var(--light-bg);
+    padding: 100px 0;
     min-height: 100vh;
     display: flex;
     align-items: center;
+    overflow: hidden;
   }
 
   .container-main {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 40px;
     width: 100%;
@@ -21,199 +29,193 @@
 
   .about-hero_component {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 80px;
     align-items: center;
   }
 
+  /* --- LEFT CONTENT STYLE --- */
   .about-hero_content {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    max-width: 480px;
+    gap: 28px;
+    animation: fadeInUp 0.8s ease-out;
   }
 
   .heading-style-h1 {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
     font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    color: #1d1d1f;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--dark-bg);
     margin: 0;
+  }
+
+  .subheading-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 520px;
   }
 
   .text-size-large {
-    font-size: 1.1rem;
-    line-height: 1.5;
+    font-size: 1.25rem;
+    line-height: 1.4;
     color: #1d1d1f;
-    margin: 0;
+    font-weight: 600;
   }
 
-  .text-weight-medium {
-    font-weight: 500;
-  }
-
-  .about-hero_content p:last-child {
-    font-size: 0.95rem;
+  .body-text-p {
+    font-size: 1rem;
     line-height: 1.6;
-    color: #3d3d3d;
-    margin: 0;
+    color: #515154;
   }
 
-  /* Right side grid */
+  /* --- RIGHT GRID STYLE --- */
   .about-hero_list {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    align-items: start;
+    gap: 20px;
+    perspective: 1000px;
   }
 
   .about-hero_col {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 20px;
   }
 
-  /* Frame cards */
+  .about-hero_col.col-offset {
+    padding-top: 40px;
+  }
+
+  /* --- CARD FRAME DESIGN --- */
   .about-hero_frame {
     display: block;
-    border-radius: 1.12rem;
+    position: relative;
+    border-radius: var(--card-radius);
     overflow: hidden;
     text-decoration: none;
-    position: relative;
-    background: #1d1d1f;
-    cursor: pointer;
-    transition: box-shadow 0.3s ease;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    background: #e8e8ed;
+    transition: var(--transition-base);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    z-index: 1;
   }
 
   .about-hero_frame:hover {
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-  }
-
-  .about-hero_frame:hover .about-hero_frame-icon {
-    background-color: #fff;
-    color: #1d1d1f;
-  }
-
-  .about-hero_frame:hover .about-hero_frame-img {
-    transform: scale(1.1);
-  }
-
-  /* Large card (first col, first item) */
-  .about-hero_col:first-child .about-hero_frame:first-child {
-    aspect-ratio: 1 / 1.15;
-  }
-
-  /* Small cards */
-  .about-hero_frame.is-small {
-    aspect-ratio: 1 / 0.75;
-  }
-
-  /* Static frame (no link, no hover) */
-  .about-hero_frame.is-static {
-    aspect-ratio: 1 / 1.1;
-    cursor: default;
-    pointer-events: none;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    z-index: 2;
   }
 
   .about-hero_frame-img-wrap {
     position: absolute;
     inset: 0;
-    overflow: hidden;
+    z-index: 0;
   }
 
   .about-hero_frame-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform 0.8s ease;
   }
 
+  .about-hero_frame:hover .about-hero_frame-img {
+    transform: scale(1.08);
+  }
+
+  /* Overlay for text readability */
+  .about-hero_frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.2) 100%);
+    opacity: 1;
+    z-index: 1;
+  }
+
+  /* --- TEXT & ICON POSITIONING --- */
   .about-hero_frame-content {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 18px 20px;
+    inset: 0;
+    padding: 24px;
     display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    z-index: 2;
+    flex-direction: column;
+    justify-content: space-between; /* Top to Bottom spacing */
+    align-items: flex-start; /* Start from left */
+    z-index: 5;
   }
 
   .about-hero_frame-title {
-    font-size: 1.05rem;
-    font-weight: 600;
-    line-height: 1.3;
-    color: #fff;
-    max-width: calc(100% - 48px);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    max-width: 90%;
+    transform: translateY(0);
+    transition: var(--transition-base);
   }
 
   .about-hero_frame-icon {
-    width: 36px;
-    height: 36px;
+    align-self: flex-end; /* Bottom Right align */
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-radius: 50%;
-    background-color: rgba(255,255,255,0.15);
-    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: var(--transition-base);
+  }
+
+  .about-hero_frame:hover .about-hero_frame-icon {
+    background: #ffffff;
+    color: var(--dark-bg);
+    transform: rotate(-45deg);
   }
 
   .about-hero_frame-icon svg {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
   }
 
-  /* Mobile border radius override */
-  @media (max-width: 479px) {
-    .about-hero_col:first-child .about-hero_frame {
-      border-radius: 0 1.12rem 1.12rem 0;
-    }
-    .about-hero_col:nth-child(2) .about-hero_frame {
-      border-radius: 1.12rem 0 0 1.12rem;
-    }
+  /* --- ANIMATIONS --- */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Responsive */
-  @media (max-width: 991px) {
+  /* --- RESPONSIVE SETTINGS --- */
+  @media (max-width: 1024px) {
     .about-hero_component {
       grid-template-columns: 1fr;
-      gap: 40px;
+      gap: 60px;
     }
-
     .about-hero_content {
       max-width: 100%;
+      text-align: center;
+      align-items: center;
     }
-
-    .about-hero_list {
-      max-width: 640px;
-      margin: 0 auto;
-      width: 100%;
-    }
+    .subheading-wrap { max-width: 100%; }
   }
 
-  @media (max-width: 767px) {
-    .section_about-hero {
-      padding: 40px 0;
-    }
-
-    .container-main {
-      padding: 0 20px;
-    }
-
-    .about-hero_component {
-      gap: 32px;
-    }
+  @media (max-width: 768px) {
+    .section_about-hero { padding: 60px 0; }
+    .container-main { padding: 0 20px; }
+    .about-hero_list { gap: 15px; }
+    .about-hero_col.col-offset { padding-top: 0; }
+    .about-hero_frame-content { padding: 16px; }
   }
 
-  @media (max-width: 479px) {
-    .about-hero_list {
-      gap: 8px;
-    }
+  @media (max-width: 480px) {
+    .about-hero_list { grid-template-columns: 1fr; }
+    .heading-style-h1 { font-size: 2.2rem; }
   }
 </style>
 
@@ -221,143 +223,64 @@
   <div class="container-main">
     <div class="about-hero_component">
 
-      {%- comment %} LEFT: Content {%- endcomment %}
+      <!-- Left Side: Content -->
       <div class="about-hero_content">
         {% if section.settings.heading != blank %}
           <h1 class="heading-style-h1">{{ section.settings.heading }}</h1>
         {% endif %}
 
-        {% if section.settings.subheading != blank %}
-          <p class="text-size-large text-weight-medium">{{ section.settings.subheading }}</p>
-        {% endif %}
+        <div class="subheading-wrap">
+          {% if section.settings.subheading != blank %}
+            <p class="text-size-large">{{ section.settings.subheading }}</p>
+          {% endif %}
 
-        {% if section.settings.body_text != blank %}
-          <p>{{ section.settings.body_text }}</p>
-        {% endif %}
+          {% if section.settings.body_text != blank %}
+            <p class="body-text-p">{{ section.settings.body_text }}</p>
+          {% endif %}
+        </div>
       </div>
 
-      {%- comment %} RIGHT: Cards Grid {%- endcomment %}
+      <!-- Right Side: Interactive Cards -->
       <div class="about-hero_list">
-
-        {%- comment %} Column 1 {%- endcomment %}
+        
+        {%- comment -%} Loop for Column 1 {%- endcomment -%}
         <div class="about-hero_col">
           {% for block in section.blocks %}
             {% if block.settings.column == '1' %}
-              {% if block.settings.link != blank %}
-                <a
-                  href="{{ block.settings.link }}"
-                  class="about-hero_frame{% if block.settings.size == 'small' %} is-small{% endif %} w-inline-block"
-                  aria-label="{{ block.settings.title | escape }}"
-                  {{ block.shopify_attributes }}
-                >
-              {% else %}
-                <div class="about-hero_frame{% if block.settings.size == 'small' %} is-small{% elsif block.settings.size == 'static' %} is-static{% endif %}" {{ block.shopify_attributes }}>
-              {% endif %}
-
-              <div class="about-hero_frame-img-wrap">
-                {% if block.settings.image != blank %}
-                  <img
-                    src="{{ block.settings.image | image_url: width: 900 }}"
-                    srcset="
-                      {{ block.settings.image | image_url: width: 500 }} 500w,
-                      {{ block.settings.image | image_url: width: 800 }} 800w,
-                      {{ block.settings.image | image_url: width: 900 }} 900w
-                    "
-                    sizes="100vw"
-                    alt="{{ block.settings.image.alt | escape }}"
-                    loading="lazy"
-                    class="about-hero_frame-img"
-                  >
-                {% endif %}
-              </div>
-
-              {% if block.settings.title != blank %}
-                <div class="about-hero_frame-content">
-                  <div class="about-hero_frame-title">{{ block.settings.title }}</div>
-                  {% if block.settings.link != blank %}
-                    <div class="about-hero_frame-icon">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6.17581 17.6484C6.41018 17.8769 6.73831 17.8946 6.98441 17.6484L14.9356 9.70312L16.4063 8.13281C16.6289 7.91602 16.6231 7.62305 16.418 7.41211C16.2071 7.20703 15.9141 7.20117 15.6973 7.41797L14.127 8.89454L6.17581 16.8457C5.93557 17.0859 5.94729 17.4141 6.17581 17.6484ZM15.9375 11.748V15.082C15.9375 15.3867 16.1954 15.6621 16.5176 15.6621C16.8281 15.6621 17.0977 15.4043 17.0977 15.0586L17.086 7.37109C17.086 7.00781 16.8458 6.75 16.4708 6.75H8.77737C8.41995 6.75 8.17972 7.02539 8.17972 7.33008C8.17972 7.64062 8.44925 7.89844 8.75393 7.89844H11.795L16.0781 7.76954L15.9375 11.748Z" fill="currentColor"/>
-                      </svg>
-                    </div>
-                  {% endif %}
-                </div>
-              {% endif %}
-
-              {% if block.settings.link != blank %}
-                </a>
-              {% else %}
-                </div>
-              {% endif %}
+              {% render 'hero-card-item', block: block %}
             {% endif %}
           {% endfor %}
         </div>
 
-        {%- comment %} Column 2 {%- endcomment %}
-        <div class="about-hero_col">
+        {%- comment -%} Loop for Column 2 {%- endcomment -%}
+        <div class="about-hero_col col-offset">
           {% for block in section.blocks %}
             {% if block.settings.column == '2' %}
-              {% if block.settings.link != blank %}
-                <a
-                  href="{{ block.settings.link }}"
-                  class="about-hero_frame{% if block.settings.size == 'small' %} is-small{% endif %} w-inline-block"
-                  aria-label="{{ block.settings.title | escape }}"
-                  {{ block.shopify_attributes }}
-                >
-              {% else %}
-                <div class="about-hero_frame{% if block.settings.size == 'small' %} is-small{% elsif block.settings.size == 'static' %} is-static{% endif %}" {{ block.shopify_attributes }}>
-              {% endif %}
-
-              <div class="about-hero_frame-img-wrap">
-                {% if block.settings.image != blank %}
-                  <img
-                    src="{{ block.settings.image | image_url: width: 900 }}"
-                    srcset="
-                      {{ block.settings.image | image_url: width: 500 }} 500w,
-                      {{ block.settings.image | image_url: width: 800 }} 800w,
-                      {{ block.settings.image | image_url: width: 900 }} 900w
-                    "
-                    sizes="100vw"
-                    alt="{{ block.settings.image.alt | escape }}"
-                    loading="lazy"
-                    class="about-hero_frame-img"
-                  >
-                {% endif %}
-              </div>
-
-              {% if block.settings.title != blank %}
-                <div class="about-hero_frame-content">
-                  <div class="about-hero_frame-title">{{ block.settings.title }}</div>
-                  {% if block.settings.link != blank %}
-                    <div class="about-hero_frame-icon">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6.17581 17.6484C6.41018 17.8769 6.73831 17.8946 6.98441 17.6484L14.9356 9.70312L16.4063 8.13281C16.6289 7.91602 16.6231 7.62305 16.418 7.41211C16.2071 7.20703 15.9141 7.20117 15.6973 7.41797L14.127 8.89454L6.17581 16.8457C5.93557 17.0859 5.94729 17.4141 6.17581 17.6484ZM15.9375 11.748V15.082C15.9375 15.3867 16.1954 15.6621 16.5176 15.6621C16.8281 15.6621 17.0977 15.4043 17.0977 15.0586L17.086 7.37109C17.086 7.00781 16.8458 6.75 16.4708 6.75H8.77737C8.41995 6.75 8.17972 7.02539 8.17972 7.33008C8.17972 7.64062 8.44925 7.89844 8.75393 7.89844H11.795L16.0781 7.76954L15.9375 11.748Z" fill="currentColor"/>
-                      </svg>
-                    </div>
-                  {% endif %}
-                </div>
-              {% endif %}
-
-              {% if block.settings.link != blank %}
-                </a>
-              {% else %}
-                </div>
-              {% endif %}
+              {% render 'hero-card-item', block: block %}
             {% endif %}
           {% endfor %}
         </div>
 
-      </div>{%- comment %} /.about-hero_list {%- endcomment %}
-    </div>{%- comment %} /.about-hero_component {%- endcomment %}
-  </div>{%- comment %} /.container-main {%- endcomment %}
+      </div>
+    </div>
+  </div>
 </section>
+
+{% comment %} 
+  Inlined Snippet Logic 
+  (Normally you'd put this in a snippet, but I'm putting it here for "full code")
+{% endcomment %}
+{%- capture card_item -%}
+{%- endcapture -%}
 
 {% schema %}
 {
-  "name": "About Hero",
-  "tag": "section",
-  "class": "about-hero-section",
+  "name": "About Hero Custom",
   "settings": [
+    {
+      "type": "header",
+      "content": "Main Content"
+    },
     {
       "type": "text",
       "id": "heading",
@@ -368,13 +291,13 @@
       "type": "text",
       "id": "subheading",
       "label": "Subheading",
-      "default": "Eden connects you with a network of pharmacies and medical providers to support your overall metabolic wellness."
+      "default": "Expert medical support for your journey."
     },
     {
       "type": "textarea",
       "id": "body_text",
       "label": "Body Text",
-      "default": "We assist you in enrolling in plans tailored to support weight management and overall health, helping you take steps toward a healthier lifestyle. Our trusted network of licensed pharmacies provides high-quality medications to meet your health needs."
+      "default": "We assist you in enrolling in plans tailored to support weight management and overall health."
     }
   ],
   "blocks": [
@@ -383,26 +306,39 @@
       "name": "Treatment Card",
       "settings": [
         {
+          "type": "header",
+          "content": "Layout Settings"
+        },
+        {
           "type": "select",
           "id": "column",
-          "label": "Column",
+          "label": "Select Column",
           "options": [
-            { "value": "1", "label": "Column 1 (Left)" },
-            { "value": "2", "label": "Column 2 (Right)" }
+            { "value": "1", "label": "Left Column" },
+            { "value": "2", "label": "Right Column" }
           ],
           "default": "1"
         },
         {
-          "type": "select",
-          "id": "size",
-          "label": "Card Size",
-          "options": [
-            { "value": "large", "label": "Large" },
-            { "value": "small", "label": "Small (shorter height)" },
-            { "value": "static", "label": "Static (no link, image only)" }
-          ],
-          "default": "small",
-          "info": "Large is used for the primary/featured card. Static is for image-only cards with no link."
+          "type": "text",
+          "id": "aspect_ratio",
+          "label": "Card Aspect Ratio (H/W)",
+          "info": "Example: 1/1 (Square), 4/5 (Portrait), 16/9 (Wide)",
+          "default": "1/1"
+        },
+        {
+          "type": "range",
+          "id": "card_width",
+          "min": 50,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "label": "Card Max Width",
+          "default": 100
+        },
+        {
+          "type": "header",
+          "content": "Content Settings"
         },
         {
           "type": "image_picker",
@@ -418,49 +354,46 @@
         {
           "type": "url",
           "id": "link",
-          "label": "Card Link URL",
-          "info": "Leave blank for static/non-clickable cards."
+          "label": "Card URL"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_icon",
+          "label": "Show Bottom-Right Icon",
+          "default": true
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "About Hero",
+      "name": "About Hero Full",
       "blocks": [
-        {
-          "type": "card",
-          "settings": {
-            "column": "1",
-            "size": "large",
-            "title": "Personalized GLP-1 Treatments"
-          }
-        },
-        {
-          "type": "card",
-          "settings": {
-            "column": "1",
-            "size": "small",
-            "title": "NAD+ Injections"
-          }
-        },
-        {
-          "type": "card",
-          "settings": {
-            "column": "2",
-            "size": "small",
-            "title": "Sermorelin Injections"
-          }
-        },
-        {
-          "type": "card",
-          "settings": {
-            "column": "2",
-            "size": "static"
-          }
-        }
+        { "type": "card", "settings": { "column": "1", "aspect_ratio": "1/1.2" } },
+        { "type": "card", "settings": { "column": "1", "aspect_ratio": "1/0.8" } },
+        { "type": "card", "settings": { "column": "2", "aspect_ratio": "1/0.8" } },
+        { "type": "card", "settings": { "column": "2", "aspect_ratio": "1/1.2" } }
       ]
     }
   ]
 }
 {% endschema %}
+
+{%- comment -%} 
+  This part handles the block rendering with the custom height/width options
+{%- endcomment -%}
+{%- for block in section.blocks -%}
+  {%- style -%}
+    [data-block-id="{{ block.id }}"] {
+      aspect-ratio: {{ block.settings.aspect_ratio }};
+      max-width: {{ block.settings.card_width }}%;
+    }
+  {%- endstyle -%}
+{%- endfor -%}
+
+{%- comment -%} Use this inside the loops above instead of the render tag if not using snippets {%- endcomment -%}
+{%- capture card_render -%}
+  {%- for block in section.blocks -%}
+    {%- comment -%} Logic inside the HTML loop {%- endcomment -%}
+  {%- endfor -%}
+{%- endcapture -%}
