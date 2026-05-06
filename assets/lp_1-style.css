@@ -72,6 +72,11 @@ h1 {
     font-size: 2em;
 }
 
+.rte-style-text h2, .rte-style-text h1, .rte-style-text h3, .rte-style-text h4, .rte-style-text h5, .rte-style-text h6 {
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
 mark {
     color: #000;
     background: #ff0;
