@@ -106,14 +106,11 @@
 </div>
 
 <script>
-  document.addEventListener('shopify:section:load', function() {
-    initSwiper{{ section.id | replace: '-', '_' }}();
-  });
-
-  function initSwiper{{ section.id | replace: '-', '_' }}() {
+  document.addEventListener('DOMContentLoaded', function () {
     new Swiper('.carousel-articles_cms-{{ section.id }}', {
-      slidesPerView: 1,
+      speed: 500,
       spaceBetween: 24,
+      slidesPerView: 1,
       navigation: {
         nextEl: '.next-{{ section.id }}',
         prevEl: '.prev-{{ section.id }}',
@@ -123,9 +120,7 @@
         1024: { slidesPerView: 3 }
       }
     });
-  }
-
-  initSwiper{{ section.id | replace: '-', '_' }}();
+  });
 </script>
 
 {% schema %}
