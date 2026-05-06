@@ -3,13 +3,13 @@
     padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
     background-color: {{ section.settings.bg_color }};
     overflow: hidden;
-    width: 100%;
+    width: 100%; /* Full width section */
   }
 
-  /* Slider container */
+  /* Slider container ab 100% width le raha ha */
   .experts_component-{{ section.id }} {
     width: 100%;
-    margin: 0 auto;
+    padding-left: 20px; /* Thodi si padding side pe */
   }
 
   .experts_v2-image-wrap {
@@ -31,8 +31,8 @@
     display: flex;
     flex-direction: column;
     border: 1px solid #e1e1e1;
+    /* Slide ki width settings */
     width: 85%; 
-    transition: transform 0.3s ease;
   }
 
   .experts_v2-content {
@@ -59,25 +59,26 @@
   .experts_v2-cred-image { width: 100%; height: 100%; object-fit: contain; }
   .text-size-small { font-size: 0.85rem; line-height: 1.3; }
   
-  /* Navigation Arrows - Aligned to Right */
+  /* Navigation Arrows Styling */
   .swiper-nav-wrap { 
     margin-top: 40px; 
     display: flex; 
-    justify-content: flex-end; /* Right side alignment */
-    padding-right: 40px; /* Gap from right edge */
+    justify-content: center; 
+    padding-right: 20px;
   }
-  .swiper-nav { display: flex; gap: 15px; align-items: center; }
+  .swiper-nav { display: flex; gap: 20px; align-items: center; }
   
   .swiper_nav-button {
     cursor: pointer;
+    /* background: none; */
     border: none;
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: opacity 0.3s ease;
-    width: 45px;
-    height: 45px;
+    width: 50px; /* Icon size control */
+    height: 50px;
   }
 
   .swiper_nav-button img {
@@ -108,7 +109,7 @@
     
     {% if section.settings.heading != blank %}
       <div style="text-align: center; margin-bottom: 40px; padding: 0 20px;">
-        <h2 style="font-size: 2.5rem; margin: 0; font-weight: 700;">{{ section.settings.heading }}</h2>
+        <h2 style="font-size: 2rem; margin: 0;">{{ section.settings.heading }}</h2>
       </div>
     {% endif %}
 
@@ -163,13 +164,14 @@
       </div>
     </div>
 
-    <!-- Right Aligned Navigation Arrows -->
+    <!-- Custom Navigation Arrows -->
     <div class="swiper-nav-wrap">
       <div class="swiper-nav">
         <button class="swiper_nav-button exp-prev-{{ section.id }}">
           {% if section.settings.arrow_prev != blank %}
             {{ section.settings.arrow_prev | image_url: width: 100 | image_tag }}
           {% else %}
+            <!-- Fallback Arrow -->
             <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fc8de7c203054cbc11_Arrow_Prev.svg" alt="Prev">
           {% endif %}
         </button>
@@ -178,6 +180,7 @@
           {% if section.settings.arrow_next != blank %}
             {{ section.settings.arrow_next | image_url: width: 100 | image_tag }}
           {% else %}
+            <!-- Fallback Arrow -->
             <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fcebd2f456b997e139_Arrow-Next.svg" alt="Next">
           {% endif %}
         </button>
@@ -194,9 +197,8 @@
     new Swiper('.experts-swiper-{{ section.id }}', {
         speed: 500,
         slidesPerView: 'auto',
-        spaceBetween: 24,
-        centeredSlides: true, /* Cards ko center mein rakhne ke liye */
-        loop: true,
+        spaceBetween: 20,
+        centeredSlides: false,
         grabCursor: true,
         navigation: {
           nextEl: ".exp-next-{{ section.id }}",
