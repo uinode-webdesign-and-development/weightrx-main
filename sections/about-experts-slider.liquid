@@ -1,27 +1,40 @@
 {%- style -%}
+  /* Section Layout */
   .section_experts-{{ section.id }} {
     padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
     background-color: {{ section.settings.bg_color }};
     overflow: hidden;
-    width: 100%; /* Full width section */
+    width: 100%;
   }
 
-  /* Slider container ab 100% width le raha ha */
   .experts_component-{{ section.id }} {
     width: 100%;
-    padding-left: 20px; /* Thodi si padding side pe */
+    padding-left: 5%; /* Slider aur arrows ko left side se thoda gap dene ke liye */
   }
 
-  .experts_v2-image-wrap {
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    border-radius: 12px 12px 0 0;
+  @media (max-width: 768px) {
+    .experts_component-{{ section.id }} {
+      padding-left: 20px;
+    }
   }
 
-  .experts_v2-image {
+  /* Slider Header */
+  .experts_heading-wrap {
+    margin-bottom: 40px;
+    text-align: left; /* Heading ko bhi left rakha hai layout match karne ke liye */
+  }
+
+  .experts_heading-wrap h2 {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.2;
+    color: #000;
+  }
+
+  /* Expert Card Styling */
+  .experts-swiper-{{ section.id }} {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    overflow: visible; /* Taaki next slides cut-off na lagein aur full width look aaye */
   }
 
   .experts-v2.swiper-slide {
@@ -31,8 +44,25 @@
     display: flex;
     flex-direction: column;
     border: 1px solid #e1e1e1;
-    /* Slide ki width settings */
-    width: 85%; 
+    width: 320px; /* Card ki width */
+    transition: box-shadow 0.3s ease;
+  }
+
+  .experts-v2.swiper-slide:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+
+  .experts_v2-image-wrap {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+    background-color: #f4f4f4;
+  }
+
+  .experts_v2-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .experts_v2-content {
@@ -42,33 +72,42 @@
     flex-grow: 1;
   }
 
-  .experts_v2-title { margin-bottom: 16px; }
-  .experts-v2-name { font-size: 1.25rem; font-weight: 700; margin-bottom: 4px; color: #000; }
-  .experts_v2-bio { margin-bottom: 24px; flex-grow: 1; font-size: 0.95rem; line-height: 1.5; color: #333; }
-  
-  .experts_v2-creds-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    border-top: 1px solid #eee;
-    padding-top: 16px;
+  .experts-v2-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #000;
   }
 
-  .experts_v2-cred { display: flex; align-items: center; gap: 12px; }
-  .experts_v2-cred-image-wrap { width: 32px; height: 32px; flex-shrink: 0; }
-  .experts_v2-cred-image { width: 100%; height: 100%; object-fit: contain; }
-  .text-size-small { font-size: 0.85rem; line-height: 1.3; }
-  
-  /* Navigation Arrows Styling */
-  .swiper-nav-wrap { 
-    margin-top: 40px; 
-    display: flex; 
-    justify-content: center; 
-    padding-right: 20px;
+  .experts_v2-role {
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 12px;
+    font-size: 1rem;
   }
-  .swiper-nav { display: flex; gap: 20px; align-items: center; }
+
+  .experts_v2-bio {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #333;
+    margin: 0;
+  }
+
+  /* Navigation Arrows - Fixed to Bottom Left */
+  .swiper-nav-wrap-{{ section.id }} { 
+    margin-top: 30px; 
+    display: flex; 
+    justify-content: flex-start; /* Arrows are now left-aligned */
+    padding-bottom: 10px;
+  }
   
-  .swiper_nav-button {
+  .swiper-nav-{{ section.id }} { 
+    display: flex; 
+    gap: 15px; 
+    align-items: center; 
+  }
+  
+  .swiper_nav-button-{{ section.id }} {
     cursor: pointer;
     background: none;
     border: none;
@@ -76,40 +115,39 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.3s ease;
-    width: 50px; /* Icon size control */
-    height: 50px;
+    transition: all 0.2s ease;
+    width: 48px; 
+    height: 48px;
+    flex-shrink: 0;
   }
 
-  .swiper_nav-button img {
+  .swiper_nav-button-{{ section.id }} img {
     width: 100%;
     height: 100%;
     object-fit: contain;
   }
 
-  .swiper_nav-button.swiper-button-disabled { 
+  /* Arrows look disabled when at start/end but never hide */
+  .swiper_nav-button-{{ section.id }}.swiper-button-disabled { 
     opacity: 0.2; 
     cursor: not-allowed; 
+    pointer-events: none;
   }
 
-  @media (min-width: 768px) {
-    .experts-v2.swiper-slide { width: 45%; }
-  }
-
-  @media (min-width: 1024px) {
-    .experts-v2.swiper-slide { width: 350px; }
+  .swiper_nav-button-{{ section.id }}:hover:not(.swiper-button-disabled) {
+    transform: scale(1.1);
   }
 {%- endstyle -%}
 
-<!-- Swiper CSS -->
+<!-- Swiper.js CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 <section class="section_experts-{{ section.id }}">
   <div class="experts_component-{{ section.id }}">
     
     {% if section.settings.heading != blank %}
-      <div style="text-align: center; margin-bottom: 40px; padding: 0 20px;">
-        <h2 style="font-size: 2rem; margin: 0;">{{ section.settings.heading }}</h2>
+      <div class="experts_heading-wrap">
+        <h2>{{ section.settings.heading }}</h2>
       </div>
     {% endif %}
 
@@ -119,7 +157,7 @@
           <div class="swiper-slide experts-v2" {{ block.shopify_attributes }}>
             <div class="experts_v2-image-wrap">
               {% if block.settings.expert_image != blank %}
-                {{ block.settings.expert_image | image_url: width: 800 | image_tag: class: 'experts_v2-image', loading: 'lazy' }}
+                {{ block.settings.expert_image | image_url: width: 600 | image_tag: class: 'experts_v2-image', loading: 'lazy' }}
               {% else %}
                 {{ 'image' | placeholder_svg_tag: 'experts_v2-image' }}
               {% endif %}
@@ -127,60 +165,34 @@
             <div class="experts_v2-content">
               <div class="experts_v2-title">
                 <div class="experts-v2-name">{{ block.settings.name }}</div>
-                <div style="font-weight: 500; color: #666;">{{ block.settings.role }}</div>
+                <div class="experts_v2-role">{{ block.settings.role }}</div>
               </div>
               <div class="experts_v2-bio">
                 {{ block.settings.bio }}
               </div>
-              
-              {% if block.settings.school_1_name != blank or block.settings.school_2_name != blank %}
-                <div class="experts_v2-creds-wrap">
-                  {% if block.settings.school_1_name != blank %}
-                    <div class="experts_v2-cred">
-                      <div class="experts_v2-cred-image-wrap">
-                        {% if block.settings.school_1_icon != blank %}
-                          {{ block.settings.school_1_icon | image_url: width: 64 | image_tag: class: 'experts_v2-cred-image' }}
-                        {% endif %}
-                      </div>
-                      <div class="text-size-small">{{ block.settings.school_1_name }}</div>
-                    </div>
-                  {% endif %}
-                  
-                  {% if block.settings.school_2_name != blank %}
-                    <div class="experts_v2-cred">
-                      <div class="experts_v2-cred-image-wrap">
-                        {% if block.settings.school_2_icon != blank %}
-                          {{ block.settings.school_2_icon | image_url: width: 64 | image_tag: class: 'experts_v2-cred-image' }}
-                        {% endif %}
-                      </div>
-                      <div class="text-size-small">{{ block.settings.school_2_name }}</div>
-                    </div>
-                  {% endif %}
-                </div>
-              {% endif %}
             </div>
           </div>
         {% endfor %}
       </div>
     </div>
 
-    <!-- Custom Navigation Arrows -->
-    <div class="swiper-nav-wrap">
-      <div class="swiper-nav">
-        <button class="swiper_nav-button exp-prev-{{ section.id }}">
+    <!-- Navigation Arrows - Always Visible at Bottom Left -->
+    <div class="swiper-nav-wrap-{{ section.id }}">
+      <div class="swiper-nav-{{ section.id }}">
+        <button class="swiper_nav-button-{{ section.id }} exp-prev-{{ section.id }}">
           {% if section.settings.arrow_prev != blank %}
             {{ section.settings.arrow_prev | image_url: width: 100 | image_tag }}
           {% else %}
-            <!-- Fallback Arrow -->
-            <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fc8de7c203054cbc11_Arrow_Prev.svg" alt="Prev">
+            <!-- Default SVG Arrow if no image picked -->
+            <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fc8de7c203054cbc11_Arrow_Prev.svg" alt="Previous">
           {% endif %}
         </button>
         
-        <button class="swiper_nav-button exp-next-{{ section.id }}">
+        <button class="swiper_nav-button-{{ section.id }} exp-next-{{ section.id }}">
           {% if section.settings.arrow_next != blank %}
             {{ section.settings.arrow_next | image_url: width: 100 | image_tag }}
           {% else %}
-            <!-- Fallback Arrow -->
+            <!-- Default SVG Arrow if no image picked -->
             <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fcebd2f456b997e139_Arrow-Next.svg" alt="Next">
           {% endif %}
         </button>
@@ -190,31 +202,37 @@
   </div>
 </section>
 
-<!-- Swiper JS -->
+<!-- Swiper.js Script -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
   function initExpertsSlider{{ section.id | replace: '-', '_' }}() {
-    new Swiper('.experts-swiper-{{ section.id }}', {
-        speed: 500,
-        slidesPerView: 'auto',
-        spaceBetween: 20,
-        centeredSlides: false,
-        grabCursor: true,
-        navigation: {
-          nextEl: ".exp-next-{{ section.id }}",
-          prevEl: ".exp-prev-{{ section.id }}",
-        },
-        watchSlidesProgress: true,
+    const swiper = new Swiper('.experts-swiper-{{ section.id }}', {
+      speed: 400,
+      slidesPerView: 'auto',
+      spaceBetween: 20,
+      loop: false,
+      grabCursor: true,
+      navigation: {
+        nextEl: ".exp-next-{{ section.id }}",
+        prevEl: ".exp-prev-{{ section.id }}",
+      },
     });
   }
 
+  // Initialize on page load
   document.addEventListener('DOMContentLoaded', initExpertsSlider{{ section.id | replace: '-', '_' }});
-  document.addEventListener('shopify:section:load', initExpertsSlider{{ section.id | replace: '-', '_' }});
+  
+  // Re-initialize when section is adjusted in Shopify Editor
+  document.addEventListener('shopify:section:load', function(event) {
+    if (event.detail.sectionId === '{{ section.id }}') {
+      initExpertsSlider{{ section.id | replace: '-', '_' }}();
+    }
+  });
 </script>
 
 {% schema %}
 {
-  "name": "Experts Slider Full Width",
+  "name": "Experts Slider Left-Nav",
   "settings": [
     {
       "type": "text",
@@ -224,7 +242,7 @@
     },
     {
       "type": "header",
-      "content": "Custom Navigation Arrows"
+      "content": "Custom Navigation Icons"
     },
     {
       "type": "image_picker",
@@ -238,20 +256,20 @@
     },
     {
       "type": "header",
-      "content": "Appearance"
+      "content": "Style Settings"
     },
     {
       "type": "color",
       "id": "bg_color",
       "label": "Background Color",
-      "default": "#f9f9f9"
+      "default": "#ffffff"
     },
     {
       "type": "range",
       "id": "padding_top",
       "min": 0,
-      "max": 100,
-      "step": 5,
+      "max": 120,
+      "step": 4,
       "unit": "px",
       "label": "Padding Top",
       "default": 60
@@ -260,8 +278,8 @@
       "type": "range",
       "id": "padding_bottom",
       "min": 0,
-      "max": 100,
-      "step": 5,
+      "max": 120,
+      "step": 4,
       "unit": "px",
       "label": "Padding Bottom",
       "default": 60
@@ -292,44 +310,17 @@
         {
           "type": "richtext",
           "id": "bio",
-          "label": "Bio Text",
-          "default": "<p>Longevity medicine, regenerative medicine, and anti-aging.</p>"
-        },
-        {
-          "type": "header",
-          "content": "Credential 1"
-        },
-        {
-          "type": "image_picker",
-          "id": "school_1_icon",
-          "label": "School Icon"
-        },
-        {
-          "type": "text",
-          "id": "school_1_name",
-          "label": "School Name"
-        },
-        {
-          "type": "header",
-          "content": "Credential 2"
-        },
-        {
-          "type": "image_picker",
-          "id": "school_2_icon",
-          "label": "School Icon"
-        },
-        {
-          "type": "text",
-          "id": "school_2_name",
-          "label": "School Name"
+          "label": "Bio Description",
+          "default": "<p>Expertise in longevity medicine, regenerative medicine, and anti-aging care.</p>"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Experts Slider Full Width",
+      "name": "Experts Slider Left-Nav",
       "blocks": [
+        { "type": "expert" },
         { "type": "expert" },
         { "type": "expert" },
         { "type": "expert" }
