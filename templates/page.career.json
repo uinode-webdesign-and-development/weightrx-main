@@ -68,7 +68,7 @@
             "code": "",
             "text": "<h2>Career</h2>",
             "width": "fit-content",
-            "max_width": "narrow",
+            "max_width": "normal",
             "alignment": "left",
             "type_preset": "h1",
             "font": "var(--font-body--family)",
