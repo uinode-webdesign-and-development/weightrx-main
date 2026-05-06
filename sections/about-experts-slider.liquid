@@ -100,9 +100,6 @@
   }
 {%- endstyle -%}
 
-<!-- Swiper CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
 <section class="section_experts-{{ section.id }}">
   <div class="experts_component-{{ section.id }}">
     
@@ -190,7 +187,6 @@
 </section>
 
 <!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
   function initExpertsSlider{{ section.id | replace: '-', '_' }}() {
     new Swiper('.experts-swiper-{{ section.id }}', {
