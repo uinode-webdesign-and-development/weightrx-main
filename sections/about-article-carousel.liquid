@@ -1,0 +1,209 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  /* Structural Styles */
+  .carousel-articles_wrapper { position: relative; overflow: hidden; }
+  .item-carousel-articles { height: auto; display: flex; flex-direction: column; }
+  .item-carousel-articles_image { width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 8px; margin-bottom: 1rem; }
+  .item-carousel-articles_img { width: 100%; height: 100%; object-fit: cover; }
+  .item-carousel-articles_main-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; flex-grow: 1; }
+  .item-carousel-articles_info { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+  .swiper-nav-wrap { margin-top: 2rem; display: flex; justify-content: center; }
+  .swiper_nav-button { cursor: pointer; padding: 10px; border: 1px solid #ddd; border-radius: 50%; margin: 0 10px; transition: opacity 0.3s; }
+  .swiper_nav-button.swiper-button-disabled { opacity: 0.3; cursor: default; }
+  .text-align-center { text-align: center; max-width: 800px; margin: 0 auto; }
+  .margin-bottom.margin-large { margin-bottom: 3rem; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+{%- endstyle -%}
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<div class="section-{{ section.id }}-padding">
+  <div class="container-main page-width">
+    
+    {%- if section.settings.heading != blank or section.settings.description != blank -%}
+      <div class="margin-bottom margin-large">
+        <div class="text-align-center">
+          <h2 class="heading-style-h3 text-wrap-balance">{{ section.settings.heading }}</h2>
+          {%- if section.settings.description != blank -%}
+            <div class="margin-top margin-small">
+              <div class="text-size-medium text-wrap-balance">{{ section.settings.description }}</div>
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+    <div class="carousel-articles_wrapper">
+      <div class="carousel-articles_content">
+        <div class="swiper carousel-articles_cms-{{ section.id }}">
+          <div role="list" class="swiper-wrapper">
+            
+            {%- for block in section.blocks -%}
+              <div role="listitem" class="item-carousel-articles swiper-slide" {{ block.shopify_attributes }}>
+                <div class="item-carousel-articles_image">
+                  {%- if block.settings.image != blank -%}
+                    {{ block.settings.image | image_url: width: 800 | image_tag: 
+                      loading: 'lazy', 
+                      class: 'item-carousel-articles_img',
+                      widths: '400, 600, 800',
+                      alt: block.settings.title 
+                    }}
+                  {%- else -%}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg item-carousel-articles_img' }}
+                  {%- endif -%}
+                </div>
+                
+                <div class="item-carousel-articles_layout">
+                  <div class="item-carousel-articles_main-title">{{ block.settings.title }}</div>
+                  <div class="item-carousel-articles_info">
+                    <div class="item-carousel-articles_cta-wrap">
+                      <a href="{{ block.settings.link_url }}" class="button-main blog_cta w-button">
+                        {{ block.settings.link_text }}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {%- endfor -%}
+
+          </div>
+
+          <div class="swiper-nav-wrap">
+            <div class="swiper-nav">
+              <button class="swiper_nav-button prev-{{ section.id }}">
+                <span class="sr-only">Previous Slide</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button class="swiper_nav-button next-{{ section.id }}">
+                <span class="sr-only">Next Slide</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  document.addEventListener('shopify:section:load', function() {
+    initSwiper{{ section.id | replace: '-', '_' }}();
+  });
+
+  function initSwiper{{ section.id | replace: '-', '_' }}() {
+    new Swiper('.carousel-articles_cms-{{ section.id }}', {
+      slidesPerView: 1,
+      spaceBetween: 24,
+      navigation: {
+        nextEl: '.next-{{ section.id }}',
+        prevEl: '.prev-{{ section.id }}',
+      },
+      breakpoints: {
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 }
+      }
+    });
+  }
+
+  initSwiper{{ section.id | replace: '-', '_' }}();
+</script>
+
+{% schema %}
+{
+  "name": "Article Carousel",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Your guide to health and wellness starts here."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Total wellness starts and ends here. Browse our most popular articles below:</p>"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "Article",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Article Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Article Title"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Label",
+          "default": "Read More"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Article Carousel",
+      "blocks": [
+        { "type": "article" },
+        { "type": "article" },
+        { "type": "article" }
+      ]
+    }
+  ]
+}
+{% endschema %}
