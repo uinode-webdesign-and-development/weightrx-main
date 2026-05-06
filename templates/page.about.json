@@ -193,6 +193,111 @@
         "body_text": "We assist you in enrolling in plans tailored to support weight management and overall health, helping you take steps toward a healthier lifestyle. Our trusted network of licensed pharmacies provides high-quality medications to meet your health needs."
       }
     },
+    "about_marquee_GTnbWi": {
+      "type": "about-marquee",
+      "blocks": {
+        "usp_item_iYTrUK": {
+          "type": "usp_item",
+          "settings": {
+            "custom_svg": "",
+            "text": "127,000+ members"
+          }
+        },
+        "usp_item_KCGr6i": {
+          "type": "usp_item",
+          "settings": {
+            "custom_svg": "",
+            "text": "No surprises, upfront pricing"
+          }
+        },
+        "usp_item_B9mhwG": {
+          "type": "usp_item",
+          "settings": {
+            "custom_svg": "",
+            "text": "Personalized support"
+          }
+        },
+        "usp_item_8a4at4": {
+          "type": "usp_item",
+          "settings": {
+            "custom_svg": "",
+            "text": "100% entirely online"
+          }
+        },
+        "usp_item_ea7g8K": {
+          "type": "usp_item",
+          "settings": {
+            "custom_svg": "",
+            "text": "FSA & HSA eligible"
+          }
+        },
+        "usp_item_wqjHkA": {
+          "type": "usp_item",
+          "settings": {
+            "custom_svg": "",
+            "text": "Free & discreet shipping with all plans"
+          }
+        },
+        "usp_item_CixGz7": {
+          "type": "usp_item",
+          "settings": {
+            "custom_svg": "",
+            "text": "FDA-registered labs"
+          }
+        },
+        "usp_item_gi7die": {
+          "type": "usp_item",
+          "settings": {
+            "custom_svg": "",
+            "text": "24/7 provider messaging"
+          }
+        },
+        "usp_item_TahbE9": {
+          "type": "usp_item",
+          "settings": {
+            "custom_svg": "",
+            "text": "Customized to your needs"
+          }
+        },
+        "usp_item_JPQ9mK": {
+          "type": "usp_item",
+          "settings": {
+            "custom_svg": "",
+            "text": "Same-day doctor visits & prescriptions"
+          }
+        },
+        "usp_item_DaWCgC": {
+          "type": "usp_item",
+          "settings": {
+            "custom_svg": "",
+            "text": "Compounded in the USA"
+          }
+        }
+      },
+      "block_order": [
+        "usp_item_iYTrUK",
+        "usp_item_KCGr6i",
+        "usp_item_B9mhwG",
+        "usp_item_8a4at4",
+        "usp_item_ea7g8K",
+        "usp_item_wqjHkA",
+        "usp_item_CixGz7",
+        "usp_item_gi7die",
+        "usp_item_TahbE9",
+        "usp_item_JPQ9mK",
+        "usp_item_DaWCgC"
+      ],
+      "name": "USP Marquee",
+      "settings": {
+        "bg_color": "#e3f0e6",
+        "text_color": "#171717",
+        "show_overlay": true,
+        "speed": 60,
+        "pause_on_hover": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
     "marquee_zEirKr": {
       "type": "marquee",
       "blocks": {
@@ -364,6 +469,7 @@
         "text_Bq647W",
         "text_PzgUH8"
       ],
+      "disabled": true,
       "name": "t:names.marquee_section",
       "settings": {
         "movement_direction": "normal",
@@ -378,6 +484,7 @@
     "main",
     "17780124505886d454",
     "about_hero_WHm7q4",
+    "about_marquee_GTnbWi",
     "marquee_zEirKr"
   ]
 }
