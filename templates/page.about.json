@@ -338,7 +338,33 @@
             "school_2_name": "Columbus State University"
           }
         },
+        "expert_6F8xnb": {
+          "type": "expert",
+          "settings": {
+            "expert_image": "shopify://shop_images/684045340c7f0d019854d1c4_da2d42f441d8ea781a6cd6074abcfa7c_doctor_emch.webp",
+            "name": "Dr. Rebecca Emch",
+            "role": "VP of Pharmacy Operations",
+            "bio": "<p>Non-sterile compounding, functional medicine, telehealth pharmacy operations, and regulatory compliance.<br/><br/></p>",
+            "school_1_icon": "shopify://shop_images/68404535b7af2641fb8438e2_e83207699ac809e8471735e66b03e8cd_school_mercer.webp",
+            "school_1_name": "Mercer University School of Pharmacy",
+            "school_2_icon": "shopify://shop_images/68404534e536221b00d6931c_cc012edd2ec1825c198fc5b5b7cec674_school_csu.webp",
+            "school_2_name": "Columbus State University"
+          }
+        },
         "expert_B7r4fb": {
+          "type": "expert",
+          "settings": {
+            "expert_image": "shopify://shop_images/684045332a0699f1b88470a6_doctor_bennett.webp",
+            "name": "Dr. Matthew Bennett, M.D.",
+            "role": "Medical Advisory Board",
+            "bio": "<p>Anti-aging and regenerative medicine, metabolic health, nutrition and movement science, and lifestyle optimization.<br/><br/></p>",
+            "school_1_icon": "shopify://shop_images/6840453463e16dc4d6122a11_8dca3f84d6f36cb845f1bf267020c3e0_school_upstate.webp",
+            "school_1_name": "Upstate Medical University",
+            "school_2_icon": "shopify://shop_images/6840453450577e1d01dadc84_183b5c0d2c5a12b48517c9da6272fcc4_school_cornell.webp",
+            "school_2_name": "Cornell University"
+          }
+        },
+        "expert_KztVFi": {
           "type": "expert",
           "settings": {
             "expert_image": "shopify://shop_images/684045332a0699f1b88470a6_doctor_bennett.webp",
@@ -367,7 +393,9 @@
       "block_order": [
         "expert_RUWMwk",
         "expert_idpxfj",
+        "expert_6F8xnb",
         "expert_B7r4fb",
+        "expert_KztVFi",
         "expert_pred7F"
       ],
       "name": "Experts Slider",
