@@ -386,18 +386,47 @@
         "list_item_apghHM": {
           "type": "list_item",
           "settings": {
-            "text": "List detail goes here"
+            "icon": "shopify://shop_images/svgviewer-output_30.svg",
+            "text": "Quality-audited & US-licensed 503A pharmacies"
           }
         },
         "list_item_yXkeN7": {
           "type": "list_item",
           "settings": {
-            "text": "List detail goes here"
+            "icon": "shopify://shop_images/svgviewer-output_32.svg",
+            "text": "High-quality medications, personalized care, and expert advice"
+          }
+        },
+        "list_item_ewMtBD": {
+          "type": "list_item",
+          "settings": {
+            "icon": "shopify://shop_images/svgviewer-output_31.svg",
+            "text": "Accurate prescriptions and attentive care for better community health"
           }
         },
         "logo_rNQQfB": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "logo_img": "shopify://shop_images/68e43e517d3b31ac073281a1_03af1284666074937d9c56968be8b9f9_NABP.png"
+          }
+        },
+        "logo_dih74T": {
+          "type": "logo",
+          "settings": {
+            "logo_img": "shopify://shop_images/68e43e86e3da798f53852560_a53775644c1315b0a3044c9723116fd9_PCAB.png"
+          }
+        },
+        "logo_7wgiVQ": {
+          "type": "logo",
+          "settings": {
+            "logo_img": "shopify://shop_images/68e43e8dc86862c0b1d18930_ee35b36afaf5f2824a97fb8adc3b49b6_ACHC.png"
+          }
+        },
+        "logo_efw94h": {
+          "type": "logo",
+          "settings": {
+            "logo_img": "shopify://shop_images/68e43e96708f6d7af2e45f21_cec11521f5d2974a2928d58c5fb4de28_LEGIT.png"
+          }
         },
         "badge_CDJD3h": {
           "type": "badge",
@@ -409,7 +438,11 @@
       "block_order": [
         "list_item_apghHM",
         "list_item_yXkeN7",
+        "list_item_ewMtBD",
         "logo_rNQQfB",
+        "logo_dih74T",
+        "logo_7wgiVQ",
+        "logo_efw94h",
         "badge_CDJD3h"
       ],
       "name": "Pharmacy V2",
