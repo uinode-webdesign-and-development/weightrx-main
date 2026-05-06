@@ -1,197 +1,195 @@
 <!-- Shopify Testimonial Slider - Fixed Width & Centered Layout -->
 {% style %}
-  .section-{{ section.id }} {
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
-    background-color: {{ section.settings.bg_color }};
-    overflow: hidden;
-  }
-
-  /* .testimonial_cards-component {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  } */
-
-  .text-align-center { text-align: center; }
-  .margin-bottom.margin-medium { margin-bottom: 2rem; }
-  .margin-bottom.margin-large { margin-bottom: 3rem; }
-
-  /* Buttons */
-  .button-group.is-v2-center {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .button-main {
-    background: #000;
-    color: #fff;
-    padding: 14px 28px;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 15px;
-    display: inline-block;
-  }
-
-  .button-gradient {
-    padding: 14px 28px;
-    border: 1px solid #ddd;
-    border-radius: 50px;
-    text-decoration: none;
-    color: #000;
-    font-weight: 600;
-    background: #fff;
-    font-size: 15px;
-    display: inline-block;
-  }
-
-  /* Fixed Width Card Design */
-  .testimonial-card {
-    background: #fff;
-    padding: 3rem 2rem;
-    border-radius: 24px;
-    border: 1px solid #f0f0f0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-
-    /* Center alignment */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-
-    /* Fixed height ensure uniformity */
-    height: 100%;
-    min-height: 420px;
-    box-sizing: border-box;
-    justify-content: space-between;
-  }
-
-  .testimonial-stars {
-    display: flex;
-    gap: 4px;
-    margin-bottom: 1.5rem;
-  }
-
-  .icon-1x1-xsmall {
-    width: 20px;
-    height: 20px;
-  }
-
-  .testimonial-txt {
-    font-size: 1.15rem;
-    line-height: 1.5;
-    color: #333;
-    margin-bottom: 2rem;
-    font-weight: 400;
-    flex-grow: 1; /* Pushes author info to bottom */
-    display: flex;
-    align-items: center;
-  }
-
-  .author-info-wrap {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .author-name {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #000;
-    margin-bottom: 0.75rem;
-  }
-
-  /* Verified Badge Capsule */
-  .verfied-customer {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: #f4f4f4;
-    padding: 6px 16px;
-    border-radius: 50px;
-  }
-
-  .check-icon {
-    width: 16px;
-    height: 16px;
-    opacity: 0.6;
-  }
-
-  .vc-text {
-    font-size: 0.85rem;
-    color: #666;
-    font-weight: 500;
-  }
-
-  /* Swiper Controls */
-  .swiper-nav-wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 3rem;
-  }
-
-  .swiper-nav {
-    display: flex;
-    gap: 12px;
-  }
-
-  .swiper_nav-button {
-    width: 48px;
-    height: 48px;
-    border: 1px solid #000;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: 0.3s ease;
-  }
-
-  .swiper_nav-button:not(.swiper-button-disabled):hover {
-    background: #000;
-  }
-  .swiper_nav-button:not(.swiper-button-disabled):hover img {
-    filter: invert(1);
-  }
-
-  .swiper-button-disabled {
-    opacity: 0.2;
-    cursor: not-allowed;
-  }
-
-  .text-style-fineprint {
-    font-size: 0.85rem;
-    max-width: 500px;
-    color: #888;
-  }
-
-  /* Swiper Slide Fix */
-  .swiper.testimonials {
-    width: 100%;
-    overflow: visible !important;
-  }
-
-  /* desktop par card width fix rahegi */
-  .swiper-slide.testimonials {
-    height: auto;
-    width: 380px; /* Fixed width for all cards */
-  }
-
-  @media (max-width: 480px) {
-    .swiper-slide.testimonials {
-      width: 290px; /* Smaller fixed width for mobile */
+    .section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+      background-color: {{ section.settings.bg_color }};
+      overflow: hidden;
     }
-  }
 
-  .sr-only {
-    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;
-  }
+    .testimonial_cards-component .container {
+        overflow: visible;
+    }
+
+    .text-align-center { text-align: center; }
+    .margin-bottom.margin-medium { margin-bottom: 2rem; }
+    .margin-bottom.margin-large { margin-bottom: 3rem; }
+
+    /* Buttons */
+    .button-group.is-v2-center {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .button-main {
+      background: #000;
+      color: #fff;
+      padding: 14px 28px;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 15px;
+      display: inline-block;
+    }
+
+    .button-gradient {
+      padding: 14px 28px;
+      border: 1px solid #ddd;
+      border-radius: 50px;
+      text-decoration: none;
+      color: #000;
+      font-weight: 600;
+      background: #fff;
+      font-size: 15px;
+      display: inline-block;
+    }
+
+    /* Fixed Width Card Design */
+    .testimonial-card {
+      background: #fff;
+      padding: 3rem 2rem;
+      border-radius: 2.6px;
+      border: 1px solid #f0f0f0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+
+      /* Center alignment */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      /* Fixed height ensure uniformity */
+      height: 100%;
+      min-height: 420px;
+      box-sizing: border-box;
+      justify-content: space-between;
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 1.5rem;
+    }
+
+    .icon-1x1-xsmall {
+      width: 20px;
+      height: 20px;
+    }
+
+    .testimonial-txt {
+      font-size: 1.15rem;
+      line-height: 1.5;
+      color: #333;
+      margin-bottom: 2rem;
+      font-weight: 400;
+      flex-grow: 1; /* Pushes author info to bottom */
+      display: flex;
+      align-items: center;
+    }
+
+    .author-info-wrap {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .author-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Verified Badge Capsule */
+    .verfied-customer {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #f4f4f4;
+      padding: 6px 16px;
+      border-radius: 50px;
+    }
+
+    .check-icon {
+      width: 16px;
+      height: 16px;
+      opacity: 0.6;
+    }
+
+    .vc-text {
+      font-size: 0.85rem;
+      color: #666;
+      font-weight: 500;
+    }
+
+    /* Swiper Controls */
+    .swiper-nav-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .swiper-nav {
+      display: flex;
+      gap: 12px;
+    }
+
+    .swiper_nav-button {
+      width: 48px;
+      height: 48px;
+      border: 1px solid #000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .swiper_nav-button:not(.swiper-button-disabled):hover {
+      background: #000;
+    }
+    .swiper_nav-button:not(.swiper-button-disabled):hover img {
+      filter: invert(1);
+    }
+
+    .swiper-button-disabled {
+      opacity: 0.2;
+      cursor: not-allowed;
+    }
+
+    .text-style-fineprint {
+      font-size: 0.85rem;
+      max-width: 500px;
+      color: #888;
+    }
+
+    /* Swiper Slide Fix */
+    .swiper.testimonials {
+      width: 100%;
+      overflow: visible !important;
+    }
+
+    /* desktop par card width fix rahegi */
+    .swiper-slide.testimonials {
+      height: auto;
+      width: 380px; /* Fixed width for all cards */
+    }
+
+    @media (max-width: 480px) {
+      .swiper-slide.testimonials {
+        width: 290px; /* Smaller fixed width for mobile */
+      }
+    }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;
+    }
 {% endstyle %}
 
 <section class="section-{{ section.id }} section_testimonial-cards">
