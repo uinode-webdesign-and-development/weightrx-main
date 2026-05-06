@@ -1,23 +1,15 @@
 {% comment %}
-  Eden - Full Integrated About Hero Section
-  Shopify Section: about-hero
+  Eden - Complete About Hero Section
+  Features: Top-left text, Bottom-right custom arrow, Aspect ratio & Width control.
 {% endcomment %}
 
 <style>
-  :root {
-    --transition-base: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    --card-radius: 1.5rem;
-    --dark-bg: #1d1d1f;
-    --light-bg: #f5f5f7;
-  }
-
   .section_about-hero {
-    background-color: var(--light-bg);
+    background-color: #f5f5f7;
     padding: 80px 0;
     min-height: 100vh;
     display: flex;
     align-items: center;
-    overflow: hidden;
   }
 
   .container-main {
@@ -37,34 +29,18 @@
   .about-hero_content {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    max-width: 480px;
+    gap: 20px;
   }
 
   .heading-style-h1 {
-    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 700;
     line-height: 1.1;
-    letter-spacing: -0.02em;
-    color: var(--dark-bg);
+    color: #1d1d1f;
     margin: 0;
   }
 
-  .text-size-large {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    color: var(--dark-bg);
-    font-weight: 600;
-    margin: 0;
-  }
-
-  .body-text-p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #3d3d3d;
-    margin: 0;
-  }
-
+  /* Cards Grid */
   .about-hero_list {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -77,25 +53,28 @@
     gap: 16px;
   }
 
+  /* Individual Card */
   .about-hero_frame {
     display: block;
     position: relative;
-    border-radius: var(--card-radius);
+    border-radius: 1.5rem;
     overflow: hidden;
     text-decoration: none;
     background: #1d1d1f;
-    transition: var(--transition-base);
-    width: 100%;
+    transition: all 0.4s ease;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .about-hero_frame:hover {
-    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-    transform: translateY(-4px);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   }
 
   .about-hero_frame-img-wrap {
     position: absolute;
     inset: 0;
+    z-index: 1;
   }
 
   .about-hero_frame-img {
@@ -106,57 +85,71 @@
   }
 
   .about-hero_frame:hover .about-hero_frame-img {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 
-  /* TOP LEFT TEXT POSITION */
+  /* Content Overlay: Top-Left Text, Bottom-Right Icon */
   .about-hero_frame-content {
     position: absolute;
     inset: 0;
-    padding: 20px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; 
-    align-items: flex-start;
+    justify-content: space-between; /* Yeh text ko upar aur icon ko neeche rakhta hai */
+    align-items: flex-start; /* Text left par */
     z-index: 2;
-    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%);
+    background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 50%);
   }
 
   .about-hero_frame-title {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 600;
-    color: #fff;
+    color: #ffffff;
     margin: 0;
     line-height: 1.2;
   }
 
-  /* BOTTOM RIGHT ICON POSITION */
+  /* Icon Style */
   .about-hero_frame-icon {
-    align-self: flex-end;
-    width: 36px;
-    height: 36px;
+    align-self: flex-end; /* Icon ko right par push karta hai */
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
     border-radius: 50%;
-    background-color: rgba(255,255,255,0.2);
-    backdrop-filter: blur(4px);
-    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition-base);
+    transition: all 0.3s ease;
   }
 
   .about-hero_frame:hover .about-hero_frame-icon {
-    background-color: #fff;
-    color: #000;
+    background: #ffffff;
+  }
+
+  .about-hero_frame-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 10px;
+  }
+
+  .about-hero_frame-icon svg {
+    width: 20px;
+    height: 20px;
+    color: #ffffff;
+  }
+  
+  .about-hero_frame:hover .about-hero_frame-icon svg {
+    color: #000000;
   }
 
   @media (max-width: 991px) {
-    .about-hero_component { grid-template-columns: 1fr; gap: 40px; }
-    .about-hero_content { max-width: 100%; }
-    .about-hero_list { max-width: 600px; margin: 0 auto; width: 100%; }
+    .about-hero_component { grid-template-columns: 1fr; }
+    .about-hero_list { max-width: 600px; margin: 0 auto; }
   }
 
-  @media (max-width: 479px) {
+  @media (max-width: 480px) {
     .about-hero_list { grid-template-columns: 1fr; }
   }
 </style>
@@ -165,18 +158,20 @@
   <div class="container-main">
     <div class="about-hero_component">
 
+      <!-- Text Content -->
       <div class="about-hero_content">
         {% if section.settings.heading != blank %}
           <h1 class="heading-style-h1">{{ section.settings.heading }}</h1>
         {% endif %}
         {% if section.settings.subheading != blank %}
-          <p class="text-size-large">{{ section.settings.subheading }}</p>
+          <p style="font-size: 1.2rem; font-weight: 500;">{{ section.settings.subheading }}</p>
         {% endif %}
         {% if section.settings.body_text != blank %}
-          <p class="body-text-p">{{ section.settings.body_text }}</p>
+          <p style="color: #515154; line-height: 1.6;">{{ section.settings.body_text }}</p>
         {% endif %}
       </div>
 
+      <!-- Cards Grid -->
       <div class="about-hero_list">
         {% for i in (1..2) %}
           <div class="about-hero_col">
@@ -189,15 +184,17 @@
                 <{{ tag }} 
                   {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}
                   class="about-hero_frame" 
-                  style="aspect-ratio: {{ block.settings.aspect_ratio }};"
+                  style="aspect-ratio: {{ block.settings.aspect_ratio }}; width: {{ block.settings.card_width }}%;"
                   {{ block.shopify_attributes }}>
 
+                  <!-- Background Image -->
                   <div class="about-hero_frame-img-wrap">
                     {% if block.settings.image != blank %}
-                      <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title }}" class="about-hero_frame-img" loading="lazy">
+                      {{ block.settings.image | image_url: width: 800 | image_tag: class: 'about-hero_frame-img', loading: 'lazy' }}
                     {% endif %}
                   </div>
 
+                  <!-- Content Overlay -->
                   <div class="about-hero_frame-content">
                     {% if block.settings.title != blank %}
                       <p class="about-hero_frame-title">{{ block.settings.title }}</p>
@@ -205,9 +202,13 @@
                     
                     {% if block.settings.show_icon %}
                       <div class="about-hero_frame-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M6 18L18 6M18 6H9M18 6V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                        {% if block.settings.custom_arrow != blank %}
+                          <img src="{{ block.settings.custom_arrow | image_url: width: 50 }}" alt="arrow icon">
+                        {% else %}
+                          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        {% endif %}
                       </div>
                     {% endif %}
                   </div>
@@ -225,7 +226,7 @@
 
 {% schema %}
 {
-  "name": "About Hero Fixed",
+  "name": "About Hero Complete",
   "settings": [
     { "type": "text", "id": "heading", "label": "Heading", "default": "Quality care, made simple" },
     { "type": "text", "id": "subheading", "label": "Subheading", "default": "Eden connects you..." },
@@ -241,31 +242,46 @@
           "id": "column",
           "label": "Column",
           "options": [
-            { "value": "1", "label": "Column 1" },
-            { "value": "2", "label": "Column 2" }
+            { "value": "1", "label": "Column 1 (Left)" },
+            { "value": "2", "label": "Column 2 (Right)" }
           ],
           "default": "1"
         },
         {
           "type": "text",
           "id": "aspect_ratio",
-          "label": "Aspect Ratio (H/W)",
-          "default": "1/1",
-          "info": "Example: 1/1, 3/4, 4/3"
+          "label": "Card Aspect Ratio (e.g. 1/1, 3/4, 4/3)",
+          "default": "1/1"
         },
-        { "type": "image_picker", "id": "image", "label": "Image" },
-        { "type": "text", "id": "title", "label": "Title", "default": "Treatment" },
-        { "type": "url", "id": "link", "label": "Link" },
-        { "type": "checkbox", "id": "show_icon", "label": "Show Icon", "default": true }
+        {
+          "type": "range",
+          "id": "card_width",
+          "min": 50,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "label": "Card Width",
+          "default": 100
+        },
+        { "type": "image_picker", "id": "image", "label": "Background Image" },
+        { "type": "text", "id": "title", "label": "Title (Top-Left)", "default": "Treatment Title" },
+        { "type": "url", "id": "link", "label": "Card Link" },
+        { "type": "checkbox", "id": "show_icon", "label": "Show Arrow Icon", "default": true },
+        {
+          "type": "image_picker",
+          "id": "custom_arrow",
+          "label": "Custom Arrow/Icon Picker",
+          "info": "Upload PNG or SVG. Leave empty for default arrow."
+        }
       ]
     }
   ],
   "presets": [
     {
-      "name": "About Hero Fixed",
+      "name": "About Hero Complete",
       "blocks": [
-        { "type": "card", "settings": { "column": "1", "aspect_ratio": "1/1.2" } },
-        { "type": "card", "settings": { "column": "2", "aspect_ratio": "1/0.8" } }
+        { "type": "card", "settings": { "column": "1", "aspect_ratio": "3/4" } },
+        { "type": "card", "settings": { "column": "2", "aspect_ratio": "1/1" } }
       ]
     }
   ]
