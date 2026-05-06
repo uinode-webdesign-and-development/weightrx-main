@@ -327,22 +327,22 @@
           "type": "expert",
           "settings": {
             "expert_image": "shopify://shop_images/684045340c7f0d019854d1c4_da2d42f441d8ea781a6cd6074abcfa7c_doctor_emch.webp",
-            "name": "Dr. Name",
-            "role": "Chief Medical Officer",
-            "bio": "<p>Expertise in medicine and longevity.</p>",
-            "school_1_name": "",
-            "school_2_name": ""
+            "name": "Dr. Rebecca Emch",
+            "role": "VP of Pharmacy Operations",
+            "bio": "<p>Non-sterile compounding, functional medicine, telehealth pharmacy operations, and regulatory compliance.<br/><br/></p>",
+            "school_1_name": "Mercer University School of Pharmacy",
+            "school_2_name": "Columbus State University"
           }
         },
         "expert_B7r4fb": {
           "type": "expert",
           "settings": {
             "expert_image": "shopify://shop_images/684045332a0699f1b88470a6_doctor_bennett.webp",
-            "name": "Dr. Name",
-            "role": "Chief Medical Officer",
-            "bio": "<p>Expertise in medicine and longevity.</p>",
-            "school_1_name": "",
-            "school_2_name": ""
+            "name": "Dr. Matthew Bennett, M.D.",
+            "role": "Medical Advisory Board",
+            "bio": "<p>Anti-aging and regenerative medicine, metabolic health, nutrition and movement science, and lifestyle optimization.<br/><br/></p>",
+            "school_1_name": "Upstate Medical University",
+            "school_2_name": "Cornell University"
           }
         },
         "expert_pred7F": {
