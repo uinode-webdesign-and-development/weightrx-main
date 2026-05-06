@@ -431,7 +431,43 @@
         "badge_CDJD3h": {
           "type": "badge",
           "settings": {
+            "badge_icon": "shopify://shop_images/svgviewer-output_33.svg",
             "badge_label": "Cruelty\nFree"
+          }
+        },
+        "badge_y3CQPK": {
+          "type": "badge",
+          "settings": {
+            "badge_icon": "shopify://shop_images/svgviewer-output_34.svg",
+            "badge_label": "Eco\nFriendly"
+          }
+        },
+        "badge_ziqhjL": {
+          "type": "badge",
+          "settings": {
+            "badge_icon": "shopify://shop_images/svgviewer-output_35.svg",
+            "badge_label": "Paraben\nFree"
+          }
+        },
+        "badge_6qjrEi": {
+          "type": "badge",
+          "settings": {
+            "badge_icon": "shopify://shop_images/svgviewer-output_36.svg",
+            "badge_label": "Silicone\nFree"
+          }
+        },
+        "badge_A4HcWq": {
+          "type": "badge",
+          "settings": {
+            "badge_icon": "shopify://shop_images/svgviewer-output_37.svg",
+            "badge_label": "Sulphate\nFree"
+          }
+        },
+        "badge_QmYpUq": {
+          "type": "badge",
+          "settings": {
+            "badge_icon": "shopify://shop_images/svgviewer-output_38.svg",
+            "badge_label": "Gluten\nFree"
           }
         }
       },
@@ -443,7 +479,12 @@
         "logo_dih74T",
         "logo_7wgiVQ",
         "logo_efw94h",
-        "badge_CDJD3h"
+        "badge_CDJD3h",
+        "badge_y3CQPK",
+        "badge_ziqhjL",
+        "badge_6qjrEi",
+        "badge_A4HcWq",
+        "badge_QmYpUq"
       ],
       "name": "Pharmacy V2",
       "settings": {
