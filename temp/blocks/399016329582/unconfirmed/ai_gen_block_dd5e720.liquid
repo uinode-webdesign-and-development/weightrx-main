@@ -1,6 +1,1010 @@
+{% doc %}
+  @prompt
+    Create a job listing section with container and weightRx style. Job listing will have a filter option as well and it should be according to weightRx brand
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-job-listing-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.section_padding }}px 0;
+  }
+
+  .ai-job-listing-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.container_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-job-listing-header-{{ ai_gen_id }} {
+    text-align: {{ block.settings.heading_alignment }};
+    margin-bottom: 40px;
+  }
+
+  .ai-job-listing-heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.heading_size }}px;
+    color: {{ block.settings.heading_color }};
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  .ai-job-listing-subheading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.subheading_size }}px;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+    opacity: 0.8;
+  }
+
+  .ai-job-listing-filters-{{ ai_gen_id }} {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .ai-job-listing-filter-btn-{{ ai_gen_id }} {
+    padding: 10px 20px;
+    background-color: {{ block.settings.filter_bg_color }};
+    color: {{ block.settings.filter_text_color }};
+    border: 1px solid {{ block.settings.filter_border_color }};
+    border-radius: {{ block.settings.filter_border_radius }}px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .ai-job-listing-filter-btn-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.filter_hover_bg_color }};
+    color: {{ block.settings.filter_hover_text_color }};
+    border-color: {{ block.settings.filter_hover_border_color }};
+  }
+
+  .ai-job-listing-filter-btn-{{ ai_gen_id }}.active {
+    background-color: {{ block.settings.filter_active_bg_color }};
+    color: {{ block.settings.filter_active_text_color }};
+    border-color: {{ block.settings.filter_active_border_color }};
+  }
+
+  .ai-job-listing-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .ai-job-listing-card-{{ ai_gen_id }} {
+    background-color: {{ block.settings.card_bg_color }};
+    border: 1px solid {{ block.settings.card_border_color }};
+    border-radius: {{ block.settings.card_border_radius }}px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    display: none;
+  }
+
+  .ai-job-listing-card-{{ ai_gen_id }}.visible {
+    display: block;
+  }
+
+  .ai-job-listing-card-{{ ai_gen_id }}:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .ai-job-listing-card-header-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+
+  .ai-job-listing-card-title-{{ ai_gen_id }} {
+    font-size: 20px;
+    font-weight: 700;
+    color: {{ block.settings.heading_color }};
+    margin: 0 0 8px;
+  }
+
+  .ai-job-listing-card-badge-{{ ai_gen_id }} {
+    padding: 4px 12px;
+    background-color: {{ block.settings.badge_bg_color }};
+    color: {{ block.settings.badge_text_color }};
+    border-radius: {{ block.settings.badge_border_radius }}px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .ai-job-listing-card-location-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: {{ block.settings.text_color }};
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .ai-job-listing-card-location-{{ ai_gen_id }} svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  .ai-job-listing-card-description-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    opacity: 0.9;
+  }
+
+  .ai-job-listing-card-footer-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid {{ block.settings.card_border_color }};
+  }
+
+  .ai-job-listing-card-type-{{ ai_gen_id }} {
+    font-size: 13px;
+    color: {{ block.settings.text_color }};
+    opacity: 0.7;
+  }
+
+  .ai-job-listing-card-link-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background-color: {{ block.settings.button_bg_color }};
+    color: {{ block.settings.button_text_color }};
+    border-radius: {{ block.settings.button_border_radius }}px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .ai-job-listing-card-link-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_bg_color }};
+    color: {{ block.settings.button_hover_text_color }};
+  }
+
+  .ai-job-listing-card-link-{{ ai_gen_id }} svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .ai-job-listing-empty-{{ ai_gen_id }} {
+    text-align: center;
+    padding: 60px 20px;
+    color: {{ block.settings.text_color }};
+    opacity: 0.6;
+    display: none;
+  }
+
+  .ai-job-listing-empty-{{ ai_gen_id }}.visible {
+    display: block;
+  }
+
+  @media screen and (max-width: 768px) {
+    .ai-job-listing-grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+    }
+
+    .ai-job-listing-filters-{{ ai_gen_id }} {
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      padding-bottom: 8px;
+    }
+
+    .ai-job-listing-filter-btn-{{ ai_gen_id }} {
+      white-space: nowrap;
+    }
+  }
+{% endstyle %}
+
+<job-listing-{{ ai_gen_id }} class="ai-job-listing-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-job-listing-container-{{ ai_gen_id }}">
+    {% if block.settings.heading != blank or block.settings.subheading != blank %}
+      <div class="ai-job-listing-header-{{ ai_gen_id }}">
+        {% if block.settings.heading != blank %}
+          <h2 class="ai-job-listing-heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+        {% endif %}
+        {% if block.settings.subheading != blank %}
+          <p class="ai-job-listing-subheading-{{ ai_gen_id }}">{{ block.settings.subheading }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="ai-job-listing-filters-{{ ai_gen_id }}">
+      <button class="ai-job-listing-filter-btn-{{ ai_gen_id }} active" data-filter="all">
+        All Positions
+      </button>
+      <button class="ai-job-listing-filter-btn-{{ ai_gen_id }}" data-filter="engineering">
+        Engineering
+      </button>
+      <button class="ai-job-listing-filter-btn-{{ ai_gen_id }}" data-filter="medical">
+        Medical
+      </button>
+      <button class="ai-job-listing-filter-btn-{{ ai_gen_id }}" data-filter="operations">
+        Operations
+      </button>
+      <button class="ai-job-listing-filter-btn-{{ ai_gen_id }}" data-filter="customer-success">
+        Customer Success
+      </button>
+    </div>
+
+    <div class="ai-job-listing-grid-{{ ai_gen_id }}">
+      {% for i in (1..6) %}
+        {% liquid
+          assign job_enabled_key = 'job_' | append: i | append: '_enabled'
+          assign job_title_key = 'job_' | append: i | append: '_title'
+          assign job_category_key = 'job_' | append: i | append: '_category'
+          assign job_location_key = 'job_' | append: i | append: '_location'
+          assign job_type_key = 'job_' | append: i | append: '_type'
+          assign job_description_key = 'job_' | append: i | append: '_description'
+          assign job_link_key = 'job_' | append: i | append: '_link'
+
+          assign job_enabled = block.settings[job_enabled_key]
+          assign job_title = block.settings[job_title_key]
+          assign job_category = block.settings[job_category_key]
+          assign job_location = block.settings[job_location_key]
+          assign job_type = block.settings[job_type_key]
+          assign job_description = block.settings[job_description_key]
+          assign job_link = block.settings[job_link_key]
+        %}
+
+        {% if job_enabled %}
+          <div class="ai-job-listing-card-{{ ai_gen_id }} visible" data-category="{{ job_category }}">
+            <div class="ai-job-listing-card-header-{{ ai_gen_id }}">
+              <div>
+                <h3 class="ai-job-listing-card-title-{{ ai_gen_id }}">{{ job_title }}</h3>
+                {% if job_location != blank %}
+                  <div class="ai-job-listing-card-location-{{ ai_gen_id }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <span>{{ job_location }}</span>
+                  </div>
+                {% endif %}
+              </div>
+              <span class="ai-job-listing-card-badge-{{ ai_gen_id }}">
+                {% case job_category %}
+                  {% when 'engineering' %}
+                    Engineering
+                  {% when 'medical' %}
+                    Medical
+                  {% when 'operations' %}
+                    Operations
+                  {% when 'customer-success' %}
+                    Customer Success
+                  {% else %}
+                    General
+                {% endcase %}
+              </span>
+            </div>
+
+            {% if job_description != blank %}
+              <div class="ai-job-listing-card-description-{{ ai_gen_id }}">
+                {{ job_description }}
+              </div>
+            {% endif %}
+
+            <div class="ai-job-listing-card-footer-{{ ai_gen_id }}">
+              <span class="ai-job-listing-card-type-{{ ai_gen_id }}">{{ job_type }}</span>
+              {% if job_link != blank %}
+                <a href="{{ job_link }}" class="ai-job-listing-card-link-{{ ai_gen_id }}">
+                  Apply Now
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="ai-job-listing-empty-{{ ai_gen_id }}">
+      No positions found in this category.
+    </div>
+  </div>
+</job-listing-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class JobListing{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.filterButtons = this.querySelectorAll('.ai-job-listing-filter-btn-{{ ai_gen_id }}');
+        this.jobCards = this.querySelectorAll('.ai-job-listing-card-{{ ai_gen_id }}');
+        this.emptyState = this.querySelector('.ai-job-listing-empty-{{ ai_gen_id }}');
+        
+        this.setupEventListeners();
+      }
+
+      setupEventListeners() {
+        this.filterButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const filter = button.getAttribute('data-filter');
+            this.filterJobs(filter);
+            
+            this.filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+          });
+        });
+      }
+
+      filterJobs(category) {
+        let visibleCount = 0;
+
+        this.jobCards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+          
+          if (category === 'all' || cardCategory === category) {
+            card.classList.add('visible');
+            visibleCount++;
+          } else {
+            card.classList.remove('visible');
+          }
+        });
+
+        if (visibleCount === 0) {
+          this.emptyState.classList.add('visible');
+        } else {
+          this.emptyState.classList.remove('visible');
+        }
+      }
+    }
+
+    customElements.define('job-listing-{{ ai_gen_id }}', JobListing{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Job listings",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "label": "Padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Container width",
+      "min": 800,
+      "max": 1400,
+      "step": 50,
+      "unit": "px",
+      "default": 1200
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Join Our Team"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Explore career opportunities at WeightRx"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "subheading_size",
+      "label": "Subheading size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Filter buttons"
+    },
+    {
+      "type": "color",
+      "id": "filter_bg_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "filter_text_color",
+      "label": "Text",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "filter_border_color",
+      "label": "Border",
+      "default": "#e6e6e6"
+    },
+    {
+      "type": "color",
+      "id": "filter_hover_bg_color",
+      "label": "Hover background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "filter_hover_text_color",
+      "label": "Hover text",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "filter_hover_border_color",
+      "label": "Hover border",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "filter_active_bg_color",
+      "label": "Active background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "filter_active_text_color",
+      "label": "Active text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "filter_active_border_color",
+      "label": "Active border",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "filter_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Job cards"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Border",
+      "default": "#e6e6e6"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Category badge"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg_color",
+      "label": "Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "badge_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Apply button"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg_color",
+      "label": "Hover background",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Hover text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Job 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "job_1_enabled",
+      "label": "Enable job 1",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "job_1_title",
+      "label": "Title",
+      "default": "Senior Software Engineer"
+    },
+    {
+      "type": "select",
+      "id": "job_1_category",
+      "label": "Category",
+      "options": [
+        {
+          "value": "engineering",
+          "label": "Engineering"
+        },
+        {
+          "value": "medical",
+          "label": "Medical"
+        },
+        {
+          "value": "operations",
+          "label": "Operations"
+        },
+        {
+          "value": "customer-success",
+          "label": "Customer Success"
+        }
+      ],
+      "default": "engineering"
+    },
+    {
+      "type": "text",
+      "id": "job_1_location",
+      "label": "Location",
+      "default": "Remote"
+    },
+    {
+      "type": "text",
+      "id": "job_1_type",
+      "label": "Type",
+      "default": "Full-time"
+    },
+    {
+      "type": "textarea",
+      "id": "job_1_description",
+      "label": "Description",
+      "default": "Join our engineering team to build innovative solutions for weight management and healthcare."
+    },
+    {
+      "type": "url",
+      "id": "job_1_link",
+      "label": "Application link"
+    },
+    {
+      "type": "header",
+      "content": "Job 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "job_2_enabled",
+      "label": "Enable job 2",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "job_2_title",
+      "label": "Title",
+      "default": "Clinical Pharmacist"
+    },
+    {
+      "type": "select",
+      "id": "job_2_category",
+      "label": "Category",
+      "options": [
+        {
+          "value": "engineering",
+          "label": "Engineering"
+        },
+        {
+          "value": "medical",
+          "label": "Medical"
+        },
+        {
+          "value": "operations",
+          "label": "Operations"
+        },
+        {
+          "value": "customer-success",
+          "label": "Customer Success"
+        }
+      ],
+      "default": "medical"
+    },
+    {
+      "type": "text",
+      "id": "job_2_location",
+      "label": "Location",
+      "default": "New York, NY"
+    },
+    {
+      "type": "text",
+      "id": "job_2_type",
+      "label": "Type",
+      "default": "Full-time"
+    },
+    {
+      "type": "textarea",
+      "id": "job_2_description",
+      "label": "Description",
+      "default": "Provide expert pharmaceutical care and consultation to our patients in their weight management journey."
+    },
+    {
+      "type": "url",
+      "id": "job_2_link",
+      "label": "Application link"
+    },
+    {
+      "type": "header",
+      "content": "Job 3"
+    },
+    {
+      "type": "checkbox",
+      "id": "job_3_enabled",
+      "label": "Enable job 3",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "job_3_title",
+      "label": "Title",
+      "default": "Operations Manager"
+    },
+    {
+      "type": "select",
+      "id": "job_3_category",
+      "label": "Category",
+      "options": [
+        {
+          "value": "engineering",
+          "label": "Engineering"
+        },
+        {
+          "value": "medical",
+          "label": "Medical"
+        },
+        {
+          "value": "operations",
+          "label": "Operations"
+        },
+        {
+          "value": "customer-success",
+          "label": "Customer Success"
+        }
+      ],
+      "default": "operations"
+    },
+    {
+      "type": "text",
+      "id": "job_3_location",
+      "label": "Location",
+      "default": "Remote"
+    },
+    {
+      "type": "text",
+      "id": "job_3_type",
+      "label": "Type",
+      "default": "Full-time"
+    },
+    {
+      "type": "textarea",
+      "id": "job_3_description",
+      "label": "Description",
+      "default": "Lead operational excellence initiatives to streamline our healthcare delivery processes."
+    },
+    {
+      "type": "url",
+      "id": "job_3_link",
+      "label": "Application link"
+    },
+    {
+      "type": "header",
+      "content": "Job 4"
+    },
+    {
+      "type": "checkbox",
+      "id": "job_4_enabled",
+      "label": "Enable job 4",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "job_4_title",
+      "label": "Title",
+      "default": "Customer Success Specialist"
+    },
+    {
+      "type": "select",
+      "id": "job_4_category",
+      "label": "Category",
+      "options": [
+        {
+          "value": "engineering",
+          "label": "Engineering"
+        },
+        {
+          "value": "medical",
+          "label": "Medical"
+        },
+        {
+          "value": "operations",
+          "label": "Operations"
+        },
+        {
+          "value": "customer-success",
+          "label": "Customer Success"
+        }
+      ],
+      "default": "customer-success"
+    },
+    {
+      "type": "text",
+      "id": "job_4_location",
+      "label": "Location",
+      "default": "Remote"
+    },
+    {
+      "type": "text",
+      "id": "job_4_type",
+      "label": "Type",
+      "default": "Full-time"
+    },
+    {
+      "type": "textarea",
+      "id": "job_4_description",
+      "label": "Description",
+      "default": "Help our patients achieve their health goals through exceptional support and guidance."
+    },
+    {
+      "type": "url",
+      "id": "job_4_link",
+      "label": "Application link"
+    },
+    {
+      "type": "header",
+      "content": "Job 5"
+    },
+    {
+      "type": "checkbox",
+      "id": "job_5_enabled",
+      "label": "Enable job 5",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "job_5_title",
+      "label": "Title"
+    },
+    {
+      "type": "select",
+      "id": "job_5_category",
+      "label": "Category",
+      "options": [
+        {
+          "value": "engineering",
+          "label": "Engineering"
+        },
+        {
+          "value": "medical",
+          "label": "Medical"
+        },
+        {
+          "value": "operations",
+          "label": "Operations"
+        },
+        {
+          "value": "customer-success",
+          "label": "Customer Success"
+        }
+      ],
+      "default": "engineering"
+    },
+    {
+      "type": "text",
+      "id": "job_5_location",
+      "label": "Location"
+    },
+    {
+      "type": "text",
+      "id": "job_5_type",
+      "label": "Type"
+    },
+    {
+      "type": "textarea",
+      "id": "job_5_description",
+      "label": "Description"
+    },
+    {
+      "type": "url",
+      "id": "job_5_link",
+      "label": "Application link"
+    },
+    {
+      "type": "header",
+      "content": "Job 6"
+    },
+    {
+      "type": "checkbox",
+      "id": "job_6_enabled",
+      "label": "Enable job 6",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "job_6_title",
+      "label": "Title"
+    },
+    {
+      "type": "select",
+      "id": "job_6_category",
+      "label": "Category",
+      "options": [
+        {
+          "value": "engineering",
+          "label": "Engineering"
+        },
+        {
+          "value": "medical",
+          "label": "Medical"
+        },
+        {
+          "value": "operations",
+          "label": "Operations"
+        },
+        {
+          "value": "customer-success",
+          "label": "Customer Success"
+        }
+      ],
+      "default": "engineering"
+    },
+    {
+      "type": "text",
+      "id": "job_6_location",
+      "label": "Location"
+    },
+    {
+      "type": "text",
+      "id": "job_6_type",
+      "label": "Type"
+    },
+    {
+      "type": "textarea",
+      "id": "job_6_description",
+      "label": "Description"
+    },
+    {
+      "type": "url",
+      "id": "job_6_link",
+      "label": "Application link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Job listings"
+    }
+  ]
+}
 {% endschema %}
