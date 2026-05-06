@@ -1,0 +1,288 @@
+{%- style -%}
+  .section_experts {
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+    overflow: hidden;
+  }
+  .container-main {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .experts_v2-image-wrap {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+  }
+  .experts_v2-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .experts-v2.swiper-slide {
+    height: auto;
+    background: #fff;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e1e1e1;
+  }
+  .experts_v2-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .experts_v2-title { margin-bottom: 16px; }
+  .experts-v2-name { font-size: 1.25rem; font-weight: 700; margin-bottom: 4px; }
+  .experts_v2-bio { margin-bottom: 24px; flex-grow: 1; }
+  .experts_v2-creds-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #eee;
+    padding-top: 16px;
+  }
+  .experts_v2-cred { display: flex; align-items: center; gap: 12px; }
+  .experts_v2-cred-image-wrap { width: 32px; height: 32px; flex-shrink: 0; }
+  .experts_v2-cred-image { width: 100%; height: 100%; object-fit: contain; }
+  .text-size-small { font-size: 0.85rem; line-height: 1.3; }
+  
+  /* Swiper Nav Styles */
+  .swiper-nav-wrap { margin-top: 40px; display: flex; justify-content: center; }
+  .swiper-nav { display: flex; gap: 16px; }
+  .swiper_nav-button {
+    width: 48px; height: 48px; 
+    border: 1px solid #000; 
+    border-radius: 50%; 
+    display: flex; align-items: center; justify-content: center;
+    transition: opacity 0.3s;
+  }
+  .swiper_nav-button.swiper-button-disabled { opacity: 0.3; cursor: not-allowed; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+  
+  @media (min-width: 1280px) {
+    .experts-v2.swiper-slide { width: 350px; }
+  }
+{%- endstyle -%}
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<section class="section_experts" id="experts-{{ section.id }}">
+  <div class="padding-section-large">
+    <div class="container-main">
+      <div class="experts_component">
+        
+        {% if section.settings.heading != blank %}
+          <div class="margin-bottom margin-large">
+            <div class="text-align-center" style="text-align: center; margin-bottom: 3rem;">
+              <h2 class="heading-style-h3 text-wrap-balance">{{ section.settings.heading }}</h2>
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="swiper experts-v2-{{ section.id }} swiper-horizontal">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              <div class="swiper-slide experts-v2 box-shadow-primary" {{ block.shopify_attributes }}>
+                <div class="experts_v2-swiper-inner">
+                  <div class="experts_v2-image-wrap">
+                    {% if block.settings.expert_image != blank %}
+                      {{ block.settings.expert_image | image_url: width: 600 | image_tag: class: 'experts_v2-image', loading: 'lazy' }}
+                    {% else %}
+                      {{ 'image' | placeholder_svg_tag: 'experts_v2-image' }}
+                    {% endif %}
+                  </div>
+                  <div class="experts_v2-content">
+                    <div class="experts_v2-title">
+                      <div class="experts-v2-name">{{ block.settings.name }}</div>
+                      <div class="text-weight-medium">{{ block.settings.role }}</div>
+                    </div>
+                    <div class="experts_v2-bio">
+                      <div class="text-weight-medium">{{ block.settings.bio }}</div>
+                    </div>
+                    <div class="experts_v2-creds-wrap">
+                      {% if block.settings.school_1_name != blank %}
+                        <div class="experts_v2-cred">
+                          <div class="experts_v2-cred-image-wrap">
+                            {% if block.settings.school_1_icon != blank %}
+                              {{ block.settings.school_1_icon | image_url: width: 64 | image_tag: class: 'experts_v2-cred-image' }}
+                            {% endif %}
+                          </div>
+                          <div class="text-size-small text-wrap-balance">{{ block.settings.school_1_name }}</div>
+                        </div>
+                      {% endif %}
+                      {% if block.settings.school_2_name != blank %}
+                        <div class="experts_v2-cred">
+                          <div class="experts_v2-cred-image-wrap">
+                            {% if block.settings.school_2_icon != blank %}
+                              {{ block.settings.school_2_icon | image_url: width: 64 | image_tag: class: 'experts_v2-cred-image' }}
+                            {% endif %}
+                          </div>
+                          <div class="text-size-small">{{ block.settings.school_2_name }}</div>
+                        </div>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="swiper-nav-wrap">
+          <div class="swiper-nav">
+            <button class="swiper_nav-button exp-prev-{{ section.id }}">
+              <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fc8de7c203054cbc11_Arrow_Prev.svg" alt="Prev" class="swiper_nav-icon">
+              <span class="sr-only">Previous Slide</span>
+            </button>
+            <button class="swiper_nav-button exp-next-{{ section.id }}">
+              <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fcebd2f456b997e139_Arrow-Next.svg" alt="Next" class="swiper_nav-icon">
+              <span class="sr-only">Next Slide</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  document.addEventListener('shopify:section:load', function() { initSwiper(); });
+  
+  function initSwiper() {
+    new Swiper('.experts-v2-{{ section.id }}', {
+        speed: 400,
+        slidesPerView: 1.1,
+        spaceBetween: 20,
+        navigation: {
+          nextEl: ".exp-next-{{ section.id }}",
+          prevEl: ".exp-prev-{{ section.id }}",
+        },
+        breakpoints: {
+          480: { slidesPerView: 1.3 },
+          768: { slidesPerView: 2.4 },
+          992: { slidesPerView: 2.5 },
+          1280: { slidesPerView: "auto" }
+        },
+        watchSlidesProgress: true,
+    });
+  }
+  initSwiper();
+</script>
+
+{% schema %}
+{
+  "name": "Experts Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Meet Eden's trusted medical team"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "expert",
+      "name": "Expert",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "expert_image",
+          "label": "Expert Headshot"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Dr. Name"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Role/Title",
+          "default": "Chief Medical Officer"
+        },
+        {
+          "type": "richtext",
+          "id": "bio",
+          "label": "Bio Text",
+          "default": "<p>Expertise in medicine and longevity.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Credential 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "school_1_icon",
+          "label": "School 1 Icon"
+        },
+        {
+          "type": "text",
+          "id": "school_1_name",
+          "label": "School 1 Name"
+        },
+        {
+          "type": "header",
+          "content": "Credential 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "school_2_icon",
+          "label": "School 2 Icon"
+        },
+        {
+          "type": "text",
+          "id": "school_2_name",
+          "label": "School 2 Name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Experts Slider",
+      "blocks": [
+        { "type": "expert" },
+        { "type": "expert" },
+        { "type": "expert" }
+      ]
+    }
+  ]
+}
+{% endschema %}
