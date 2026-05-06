@@ -315,6 +315,7 @@
           "settings": {
             "column": "1",
             "aspect_ratio": "3/4",
+            "card_width": 100,
             "image": "shopify://shop_images/68e43607c81315661df1af9b_ffa1f4228644899a7f523a65993e0c5d_about-glp1s.webp",
             "title": "Personalized GLP-1 Treatments",
             "link": "",
@@ -326,6 +327,7 @@
           "settings": {
             "column": "1",
             "aspect_ratio": "1/1",
+            "card_width": 100,
             "image": "shopify://shop_images/68d480e6e6b9995b5151bef1_pdp_nad-1.webp",
             "title": "NAD+ Injections",
             "link": "",
@@ -337,6 +339,7 @@
           "settings": {
             "column": "2",
             "aspect_ratio": "1/1",
+            "card_width": 100,
             "image": "shopify://shop_images/68d481b26f0bec3800ef18cb_Slideshow_1.webp",
             "title": "Sermorelin Injections",
             "link": "",
@@ -348,10 +351,12 @@
           "settings": {
             "column": "2",
             "aspect_ratio": "3/4",
+            "card_width": 100,
             "image": "shopify://shop_images/68e437b5729e066593c58448_de78615545d9e960cbbf7b4f2a4fb8e5_Product_2.webp",
             "title": "",
             "link": "",
-            "show_icon": true
+            "show_icon": false,
+            "custom_arrow": "shopify://shop_images/svgviewer-output_17.svg"
           }
         }
       },
