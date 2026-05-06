@@ -379,6 +379,47 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "about_pharmacy_v2_4Ugq8Q": {
+      "type": "about-pharmacy-v2",
+      "blocks": {
+        "list_item_apghHM": {
+          "type": "list_item",
+          "settings": {
+            "text": "List detail goes here"
+          }
+        },
+        "list_item_yXkeN7": {
+          "type": "list_item",
+          "settings": {
+            "text": "List detail goes here"
+          }
+        },
+        "logo_rNQQfB": {
+          "type": "logo",
+          "settings": {}
+        },
+        "badge_CDJD3h": {
+          "type": "badge",
+          "settings": {
+            "badge_label": "Cruelty\nFree"
+          }
+        }
+      },
+      "block_order": [
+        "list_item_apghHM",
+        "list_item_yXkeN7",
+        "logo_rNQQfB",
+        "badge_CDJD3h"
+      ],
+      "name": "Pharmacy V2",
+      "settings": {
+        "bg_color": "#f4f4f4",
+        "padding_y": 60,
+        "title": "Safe, reliable, and compassionate healthcare services",
+        "description": "<p>Our partner pharmacies are dedicated to providing you with top-tier medications, personalized service, and a seamless healthcare experience.</p>",
+        "show_badges": true
+      }
     }
   },
   "order": [
@@ -386,6 +427,7 @@
     "17780124505886d454",
     "about_hero_WHm7q4",
     "about_marquee_GTnbWi",
-    "about_experts_slider_miGMmX"
+    "about_experts_slider_miGMmX",
+    "about_pharmacy_v2_4Ugq8Q"
   ]
 }
