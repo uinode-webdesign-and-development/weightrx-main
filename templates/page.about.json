@@ -692,7 +692,7 @@
           "type": "article",
           "settings": {
             "image": "shopify://shop_images/69ef9de499735075ac297327_online-hrt-consultation-with-licensed-provider.webp",
-            "title": "Article Title",
+            "title": "How to Get HRT: Online vs Traditional Care",
             "link_text": "Read More",
             "link_url": ""
           }
@@ -701,7 +701,7 @@
           "type": "article",
           "settings": {
             "image": "shopify://shop_images/69ef9b7cede54a3671cf9538_sermorelin-cost-payment-plan-options.webp",
-            "title": "Article Title",
+            "title": "Sermorelin Cost: What You Should Expect",
             "link_text": "Read More",
             "link_url": ""
           }
@@ -710,7 +710,63 @@
           "type": "article",
           "settings": {
             "image": "shopify://shop_images/69e627efc1a425dbda4f39eb_glp-1-microdosing-vs-standard-dosing-vial.webp",
-            "title": "Article Title",
+            "title": "GLP‑1 Microdosing vs Standard Dosing: What’s the Difference?",
+            "link_text": "Read More",
+            "link_url": ""
+          }
+        },
+        "article_NbFFPy": {
+          "type": "article",
+          "settings": {
+            "title": "Is HRT Safe? Benefits, Risks, and What to Know",
+            "link_text": "Read More",
+            "link_url": ""
+          }
+        },
+        "article_RBtPdY": {
+          "type": "article",
+          "settings": {
+            "title": "What Is Hormone Replacement Therapy (HRT)? And How Does It Work?",
+            "link_text": "Read More",
+            "link_url": ""
+          }
+        },
+        "article_ytt8Tk": {
+          "type": "article",
+          "settings": {
+            "title": "Can Microdosing GLP‑1 Reduce Side Effects?",
+            "link_text": "Read More",
+            "link_url": ""
+          }
+        },
+        "article_fb9rqP": {
+          "type": "article",
+          "settings": {
+            "title": "Perimenopause Symptoms Explained: Hormones, Changes, and What to Do Next",
+            "link_text": "Read More",
+            "link_url": ""
+          }
+        },
+        "article_kaphNp": {
+          "type": "article",
+          "settings": {
+            "title": "Wegovy® Pill Results: What to Expect From the New Oral Tablet",
+            "link_text": "Read More",
+            "link_url": ""
+          }
+        },
+        "article_BbPgXf": {
+          "type": "article",
+          "settings": {
+            "title": "GLP‑1 Before and After: What People Actually Experience",
+            "link_text": "Read More",
+            "link_url": ""
+          }
+        },
+        "article_WGkAAf": {
+          "type": "article",
+          "settings": {
+            "title": "GLP‑1 Microdosing Schedule: Doses, Benefits, and Timing",
             "link_text": "Read More",
             "link_url": ""
           }
@@ -721,7 +777,14 @@
         "article_eiU4HM",
         "article_MBLYQ4",
         "article_taEJBh",
-        "article_Rtxz9X"
+        "article_Rtxz9X",
+        "article_NbFFPy",
+        "article_RBtPdY",
+        "article_ytt8Tk",
+        "article_fb9rqP",
+        "article_kaphNp",
+        "article_BbPgXf",
+        "article_WGkAAf"
       ],
       "name": "Article Carousel",
       "settings": {
