@@ -800,6 +800,54 @@
         "padding_top": 40,
         "padding_bottom": 40
       }
+    },
+    "about_citations_UB3Jff": {
+      "type": "about-citations",
+      "blocks": {
+        "pharmacy_V4JFXr": {
+          "type": "pharmacy",
+          "settings": {
+            "pharmacy_name": "GoGoMeds",
+            "pharmacy_address": "525 Alexandria Pike, Southgate, KY 41071"
+          }
+        },
+        "pharmacy_HTDNnw": {
+          "type": "pharmacy",
+          "settings": {
+            "pharmacy_name": "Precision",
+            "pharmacy_address": "2640 Merrick Rd, Bellmore, NY, 11710"
+          }
+        },
+        "pharmacy_QnNQBa": {
+          "type": "pharmacy",
+          "settings": {
+            "pharmacy_name": "Enovex",
+            "pharmacy_address": "1111 N. Brand Blvd, Unit M, Glendale, CA 91202"
+          }
+        },
+        "pharmacy_K9Cbpk": {
+          "type": "pharmacy",
+          "settings": {
+            "pharmacy_name": "AbsolutePharmacy",
+            "pharmacy_address": "16011 N. Nebraska Ave., Suite 103, Lutz, FL 33549"
+          }
+        }
+      },
+      "block_order": [
+        "pharmacy_V4JFXr",
+        "pharmacy_HTDNnw",
+        "pharmacy_QnNQBa",
+        "pharmacy_K9Cbpk"
+      ],
+      "name": "Pharmacy Citations",
+      "settings": {
+        "bg_color": "#f4fcf6",
+        "text_color": "#1a1a1a",
+        "heading": "Partner pharmacy information",
+        "description": "<p>Eden utilizes a network of pharmacies including GoGoMeds, Precision, Enovex, and AbsolutePharmacy. Together, Eden’s pharmacies and provider network offer service to all 50 states and Washington, D.C..</p>",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
@@ -811,6 +859,7 @@
     "about_pharmacy_v2_4Ugq8Q",
     "about_leadership_nYYDwV",
     "about_testimonial_slider_section_wBTVn6",
-    "about_article_carousel_hbtn36"
+    "about_article_carousel_hbtn36",
+    "about_citations_UB3Jff"
   ]
 }
