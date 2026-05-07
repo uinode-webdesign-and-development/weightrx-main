@@ -138,12 +138,7 @@
       display: flex;
       gap: 12px;
     }
-.swiper-fine {
-    text-align: center;
-    width: 100%;
-    margin-left: 2rem;
-    margin-right: 3rem;
-}
+
   .swiper_nav-button {
     width: 3rem;
     height: 3rem;
@@ -194,7 +189,6 @@
     .sr-only {
       position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;
     }
-    
 {% endstyle %}
 
 <section class="section-{{ section.id }} section_testimonial-cards">
@@ -268,10 +262,8 @@
       </div>
 
       <div class="swiper-nav-wrap">
-        <div class="swiper-fine">
         <div class="text-style-fineprint">
           {{ section.settings.fine_print }}
-        </div>
         </div>
         <div class="swiper-nav">
           <div class="swiper_nav-button test-prev">
