@@ -1,126 +1,238 @@
 {%- style -%}
-  /* Section Layout */
-  .section-reviews-{{ section.id }} {
-    padding: 80px 0;
-    overflow: hidden; /* Bahar nikalti hui slides ko page scroll na banane de */
-    background-color: #fafafa;
+  /* Section Base Styling */
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: #ffffff;
+    overflow: hidden; /* Side scroll rokne ke liye */
   }
 
-  .reviews-container {
-    max-width: 1200px; /* Aapka standard container width */
+  /* Header / Typography */
+  .article-container {
+    max-width: 1200px; /* Standard Container Width */
     margin: 0 auto;
     padding: 0 20px;
-    position: relative;
   }
 
-  /* Swiper Container Trick */
-  .swiper-reviews-{{ section.id }} {
-    overflow: visible !important; /* Ye slides ko container se bahar dikhaye ga */
+  .text-align-center {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+  }
+
+  .heading-style-h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .text-size-medium {
+    font-size: 1.125rem;
+    color: #4a4a4a;
+    line-height: 1.5;
+  }
+
+  /* Swiper Container - Overflow Visible Trick */
+  .carousel-articles_wrapper {
+    position: relative;
     width: 100%;
   }
 
-  /* Review Card Styling */
-  .review-card {
-    width: 300px; /* Fixed width like the image */
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 12px;
-    padding: 30px 20px;
-    text-align: center;
+  .swiper.carousel-articles_cms-{{ section.id }} {
+    overflow: visible !important; /* Isse slides container ke bahar dikhengi */
+  }
+
+  /* Card Styling */
+  .item-carousel-articles {
+    width: 320px; /* Fixed width like inspect element */
+    background: #f9f9f9;
+    border-radius: 24px;
+    display: flex !important;
+    flex-direction: column;
     height: auto;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .item-carousel-articles_image {
+    width: 100%;
+    aspect-ratio: 1.5;
+    overflow: hidden;
+  }
+
+  .item-carousel-articles_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .item-carousel-articles_layout {
+    padding: 24px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    flex-grow: 1;
   }
 
-  .review-stars { color: #FFB800; margin-bottom: 15px; font-size: 14px; }
-  .review-text { font-size: 1rem; line-height: 1.6; color: #333; margin-bottom: 20px; font-style: italic; }
-  .review-author { font-weight: 700; font-size: 0.9rem; margin-bottom: 5px; }
-  .verified-badge { font-size: 0.75rem; color: #888; display: flex; align-items: center; justify-content: center; gap: 4px; }
+  .item-carousel-articles_main-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #1a1a1a;
+    margin-bottom: 2rem;
+    min-height: 3.5rem;
+    flex-grow: 1;
+  }
 
-  /* Navigation Arrows - Positioning them under the container */
-  .reviews-nav-wrap {
-    margin-top: 30px;
+  /* Black Pill Button */
+  .blog_cta.w-button {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 12px 28px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: opacity 0.2s;
+    width: fit-content;
+    border: none;
+  }
+
+  .blog_cta.w-button:hover {
+    opacity: 0.8;
+  }
+
+  /* Navigation Styling (Centered) */
+  .swiper-nav-wrap {
+    margin-top: 3rem;
     display: flex;
     justify-content: center;
-    gap: 15px;
+    width: 100%;
   }
 
-  .nav-btn {
-    cursor: pointer;
-    background: none;
-    border: none;
-    opacity: 0.6;
-    transition: 0.3s;
+  .swiper-nav {
+    display: flex;
+    gap: 12px;
+    align-items: center;
   }
-  .nav-btn:hover { opacity: 1; }
-  .nav-btn svg { width: 30px; height: 30px; }
+
+  .swiper_nav-button {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s;
+  }
+
+  .swiper_nav-button:hover {
+    background: #e5e5e5;
+  }
+
+  .swiper_nav-button.swiper-button-disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  .swiper_nav-icon {
+    width: 20px;
+    height: auto;
+  }
+
+  @media screen and (max-width: 767px) {
+    .item-carousel-articles {
+      width: 280px;
+    }
+    .heading-style-h3 {
+      font-size: 1.8rem;
+    }
+  }
 {%- endstyle -%}
 
-<section class="section-reviews-{{ section.id }}">
-  <div class="reviews-container">
+<div class="section-{{ section.id }}-padding">
+  <div class="article-container">
     
-    <div style="text-align:center; margin-bottom: 40px;">
-        <h2 style="font-size: 2rem; margin-bottom: 20px;">Our members love us</h2>
-        <div style="display:flex; justify-content:center; gap:10px;">
-            <a href="#" style="background:#0066FF; color:#fff; padding:10px 20px; border-radius:5px; text-decoration:none; font-weight:600;">Get started</a>
-            <a href="#" style="border:1px solid #0066FF; color:#0066FF; padding:10px 20px; border-radius:5px; text-decoration:none;">Check eligibility</a>
-        </div>
-    </div>
+    {%- if section.settings.heading != blank or section.settings.description != blank -%}
+      <div class="text-align-center">
+        <h2 class="heading-style-h3">{{ section.settings.heading }}</h2>
+        {%- if section.settings.description != blank -%}
+          <div class="text-size-medium">{{ section.settings.description }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
 
-    <div class="swiper swiper-reviews-{{ section.id }}">
-      <div class="swiper-wrapper">
-        {%- for block in section.blocks -%}
-          <div class="swiper-slide review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">"{{ block.settings.text }}"</p>
-            <div class="author-info">
-              <div class="review-author">{{ block.settings.author }}</div>
-              <div class="verified-badge">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="#E0E0E0"/></svg>
-                Verified Customer
+    <div class="carousel-articles_wrapper">
+      <div class="swiper carousel-articles_cms-{{ section.id }}">
+        <div class="swiper-wrapper">
+          {%- for block in section.blocks -%}
+            <div class="swiper-slide item-carousel-articles" {{ block.shopify_attributes }}>
+              <div class="item-carousel-articles_image">
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'item-carousel-articles_img' }}
+                {%- else -%}
+                  {{ 'image' | placeholder_svg_tag: 'item-carousel-articles_img' }}
+                {%- endif -%}
+              </div>
+
+              <div class="item-carousel-articles_layout">
+                <div class="item-carousel-articles_main-title">{{ block.settings.title }}</div>
+                <div class="item-carousel-articles_cta-wrap">
+                  <a href="{{ block.settings.link_url }}" class="button-main blog_cta w-button">
+                    {{ block.settings.link_text }}
+                  </a>
+                </div>
               </div>
             </div>
+          {%- endfor -%}
+        </div>
+
+        <div class="swiper-nav-wrap">
+          <div class="swiper-nav">
+            <button class="swiper_nav-button prev-{{ section.id }}">
+              <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fc8de7c203054cbc11_Arrow_Prev.svg" alt="Prev" class="swiper_nav-icon">
+            </button>
+            <button class="swiper_nav-button next-{{ section.id }}">
+              <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fcebd2f456b997e139_Arrow-Next.svg" alt="Next" class="swiper_nav-icon">
+            </button>
           </div>
-        {%- endfor -%}
+        </div>
+
       </div>
     </div>
-
-    <div class="reviews-nav-wrap">
-        <button class="nav-btn review-prev-{{ section.id }}">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 24L12 16L20 8"/></svg>
-        </button>
-        <button class="nav-btn review-next-{{ section.id }}">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8L20 16L12 24"/></svg>
-        </button>
-    </div>
-
   </div>
-</section>
+</div>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    new Swiper('.swiper-reviews-{{ section.id }}', {
+    const swiper = new Swiper('.carousel-articles_cms-{{ section.id }}', {
       slidesPerView: "auto",
-      spaceBetween: 20,
+      spaceBetween: 24,
+      grabCursor: true,
       loop: false,
-      centeredSlides: false, // Left-aligned start
+      centeredSlides: false,
       navigation: {
-        nextEl: '.review-next-{{ section.id }}',
-        prevEl: '.review-prev-{{ section.id }}',
+        nextEl: '.next-{{ section.id }}',
+        prevEl: '.prev-{{ section.id }}',
       },
-      // Responsive logic
-      breakpoints: {
-        320: { spaceBetween: 15 },
-        768: { spaceBetween: 20 }
+      // Ensures the first slide starts exactly at the container margin
+      on: {
+        init: function() {
+          this.update();
+        }
       }
     });
   });
 </script>
+
 {% schema %}
 {
-  "name": "Article Carousel",
+  "name": "Full Width Article Slider",
   "settings": [
     {
       "type": "text",
@@ -135,28 +247,24 @@
       "default": "<p>Total wellness starts and ends here. Browse our most popular articles below:</p>"
     },
     {
-      "type": "header",
-      "content": "Section Padding"
-    },
-    {
       "type": "range",
       "id": "padding_top",
       "min": 0,
-      "max": 100,
+      "max": 120,
       "step": 4,
       "unit": "px",
       "label": "Padding Top",
-      "default": 40
+      "default": 80
     },
     {
       "type": "range",
       "id": "padding_bottom",
       "min": 0,
-      "max": 100,
+      "max": 120,
       "step": 4,
       "unit": "px",
       "label": "Padding Bottom",
-      "default": 40
+      "default": 80
     }
   ],
   "blocks": [
@@ -173,12 +281,12 @@
           "type": "text",
           "id": "title",
           "label": "Title",
-          "default": "Article Title"
+          "default": "Minoxidil for Women: Does It Work?"
         },
         {
           "type": "text",
           "id": "link_text",
-          "label": "Link Label",
+          "label": "Button Text",
           "default": "Read More"
         },
         {
@@ -191,8 +299,13 @@
   ],
   "presets": [
     {
-      "name": "Article Carousel",
-      "blocks": [{ "type": "article" }, { "type": "article" }, { "type": "article" }]
+      "name": "Full Width Article Slider",
+      "blocks": [
+        { "type": "article" },
+        { "type": "article" },
+        { "type": "article" },
+        { "type": "article" }
+      ]
     }
   ]
 }
