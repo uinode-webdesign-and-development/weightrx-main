@@ -841,7 +841,7 @@
       ],
       "name": "Pharmacy Citations",
       "settings": {
-        "bg_color": "#f4fcf6",
+        "bg_color": "#e3f0e6",
         "text_color": "#1a1a1a",
         "heading": "Partner pharmacy information",
         "description": "<p>Eden utilizes a network of pharmacies including GoGoMeds, Precision, Enovex, and AbsolutePharmacy. Together, Eden’s pharmacies and provider network offer service to all 50 states and Washington, D.C..</p>",
