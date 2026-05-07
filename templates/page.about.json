@@ -516,7 +516,7 @@
       ],
       "name": "Pharmacy V2",
       "settings": {
-        "bg_color": "#f4f4f4",
+        "bg_color": "#f0f0f2",
         "padding_y": 60,
         "main_image": "shopify://shop_images/68d4105f8f4f727a7ae72cd6_Image_18.webp",
         "title": "Safe, reliable, and compassionate healthcare services",
