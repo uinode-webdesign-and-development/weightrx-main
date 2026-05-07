@@ -1,159 +1,120 @@
 {%- style -%}
-  /* Section Padding */
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
-    background-color: #ffffff;
+  /* Section Layout */
+  .section-reviews-{{ section.id }} {
+    padding: 80px 0;
+    overflow: hidden; /* Bahar nikalti hui slides ko page scroll na banane de */
+    background-color: #fafafa;
   }
 
-  /* Header Styling */
-  .text-align-center { text-align: center; max-width: 800px; margin: 0 auto 3rem; }
-  .heading-style-h3 { font-size: 2.5rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.2; }
-  .text-size-medium { font-size: 1.125rem; color: #4a4a4a; line-height: 1.5; }
-
-  /* Swiper Core fixes for 'auto' width */
-  .carousel-articles_cms-{{ section.id }} {
-    overflow: visible !important; /* This allows cards to bleed to the edge */
-    padding-right: 5%; /* Adds a little breathing room on the right */
+  .reviews-container {
+    max-width: 1200px; /* Aapka standard container width */
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
   }
 
-  .item-carousel-articles {
-    width: 320px; /* Exact width from the inspected element */
+  /* Swiper Container Trick */
+  .swiper-reviews-{{ section.id }} {
+    overflow: visible !important; /* Ye slides ko container se bahar dikhaye ga */
+    width: 100%;
+  }
+
+  /* Review Card Styling */
+  .review-card {
+    width: 300px; /* Fixed width like the image */
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
     height: auto;
-    background: #f9f9f9;
-    border-radius: 24px;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    transition: transform 0.3s ease;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
   }
 
-  .item-carousel-articles_image {
-    width: 100%;
-    aspect-ratio: 1.5;
-    overflow: hidden;
-  }
+  .review-stars { color: #FFB800; margin-bottom: 15px; font-size: 14px; }
+  .review-text { font-size: 1rem; line-height: 1.6; color: #333; margin-bottom: 20px; font-style: italic; }
+  .review-author { font-weight: 700; font-size: 0.9rem; margin-bottom: 5px; }
+  .verified-badge { font-size: 0.75rem; color: #888; display: flex; align-items: center; justify-content: center; gap: 4px; }
 
-  .item-carousel-articles_img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .item-carousel-articles_layout {
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-
-  .item-carousel-articles_main-title {
-    font-size: 1.15rem;
-    font-weight: 600;
-    line-height: 1.4;
-    color: #1a1a1a;
-    margin-bottom: 2rem;
-    flex-grow: 1;
-  }
-
-  /* Black Button - Exactly like Inspect Element */
-  .blog_cta.w-button {
-    background-color: #000;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 100px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    display: inline-block;
-    transition: background-color 0.2s;
-    width: fit-content;
-  }
-
-  /* Navigation Buttons */
-  .swiper-nav-wrap {
-    margin-top: 3rem;
+  /* Navigation Arrows - Positioning them under the container */
+  .reviews-nav-wrap {
+    margin-top: 30px;
     display: flex;
     justify-content: center;
+    gap: 15px;
   }
-  .swiper-nav { display: flex; gap: 1rem; }
-  
-  .swiper_nav-button {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: #f0f0f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+  .nav-btn {
     cursor: pointer;
+    background: none;
     border: none;
+    opacity: 0.6;
+    transition: 0.3s;
   }
-  .swiper_nav-button.swiper-button-disabled { opacity: 0.3; cursor: auto; }
-  .swiper_nav-icon { width: 20px; }
+  .nav-btn:hover { opacity: 1; }
+  .nav-btn svg { width: 30px; height: 30px; }
 {%- endstyle -%}
 
-<section class="section-{{ section.id }}-padding">
-  <div class="page-width">
+<section class="section-reviews-{{ section.id }}">
+  <div class="reviews-container">
     
-    <div class="text-align-center">
-      <h2 class="heading-style-h3">{{ section.settings.heading }}</h2>
-      <div class="text-size-medium">{{ section.settings.description }}</div>
+    <div style="text-align:center; margin-bottom: 40px;">
+        <h2 style="font-size: 2rem; margin-bottom: 20px;">Our members love us</h2>
+        <div style="display:flex; justify-content:center; gap:10px;">
+            <a href="#" style="background:#0066FF; color:#fff; padding:10px 20px; border-radius:5px; text-decoration:none; font-weight:600;">Get started</a>
+            <a href="#" style="border:1px solid #0066FF; color:#0066FF; padding:10px 20px; border-radius:5px; text-decoration:none;">Check eligibility</a>
+        </div>
     </div>
 
-    <div class="carousel-articles_wrapper">
-      <div class="swiper carousel-articles_cms-{{ section.id }}">
-        <div class="swiper-wrapper">
-          {%- for block in section.blocks -%}
-            <div class="swiper-slide item-carousel-articles" {{ block.shopify_attributes }}>
-              <div class="item-carousel-articles_image">
-                {%- if block.settings.image != blank -%}
-                  {{ block.settings.image | image_url: width: 600 | image_tag: class: 'item-carousel-articles_img', loading: 'lazy' }}
-                {%- else -%}
-                  {{ 'image' | placeholder_svg_tag: 'item-carousel-articles_img' }}
-                {%- endif -%}
-              </div>
-
-              <div class="item-carousel-articles_layout">
-                <div class="item-carousel-articles_main-title">{{ block.settings.title }}</div>
-                <div class="item-carousel-articles_cta-wrap">
-                  <a href="{{ block.settings.link_url }}" class="button-main blog_cta w-button">
-                    {{ block.settings.link_text }}
-                  </a>
-                </div>
+    <div class="swiper swiper-reviews-{{ section.id }}">
+      <div class="swiper-wrapper">
+        {%- for block in section.blocks -%}
+          <div class="swiper-slide review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"{{ block.settings.text }}"</p>
+            <div class="author-info">
+              <div class="review-author">{{ block.settings.author }}</div>
+              <div class="verified-badge">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="#E0E0E0"/></svg>
+                Verified Customer
               </div>
             </div>
-          {%- endfor -%}
-        </div>
-
-        <div class="swiper-nav-wrap">
-          <div class="swiper-nav">
-            <button class="swiper_nav-button blog-prev-{{ section.id }}">
-              <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fc8de7c203054cbc11_Arrow_Prev.svg" class="swiper_nav-icon" alt="Prev">
-            </button>
-            <button class="swiper_nav-button blog-next-{{ section.id }}">
-              <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fcebd2f456b997e139_Arrow-Next.svg" class="swiper_nav-icon" alt="Next">
-            </button>
           </div>
-        </div>
+        {%- endfor -%}
       </div>
     </div>
-    
+
+    <div class="reviews-nav-wrap">
+        <button class="nav-btn review-prev-{{ section.id }}">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 24L12 16L20 8"/></svg>
+        </button>
+        <button class="nav-btn review-next-{{ section.id }}">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8L20 16L12 24"/></svg>
+        </button>
+    </div>
+
   </div>
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    new Swiper(".carousel-articles_cms-{{ section.id }}", {
+  document.addEventListener('DOMContentLoaded', function () {
+    new Swiper('.swiper-reviews-{{ section.id }}', {
+      slidesPerView: "auto",
+      spaceBetween: 20,
+      loop: false,
+      centeredSlides: false, // Left-aligned start
       navigation: {
-        nextEl: ".blog-next-{{ section.id }}",
-        prevEl: ".blog-prev-{{ section.id }}",
+        nextEl: '.review-next-{{ section.id }}',
+        prevEl: '.review-prev-{{ section.id }}',
       },
-      spaceBetween: 24,
-      slidesPerView: "auto", // Isse cards ki width CSS se control hogi
-      freeMode: true,
-      grabCursor: true,
-      watchSlidesProgress: true,
+      // Responsive logic
+      breakpoints: {
+        320: { spaceBetween: 15 },
+        768: { spaceBetween: 20 }
+      }
     });
   });
 </script>
