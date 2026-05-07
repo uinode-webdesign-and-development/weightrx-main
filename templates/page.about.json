@@ -17,6 +17,7 @@
           "name": "Title",
           "disabled": true,
           "settings": {
+            "code": "",
             "text": "<h1>{{ closest.page.title }}</h1>",
             "width": "100%",
             "max_width": "normal",
@@ -649,7 +650,7 @@
           "type": "article",
           "settings": {
             "image": "shopify://shop_images/69fa00dcfaafb5cdf29543e2_oral-minoxidil-women-hair-loss-treatment.webp",
-            "title": "Article Title",
+            "title": "Minoxidil for Women: Does It Work, What to Expect, and How to Use It Safely",
             "link_text": "Read More",
             "link_url": ""
           }
@@ -658,7 +659,7 @@
           "type": "article",
           "settings": {
             "image": "shopify://shop_images/69f8d9262c6b5dfc4208ec2e_women-walking-park-weight-management-lifestyle.webp",
-            "title": "Article Title",
+            "title": "Rybelsus® for Weight Loss: What It Is, How It Works, and What to Expect",
             "link_text": "Read More",
             "link_url": ""
           }
@@ -667,7 +668,7 @@
           "type": "article",
           "settings": {
             "image": "shopify://shop_images/69ef9de499735075ac297327_online-hrt-consultation-with-licensed-provider.webp",
-            "title": "Article Title",
+            "title": "How to Get HRT: Online vs Traditional Care",
             "link_text": "Read More",
             "link_url": ""
           }
@@ -676,7 +677,7 @@
           "type": "article",
           "settings": {
             "image": "shopify://shop_images/69ef9b7cede54a3671cf9538_sermorelin-cost-payment-plan-options.webp",
-            "title": "Article Title",
+            "title": "Sermorelin Cost: What You Should Expect",
             "link_text": "Read More",
             "link_url": ""
           }
@@ -685,7 +686,70 @@
           "type": "article",
           "settings": {
             "image": "shopify://shop_images/69e627efc1a425dbda4f39eb_glp-1-microdosing-vs-standard-dosing-vial.webp",
-            "title": "Article Title",
+            "title": "GLP‑1 Microdosing vs Standard Dosing: What’s the Difference?",
+            "link_text": "Read More",
+            "link_url": ""
+          }
+        },
+        "article_LnpEEy": {
+          "type": "article",
+          "settings": {
+            "image": "shopify://shop_images/69e6265dc765469f1fe74130_hrt-safety-consultation-benefits-risks.webp",
+            "title": "Is HRT Safe? Benefits, Risks, and What to Know",
+            "link_text": "Read More",
+            "link_url": ""
+          }
+        },
+        "article_wib7HR": {
+          "type": "article",
+          "settings": {
+            "image": "shopify://shop_images/69e123310ab0e626821fde9b_hrt-consultation-how-hormone-replacement-therapy-works.webp",
+            "title": "What Is Hormone Replacement Therapy (HRT)? And How Does It Work?",
+            "link_text": "Read More",
+            "link_url": ""
+          }
+        },
+        "article_CKHgWA": {
+          "type": "article",
+          "settings": {
+            "image": "shopify://shop_images/69e11fdb5124f60450bf1d99_glp-1-microdose-vial-side-effects.webp",
+            "title": "Can Microdosing GLP‑1 Reduce Side Effects?",
+            "link_text": "Read More",
+            "link_url": ""
+          }
+        },
+        "article_z6k3XP": {
+          "type": "article",
+          "settings": {
+            "image": "shopify://shop_images/69dd23aab30bca51e70bf584_women-discussing-perimenopause-symptoms-and-body-changes.webp",
+            "title": "Perimenopause Symptoms Explained: Hormones, Changes, and What to Do Next",
+            "link_text": "Read More",
+            "link_url": ""
+          }
+        },
+        "article_tpmhhW": {
+          "type": "article",
+          "settings": {
+            "image": "shopify://shop_images/69d801293330d391616b076e_women-in-activewear-wegovy-pill-weight-loss-support.webp",
+            "title": "Wegovy® Pill Results: What to Expect From the New Oral Tablet",
+            "link_text": "Read More",
+            "link_url": ""
+          }
+        },
+        "article_cEywn9": {
+          "type": "article",
+          "settings": {
+            "image": "shopify://shop_images/69cd521cae06113d51c708e1_glp-1-before-and-after-weight-loss-transformation-realistic-results.webp",
+            "title": "GLP‑1 Before and After: What People Actually Experience",
+            "link_text": "Read More",
+            "link_url": ""
+          }
+        },
+        "article_dfNDc7": {
+          "type": "article",
+          "settings": {
+            "image": "shopify://shop_images/69c5504af46449f35fa0c070_glp-1-microdose-vial-eden-weight-loss-treatment.webp",
+            "title": "GLP‑1 Microdosing Schedule: Doses, Benefits, and Timing",
             "link_text": "Read More",
             "link_url": ""
           }
@@ -696,7 +760,14 @@
         "article_eiU4HM",
         "article_MBLYQ4",
         "article_taEJBh",
-        "article_Rtxz9X"
+        "article_Rtxz9X",
+        "article_LnpEEy",
+        "article_wib7HR",
+        "article_CKHgWA",
+        "article_z6k3XP",
+        "article_tpmhhW",
+        "article_cEywn9",
+        "article_dfNDc7"
       ],
       "name": "Article Carousel",
       "settings": {
