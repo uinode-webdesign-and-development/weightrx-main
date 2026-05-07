@@ -620,6 +620,27 @@
             "testimonial_text": "\"Eden and the customer team have been FABULOUS! You've made my health journey positive and encouraging.\"",
             "author_name": "Bethany"
           }
+        },
+        "testimonial_mnHTdG": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "\"Do this now! Don't wait. Completely life changing. Highly recommend Eden's services for anyone looking for a supportive and effective weight loss program.\"",
+            "author_name": "Kacy"
+          }
+        },
+        "testimonial_xwW796": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "\"The support from Eden has been excellent and the results are amazing.\"",
+            "author_name": "Sara"
+          }
+        },
+        "testimonial_jGPRna": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "\"This is one outstanding company and I plan on telling everyone I know that needs help losing weight to go through Eden. Thank you again!\"",
+            "author_name": "Hiller K."
+          }
         }
       },
       "block_order": [
@@ -627,7 +648,10 @@
         "testimonial_GgGQCG",
         "testimonial_XQdYpk",
         "testimonial_bKq4Hp",
-        "testimonial_wWmqmP"
+        "testimonial_wWmqmP",
+        "testimonial_mnHTdG",
+        "testimonial_xwW796",
+        "testimonial_jGPRna"
       ],
       "name": "Testimonial Cards Slider",
       "settings": {
