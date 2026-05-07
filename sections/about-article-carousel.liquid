@@ -1,36 +1,27 @@
 {%- style -%}
+  /* Section Padding */
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-    background-color: #ffffff; /* Pure white background like image */
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: #ffffff;
   }
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
+  /* Header Styling */
+  .text-align-center { text-align: center; max-width: 800px; margin: 0 auto 3rem; }
+  .heading-style-h3 { font-size: 2.5rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.2; }
+  .text-size-medium { font-size: 1.125rem; color: #4a4a4a; line-height: 1.5; }
+
+  /* Swiper Core fixes for 'auto' width */
+  .carousel-articles_cms-{{ section.id }} {
+    overflow: visible !important; /* This allows cards to bleed to the edge */
+    padding-right: 5%; /* Adds a little breathing room on the right */
   }
 
-  /* Typography & Header */
-  .heading-style-h3 {
-    font-size: 2.5rem; /* Larger heading */
-    font-weight: 700;
-    color: #1a1a1a;
-    margin-bottom: 15px;
-  }
-  .text-size-medium {
-    font-size: 1.1rem;
-    color: #666;
-    line-height: 1.5;
-  }
-
-  /* Card Styling */
   .item-carousel-articles {
-    background: #f9f9f9; /* Light grey/off-white background for the card */
-    border-radius: 24px; /* Highly rounded corners like screenshot */
-    padding: 0;
-    height: 100%;
+    width: 320px; /* Exact width from the inspected element */
+    height: auto;
+    background: #f9f9f9;
+    border-radius: 24px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -39,9 +30,8 @@
 
   .item-carousel-articles_image {
     width: 100%;
-    aspect-ratio: 4 / 3; /* Closer to the image ratio */
+    aspect-ratio: 1.5;
     overflow: hidden;
-    margin-bottom: 0;
   }
 
   .item-carousel-articles_img {
@@ -51,138 +41,119 @@
   }
 
   .item-carousel-articles_layout {
-    padding: 24px; /* Inner spacing for text and button */
+    padding: 24px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
   }
 
   .item-carousel-articles_main-title {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 600;
     line-height: 1.4;
     color: #1a1a1a;
-    margin-bottom: 24px;
-    min-height: 3em; /* Ensures titles align */
+    margin-bottom: 2rem;
     flex-grow: 1;
   }
 
-  /* Button Styling - Black Pill Style */
-  .blog_cta.btn-primary {
-    background-color: #000000 !important;
-    color: #ffffff !important;
-    padding: 10px 24px;
-    border-radius: 50px; /* Pill shape */
+  /* Black Button - Exactly like Inspect Element */
+  .blog_cta.w-button {
+    background-color: #000;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 100px;
     text-decoration: none;
-    font-size: 0.9rem;
     font-weight: 600;
+    font-size: 0.9rem;
     display: inline-block;
-    transition: opacity 0.3s ease;
-    border: none;
+    transition: background-color 0.2s;
     width: fit-content;
   }
 
-  .blog_cta.btn-primary:hover {
-    opacity: 0.8;
-  }
-
-  /* Swiper Navigation (Centered Arrows) */
+  /* Navigation Buttons */
   .swiper-nav-wrap {
-    margin-top: 40px;
+    margin-top: 3rem;
     display: flex;
     justify-content: center;
   }
-
+  .swiper-nav { display: flex; gap: 1rem; }
+  
   .swiper_nav-button {
-    background: #eeeeee;
-    border: none;
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
+    background: #f0f0f0;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 8px;
     cursor: pointer;
+    border: none;
   }
-
-  .swiper_nav-button img {
-    width: 18px;
-    height: auto;
-  }
-
-  .swiper_nav-button.swiper-button-disabled {
-    opacity: 0.4;
-  }
+  .swiper_nav-button.swiper-button-disabled { opacity: 0.3; cursor: auto; }
+  .swiper_nav-icon { width: 20px; }
 {%- endstyle -%}
 
-<div class="section-{{ section.id }}-padding">
-  <div class="article-container page-width"> {%- if section.settings.heading != blank or section.settings.description != blank -%}
-      <div class="margin-bottom margin-large">
-        <div class="text-align-center">
-          <h2 class="heading-style-h3">{{ section.settings.heading }}</h2>
-          {%- if section.settings.description != blank -%}
-            <div class="text-size-medium">{{ section.settings.description }}</div>
-          {%- endif -%}
-        </div>
-      </div>
-    {%- endif -%}
+<section class="section-{{ section.id }}-padding">
+  <div class="page-width">
+    
+    <div class="text-align-center">
+      <h2 class="heading-style-h3">{{ section.settings.heading }}</h2>
+      <div class="text-size-medium">{{ section.settings.description }}</div>
+    </div>
 
     <div class="carousel-articles_wrapper">
       <div class="swiper carousel-articles_cms-{{ section.id }}">
         <div class="swiper-wrapper">
           {%- for block in section.blocks -%}
-            <div class="swiper-slide" {{ block.shopify_attributes }}>
-              <div class="item-carousel-articles">
-                <div class="item-carousel-articles_image">
-                  {%- if block.settings.image != blank -%}
-                    {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'item-carousel-articles_img' }}
-                  {%- else -%}
-                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg item-carousel-articles_img' }}
-                  {%- endif -%}
-                </div>
+            <div class="swiper-slide item-carousel-articles" {{ block.shopify_attributes }}>
+              <div class="item-carousel-articles_image">
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 600 | image_tag: class: 'item-carousel-articles_img', loading: 'lazy' }}
+                {%- else -%}
+                  {{ 'image' | placeholder_svg_tag: 'item-carousel-articles_img' }}
+                {%- endif -%}
+              </div>
 
-                <div class="item-carousel-articles_layout">
-                  <div class="item-carousel-articles_main-title">{{ block.settings.title }}</div>
-                  <div class="item-carousel-articles_cta-wrap">
-                    <a href="{{ block.settings.link_url }}" class="btn btn-primary blog_cta">
-                      {{ block.settings.link_text }}
-                    </a>
-                  </div>
+              <div class="item-carousel-articles_layout">
+                <div class="item-carousel-articles_main-title">{{ block.settings.title }}</div>
+                <div class="item-carousel-articles_cta-wrap">
+                  <a href="{{ block.settings.link_url }}" class="button-main blog_cta w-button">
+                    {{ block.settings.link_text }}
+                  </a>
                 </div>
               </div>
             </div>
           {%- endfor -%}
         </div>
-        
+
         <div class="swiper-nav-wrap">
-          <button class="swiper_nav-button prev-{{ section.id }}">
-            <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fc8de7c203054cbc11_Arrow_Prev.svg" alt="Prev">
-          </button>
-          <button class="swiper_nav-button next-{{ section.id }}">
-            <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fcebd2f456b997e139_Arrow-Next.svg" alt="Next">
-          </button>
+          <div class="swiper-nav">
+            <button class="swiper_nav-button blog-prev-{{ section.id }}">
+              <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fc8de7c203054cbc11_Arrow_Prev.svg" class="swiper_nav-icon" alt="Prev">
+            </button>
+            <button class="swiper_nav-button blog-next-{{ section.id }}">
+              <img src="https://cdn.prod.website-files.com/676eb86a8ca7187507487da6/68c415fcebd2f456b997e139_Arrow-Next.svg" class="swiper_nav-icon" alt="Next">
+            </button>
+          </div>
         </div>
       </div>
     </div>
+    
   </div>
-</div>
+</section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    new Swiper('.carousel-articles_cms-{{ section.id }}', {
-      speed: 600,
-      spaceBetween: 20,
-      slidesPerView: 1.2, /* Shows a peek of next card on mobile */
-      centeredSlides: false,
+  document.addEventListener('DOMContentLoaded', function() {
+    new Swiper(".carousel-articles_cms-{{ section.id }}", {
       navigation: {
-        nextEl: '.next-{{ section.id }}',
-        prevEl: '.prev-{{ section.id }}',
+        nextEl: ".blog-next-{{ section.id }}",
+        prevEl: ".blog-prev-{{ section.id }}",
       },
-      breakpoints: {
-        768: { slidesPerView: 3, spaceBetween: 24 },
-        1200: { slidesPerView: 4, spaceBetween: 30 } /* 4 cards like the screenshot */
-      },
+      spaceBetween: 24,
+      slidesPerView: "auto", // Isse cards ki width CSS se control hogi
+      freeMode: true,
+      grabCursor: true,
+      watchSlidesProgress: true,
     });
   });
 </script>
