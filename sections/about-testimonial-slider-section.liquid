@@ -128,23 +128,23 @@
 
     /* Swiper Controls */
     .swiper-nav-wrap {
-     margin-top: 3rem;
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 3rem;
     }
-      .swiper-fine {
-          text-align: center;
-          width: 100%;
-          margin-left: 2rem;
-          margin-right: 3rem;
-      }
+
     .swiper-nav {
       display: flex;
       gap: 12px;
     }
-
-     .swiper_nav-button {
+.swiper-fine {
+    text-align: center;
+    width: 100%;
+    margin-left: 2rem;
+    margin-right: 3rem;
+}
+  .swiper_nav-button {
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
@@ -157,22 +157,19 @@
     transition: background 0.2s;
   }
 
+  .swiper_nav-button:hover {
+    background: #e5e5e5;
+  }
 
-    .swiper_nav-button:not(.swiper-button-disabled):hover {
-      background: #e5e5e5;
-    }
-    .swiper_nav-button:not(.swiper-button-disabled):hover img {
-      filter: invert(1);
-    }
+  .swiper_nav-button.swiper-button-disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
 
-    .swiper-button-disabled {
-      opacity: 0.2;
-      cursor: not-allowed;
-    }
 
     .text-style-fineprint {
       font-size: 0.85rem;
-      color: #888;
+      color: #1d1d1fb3;
     }
 
     /* Swiper Slide Fix */
@@ -196,6 +193,7 @@
     .sr-only {
       position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;
     }
+    
 {% endstyle %}
 
 <section class="section-{{ section.id }} section_testimonial-cards">
@@ -210,10 +208,10 @@
       <div class="margin-bottom margin-large">
         <div class="button-group is-v2-center">
           {% if section.settings.btn_1_text != blank %}
-            <a href="{{ section.settings.btn_1_link }}" class="btn button-primary">{{ section.settings.btn_1_text }}</a>
+            <a href="{{ section.settings.btn_1_link }}" class="btn btn-primary">{{ section.settings.btn_1_text }}</a>
           {% endif %}
           {% if section.settings.btn_2_text != blank %}
-            <a href="{{ section.settings.btn_2_link }}" class="btn button-secondary">{{ section.settings.btn_2_text }}</a>
+            <a href="{{ section.settings.btn_2_link }}" class="btn btn-secondary">{{ section.settings.btn_2_text }}</a>
           {% endif %}
         </div>
       </div>
@@ -269,7 +267,7 @@
       </div>
 
       <div class="swiper-nav-wrap">
-         <div class="swiper-fine">
+        <div class="swiper-fine">
         <div class="text-style-fineprint">
           {{ section.settings.fine_print }}
         </div>
