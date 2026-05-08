@@ -19,6 +19,8 @@
                     src="{{ section.settings.email_icon | image_url: width: 24 }}"
                     alt=""
                     class="s-contact-item-icon"
+                    width="100%"
+                    height="auto"
                   >
                 {% endif %}
                 <a href="mailto:{{ section.settings.email_link }}" class="s-contact-item-text">
@@ -35,6 +37,8 @@
                     src="{{ section.settings.phone_icon | image_url: width: 24 }}"
                     alt=""
                     class="s-contact-item-icon"
+                    width="100%"
+                    height="auto"
                   >
                 {% endif %}
                 <a href="tel:{{ section.settings.phone_link | replace: ' ', '' }}" class="s-contact-item-text">
