@@ -120,17 +120,25 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', (event) => {
-    console.log('DOM fully loaded and parsed');
-    document.getElementById('contact_form').addEventListener('submit', async function (e) {
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('.s-contact-us');
+
+    if (!form) {
+      console.error('Form not found');
+      return;
+    }
+
+    form.addEventListener('submit', async function (e) {
       e.preventDefault();
-      console.log('Form Submited', e);
+
       const formData = {
-        full_name: this.contact[name].value,
-        contact_number: this.contact[phone].value,
-        email: this.contact[email].value,
-        message: this.contact[body].value,
+        full_name: form.querySelector('[name="contact[name]"]').value,
+        contact_number: form.querySelector('[name="contact[phone]"]').value,
+        email: form.querySelector('[name="contact[email]"]').value,
+        message: form.querySelector('[name="contact[body]"]').value,
       };
+
+      console.log('Sending to Zapier:', formData);
 
       try {
         const response = await fetch('https://hooks.zapier.com/hooks/catch/22998787/4y6eanl/', {
@@ -143,12 +151,14 @@
 
         if (response.ok) {
           alert('Form submitted successfully!');
-          this.reset();
+
+          form.reset();
         } else {
           alert('Something went wrong.');
         }
       } catch (error) {
-        console.error(error);
+        console.error('Zapier Error:', error);
+
         alert('Error submitting form.');
       }
     });
