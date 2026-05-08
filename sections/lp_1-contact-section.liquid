@@ -1,4 +1,5 @@
-<div id="contact" data-section-id="{{ section.id }}" class="s-contact-section">  <div class="section-spacing">
+<div id="contact" data-section-id="{{ section.id }}" class="s-contact-section">
+  <div class="section-spacing">
     <div class="container">
       <div class="s-contact-layout">
         <div class="s-contact-left">
@@ -117,6 +118,42 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    document.getElementById('contact_form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const formData = {
+        full_name: this.full_name.value,
+        contact_number: this.contact_number.value,
+        email: this.email.value,
+        message: this.message.value,
+      };
+
+      try {
+        const response = await fetch('https://hooks.zapier.com/hooks/catch/22998787/4y6eanl/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          alert('Form submitted successfully!');
+          this.reset();
+        } else {
+          alert('Something went wrong.');
+        }
+      } catch (error) {
+        console.error(error);
+        alert('Error submitting form.');
+      }
+    });
+  });
+</script>
 
 {% schema %}
 {
