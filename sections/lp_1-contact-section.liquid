@@ -124,12 +124,12 @@
     console.log('DOM fully loaded and parsed');
     document.getElementById('contact_form').addEventListener('submit', async function (e) {
       e.preventDefault();
-
+      console.log('Form Submited', e);
       const formData = {
-        full_name: this.full_name.value,
-        contact_number: this.contact_number.value,
-        email: this.email.value,
-        message: this.message.value,
+        full_name: this.contact[name].value,
+        contact_number: this.contact[phone].value,
+        email: this.contact[email].value,
+        message: this.contact[body].value,
       };
 
       try {
