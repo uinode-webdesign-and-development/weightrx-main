@@ -1,26 +1,26 @@
-
-
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
-<div class="section section--page-width color-{{ section.settings.color_scheme }}">
-  <div
-    class="spacing-style search-page__header"
-    style="
-      --horizontal-alignment: {{ section.settings.alignment }};
-      {% render 'spacing-style', settings: section.settings %}
-    "
-  >
-    {% assign heading_text = 'content.search' | t %}
+<div class="section-spacing">
+  <div class="section section--page-width color-{{ section.settings.color_scheme }}">
+    <div
+      class="spacing-style search-page__header"
+      style="
+        --horizontal-alignment: {{ section.settings.alignment }};
+        {% render 'spacing-style', settings: section.settings %}
+      "
+    >
+      {% assign heading_text = 'content.search' | t %}
 
-    {% if search.performed %}
-      {% assign heading_text = 'content.search_results' | t %}
-    {% endif %}
+      {% if search.performed %}
+        {% assign heading_text = 'content.search_results' | t %}
+      {% endif %}
 
-    {% capture heading_text %}
+      {% capture heading_text %}
       <h3>{{ heading_text }}</h3>
     {% endcapture %}
 
-    {% content_for 'block', id: 'heading', type: '_heading', text: heading_text %}
-    {% content_for 'block', id: 'search', type: '_search-input' %}
+      {% content_for 'block', id: 'heading', type: '_heading', text: heading_text %}
+      {% content_for 'block', id: 'search', type: '_search-input' %}
+    </div>
   </div>
 </div>
 
