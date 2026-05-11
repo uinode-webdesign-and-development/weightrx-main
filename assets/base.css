@@ -417,6 +417,16 @@ p:empty {
   z-index: var(--layer-section-background);
 }
 
+.section--page-width {
+  width: 100%;
+    max-width: 1408px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+.section--page-width ~ .shopify-section {
+  padding: 0 20px;
+}
 /* For page-width sections, all content goes in the center column */
 .section--page-width > * {
   grid-column: 2;
