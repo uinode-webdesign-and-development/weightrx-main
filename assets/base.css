@@ -424,8 +424,8 @@ p:empty {
     margin-right: auto;
     overflow: hidden;
 }
-.section--page-width ~ .shopify-section {
-  padding: 0 20px;
+.shopify-section:has(.section--page-width ) {
+    padding: 0 20px;
 }
 /* For page-width sections, all content goes in the center column */
 .section--page-width > * {
