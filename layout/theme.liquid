@@ -6,6 +6,15 @@
   lang="{{ request.locale.iso_code }}"
 >
   <head>
+    <script>
+  const origAssign = location.assign.bind(location);
+  const origReplace = location.replace.bind(location);
+  Object.defineProperty(location, 'href', {
+    set(v) { console.trace('REDIRECT to:', v); origAssign(v); }
+  });
+  location.assign = (v) => { console.trace('REDIRECT assign:', v); origAssign(v); };
+  location.replace = (v) => { console.trace('REDIRECT replace:', v); origReplace(v); };
+</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
