@@ -503,7 +503,7 @@
         "faq_item_JtkXbh": {
           "type": "faq_item",
           "settings": {
-            "question": "Is tirzepatide safe and prescribed  by real doctors?",
+            "question": "Is tirzepatide safe and prescribed by real doctors?",
             "answer": "Yes. Your rate is locked for your full term, protecting you from price increases - even if market prices for GLP-1 medications go up."
           }
         },
@@ -524,7 +524,7 @@
         "faq_item_dCFbPa": {
           "type": "faq_item",
           "settings": {
-            "question": "I'm on Semaglutide/Tirzepatide  already. Can I swap to a higher dose?",
+            "question": "I'm on Semaglutide/Tirzepatide already. Can I swap to a higher dose?",
             "answer": "Absolutely. Many patients switch or upgrade their dose through WeightRx. Upload your current prescription during intake and our providers will safely match or adjust your dose so you don’t lose progress."
           }
         }
@@ -664,7 +664,7 @@
       "settings": {
         "tagline": "Contact Us",
         "title": "Questions? We're Here and Happy To Help.",
-        "text": "No Question Is Too Small. Our team is here to answer your questions and find the best path forward for you.",
+        "text": "No Question Is Too Small. Our team is here to answer your questions and find the best path forward for you",
         "email_icon": "shopify://shop_images/svgviewer-png-output_37.png",
         "email_link": "support@weightrx.com",
         "phone_icon": "shopify://shop_images/svgviewer-png-output_38.png",
