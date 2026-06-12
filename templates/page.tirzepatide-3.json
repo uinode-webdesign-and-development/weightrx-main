@@ -122,33 +122,6 @@
             "badge_text": "Verified WeightRx Member"
           }
         },
-        "testimonial_xJeNqp": {
-          "type": "testimonial",
-          "settings": {
-            "image": "shopify://shop_images/test-2.webp",
-            "name": "Jennifer P.",
-            "weight_text": "34 lbs lost",
-            "badge_text": "Verified WeightRx Member"
-          }
-        },
-        "testimonial_xPwkeU": {
-          "type": "testimonial",
-          "settings": {
-            "image": "shopify://shop_images/test-11.webp",
-            "name": "Susan S.",
-            "weight_text": "36 lbs lost",
-            "badge_text": "Verified WeightRx Member"
-          }
-        },
-        "testimonial_neFfNh": {
-          "type": "testimonial",
-          "settings": {
-            "image": "shopify://shop_images/test-10.webp",
-            "name": "Noelle D.",
-            "weight_text": "26 lbs lost",
-            "badge_text": "Verified WeightRx Member"
-          }
-        },
         "testimonial_V8VXjr": {
           "type": "testimonial",
           "settings": {
@@ -188,9 +161,6 @@
       },
       "block_order": [
         "testimonial_BMWQEB",
-        "testimonial_xJeNqp",
-        "testimonial_xPwkeU",
-        "testimonial_neFfNh",
         "testimonial_V8VXjr",
         "testimonial_w6hqTz",
         "testimonial_aLkKrj",
