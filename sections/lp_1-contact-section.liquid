@@ -135,35 +135,46 @@
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
 
-      const formData = {
+      const submitBtn = form.querySelector('[type="submit"]');
+      const originalBtnValue = submitBtn ? submitBtn.value : null;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.value = 'Sending...';
+      }
+
+      // Send the data as application/x-www-form-urlencoded (via URLSearchParams).
+      // This is a CORS "simple request", so the browser does NOT fire a preflight
+      // OPTIONS request. Zapier's catch hook does not return the
+      // Access-Control-Allow-Headers required to pass a preflight, so sending JSON
+      // with a "Content-Type: application/json" header gets blocked by the browser
+      // before the request is ever sent (the cause of "Error submitting form.").
+      const formData = new URLSearchParams({
         full_name: form.querySelector('[name="contact[name]"]').value,
         contact_number: form.querySelector('[name="contact[phone]"]').value,
         email: form.querySelector('[name="contact[email]"]').value,
         message: form.querySelector('[name="contact[body]"]').value,
-      };
-
-      console.log('Sending to Zapier:', formData);
+      });
 
       try {
         const response = await fetch('https://hooks.zapier.com/hooks/catch/22998787/4y6eanl/', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
+          body: formData,
         });
 
         if (response.ok) {
-          alert('Form submitted successfully!');
-
+          alert('Thank you! Your message has been sent.');
           form.reset();
         } else {
-          alert('Something went wrong.');
+          alert('Something went wrong. Please try again.');
         }
       } catch (error) {
         console.error('Zapier Error:', error);
-
-        alert('Error submitting form.');
+        alert('Error submitting form. Please try again.');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          if (originalBtnValue !== null) submitBtn.value = originalBtnValue;
+        }
       }
     });
   });
