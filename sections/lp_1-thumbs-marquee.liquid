@@ -36,21 +36,21 @@
   <div class="s-thumb-marquee">
     {%- comment -%}
       We loop 4 times. Keyframes move -25% because 1/4 of the total width is one full set.
+      New "after" photos are bundled as theme assets and rendered by block order.
+      To change a photo, swap the asset file or edit this list.
     {%- endcomment -%}
+    {%- assign marquee_after = "after-01.jpg,after-02.jpg,after-03.jpg,after-04.jpg,after-05.jpg" | split: "," -%}
     {%- for i in (1..4) -%}
       <div class="s-thumb-marquee-layout">
         {%- for block in section.blocks -%}
+          {%- assign m_idx = forloop.index0 | modulo: marquee_after.size -%}
           <div class="s-thumb-marquee-item" {{ block.shopify_attributes }}>
-            {%- if block.settings.image != blank -%}
-              {{ block.settings.image | image_url: width: 400 | image_tag: 
-                loading: 'lazy', 
-                class: 's-thumb-marquee-thumb', 
-                widths: '200, 300, 400',
-                alt: block.settings.image.alt | escape 
-              }}
-            {%- else -%}
-              {{ 'image' | placeholder_svg_tag: 's-thumb-marquee-thumb placeholder-svg' }}
-            {%- endif -%}
+            <img
+              src="{{ marquee_after[m_idx] | asset_url }}"
+              loading="lazy"
+              class="s-thumb-marquee-thumb"
+              alt="WeightRx weight loss result"
+            />
           </div>
         {%- endfor -%}
       </div>
