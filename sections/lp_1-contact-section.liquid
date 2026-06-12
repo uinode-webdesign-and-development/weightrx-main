@@ -53,19 +53,16 @@
 
         <div id="s-contact-right" class="s-contact-right">
           <div class="s-contact-us-wrap w-form">
-            {% form 'contact', class: 's-contact-us' %}
-              {% if form.posted_successfully? %}
-                <div class="success-message w-form-done" style="display: block;">
-                  <div>
-                    {{ 'contact.form.post_success' | t | default: 'Thank you! Your submission has been received!' }}
-                  </div>
-                </div>
-              {% elsif form.errors %}
-                <div class="error-message w-form-fail" style="display: block;">
-                  <div>{{ form.errors | default_errors }}</div>
-                </div>
-              {% endif %}
-
+            {% comment %}
+              Plain form (not Shopify's {% form 'contact' %}). Submission is handled
+              entirely by the JS below, which POSTs to the Zapier webhook. Using a
+              Shopify contact form caused a SECOND, native POST to /contact (triggered
+              by Shopify's captcha script calling form.submit()), which reloaded the
+              page with an "Email is invalid." error on top of the Zapier success.
+              A plain form with no action and no form_type input is ignored by that
+              captcha script, so only the Zapier submission runs.
+            {% endcomment %}
+            <form class="s-contact-us" novalidate>
               <div class="s-contact-us-grid">
                 <div class="s-contact-us-input-wrap">
                   <input
@@ -74,7 +71,7 @@
                     placeholder="Full name"
                     type="text"
                     id="ContactFormName-{{ section.id }}"
-                    value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+                    value="{% if customer %}{{ customer.name }}{% endif %}"
                   >
                 </div>
                 <div class="s-contact-us-input-wrap">
@@ -84,7 +81,7 @@
                     placeholder="Contact Number"
                     type="tel"
                     id="ContactFormPhone-{{ section.id }}"
-                    value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+                    value="{% if customer %}{{ customer.phone }}{% endif %}"
                   >
                 </div>
               </div>
@@ -96,7 +93,7 @@
                   placeholder="Email"
                   type="email"
                   id="ContactFormEmail-{{ section.id }}"
-                  value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                  value="{% if customer %}{{ customer.email }}{% endif %}"
                   spellcheck="false"
                   autocapitalize="off"
                   required
@@ -109,13 +106,13 @@
                   name="contact[body]"
                   placeholder="Message"
                   class="s-contact-us-textarea w-input"
-                >{% if form.body %}{{ form.body }}{% endif %}</textarea>
+                ></textarea>
               </div>
 
               <div class="s-contact-us-btn-wrap">
                 <input type="submit" class="s-contact-us-btn w-button" value="{{ section.settings.button_text }}">
               </div>
-            {% endform %}
+            </form>
           </div>
         </div>
       </div>
