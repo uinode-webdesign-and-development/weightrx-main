@@ -25,7 +25,7 @@
                         <img
                           class="testimonial-image"
                           alt="{{ block.settings.name | escape }}"
-                          src="{{ block.settings.image | image_url: width: 800 }}"
+                          src="{% if block.id == 'testimonial_w6hqTz' %}{{ 'testimonial-meghan-s.webp' | asset_url }}{% elsif block.id == 'testimonial_aLkKrj' %}{{ 'testimonial-ashley-h.webp' | asset_url }}{% else %}{{ block.settings.image | image_url: width: 800 }}{% endif %}"
                           loading="lazy"
                         />
                       {% endif %}
@@ -73,7 +73,7 @@
                       <img
                         class="testimonial-image"
                         alt="{{ block.settings.name | escape }}"
-                        src="{{ block.settings.image | image_url: width: 800 }}"
+                        src="{% if block.id == 'testimonial_w6hqTz' %}{{ 'testimonial-meghan-s.webp' | asset_url }}{% elsif block.id == 'testimonial_aLkKrj' %}{{ 'testimonial-ashley-h.webp' | asset_url }}{% else %}{{ block.settings.image | image_url: width: 800 }}{% endif %}"
                         loading="lazy"
                       />
                     {% endif %}
@@ -114,7 +114,7 @@
                       <img
                         class="testimonial-image"
                         alt="{{ block.settings.name | escape }}"
-                        src="{{ block.settings.image | image_url: width: 800 }}"
+                        src="{% if block.id == 'testimonial_w6hqTz' %}{{ 'testimonial-meghan-s.webp' | asset_url }}{% elsif block.id == 'testimonial_aLkKrj' %}{{ 'testimonial-ashley-h.webp' | asset_url }}{% else %}{{ block.settings.image | image_url: width: 800 }}{% endif %}"
                         loading="lazy"
                       />
                     {% endif %}
