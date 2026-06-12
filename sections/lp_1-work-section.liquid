@@ -64,6 +64,55 @@
   </div>
 </div>
 
+{% comment %}
+  Tab switching for the "How It Works" steps. This markup uses Webflow's tab
+  classes (w-tabs / w-tab-link / w-tab-pane), but the Webflow runtime that powers
+  them was not ported into the theme, so the STEP buttons did nothing. This small
+  vanilla-JS handler restores the click-to-switch behaviour by toggling the
+  w--current (active link) and w--tab-active (visible pane) classes.
+{% endcomment %}
+<script>
+  (function () {
+    function initWorkTabs(root) {
+      var scope = root || document;
+      var tabGroups = scope.querySelectorAll('.work-tab-wrap .w-tabs');
+      tabGroups.forEach(function (tabs) {
+        if (tabs.dataset.tabsInit === 'true') return;
+        tabs.dataset.tabsInit = 'true';
+
+        var links = tabs.querySelectorAll('.w-tab-link');
+        var panes = tabs.querySelectorAll('.w-tab-pane');
+
+        links.forEach(function (link) {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            var target = link.getAttribute('data-w-tab');
+
+            links.forEach(function (l) { l.classList.remove('w--current'); });
+            panes.forEach(function (p) { p.classList.remove('w--tab-active'); });
+
+            link.classList.add('w--current');
+            panes.forEach(function (p) {
+              if (p.getAttribute('data-w-tab') === target) {
+                p.classList.add('w--tab-active');
+              }
+            });
+          });
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () { initWorkTabs(); });
+    } else {
+      initWorkTabs();
+    }
+
+    // Re-bind when the section is re-rendered inside the Shopify theme editor.
+    document.addEventListener('shopify:section:load', function (e) { initWorkTabs(e.target); });
+  })();
+</script>
+
 {% schema %}
 {
   "name": "LP Work Section",

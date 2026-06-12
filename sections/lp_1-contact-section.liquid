@@ -1,4 +1,5 @@
-<div id="contact" data-section-id="{{ section.id }}" class="s-contact-section">  <div class="section-spacing">
+<div id="contact" data-section-id="{{ section.id }}" class="s-contact-section">
+  <div class="section-spacing">
     <div class="container">
       <div class="s-contact-layout">
         <div class="s-contact-left">
@@ -18,6 +19,8 @@
                     src="{{ section.settings.email_icon | image_url: width: 24 }}"
                     alt=""
                     class="s-contact-item-icon"
+                    width="100%"
+                    height="auto"
                   >
                 {% endif %}
                 <a href="mailto:{{ section.settings.email_link }}" class="s-contact-item-text">
@@ -34,6 +37,8 @@
                     src="{{ section.settings.phone_icon | image_url: width: 24 }}"
                     alt=""
                     class="s-contact-item-icon"
+                    width="100%"
+                    height="auto"
                   >
                 {% endif %}
                 <a href="tel:{{ section.settings.phone_link | replace: ' ', '' }}" class="s-contact-item-text">
@@ -117,6 +122,63 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('.s-contact-us');
+
+    if (!form) {
+      console.error('Form not found');
+      return;
+    }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const submitBtn = form.querySelector('[type="submit"]');
+      const originalBtnValue = submitBtn ? submitBtn.value : null;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.value = 'Sending...';
+      }
+
+      // Send the data as application/x-www-form-urlencoded (via URLSearchParams).
+      // This is a CORS "simple request", so the browser does NOT fire a preflight
+      // OPTIONS request. Zapier's catch hook does not return the
+      // Access-Control-Allow-Headers required to pass a preflight, so sending JSON
+      // with a "Content-Type: application/json" header gets blocked by the browser
+      // before the request is ever sent (the cause of "Error submitting form.").
+      const formData = new URLSearchParams({
+        full_name: form.querySelector('[name="contact[name]"]').value,
+        contact_number: form.querySelector('[name="contact[phone]"]').value,
+        email: form.querySelector('[name="contact[email]"]').value,
+        message: form.querySelector('[name="contact[body]"]').value,
+      });
+
+      try {
+        const response = await fetch('https://hooks.zapier.com/hooks/catch/22998787/4y6eanl/', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (response.ok) {
+          alert('Thank you! Your message has been sent.');
+          form.reset();
+        } else {
+          alert('Something went wrong. Please try again.');
+        }
+      } catch (error) {
+        console.error('Zapier Error:', error);
+        alert('Error submitting form. Please try again.');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          if (originalBtnValue !== null) submitBtn.value = originalBtnValue;
+        }
+      }
+    });
+  });
+</script>
 
 {% schema %}
 {
