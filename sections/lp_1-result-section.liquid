@@ -36,19 +36,24 @@
 
       <div class="result-marquee">
         {% comment %} Marquee repeated for infinite scroll effect {% endcomment %}
+        {%- comment -%}
+          New "after" photos are bundled as theme assets and mapped per card by
+          block order: [0] Emily, [1] Jessica, [2] Sarah, [3] Andy (the male photo).
+          To change a photo, swap the asset file or edit this list.
+        {%- endcomment -%}
+        {%- assign result_after = "after-03.jpg,after-04.jpg,after-05.jpg,after-02.jpg" | split: "," -%}
         {% for i in (1..3) %}
           <div class="result-marquee-layout">
             {% for block in section.blocks %}
               <div class="result-item" {{ block.shopify_attributes }}>
                 <div class="result-item-thumb-wrap">
-                  {% if block.settings.image != blank %}
-                    <img
-                      src="{{ block.settings.image | image_url: width: 600 }}"
-                      loading="lazy"
-                      alt="{{ block.settings.image.alt | escape }}"
-                      class="result-item-thumb"
-                    />
-                  {% endif %}
+                  {%- assign r_idx = forloop.index0 | modulo: result_after.size -%}
+                  <img
+                    src="{{ result_after[r_idx] | asset_url }}"
+                    loading="lazy"
+                    alt="{{ block.settings.name | escape }} — WeightRx result"
+                    class="result-item-thumb"
+                  />
                   <div class="result-item-tag">
                     <div>{{ block.settings.name }}</div>
                   </div>
