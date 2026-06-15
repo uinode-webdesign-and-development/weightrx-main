@@ -422,8 +422,8 @@
             "image_2": "shopify://shop_images/69aaaefba2a88b823dbad262_thumb-12.webp",
             "duration": "After 3 months",
             "rating": "4.9 / 5.0",
-            "review_text": "‘’In just 5 months I lost over 20% of my body weight (42 lbs) with the GLP-1 injectable Tirzepatide compounded medications I was prescribed. The prescriptions were always on-time, the health care providers were very helpful.’’",
-            "name": "Danielle R.",
+            "review_text": "‘’In just 5 months I lost over 20% of my body weight (38 lbs) with the GLP-1 injectable Tirzepatide compounded medications I was prescribed. The prescriptions were always on-time, the health care providers were very helpful.’’",
+            "name": "Linda M.",
             "verified_text": "Verified WeightRX Member"
           }
         },
@@ -434,8 +434,8 @@
             "image_2": "shopify://shop_images/69aab1399687d8c3fd141551_thumb-13.webp",
             "duration": "After 3 months",
             "rating": "4.9 / 5.0",
-            "review_text": "The WeightRx team were extremely knowledgeable, professional, and supportive throughout this process. I paired the medication with a more active lifestyle/ I have lost a total of 60 pounds and feel great. Thank you so much!’’",
-            "name": "Amy P.",
+            "review_text": "The WeightRx team were extremely knowledgeable, professional, and supportive throughout this process. I paired the medication with a more active lifestyle/ I have lost a total of 50 pounds and feel great. Thank you so much!’’",
+            "name": "Tim B.",
             "verified_text": "Verified WeightRX Member"
           }
         },
@@ -446,8 +446,20 @@
             "image_2": "shopify://shop_images/69aab13839d820015d199ad3_thumb-16.webp",
             "duration": "After 3 months",
             "rating": "4.9 / 5.0",
-            "review_text": "When I joined WeightRx I was at rock bottom. My self esteem was close to nothing and I felt hopeless. I'm 3 months in and I've already lost 45 lbs! I have tons of energy, I have zero food cravings, and it's so easy to keep on track.",
-            "name": "Ashley O.",
+            "review_text": "When I joined WeightRx I was at rock bottom. My self esteem was close to nothing and I felt hopeless. I'm 3 months in and I've already lost 29 lbs! I have tons of energy, I have zero food cravings, and it's so easy to keep on track.",
+            "name": "Meghan S.",
+            "verified_text": "Verified WeightRX Member"
+          }
+        },
+        "review_McHL32": {
+          "type": "review",
+          "settings": {
+            "image_1": "shopify://shop_images/69aaaefc90aec45baa5a4994_thumb-11.webp",
+            "image_2": "shopify://shop_images/69aaaefba2a88b823dbad262_thumb-12.webp",
+            "duration": "After 3 months",
+            "rating": "4.9 / 5.0",
+            "review_text": "WeightRx made the whole process simple and stress-free. The providers actually listened and checked in on me along the way, and I've lost 32 lbs so far. I feel more confident and in control than I have in years.",
+            "name": "Michelle C.",
             "verified_text": "Verified WeightRX Member"
           }
         }
@@ -455,7 +467,8 @@
       "block_order": [
         "review_xrTkUQ",
         "review_iJk888",
-        "review_87YBQH"
+        "review_87YBQH",
+        "review_McHL32"
       ],
       "name": "LP Review Section",
       "settings": {

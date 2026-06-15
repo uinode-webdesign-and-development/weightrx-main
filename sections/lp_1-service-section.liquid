@@ -174,6 +174,20 @@
     </div>
   </div>
 </div>
+{% style %}
+  /* iPhone Air fix: it reports a CSS width that lands just above the 479px
+     phone breakpoint, so it falls into the tablet branch that shows the
+     full-height desktop background image cropped (object-fit:cover) into a
+     narrow column — the vials blow up and overlap the content. Force the
+     mobile image / hide the desktop one for any phone-width device. */
+  @media screen and (max-width: 600px) {
+    .service-section .service-thumb,
+    .service-section .service-btn-wrap { display: none !important; }
+    .service-section .service-thumb-m { display: block !important; }
+    .service-section .service-thumb-wrap { overflow: hidden; }
+    .service-section .hero-btn-wrap-m { display: flex !important; }
+  }
+{% endstyle %}
 {% schema %}
 {
   "name": "LP Tirzepatide Services",
