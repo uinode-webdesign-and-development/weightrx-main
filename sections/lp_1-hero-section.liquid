@@ -326,16 +326,19 @@
       position: relative !important;
       inset: auto !important;
       height: auto !important;
-      padding: 24px 16px 190px !important;
+      padding: 24px 16px 215px !important;
     }
+    /* Vials sit in the reserved bottom band and intentionally bleed off the
+       bottom-right edge (clipped by the card's overflow:hidden) so a portion
+       shows, like the desktop hero — without ever reaching the text above. */
     .hero-section .hero-shape {
-      width: 200px !important;
-      max-width: 56% !important;
+      width: 300px !important;
+      max-width: none !important;
       height: auto !important;
       top: auto !important;
-      bottom: 8px !important;
+      bottom: -55px !important;
       left: auto !important;
-      right: 4% !important;
+      right: -10% !important;
       object-fit: contain !important;
     }
   }
