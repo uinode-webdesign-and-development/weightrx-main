@@ -298,6 +298,48 @@
   </div>
 </div>
 
+{% style %}
+  /* Mobile fix (same issue as the service "markup" card): the hero used a
+     fixed-height background with the text absolutely positioned over it and
+     the vial anchored to the bottom. On narrow / display-zoomed / large-text
+     screens (e.g. iPhone Air with Display Zoom) the content outgrows the
+     fixed height and the vial overlaps the bullets/rating. Fix: let the hero
+     card grow with its content, fill it with the mobile background, and keep
+     the vial in a reserved bottom band. */
+  @media screen and (max-width: 600px) {
+    .hero-section .hero-thumb { display: none !important; }
+    .hero-section .hero-shape-2 { display: none !important; }
+    .hero-section .hero-thumb-wrap {
+      position: relative !important;
+      overflow: hidden !important;
+      border-radius: 2.6px;
+    }
+    .hero-section .hero-thumb--m {
+      display: block !important;
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+    .hero-section .hero-content {
+      position: relative !important;
+      inset: auto !important;
+      height: auto !important;
+      padding: 24px 16px 210px !important;
+    }
+    .hero-section .hero-shape {
+      width: 72% !important;
+      max-width: 240px !important;
+      height: auto !important;
+      top: auto !important;
+      bottom: 0 !important;
+      left: auto !important;
+      right: -2% !important;
+      object-fit: contain !important;
+    }
+  }
+{% endstyle %}
 {% schema %}
 {
   "name": "LP 1 Hero Section",
