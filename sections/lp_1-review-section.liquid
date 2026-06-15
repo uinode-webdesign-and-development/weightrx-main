@@ -33,8 +33,7 @@
                 <div class="review-slide w-slide" {{ block.shopify_attributes }}>
                   <div class="review-item">
                     <div class="review-item-left">
-                      <img src="{{ block.settings.image_1 | image_url }}" class="review-item-thumb" loading="lazy">
-                      <img src="{{ block.settings.image_2 | image_url }}" class="review-item-thumb" loading="lazy">
+                      {%- render 'lp-review-images', block: block -%}
                       <div class="review-item-block">
                         <div>{{ block.settings.duration }}</div>
                       </div>
@@ -112,8 +111,7 @@
             {% for block in section.blocks %}
               <div class="review-item">
                 <div class="review-item-left">
-                  <img src="{{ block.settings.image_1 | image_url }}" class="review-item-thumb">
-                  <img src="{{ block.settings.image_2 | image_url }}" class="review-item-thumb">
+                  {%- render 'lp-review-images', block: block -%}
 
                   <div class="review-item-block">
                     <div>{{ block.settings.duration }}</div>
@@ -140,8 +138,7 @@
             {% for block in section.blocks %}
               <div class="review-item">
                 <div class="review-item-left">
-                  <img src="{{ block.settings.image_1 | image_url }}" class="review-item-thumb">
-                  <img src="{{ block.settings.image_2 | image_url }}" class="review-item-thumb">
+                  {%- render 'lp-review-images', block: block -%}
 
                   <div class="review-item-block">
                     <div>{{ block.settings.duration }}</div>

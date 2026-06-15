@@ -1,0 +1,27 @@
+{%- comment -%}
+  Renders the stacked before/after thumbs for one review block.
+  Before/after photos are bundled as theme assets (split from the
+  tirzepatide-3 composites) and mapped per block id so the names, photos
+  and lbs stay consistent with the tirzepatide-3 testimonials section.
+  Unmapped blocks fall back to the block's own image pickers.
+{%- endcomment -%}
+{%- liquid
+  assign before_src = block.settings.image_1 | image_url
+  assign after_src = block.settings.image_2 | image_url
+  case block.id
+    when 'review_xrTkUQ'
+      assign before_src = 'lp-linda-before.webp' | asset_url
+      assign after_src = 'lp-linda-after.webp' | asset_url
+    when 'review_iJk888'
+      assign before_src = 'lp-tim-before.webp' | asset_url
+      assign after_src = 'lp-tim-after.webp' | asset_url
+    when 'review_87YBQH'
+      assign before_src = 'lp-meghan-before.webp' | asset_url
+      assign after_src = 'lp-meghan-after.webp' | asset_url
+    when 'review_McHL32'
+      assign before_src = 'lp-michelle-before.webp' | asset_url
+      assign after_src = 'lp-michelle-after.webp' | asset_url
+  endcase
+-%}
+<img src="{{ before_src }}" class="review-item-thumb" loading="lazy" alt="{{ block.settings.name | escape }} before">
+<img src="{{ after_src }}" class="review-item-thumb" loading="lazy" alt="{{ block.settings.name | escape }} after">
