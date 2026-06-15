@@ -39,7 +39,7 @@
       New "after" photos are bundled as theme assets and rendered by block order.
       To change a photo, swap the asset file or edit this list.
     {%- endcomment -%}
-    {%- assign marquee_after = "after-01.jpg,after-02.jpg,after-03.jpg,after-04.jpg,after-05.jpg" | split: "," -%}
+    {%- assign marquee_after = "after-01.jpg,after-02.jpg,after-03.jpg,after-04.jpg" | split: "," -%}
     {%- for i in (1..4) -%}
       <div class="s-thumb-marquee-layout">
         {%- for block in section.blocks -%}

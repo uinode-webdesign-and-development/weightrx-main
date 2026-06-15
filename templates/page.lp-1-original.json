@@ -102,40 +102,40 @@
           "type": "result_item",
           "settings": {
             "image": "shopify://shop_images/69aa9b0f1d98388f4dd55703_thumb-3.webp",
-            "name": "Emily R.",
+            "name": "Michelle C.",
             "rating": "4.9 / 5.0",
             "quote": "“The cravings slowed down and the weight followed.”",
-            "result_text": "Emily lost 41 lbs with Tirzepatide"
+            "result_text": "Michelle lost 32 lbs with WeightRx"
           }
         },
         "result_item_AWLAmy": {
           "type": "result_item",
           "settings": {
             "image": "shopify://shop_images/69aa9b0f14d2b655be556b10_thumb-5.webp",
-            "name": "Jessica B.",
+            "name": "Meghan S.",
             "rating": "4.9 / 5.0",
             "quote": "‘’Weight loss felt simple and sustainable for once.”",
-            "result_text": "Jessica lost 34 lbs with WeightRx"
+            "result_text": "Meghan lost 29 lbs with WeightRx"
           }
         },
         "result_item_y8ygJh": {
           "type": "result_item",
           "settings": {
             "image": "shopify://shop_images/69aa983ab38e6b72968b4977_thumb-2.webp",
-            "name": "Sarah M.",
+            "name": "Linda M.",
             "rating": "4.9 / 5.0",
             "quote": "WeightRx made it simple to finally stick with a plan.",
-            "result_text": "Sarah lost 38 lbs with WeightRx"
+            "result_text": "Linda lost 38 lbs with WeightRx"
           }
         },
         "result_item_bPXDmY": {
           "type": "result_item",
           "settings": {
             "image": "shopify://shop_images/69aa9b0fb8e32d8dbfd4a290_thumb-4.webp",
-            "name": "Andy G.",
+            "name": "Tim B.",
             "rating": "4.9 / 5.0",
             "quote": "“It just felt easier than anything I’ve tried before.”",
-            "result_text": "Andy lost 46 lbs with Tirzepatide"
+            "result_text": "Tim lost 50 lbs with Tirzepatide"
           }
         }
       },
@@ -265,20 +265,13 @@
           "settings": {
             "image": "shopify://shop_images/69aaa42a58cf8cde8a846440_thumb-4.webp"
           }
-        },
-        "image_peqkgD": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/69aaa42a9dde3f5900574636_thumb-5.webp"
-          }
         }
       },
       "block_order": [
         "image_3BCgAw",
         "image_3UPp6H",
         "image_FqgkMi",
-        "image_YFwUQF",
-        "image_peqkgD"
+        "image_YFwUQF"
       ],
       "name": "LP Thumbs Marquee",
       "settings": {
@@ -575,20 +568,13 @@
           "settings": {
             "image": "shopify://shop_images/69aaa42a58cf8cde8a846440_thumb-4.webp"
           }
-        },
-        "image_3JexbT": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/69aaa42a9dde3f5900574636_thumb-5.webp"
-          }
         }
       },
       "block_order": [
         "image_b4nnKz",
         "image_HH9mpy",
         "image_NhHxXw",
-        "image_nELwkA",
-        "image_3JexbT"
+        "image_nELwkA"
       ],
       "name": "LP Thumbs Marquee",
       "settings": {
