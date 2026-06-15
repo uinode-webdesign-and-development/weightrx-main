@@ -117,8 +117,8 @@
           "type": "testimonial",
           "settings": {
             "image": "shopify://shop_images/test-1.webp",
-            "name": "Tim B.",
-            "weight_text": "40 lbs lost",
+            "name": "Linda M.",
+            "weight_text": "38 lbs lost",
             "badge_text": "Verified WeightRx Member"
           }
         },
@@ -126,8 +126,8 @@
           "type": "testimonial",
           "settings": {
             "image": "shopify://shop_images/test-7.webp",
-            "name": "Michelle C.",
-            "weight_text": "30 lbs lost",
+            "name": "Tim B.",
+            "weight_text": "50 lbs lost",
             "badge_text": "Verified WeightRx Member"
           }
         },
@@ -140,20 +140,11 @@
             "badge_text": "Verified WeightRx Member"
           }
         },
-        "testimonial_aLkKrj": {
-          "type": "testimonial",
-          "settings": {
-            "image": "shopify://shop_images/test-8.webp",
-            "name": "Ashley H.",
-            "weight_text": "25 lbs lost",
-            "badge_text": "Verified WeightRx Member"
-          }
-        },
         "testimonial_c7eHpV": {
           "type": "testimonial",
           "settings": {
             "image": "shopify://shop_images/test-6.webp",
-            "name": "Scott H.",
+            "name": "Michelle C.",
             "weight_text": "32 lbs lost",
             "badge_text": "Verified WeightRx Member"
           }
@@ -163,7 +154,6 @@
         "testimonial_BMWQEB",
         "testimonial_V8VXjr",
         "testimonial_w6hqTz",
-        "testimonial_aLkKrj",
         "testimonial_c7eHpV"
       ],
       "name": "Testimonials section",
