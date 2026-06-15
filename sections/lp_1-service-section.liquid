@@ -175,17 +175,46 @@
   </div>
 </div>
 {% style %}
-  /* iPhone Air fix: it reports a CSS width that lands just above the 479px
-     phone breakpoint, so it falls into the tablet branch that shows the
-     full-height desktop background image cropped (object-fit:cover) into a
-     narrow column — the vials blow up and overlap the content. Force the
-     mobile image / hide the desktop one for any phone-width device. */
+  /* Mobile fix: the dark "markup" card used a fixed-height background image
+     (1500px) with the text absolutely positioned over it and the decorative
+     vials anchored to the bottom. On narrow / display-zoomed / large-text
+     screens (e.g. iPhone Air with Display Zoom) the heading wraps to many
+     lines, the content outgrows the fixed height and overflows into the
+     vials. Fix: let the card grow with its content, fill it with the gradient
+     background, and reserve a bottom band for the vials so they can never
+     cover the text. */
   @media screen and (max-width: 600px) {
     .service-section .service-thumb,
     .service-section .service-btn-wrap { display: none !important; }
-    .service-section .service-thumb-m { display: block !important; }
-    .service-section .service-thumb-wrap { overflow: hidden; }
     .service-section .hero-btn-wrap-m { display: flex !important; }
+
+    .service-section .service-thumb-wrap {
+      position: relative !important;
+      overflow: hidden !important;
+      border-radius: 2.6px;
+    }
+    .service-section .service-thumb-m {
+      display: block !important;
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+    .service-section .service-content {
+      position: relative !important;
+      inset: auto !important;
+      height: auto !important;
+      padding: 24px 20px 230px !important;
+    }
+    .service-section .service-shape-2 {
+      width: 62% !important; max-width: 200px !important;
+      top: auto !important; bottom: 12px !important; right: -6% !important; left: auto !important;
+    }
+    .service-section .service-shape-3 {
+      width: 52% !important; max-width: 165px !important;
+      top: auto !important; bottom: 12px !important; right: 44% !important; left: auto !important;
+    }
   }
 {% endstyle %}
 {% schema %}
