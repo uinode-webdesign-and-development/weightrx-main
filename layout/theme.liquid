@@ -16,6 +16,11 @@
           });
     </script>
     <script async src="https://admin.weightrx.com/tracker.min.js"></script>
+    {% if page.handle == 'tirzepatide-3' %}
+      <script>
+        weightrxTracker.track('landing_view');
+      </script>
+    {% endif %}
     <meta name="facebook-domain-verification" content="0gvtiae85rz6u2vcqim1a1pcvl1mry" />
     <script>
   const origAssign = location.assign.bind(location);
