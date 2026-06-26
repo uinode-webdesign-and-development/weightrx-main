@@ -1,0 +1,694 @@
+{%- comment -%}
+  WeightRx — Tirzepatide Landing Page (mobile + desktop)
+  Two layouts in one self-contained section:
+    • .wrx-mobile  — the approved mobile design (port of ui_kits/.../index.html), shown < 900px
+    • .wrx-desktop — a real wide desktop layout (port of responsive.html), shown >= 900px
+  They swap by CSS, so the mobile version is byte-for-byte unchanged while desktop fills the screen.
+  Self-contained: ships its own tokens, fonts and CSS. Use with layout/landing.liquid.
+
+  All CTA pills link to the experiment funnel URL (editable in the schema).
+{%- endcomment -%}
+
+{%- assign cta_url = section.settings.cta_url | default: 'https://experiments.weightrx.com/e2dd8c36-ac07-44dc-9779-c73550a70b6e' -%}
+{%- assign cta_label = section.settings.cta_label | default: 'Start My Assessment — $83/mo' -%}
+{%- assign fb_pixel_id = section.settings.facebook_pixel_id | default: '1276955633791842' -%}
+
+{%- comment -%} ── Tracking: per-visit event id, WeightRx tracker, Meta pixel ── {%- endcomment -%}
+<script>
+  window.WEIGHTRX_EVENT_ID =
+  (window.crypto && crypto.randomUUID)
+    ? crypto.randomUUID()
+    : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = (Math.random() * 16) | 0, v = c === 'x' ? r : (r & 0x3) | 0x8;
+        return v.toString(16);
+      });
+</script>
+<script async src="https://admin.weightrx.com/tracker.min.js"></script>
+<script>
+  !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+      n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+  }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '{{ fb_pixel_id }}');
+  fbq('track', 'ViewContent', {}, { eventID: window.WEIGHTRX_EVENT_ID });
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id={{ fb_pixel_id }}&ev=ViewContent&noscript=1" />
+</noscript>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Road+Rage&display=swap">
+
+{%- style -%}
+  @font-face {
+    font-family: "SF Pro Display"; font-weight: 400; font-style: normal; font-display: swap;
+    src: url("{{ 'SFProDisplay-Regular.otf' | asset_url }}") format("opentype");
+  }
+  @font-face {
+    font-family: "SF Pro Display"; font-weight: 500; font-style: normal; font-display: swap;
+    src: url("{{ 'SFProDisplay-Medium.otf' | asset_url }}") format("opentype");
+  }
+  @font-face {
+    font-family: "SF Pro Display"; font-weight: 700; font-style: normal; font-display: swap;
+    src: url("{{ 'SFProDisplay-Bold.otf' | asset_url }}") format("opentype");
+  }
+
+  .wrx-lp {
+    /* ---- design-system tokens (scoped so the page is theme-independent) ---- */
+    --color-bg: #f9f9f9;
+    --wrx-blue-50: #eaf2ff;
+    --brand-primary: #006bff;
+    --brand-primary-ink: #ffffff;
+    --wrx-navy-900: #162036;
+    --wrx-navy-950: #031f46;
+    --wrx-ink: #2f2f2f;
+    --wrx-black: #000000;
+    --wrx-line: rgba(0,0,0,0.15);
+    --text-heading: #2f2f2f;
+    --text-body: rgba(0,0,0,0.80);
+    --text-subtle: rgba(0,0,0,0.60);
+    --success: #6fcc58;
+    --success-star: #00b67a;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-heading: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    --font-serif: "Instrument Serif", ui-serif, Georgia, "Times New Roman", serif;
+    --font-script: "Road Rage", "Brush Script MT", cursive;
+    --font-label: "Geist", "Inter", -apple-system, sans-serif;
+    --radius-pill: 999px;
+    --shadow-card: 0 1px 2px rgba(16,24,40,0.04), 0 1px 3px rgba(16,24,40,0.06);
+    --shadow-cta: 0 6px 16px rgba(0,107,255,0.28);
+    --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    color: var(--text-body);
+    color-scheme: light;
+  }
+  .wrx-lp *, .wrx-lp *::before, .wrx-lp *::after { box-sizing: border-box; }
+  .wrx-lp a { color: inherit; }
+
+  /* ════════ shared components (both layouts) ════════ */
+  .wrx-lp .btn {
+    display: inline-flex; width: 100%; box-sizing: border-box; height: 55px; padding: 0 16px;
+    gap: 8px; align-items: center; justify-content: center; border: none; border-radius: var(--radius-pill);
+    background: var(--brand-primary); color: var(--brand-primary-ink); box-shadow: var(--shadow-cta);
+    font-family: var(--font-body); font-weight: 500; font-size: 16px; letter-spacing: -0.01em;
+    line-height: 1; cursor: pointer; text-decoration: none;
+    transition: transform 120ms var(--ease-standard), filter 120ms var(--ease-standard);
+  }
+  .wrx-lp .btn:active { transform: scale(0.98); }
+  .wrx-lp .btn > span { white-space: nowrap; }
+  .wrx-lp .btn--sm { height: 38px; padding: 0 12px; font-size: 14px; width: auto; }
+  .wrx-lp .btn--sm svg { width: 15px; height: 15px; }
+
+  .wrx-lp .cta-shine { position: relative !important; overflow: hidden !important; }
+  .wrx-lp .cta-shine::after {
+    content: ""; position: absolute; top: 0; bottom: 0; left: -150%; width: 55%;
+    background: linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.55) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-18deg); pointer-events: none;
+    animation: wrxCtaSweep 4s cubic-bezier(.4,0,.2,1) infinite;
+  }
+  @keyframes wrxCtaSweep { 0% { left: -150%; } 60% { left: 175%; } 100% { left: 175%; } }
+
+  .wrx-lp .chip {
+    display: inline-flex; align-items: center; gap: 6px; padding: 6px 8px; border-radius: var(--radius-pill);
+    background: var(--color-bg); box-shadow: inset 0 0 0 1px var(--wrx-line);
+    font-family: var(--font-body); font-size: 12px; letter-spacing: -0.01em; color: var(--wrx-black);
+    line-height: 1; white-space: nowrap;
+  }
+  .wrx-lp .stars { display: inline-flex; gap: 1.5px; }
+  .wrx-lp .star { flex-shrink: 0; background: var(--success-star); display: inline-flex; align-items: center; justify-content: center; }
+  .wrx-lp .badge-brand {
+    display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: var(--radius-pill);
+    background: var(--brand-primary); color: #fff; font-family: var(--font-body); font-weight: 500;
+    font-size: 12px; letter-spacing: -0.01em; line-height: 1; white-space: nowrap;
+  }
+  .wrx-lp .stat { display: inline-flex; align-items: flex-end; gap: 6px; line-height: 1; }
+  .wrx-lp .stat-num { font-family: var(--font-serif); font-weight: 400; line-height: 1.05; color: var(--brand-primary); }
+  .wrx-lp .stat-unit { font-family: var(--font-body); font-weight: 500; color: var(--brand-primary); letter-spacing: -0.01em; white-space: nowrap; }
+
+  .wrx-lp .faq-item { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .wrx-lp .faq-q {
+    width: 100%; background: none; border: none; cursor: pointer; padding: 16px 0;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px; text-align: left;
+  }
+  .wrx-lp .faq-q > span:first-child {
+    font-family: var(--font-body); font-weight: 500; font-size: 16px; color: var(--text-heading);
+    letter-spacing: -0.01em; line-height: 1.25;
+  }
+  .wrx-lp .faq-toggle {
+    flex-shrink: 0; width: 22px; height: 22px; border-radius: var(--radius-pill);
+    background: var(--color-bg); box-shadow: inset 0 0 0 1px var(--wrx-line);
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background 120ms var(--ease-standard);
+  }
+  .wrx-lp .faq-toggle svg path { transform-origin: center; transition: transform 200ms var(--ease-standard); }
+  .wrx-lp .faq-item[data-open="true"] .faq-toggle { background: var(--brand-primary); box-shadow: none; }
+  .wrx-lp .faq-item[data-open="true"] .faq-toggle svg path { transform: rotate(45deg); stroke: #fff; }
+  .wrx-lp .faq-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 200ms var(--ease-standard); }
+  .wrx-lp .faq-item[data-open="true"] .faq-a { grid-template-rows: 1fr; }
+  .wrx-lp .faq-a > div { overflow: hidden; }
+  .wrx-lp .faq-a p {
+    margin: 0; padding-bottom: 16px; font-family: var(--font-body); font-size: 14px;
+    line-height: 1.4; letter-spacing: -0.01em; color: var(--text-body);
+  }
+
+  /* ════════ MOBILE layout (< 900px) — unchanged approved design ════════ */
+  .wrx-mobile { display: flex; justify-content: center; background: #dfe4ea; }
+  .wrx-mobile .device { width: 420px; max-width: 100%; min-height: 100vh; background: var(--color-bg); position: relative; box-shadow: 0 0 80px rgba(16,24,40,.14); }
+  .wrx-mobile .scroll { padding-bottom: 92px; }
+  .wrx-mobile section { padding: 0 18px; }
+  .wrx-mobile .eyebrow { font-size: 13px; color: var(--brand-primary); letter-spacing: -0.01em; font-weight: 500; }
+  .wrx-mobile h1, .wrx-mobile h2 { margin: 0; font-family: var(--font-heading); color: var(--text-heading); letter-spacing: -0.02em; }
+  .wrx-mobile h1 { font-size: 34px; line-height: 1.04; font-weight: 600; }
+  .wrx-mobile h2 { font-size: 26px; line-height: 1.08; font-weight: 600; }
+  .wrx-mobile .lede { margin: 0; font-size: 15px; line-height: 1.45; color: var(--text-body); }
+  .wrx-mobile .divider { height: 9px; background: var(--color-bg); }
+  .wrx-mobile .stat-num { font-size: 44px; }
+  .wrx-mobile .stat-unit { font-size: 14px; padding-bottom: 4px; }
+  @media (max-width: 440px) { .wrx-mobile .device { box-shadow: none; } }
+
+  .wrx-lp-sticky {
+    position: fixed; bottom: 0; left: 50%;
+    transform: translateX(-50%) translateY(130%); opacity: 0; pointer-events: none;
+    transition: transform .3s cubic-bezier(.4,0,.2,1), opacity .3s cubic-bezier(.4,0,.2,1);
+    width: 420px; max-width: 100%; z-index: 40; padding: 12px 18px 16px;
+    background: linear-gradient(180deg, rgba(249,249,249,0), #f9f9f9 40%);
+  }
+  .wrx-lp-sticky.show { transform: translateX(-50%) translateY(0); opacity: 1; pointer-events: auto; }
+
+  /* ════════ DESKTOP layout (>= 900px) ════════ */
+  .wrx-desktop { display: none; background: var(--color-bg); }
+  @media (min-width: 900px) {
+    .wrx-mobile { display: none; }
+    .wrx-desktop { display: block; }
+    .wrx-lp-sticky { display: none !important; }
+  }
+  .wrx-desktop .wrap { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+  .wrx-desktop h1, .wrx-desktop h2, .wrx-desktop h3 { margin: 0; font-family: var(--font-heading); color: var(--text-heading); letter-spacing: -0.022em; }
+  .wrx-desktop h1 { font-size: 62px; line-height: 1.02; font-weight: 600; }
+  .wrx-desktop h2 { font-size: 40px; line-height: 1.06; font-weight: 600; }
+  .wrx-desktop h3 { font-size: 20px; line-height: 1.15; font-weight: 600; }
+  .wrx-desktop .eyebrow { font-size: 14px; color: var(--brand-primary); font-weight: 500; letter-spacing: -0.01em; }
+  .wrx-desktop .lede { font-size: 19px; line-height: 1.5; color: var(--text-body); margin: 0; }
+  .wrx-desktop .hero { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 56px; align-items: center; }
+  .wrx-desktop .cols-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .wrx-desktop .proof-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; align-items: stretch; }
+  .wrx-desktop .cols-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+  .wrx-desktop .why { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .wrx-desktop .foot { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.1fr; gap: 36px; }
+  .wrx-desktop .nav-links { display: flex; align-items: center; gap: 26px; }
+  .wrx-desktop .nav-links a { white-space: nowrap; }
+  .wrx-desktop .stat-num { font-size: 58px; }
+  .wrx-desktop .stat-unit { font-size: 16px; padding-bottom: 5px; }
+  @media (max-width: 1000px) {
+    .wrx-desktop h1 { font-size: 48px; }
+    .wrx-desktop h2 { font-size: 32px; }
+    .wrx-desktop .wrap { padding: 0 28px; }
+    .wrx-desktop .nav-links { display: none; }
+  }
+  @media (max-width: 980px) {
+    .wrx-desktop .cols-4 { grid-template-columns: repeat(2, 1fr); }
+    .wrx-desktop .foot { grid-template-columns: 1fr 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .wrx-lp .cta-shine::after { animation: none; } }
+{%- endstyle -%}
+
+{%- comment -%} ── Reusable snippets ── {%- endcomment -%}
+{%- capture cta_arrow -%}
+  <svg width="19" height="19" viewBox="0 0 18.665 18.665" aria-hidden="true" style="flex-shrink:0">
+    <circle cx="9.333" cy="9.333" r="9.333" fill="#fff"></circle>
+    <path d="M 6.402 12.804 L 11.915 7.291 L 11.915 12.23 L 13.064 12.23 L 13.064 5.338 L 6.172 5.338 L 6.172 6.487 L 11.111 6.487 L 5.598 12 L 6.402 12.804 Z" fill="var(--wrx-navy-900)"></path>
+  </svg>
+{%- endcapture -%}
+{%- capture star14 -%}<span class="star" style="width:14px;height:14px;border-radius:2px"><svg width="10" height="10" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2.5l2.9 6.06 6.6.6-4.98 4.4 1.48 6.5L12 17.9 5.99 20.66l1.48-6.5L2.5 9.16l6.6-.6L12 2.5z"></path></svg></span>{%- endcapture -%}
+{%- capture stars14 -%}{{ star14 }}{{ star14 }}{{ star14 }}{{ star14 }}{{ star14 }}{%- endcapture -%}
+{%- capture star11 -%}<span class="star" style="width:11px;height:11px;border-radius:1px"><svg width="8" height="8" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2.5l2.9 6.06 6.6.6-4.98 4.4 1.48 6.5L12 17.9 5.99 20.66l1.48-6.5L2.5 9.16l6.6-.6L12 2.5z"></path></svg></span>{%- endcapture -%}
+{%- capture stars11 -%}{{ star11 }}{{ star11 }}{{ star11 }}{{ star11 }}{{ star11 }}{%- endcapture -%}
+{%- capture star16 -%}<span class="star" style="width:16px;height:16px;border-radius:2px"><svg width="12" height="12" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2.5l2.9 6.06 6.6.6-4.98 4.4 1.48 6.5L12 17.9 5.99 20.66l1.48-6.5L2.5 9.16l6.6-.6L12 2.5z"></path></svg></span>{%- endcapture -%}
+{%- capture stars16 -%}{{ star16 }}{{ star16 }}{{ star16 }}{{ star16 }}{{ star16 }}{%- endcapture -%}
+{%- capture star13 -%}<span class="star" style="width:13px;height:13px;border-radius:2px"><svg width="9" height="9" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2.5l2.9 6.06 6.6.6-4.98 4.4 1.48 6.5L12 17.9 5.99 20.66l1.48-6.5L2.5 9.16l6.6-.6L12 2.5z"></path></svg></span>{%- endcapture -%}
+{%- capture stars13 -%}{{ star13 }}{{ star13 }}{{ star13 }}{{ star13 }}{{ star13 }}{%- endcapture -%}
+{%- capture check20 -%}<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="var(--success)"></circle><path d="M5.5 10.3l2.7 2.7 6-6" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>{%- endcapture -%}
+{%- capture chip_check -%}<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="7" fill="var(--success)"></circle><path d="M3.6 7.2l2.2 2.2 4.6-4.8" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>{%- endcapture -%}
+{%- capture legit_seal -%}
+  <a href="https://www.legitscript.com/websites/?checker_keywords=weightrx.com" target="_blank" rel="noopener noreferrer" title="Verify LegitScript Approval for www.weightrx.com" data-legit style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:9px 13px 9px 10px;text-decoration:none">
+    <img src="https://static.legitscript.com/seals/18557581.png" data-legit-img alt="LegitScript Certified — Verify Approval for www.weightrx.com" width="73" height="79" style="display:none;width:64px;height:auto" />
+    <span data-legit-badge style="display:inline-flex;align-items:center;gap:10px">
+      <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#00a3ad"></circle><path d="M9 16.5l4.5 4.5L23 11" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      <span style="display:flex;flex-direction:column;line-height:1.1">
+        <span style="color:#fff;font-weight:700;font-size:12.5px;letter-spacing:-0.01em">LegitScript<sup style="font-size:7px;top:-0.6em">®</sup></span>
+        <span style="color:#5fd0d8;font-weight:600;font-size:9px;letter-spacing:0.16em">CERTIFIED</span>
+      </span>
+    </span>
+  </a>
+{%- endcapture -%}
+
+{%- assign faq_q = "What's included with WeightRx?|How fast will I receive my medication?|Do I need insurance to get this price?|I'm already on a GLP-1. Can I switch?" | split: "|" -%}
+{%- assign faq_a = "The complete protocol: compounded tirzepatide, overnight cold-chain shipping, 1-on-1 doctor consultations and ongoing lab reviews — all in the $83/mo price.|Once your provider reviews and approves your intake (usually within 4 hours), your medication ships via priority overnight cooling packs — most members receive it within 48–72 hours.|No. $83/mo is the final price — no copays or deductibles. HSA/FSA reimbursement documentation is available on request.|Yes — we specialize in switching patients. Share your current prescription during intake and our providers match your dose so you don't lose progress." | split: "|" -%}
+
+<div class="wrx-lp">
+
+ {%- comment -%} ═══════════════ MOBILE ═══════════════ {%- endcomment -%}
+ <div class="wrx-mobile">
+  <div class="device">
+   <div class="scroll">
+
+  <div style="position:sticky;top:0;z-index:30;background:rgb(0,108,255);color:#fff;display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 12px;font-size:12.5px;letter-spacing:-0.01em">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#9db8ff" stroke-width="1.6"><circle cx="8" cy="8" r="6.5"></circle><path d="M8 4.5V8l2.5 1.5" stroke-linecap="round"></path></svg>
+    <span style="opacity:.9">Limited Vials Remaining At This Price</span>
+    <strong data-wrx-clock style="font-variant-numeric:tabular-nums;color:#fff">15:00</strong>
+  </div>
+
+  <nav style="height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;background:#fff;border-bottom:1px solid rgba(0,0,0,.06)">
+    <img src="{{ 'weightrx-logo.svg' | asset_url }}" alt="WeightRx" style="height:22px" />
+    <a href="{{ cta_url }}" style="font-size:13px;font-weight:500;color:var(--brand-primary);text-decoration:none">Sign in</a>
+  </nav>
+  <span id="start"></span>
+
+  <section style="padding-top:22px;padding-bottom:18px;display:flex;flex-direction:column;gap:16px">
+    <div style="display:flex;align-items:center;gap:8px">
+      <span class="stars">{{ stars14 }}</span>
+      <span style="font-family:var(--font-label);font-size:12px;color:var(--text-body)"><strong>Excellent</strong> · 1,000+ reviews · 200,000+ treated</span>
+    </div>
+    <h1>2026 Is Your Year.<br />Tirzepatide for <span style="color:var(--brand-primary)">$83/mo</span></h1>
+    <p class="lede">Doctor-prescribed, compounded tirzepatide — <strong>price locked in forever</strong>, shipped to your door in 48 hours. No insurance, no clinic visits.</p>
+    <div style="position:relative;border-radius:20px;background:radial-gradient(120% 90% at 50% 0%, #dbe8ff, #f9f9f9 70%);height:248px;display:flex;align-items:center;justify-content:center;overflow:hidden">
+      <img src="{{ 'product-vial-hero.png' | asset_url }}" alt="Compounded tirzepatide vial" style="height:232px" />
+      <span style="position:absolute;left:16px;top:16px"><span style="display:inline-flex;transform:rotate(-6deg);font-family:var(--font-script);font-size:22px;line-height:1;color:var(--brand-primary);white-space:nowrap">In stock now</span></span>
+      <div style="position:absolute;right:14px;bottom:14px;background:#fff;border-radius:12px;padding:8px 12px;box-shadow:var(--shadow-card);display:flex;flex-direction:column;line-height:1.1">
+        <span style="font-family:var(--font-serif);font-size:30px;color:var(--text-heading)">$83<span style="font-family:var(--font-body);font-size:13px;color:var(--text-subtle);font-weight:500">/mo</span></span>
+        <span style="font-size:10.5px;color:var(--text-subtle);text-decoration:line-through">$1,200/mo at clinics</span>
+      </div>
+    </div>
+    <div id="heroCta"><a href="{{ cta_url }}" class="btn cta-shine"><span>{{ cta_label }}</span>{{ cta_arrow }}</a></div>
+    <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+      <span class="chip">{{ chip_check }}100% online</span>
+      <span class="chip">{{ chip_check }}Ships in 48 hrs</span>
+      <span class="chip">{{ chip_check }}30-day guarantee</span>
+    </div>
+    <p style="margin:0;font-size:10.5px;color:var(--text-subtle);line-height:1.4;text-align:center">
+      Compounded GLP-1s from U.S.-regulated pharmacies. Not FDA-evaluated for safety, quality or efficacy. WeightRx is not affiliated with Eli Lilly &amp; Co.
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section style="padding-top:26px;padding-bottom:26px;background:#fff;display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <span class="eyebrow">One price, everything included</span>
+      <h2>The same medication clinics charge $1,200+ for</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;gap:12px;align-items:flex-start"><div style="flex-shrink:0;margin-top:1px">{{ check20 }}</div><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:600;color:var(--text-heading);letter-spacing:-0.01em">Unlimited doctor access &amp; lab reviews</span><span style="font-size:13px;color:var(--text-subtle)">Message your care team anytime.</span></div></div>
+      <div style="display:flex;gap:12px;align-items:flex-start"><div style="flex-shrink:0;margin-top:1px">{{ check20 }}</div><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:600;color:var(--text-heading);letter-spacing:-0.01em">Medication + shipping + doctors included</span><span style="font-size:13px;color:var(--text-subtle)">One flat price. No copays, no surprises.</span></div></div>
+      <div style="display:flex;gap:12px;align-items:flex-start"><div style="flex-shrink:0;margin-top:1px">{{ check20 }}</div><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:600;color:var(--text-heading);letter-spacing:-0.01em">Price locked for 12 months</span><span style="font-size:13px;color:var(--text-subtle)">Inflation-proof — your rate never moves.</span></div></div>
+      <div style="display:flex;gap:12px;align-items:flex-start"><div style="flex-shrink:0;margin-top:1px">{{ check20 }}</div><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:600;color:var(--text-heading);letter-spacing:-0.01em">100% satisfaction guarantee</span><span style="font-size:13px;color:var(--text-subtle)">Don't lose weight in 30 days? Full refund.</span></div></div>
+    </div>
+    <a href="{{ cta_url }}" class="btn cta-shine"><span>{{ cta_label }}</span>{{ cta_arrow }}</a>
+  </section>
+
+  <div class="divider"></div>
+
+  <section style="padding-top:26px;padding-bottom:26px;display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <span class="eyebrow">Real members, verified results</span>
+      <h2>Join 200,000+ who changed their body &amp; life</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <figure style="margin:0;border-radius:14px;overflow:hidden;background:#fff;box-shadow:var(--shadow-card)">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;position:relative">
+          <div style="position:relative"><img src="{{ 'ba-woman-before.jpg' | asset_url }}" alt="Dawn M. before" style="width:100%;aspect-ratio:3 / 4;object-fit:cover;object-position:50% 22%;display:block" /><span style="position:absolute;left:8px;top:8px;background:rgba(16,24,40,.6);color:#fff;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:3px 8px;border-radius:999px;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)">Before</span></div>
+          <div style="position:relative"><img src="{{ 'ba-woman-after.jpg' | asset_url }}" alt="Dawn M. after" style="width:100%;aspect-ratio:3 / 4;object-fit:cover;object-position:50% 22%;display:block" /><span style="position:absolute;left:8px;top:8px;background:var(--brand-primary);color:#fff;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:3px 8px;border-radius:999px">After</span><span style="position:absolute;right:8px;top:6px"><span style="display:inline-flex;transform:rotate(-6deg);font-family:var(--font-script);font-size:12px;line-height:1;color:#fff;white-space:nowrap">Verified</span></span></div>
+        </div>
+        <figcaption style="padding:11px 14px;display:flex;align-items:center;justify-content:space-between;gap:8px"><span style="display:flex;align-items:baseline;gap:6px"><span style="font-family:var(--font-serif);font-size:26px;color:var(--brand-primary);white-space:nowrap;line-height:1">−71 lbs lost</span></span><span style="display:flex;align-items:center;gap:6px"><span class="stars">{{ stars11 }}</span><span style="font-size:12px;color:var(--text-subtle);white-space:nowrap">Dawn M.</span></span></figcaption>
+      </figure>
+      <figure style="margin:0;border-radius:14px;overflow:hidden;background:#fff;box-shadow:var(--shadow-card)">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;position:relative">
+          <div style="position:relative"><img src="{{ 'ba-man-before.jpg' | asset_url }}" alt="Marcus T. before" style="width:100%;aspect-ratio:3 / 4;object-fit:cover;object-position:50% 30%;display:block" /><span style="position:absolute;left:8px;top:8px;background:rgba(16,24,40,.6);color:#fff;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:3px 8px;border-radius:999px;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)">Before</span></div>
+          <div style="position:relative"><img src="{{ 'ba-man-after.jpg' | asset_url }}" alt="Marcus T. after" style="width:100%;aspect-ratio:3 / 4;object-fit:cover;object-position:50% 30%;display:block" /><span style="position:absolute;left:8px;top:8px;background:var(--brand-primary);color:#fff;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:3px 8px;border-radius:999px">After</span><span style="position:absolute;right:8px;top:6px"><span style="display:inline-flex;transform:rotate(-6deg);font-family:var(--font-script);font-size:12px;line-height:1;color:#fff;white-space:nowrap">Verified</span></span></div>
+        </div>
+        <figcaption style="padding:11px 14px;display:flex;align-items:center;justify-content:space-between;gap:8px"><span style="display:flex;align-items:baseline;gap:6px"><span style="font-family:var(--font-serif);font-size:26px;color:var(--brand-primary);white-space:nowrap;line-height:1">−58 lbs lost</span></span><span style="display:flex;align-items:center;gap:6px"><span class="stars">{{ stars11 }}</span><span style="font-size:12px;color:var(--text-subtle);white-space:nowrap">Marcus T.</span></span></figcaption>
+      </figure>
+    </div>
+    <div style="background:#fff;border-radius:14px;padding:18px;box-shadow:var(--shadow-card);display:flex;flex-direction:column;gap:10px">
+      <span class="stars">{{ stars14 }}</span>
+      <p style="margin:0;font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty">“I'd tried everything. WeightRx was the first thing that actually worked — the provider answered every question and my meds showed up in two days.”</p>
+      <span style="font-size:12px;color:var(--text-subtle)">Hayley N. · Verified Member</span>
+    </div>
+  </section>
+
+  <section style="padding-top:26px;padding-bottom:26px;background:#fff;display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <span class="eyebrow">How it works</span>
+      <h2>From sign-up to shipped in 48 hours</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;gap:14px;align-items:flex-start"><div style="flex-shrink:0;width:32px;height:32px;border-radius:999px;background:var(--brand-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:18px">1</div><div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:16px;font-weight:600;color:var(--text-heading);letter-spacing:-0.01em">Take the 10-min assessment</span><span style="font-size:13.5px;color:var(--text-subtle);line-height:1.4">Answer a few health questions online — no clinic, no waiting room.</span></div></div>
+      <div style="display:flex;gap:14px;align-items:flex-start"><div style="flex-shrink:0;width:32px;height:32px;border-radius:999px;background:var(--brand-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:18px">2</div><div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:16px;font-weight:600;color:var(--text-heading);letter-spacing:-0.01em">A licensed provider reviews</span><span style="font-size:13.5px;color:var(--text-subtle);line-height:1.4">Usually within 4 hours. If eligible, they prescribe your plan.</span></div></div>
+      <div style="display:flex;gap:14px;align-items:flex-start"><div style="flex-shrink:0;width:32px;height:32px;border-radius:999px;background:var(--brand-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:18px">3</div><div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:16px;font-weight:600;color:var(--text-heading);letter-spacing:-0.01em">Your medication ships in 48 hrs</span><span style="font-size:13.5px;color:var(--text-subtle);line-height:1.4">Cold-chain shipped to your door, with refills handled for you.</span></div></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section style="padding-top:26px;padding-bottom:26px;display:flex;flex-direction:column;gap:16px">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <span class="eyebrow">Why tirzepatide</span>
+      <h2>The most effective GLP-1 for weight loss</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div style="background:var(--wrx-blue-50);border-radius:14px;padding:18px 16px;display:flex;flex-direction:column;gap:4px"><span class="stat"><span class="stat-num">55</span><span class="stat-unit">%</span></span><span style="font-size:12.5px;color:var(--text-body);line-height:1.3">more effective than semaglutide*</span></div>
+      <div style="background:var(--wrx-blue-50);border-radius:14px;padding:18px 16px;display:flex;flex-direction:column;gap:4px"><span class="stat"><span class="stat-num">20</span><span class="stat-unit">%</span></span><span style="font-size:12.5px;color:var(--text-body);line-height:1.3">up to, in average body weight lost*</span></div>
+    </div>
+    <p style="margin:0;font-size:13.5px;color:var(--text-body);line-height:1.5">Tirzepatide works on two metabolic pathways (GLP-1 <strong>+</strong> GIP) — curbing appetite while improving how your body uses energy. Most members see steadier, more sustainable loss than single-pathway options.</p>
+  </section>
+
+  <section style="padding-top:28px;padding-bottom:28px;background:var(--wrx-navy-950);color:#fff;display:flex;flex-direction:column;gap:16px;text-align:center;align-items:center">
+    <span class="badge-brand">Only a few spots left today</span>
+    <h2 style="color:#fff">Secure your spot &amp; lock in $83/mo</h2>
+    <p style="margin:0;font-size:14px;color:rgba(255,255,255,.75);line-height:1.5;max-width:320px">Your price is locked for 12 months. If you don't lose weight in 30 days, we'll refund you — no questions asked.</p>
+    <div style="width:100%;max-width:340px"><a href="{{ cta_url }}" class="btn cta-shine"><span>{{ cta_label }}</span>{{ cta_arrow }}</a></div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,.7)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="1.7"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z" stroke-linejoin="round"></path><path d="M8.5 12l2.3 2.3 4.7-4.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>HSA/FSA eligible · cancel anytime</span></div>
+  </section>
+
+  <section style="padding-top:26px;padding-bottom:26px;display:flex;flex-direction:column;gap:14px">
+    <h2>Frequently asked questions</h2>
+    <div data-wrx-faq style="background:#fff;border-radius:14px;padding:0 16px;box-shadow:var(--shadow-card)">
+      {%- for q in faq_q -%}
+        <div class="faq-item" data-open="{% if forloop.first %}true{% else %}false{% endif %}">
+          <button class="faq-q" type="button" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"><span>{{ q }}</span><span class="faq-toggle"><svg width="11" height="11" viewBox="0 0 11 11" aria-hidden="true"><path d="M5.5 1v9M1 5.5h9" stroke="var(--wrx-navy-900)" stroke-width="1.5" stroke-linecap="round"></path></svg></span></button>
+          <div class="faq-a"><div><p>{{ faq_a[forloop.index0] }}</p></div></div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </section>
+
+  <footer style="background:var(--wrx-navy-950);color:#fff;padding:30px 18px 34px;display:flex;flex-direction:column;gap:20px">
+    <img src="{{ 'weightrx-logo.svg' | asset_url }}" alt="WeightRx" style="height:24px;filter:invert(1) brightness(2);align-self:flex-start" />
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <span style="font-size:11px;text-transform:uppercase;letter-spacing:0.07em;color:rgba(255,255,255,.5);font-weight:600">Contact our care team</span>
+      <a href="tel:+18662864886" style="color:#fff;font-size:15px;font-weight:600;text-decoration:none;letter-spacing:-0.01em">(866) 286-4886</a>
+      <a href="mailto:support@weightrx.com" style="color:#fff;font-size:15px;font-weight:600;text-decoration:none;letter-spacing:-0.01em">support@weightrx.com</a>
+      <span style="color:rgba(255,255,255,.78);font-size:13.5px">Mon–Sun, 8:00am–8:00pm ET</span>
+    </div>
+    {{ legit_seal }}
+    <div style="height:1px;background:rgba(255,255,255,.14)"></div>
+    <p style="margin:0;font-size:9.5px;color:rgba(255,255,255,.42);line-height:1.55">The assessment does not create a clinician-patient relationship; WeightRx is a technology platform connecting you with licensed clinicians who determine eligibility. Compounded GLP-1s are not FDA-approved or evaluated for safety, efficacy or quality. *Claims reflect self-reported member data; results vary with adherence. Talk to your clinician about risks and benefits.</p>
+    <span style="font-size:11px;color:rgba(255,255,255,.55)">© 2026 WeightRx, Inc. · 169 Madison Ave STE 38335, New York, NY 10016</span>
+  </footer>
+
+   </div>{%- comment -%} /.scroll {%- endcomment -%}
+  </div>{%- comment -%} /.device {%- endcomment -%}
+ </div>{%- comment -%} /.wrx-mobile {%- endcomment -%}
+
+ {%- comment -%} ═══════════════ DESKTOP ═══════════════ {%- endcomment -%}
+ <div class="wrx-desktop">
+
+  <div style="background:rgb(0,108,255);color:#fff;display:flex;align-items:center;justify-content:center;gap:10px;padding:9px 12px;font-size:13.5px;letter-spacing:-0.01em">
+    <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#cfe0ff" stroke-width="1.6"><circle cx="8" cy="8" r="6.5"></circle><path d="M8 4.5V8l2.5 1.5" stroke-linecap="round"></path></svg>
+    <span style="opacity:.92">Limited Vials Remaining At This Price</span>
+    <strong data-wrx-clock style="font-variant-numeric:tabular-nums">15:00</strong>
+  </div>
+
+  <nav style="position:sticky;top:0;z-index:30;background:rgba(255,255,255,.86);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,.06)">
+    <div class="wrap" style="height:70px;display:flex;align-items:center;justify-content:space-between">
+      <img src="{{ 'weightrx-logo.svg' | asset_url }}" alt="WeightRx" style="height:26px" />
+      <div style="display:flex;align-items:center;gap:26px">
+        <span class="nav-links">
+          <a href="#how" style="font-size:14.5px;font-weight:500;text-decoration:none;color:var(--text-body)">How it works</a>
+          <a href="#proof" style="font-size:14.5px;font-weight:500;text-decoration:none;color:var(--text-body)">Results</a>
+          <a href="#faq" style="font-size:14.5px;font-weight:500;text-decoration:none;color:var(--text-body)">FAQ</a>
+          <a href="{{ cta_url }}" style="font-size:14.5px;font-weight:500;text-decoration:none;color:var(--brand-primary)">Sign in</a>
+        </span>
+        <a href="{{ cta_url }}" class="btn btn--sm cta-shine"><span>Get started</span>{{ cta_arrow }}</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="wrap hero" style="padding-top:64px;padding-bottom:72px">
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="stars">{{ stars16 }}</span>
+        <span style="font-family:var(--font-label);font-size:13.5px;color:var(--text-body)"><strong>Excellent</strong> · 1,000+ reviews · 200,000+ treated</span>
+      </div>
+      <h1>2026 Is Your Year.<br/>Tirzepatide for <span style="color:var(--brand-primary)">$83/mo</span></h1>
+      <p class="lede" style="max-width:520px">Doctor-prescribed, compounded tirzepatide — <strong>price locked in forever</strong>, shipped to your door in 48 hours. No insurance, no clinic visits.</p>
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+        <div style="min-width:280px"><a href="{{ cta_url }}" class="btn cta-shine"><span>{{ cta_label }}</span>{{ cta_arrow }}</a></div>
+        <span style="font-size:13.5px;color:var(--text-subtle)">Takes 10 minutes · HSA/FSA eligible</span>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <span class="chip">{{ chip_check }}100% online</span>
+        <span class="chip">{{ chip_check }}Ships in 48 hrs</span>
+        <span class="chip">{{ chip_check }}30-day money-back guarantee</span>
+      </div>
+    </div>
+    <div style="position:relative;border-radius:28px;background:radial-gradient(120% 90% at 50% 0%, #dbe8ff, #f3f6fb 70%);aspect-ratio:1 / 1;display:flex;align-items:center;justify-content:center;overflow:hidden">
+      <img src="{{ 'product-vial-hero.png' | asset_url }}" alt="Compounded tirzepatide vial" style="height:74%" />
+      <span style="position:absolute;left:24px;top:24px"><span style="display:inline-flex;transform:rotate(-6deg);font-family:var(--font-script);font-size:30px;line-height:1;color:var(--brand-primary);white-space:nowrap">In stock now</span></span>
+      <div style="position:absolute;right:22px;bottom:22px;background:#fff;border-radius:16px;padding:12px 18px;box-shadow:var(--shadow-card);display:flex;flex-direction:column;line-height:1.1">
+        <span style="font-family:var(--font-serif);font-size:44px;color:var(--text-heading)">$83<span style="font-family:var(--font-body);font-size:17px;color:var(--text-subtle);font-weight:500">/mo</span></span>
+        <span style="font-size:13px;color:var(--text-subtle);text-decoration:line-through">$1,200/mo at clinics</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff;border-top:1px solid rgba(0,0,0,.05);border-bottom:1px solid rgba(0,0,0,.05)">
+    <div class="wrap" style="padding-top:72px;padding-bottom:72px;display:flex;flex-direction:column;gap:44px">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:12px;max-width:620px"><span class="eyebrow">One price, everything included</span><h2>The same medication clinics charge $1,200+ for</h2></div>
+        <div style="min-width:260px"><a href="{{ cta_url }}" class="btn cta-shine"><span>{{ cta_label }}</span>{{ cta_arrow }}</a></div>
+      </div>
+      <div class="cols-4">
+        <div style="display:flex;flex-direction:column;gap:12px;padding:26px 22px;background:var(--wrx-blue-50);border-radius:18px"><div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="1.7"><path d="M6 2h8l4 4v16H6z" stroke-linejoin="round"></path><path d="M9 12h6M9 16h6M9 8h3" stroke-linecap="round"></path></svg></div><h3>Unlimited doctor access</h3><span style="font-size:14.5px;color:var(--text-subtle);line-height:1.45">Message your care team and get lab reviews anytime.</span></div>
+        <div style="display:flex;flex-direction:column;gap:12px;padding:26px 22px;background:var(--wrx-blue-50);border-radius:18px"><div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="1.7"><path d="M2 6h11v10H2zM13 9h5l3 3v4h-8z" stroke-linejoin="round"></path><circle cx="6" cy="18" r="1.6"></circle><circle cx="17" cy="18" r="1.6"></circle></svg></div><h3>Everything included</h3><span style="font-size:14.5px;color:var(--text-subtle);line-height:1.45">Medication, shipping and doctors in one flat price.</span></div>
+        <div style="display:flex;flex-direction:column;gap:12px;padding:26px 22px;background:var(--wrx-blue-50);border-radius:18px"><div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="1.7"><rect x="4.5" y="10" width="15" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 018 0v3"></path></svg></div><h3>Price locked 12 months</h3><span style="font-size:14.5px;color:var(--text-subtle);line-height:1.45">Inflation-proof — your rate never moves.</span></div>
+        <div style="display:flex;flex-direction:column;gap:12px;padding:26px 22px;background:var(--wrx-blue-50);border-radius:18px"><div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="1.7"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z" stroke-linejoin="round"></path><path d="M8.5 12l2.3 2.3 4.7-4.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><h3>Satisfaction guarantee</h3><span style="font-size:14.5px;color:var(--text-subtle);line-height:1.45">No weight lost in 30 days? Full refund.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proof" class="wrap" style="padding-top:84px;padding-bottom:84px;display:flex;flex-direction:column;gap:44px">
+    <div style="display:flex;flex-direction:column;gap:12px;text-align:center;align-items:center"><span class="eyebrow">Real members, verified results</span><h2>Join 200,000+ who changed their body &amp; life</h2></div>
+    <div class="proof-grid">
+      <figure style="margin:0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:var(--shadow-card)">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px">
+          <div style="position:relative"><img src="{{ 'ba-woman-before.jpg' | asset_url }}" alt="Dawn M. before" style="width:100%;aspect-ratio:3 / 4;object-fit:cover;object-position:50% 22%;display:block" /><span style="position:absolute;left:10px;top:10px;background:rgba(16,24,40,.6);color:#fff;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 9px;border-radius:999px">Before</span></div>
+          <div style="position:relative"><img src="{{ 'ba-woman-after.jpg' | asset_url }}" alt="Dawn M. after" style="width:100%;aspect-ratio:3 / 4;object-fit:cover;object-position:50% 22%;display:block" /><span style="position:absolute;left:10px;top:10px;background:var(--brand-primary);color:#fff;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 9px;border-radius:999px">After</span></div>
+        </div>
+        <figcaption style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="font-family:var(--font-serif);font-size:29px;color:var(--brand-primary);line-height:1;white-space:nowrap">−71 lbs lost</span><span style="display:flex;align-items:center;gap:8px"><span class="stars">{{ stars13 }}</span><span style="font-size:13.5px;color:var(--text-subtle);white-space:nowrap">Dawn M.</span></span></figcaption>
+      </figure>
+      <figure style="margin:0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:var(--shadow-card)">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px">
+          <div style="position:relative"><img src="{{ 'ba-man-before.jpg' | asset_url }}" alt="Marcus T. before" style="width:100%;aspect-ratio:3 / 4;object-fit:cover;object-position:50% 30%;display:block" /><span style="position:absolute;left:10px;top:10px;background:rgba(16,24,40,.6);color:#fff;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 9px;border-radius:999px">Before</span></div>
+          <div style="position:relative"><img src="{{ 'ba-man-after.jpg' | asset_url }}" alt="Marcus T. after" style="width:100%;aspect-ratio:3 / 4;object-fit:cover;object-position:50% 30%;display:block" /><span style="position:absolute;left:10px;top:10px;background:var(--brand-primary);color:#fff;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 9px;border-radius:999px">After</span></div>
+        </div>
+        <figcaption style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="font-family:var(--font-serif);font-size:29px;color:var(--brand-primary);line-height:1;white-space:nowrap">−58 lbs lost</span><span style="display:flex;align-items:center;gap:8px"><span class="stars">{{ stars13 }}</span><span style="font-size:13.5px;color:var(--text-subtle);white-space:nowrap">Marcus T.</span></span></figcaption>
+      </figure>
+      <div style="border-radius:18px;background:#fff;box-shadow:var(--shadow-card);padding:28px;display:flex;flex-direction:column;justify-content:center;gap:16px">
+        <span class="stars">{{ stars16 }}</span>
+        <p style="margin:0;font-size:18px;line-height:1.5;color:var(--text-body);text-wrap:pretty">“I'd tried everything. WeightRx was the first thing that actually worked — the provider answered every question and my meds showed up in two days.”</p>
+        <span style="font-size:13.5px;color:var(--text-subtle)">Hayley N. · Verified Member</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" style="background:#fff;border-top:1px solid rgba(0,0,0,.05);border-bottom:1px solid rgba(0,0,0,.05)">
+    <div class="wrap" style="padding-top:80px;padding-bottom:80px;display:flex;flex-direction:column;gap:48px">
+      <div style="display:flex;flex-direction:column;gap:12px"><span class="eyebrow">How it works</span><h2>From sign-up to shipped in 48 hours</h2></div>
+      <div class="cols-3">
+        <div style="display:flex;flex-direction:column;gap:16px"><div style="width:46px;height:46px;border-radius:999px;background:var(--brand-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:24px">1</div><h3>Take the 10-min assessment</h3><span style="font-size:16px;color:var(--text-subtle);line-height:1.5">Answer a few health questions online — no clinic, no waiting room.</span></div>
+        <div style="display:flex;flex-direction:column;gap:16px"><div style="width:46px;height:46px;border-radius:999px;background:var(--brand-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:24px">2</div><h3>A licensed provider reviews</h3><span style="font-size:16px;color:var(--text-subtle);line-height:1.5">Usually within 4 hours. If eligible, they prescribe your plan.</span></div>
+        <div style="display:flex;flex-direction:column;gap:16px"><div style="width:46px;height:46px;border-radius:999px;background:var(--brand-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:24px">3</div><h3>Your medication ships in 48 hrs</h3><span style="font-size:16px;color:var(--text-subtle);line-height:1.5">Cold-chain shipped to your door, with refills handled for you.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" class="wrap why" style="padding-top:84px;padding-bottom:84px">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <span class="eyebrow">Why tirzepatide</span>
+      <h2>The most effective GLP-1 for weight loss</h2>
+      <p class="lede" style="font-size:17px">Tirzepatide works on two metabolic pathways (GLP-1 <strong>+</strong> GIP) — curbing appetite while improving how your body uses energy. Most members see steadier, more sustainable loss than single-pathway options.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <div style="background:var(--wrx-blue-50);border-radius:18px;padding:30px 26px;display:flex;flex-direction:column;gap:6px"><span class="stat"><span class="stat-num">55</span><span class="stat-unit">%</span></span><span style="font-size:14.5px;color:var(--text-body);line-height:1.35">more effective than semaglutide*</span></div>
+      <div style="background:var(--wrx-blue-50);border-radius:18px;padding:30px 26px;display:flex;flex-direction:column;gap:6px"><span class="stat"><span class="stat-num">20</span><span class="stat-unit">%</span></span><span style="font-size:14.5px;color:var(--text-body);line-height:1.35">up to, in average body weight lost*</span></div>
+    </div>
+  </section>
+
+  <section style="background:var(--wrx-navy-950);color:#fff">
+    <div class="wrap" style="padding-top:80px;padding-bottom:80px;display:flex;flex-direction:column;gap:22px;align-items:center;text-align:center">
+      <span class="badge-brand">Only a few spots left today</span>
+      <h2 style="color:#fff;max-width:720px">Secure your spot &amp; lock in $83/mo</h2>
+      <p style="margin:0;font-size:18px;color:rgba(255,255,255,.75);line-height:1.5;max-width:560px">Your price is locked for 12 months. If you don't lose weight in 30 days, we'll refund you — no questions asked.</p>
+      <div style="min-width:320px;margin-top:6px"><a href="{{ cta_url }}" class="btn cta-shine"><span>{{ cta_label }}</span>{{ cta_arrow }}</a></div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13.5px;color:rgba(255,255,255,.7)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="1.7"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z" stroke-linejoin="round"></path><path d="M8.5 12l2.3 2.3 4.7-4.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>HSA/FSA eligible · cancel anytime</span></div>
+    </div>
+  </section>
+
+  <section id="faq" class="wrap" style="padding-top:84px;padding-bottom:84px;display:flex;flex-direction:column;gap:32px;max-width:820px">
+    <h2 style="text-align:center">Frequently asked questions</h2>
+    <div data-wrx-faq style="background:#fff;border-radius:18px;padding:4px 28px;box-shadow:var(--shadow-card)">
+      {%- for q in faq_q -%}
+        <div class="faq-item" data-open="{% if forloop.first %}true{% else %}false{% endif %}">
+          <button class="faq-q" type="button" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"><span>{{ q }}</span><span class="faq-toggle"><svg width="11" height="11" viewBox="0 0 11 11" aria-hidden="true"><path d="M5.5 1v9M1 5.5h9" stroke="var(--wrx-navy-900)" stroke-width="1.5" stroke-linecap="round"></path></svg></span></button>
+          <div class="faq-a"><div><p>{{ faq_a[forloop.index0] }}</p></div></div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </section>
+
+  <footer style="background:var(--wrx-navy-950);color:#fff">
+    <div class="wrap foot" style="padding-top:56px;padding-bottom:40px">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <img src="{{ 'weightrx-logo.svg' | asset_url }}" alt="WeightRx" style="height:26px;filter:invert(1) brightness(2);align-self:flex-start" />
+        <span style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.5;max-width:260px">Doctor-prescribed compounded GLP-1s, shipped to your door. No insurance, no clinic visits.</span>
+        {{ legit_seal }}
+      </div>
+      <div>
+        <span style="font-size:11.5px;text-transform:uppercase;letter-spacing:0.07em;color:rgba(255,255,255,.5);font-weight:600">Treatments</span>
+        <a href="{{ cta_url }}" style="color:rgba(255,255,255,.82);font-size:14.5px;text-decoration:none;display:block;margin-top:10px">Tirzepatide</a>
+        <a href="{{ cta_url }}" style="color:rgba(255,255,255,.82);font-size:14.5px;text-decoration:none;display:block;margin-top:10px">Semaglutide</a>
+        <a href="{{ cta_url }}" style="color:rgba(255,255,255,.82);font-size:14.5px;text-decoration:none;display:block;margin-top:10px">Switch my plan</a>
+      </div>
+      <div>
+        <span style="font-size:11.5px;text-transform:uppercase;letter-spacing:0.07em;color:rgba(255,255,255,.5);font-weight:600">Company</span>
+        <a href="#how" style="color:rgba(255,255,255,.82);font-size:14.5px;text-decoration:none;display:block;margin-top:10px">How it works</a>
+        <a href="#faq" style="color:rgba(255,255,255,.82);font-size:14.5px;text-decoration:none;display:block;margin-top:10px">FAQ</a>
+        <a href="{{ cta_url }}" style="color:rgba(255,255,255,.82);font-size:14.5px;text-decoration:none;display:block;margin-top:10px">Sign in</a>
+      </div>
+      <div>
+        <span style="font-size:11.5px;text-transform:uppercase;letter-spacing:0.07em;color:rgba(255,255,255,.5);font-weight:600">Contact our care team</span>
+        <a href="tel:+18662864886" style="color:#fff;font-weight:600;font-size:16px;text-decoration:none;display:block;margin-top:10px">(866) 286-4886</a>
+        <a href="mailto:support@weightrx.com" style="color:#fff;font-weight:600;font-size:16px;text-decoration:none;display:block;margin-top:6px">support@weightrx.com</a>
+        <span style="display:block;margin-top:8px;font-size:13.5px;color:rgba(255,255,255,.7)">Mon–Sun, 8:00am–8:00pm ET</span>
+      </div>
+    </div>
+    <div class="wrap" style="padding-bottom:36px">
+      <div style="height:1px;background:rgba(255,255,255,.14);margin-bottom:22px"></div>
+      <p style="margin:0;font-size:11.5px;color:rgba(255,255,255,.42);line-height:1.6;max-width:980px">The assessment does not create a clinician-patient relationship; WeightRx is a technology platform connecting you with licensed clinicians who determine eligibility. Compounded GLP-1s are not FDA-approved or evaluated for safety, efficacy or quality. WeightRx is not affiliated with Eli Lilly &amp; Co. *Claims reflect self-reported member data; results vary with adherence. Talk to your clinician about risks and benefits.</p>
+      <span style="display:block;margin-top:16px;font-size:12.5px;color:rgba(255,255,255,.5)">© 2026 WeightRx, Inc. · 169 Madison Ave STE 38335, New York, NY 10016</span>
+    </div>
+  </footer>
+
+ </div>{%- comment -%} /.wrx-desktop {%- endcomment -%}
+</div>{%- comment -%} /.wrx-lp {%- endcomment -%}
+
+{%- comment -%} ── Mobile sticky bottom CTA (hidden on desktop) ── {%- endcomment -%}
+<div class="wrx-lp-sticky" data-wrx-sticky>
+  <a href="{{ cta_url }}" class="btn cta-shine"><span>{{ cta_label }}</span>{{ cta_arrow }}</a>
+</div>
+
+<script>
+(function () {
+  /* ---- Urgency countdown (15 min, persisted; updates both layouts) ---- */
+  var KEY = "wrx_lean_deadline";
+  var clocks = document.querySelectorAll('[data-wrx-clock]');
+  if (clocks.length) {
+    var dl = +localStorage.getItem(KEY);
+    if (!dl || dl < Date.now()) { dl = Date.now() + 15 * 60 * 1000; localStorage.setItem(KEY, dl); }
+    var tick = function () {
+      var left = Math.max(0, Math.round((dl - Date.now()) / 1000));
+      var mm = String(Math.floor(left / 60)).padStart(2, "0");
+      var ss = String(left % 60).padStart(2, "0");
+      clocks.forEach(function (c) { c.textContent = mm + ":" + ss; });
+    };
+    tick(); setInterval(tick, 1000);
+  }
+
+  /* ---- FAQ accordions (single-open, each instance independent) ---- */
+  document.querySelectorAll('[data-wrx-faq]').forEach(function (faq) {
+    var items = faq.querySelectorAll('.faq-item');
+    items.forEach(function (item) {
+      var btn = item.querySelector('.faq-q');
+      btn.addEventListener('click', function () {
+        var isOpen = item.getAttribute('data-open') === 'true';
+        items.forEach(function (it) {
+          it.setAttribute('data-open', 'false');
+          it.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) { item.setAttribute('data-open', 'true'); btn.setAttribute('aria-expanded', 'true'); }
+      });
+    });
+  });
+
+  /* ---- Mobile sticky CTA: show once the hero CTA scrolls out of view ---- */
+  var sticky = document.querySelector('[data-wrx-sticky]');
+  var heroCta = document.getElementById('heroCta');
+  if (sticky && heroCta) {
+    var onScroll = function () {
+      sticky.classList.toggle('show', heroCta.getBoundingClientRect().bottom < 8);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  /* ---- LegitScript: reveal the real seal once it loads (off-domain stays as badge) ---- */
+  document.querySelectorAll('[data-legit]').forEach(function (seal) {
+    var img = seal.querySelector('[data-legit-img]');
+    var badge = seal.querySelector('[data-legit-badge]');
+    if (!img) return;
+    var reveal = function () {
+      img.style.display = 'block';
+      if (badge) badge.style.display = 'none';
+      seal.style.background = '#fff';
+      seal.style.border = 'none';
+      seal.style.padding = '8px 10px';
+      seal.style.lineHeight = '0';
+    };
+    img.addEventListener('load', reveal);
+    if (img.complete && img.naturalWidth > 0) reveal();
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Tirzepatide Landing",
+  "tag": "section",
+  "class": "wrx-tirzepatide-landing",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Conversion"
+    },
+    {
+      "type": "text",
+      "id": "cta_url",
+      "label": "CTA destination URL",
+      "default": "https://experiments.weightrx.com/e2dd8c36-ac07-44dc-9779-c73550a70b6e",
+      "info": "Where every \"Start My Assessment\" / \"Get started\" / \"Sign in\" link points."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA button label",
+      "default": "Start My Assessment — $83/mo"
+    },
+    {
+      "type": "header",
+      "content": "Tracking"
+    },
+    {
+      "type": "text",
+      "id": "facebook_pixel_id",
+      "label": "Meta (Facebook) Pixel ID",
+      "default": "1276955633791842",
+      "info": "Fires a ViewContent event with the per-visit WEIGHTRX_EVENT_ID."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tirzepatide Landing"
+    }
+  ]
+}
+{% endschema %}
