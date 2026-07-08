@@ -23,3 +23,26 @@
     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window, document, "clarity", "script", "wf8aoxwdmz");
 </script>
+
+<!-- A/B arm → quiz forwarding. C1 (Cloudflare edge) stamps ?utm_variant on the
+     tirzepatide-3 landing; carry it onto the quiz CTAs so the arm survives the
+     hop. Targets by quiz destination host (arm A → home.weightrx.com, arm B →
+     experiments.weightrx.com), so it's robust to CTA class differences between
+     arms. No arm on the URL/cookie ⇒ no-op, so it's inert on every non-A/B page. -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var m = window.location.search.match(/[?&]utm_variant=([^&]+)/);
+    var arm = m ? decodeURIComponent(m[1])
+                : (document.cookie.match(/(?:^|; )ab_tirz3=([^;]*)/) || [])[1];
+    if (!arm) return;
+    arm = arm.toLowerCase();
+    var quizHosts = { 'home.weightrx.com': 1, 'experiments.weightrx.com': 1 };
+    document.querySelectorAll('a[href]').forEach(function (link) {
+      var u; try { u = new URL(link.href); } catch (e) { return; }
+      if (quizHosts[u.hostname] && !u.searchParams.has('utm_variant')) {
+        u.searchParams.set('utm_variant', arm);
+        link.href = u.toString();
+      }
+    });
+  });
+</script>
