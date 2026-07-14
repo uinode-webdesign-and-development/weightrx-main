@@ -33,7 +33,7 @@
         "custom_button_1_label": "Sign In",
         "custom_button_1_url": "",
         "custom_button_2_label": "Get Started Now",
-        "custom_button_2_url": ""
+        "custom_button_2_url": "https://experiments.weightrx.com/4d5b4f22-ce6b-42b8-be1b-54d984ce071f?moby_exp=dd888056-33a7-4656-9316-92b28ef433a8"
       }
     },
     "main": {
@@ -104,7 +104,7 @@
         "mobile_image": "shopify://shop_images/tirz_vial_2.png",
         "desktop_image": "shopify://shop_images/tirz_vial_2.png",
         "btn_label": "Start Your Weight Loss Journey",
-        "btn_link": "https://home.weightrx.com/tirzepatide1",
+        "btn_link": "https://experiments.weightrx.com/4d5b4f22-ce6b-42b8-be1b-54d984ce071f?moby_exp=dd888056-33a7-4656-9316-92b28ef433a8",
         "reviews_count": "Over 1,000+ reviews",
         "rating_val": "4.7",
         "disclaimer": "WeightRx offers compounded GLP-1s exclusively from U.S. pharmacies. While these pharmacies are regulated, the FDA has not evaluated the medications for safety, quality, or efficacy. WeightRx is not affiliated with Eli Lilly & Co"
@@ -320,7 +320,7 @@
         "title_bold": "TODAY!",
         "press_text": "",
         "button_label": "Get Started Now",
-        "button_link": "https://home.weightrx.com/tirzepatide1"
+        "button_link": "https://experiments.weightrx.com/4d5b4f22-ce6b-42b8-be1b-54d984ce071f?moby_exp=dd888056-33a7-4656-9316-92b28ef433a8"
       }
     },
     "landing_faq_section_eGA4jH": {
