@@ -62,7 +62,12 @@
               successful submission. A plain form with no action and no form_type
               input is ignored by that captcha script, so only our submission runs.
             {% endcomment %}
-            <form class="s-contact-us" novalidate>
+            {%- comment -%}
+              `required` on name/phone/email/message mirrors what the API enforces on
+              the public scope (first_name, last_name, email, phone, message). No
+              `novalidate` — the browser blocks the submit for free, no JS needed.
+            {%- endcomment -%}
+            <form class="s-contact-us">
               <div class="s-contact-us-grid">
                 <div class="s-contact-us-input-wrap">
                   <input
@@ -72,6 +77,9 @@
                     type="text"
                     id="ContactFormName-{{ section.id }}"
                     value="{% if customer %}{{ customer.name }}{% endif %}"
+                    required
+                    pattern="\s*\S+\s+\S.*"
+                    title="Please enter your first and last name."
                   >
                 </div>
                 <div class="s-contact-us-input-wrap">
@@ -82,6 +90,7 @@
                     type="tel"
                     id="ContactFormPhone-{{ section.id }}"
                     value="{% if customer %}{{ customer.phone }}{% endif %}"
+                    required
                   >
                 </div>
               </div>
@@ -106,18 +115,22 @@
                   name="contact[body]"
                   placeholder="Message"
                   class="s-contact-us-textarea w-input"
+                  required
                 ></textarea>
               </div>
 
-              {%- if section.settings.turnstile_site_key != blank -%}
-                {%- comment -%}
-                  Turnstile injects a hidden <input name="cf-turnstile-response"> into
-                  this form; the JS below reads it. No site key set = no widget, and
-                  turnstile_token is sent as "".
-                {%- endcomment -%}
-                <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-                <div class="cf-turnstile" data-sitekey="{{ section.settings.turnstile_site_key }}"></div>
-              {%- endif -%}
+              {%- comment -%}
+                The API key below is the PUBLIC scope (support:contact:write), so the
+                server requires and verifies turnstile_token on every submit. Turnstile
+                injects a hidden <input name="cf-turnstile-response"> into this form;
+                the JS reads it from there.
+              {%- endcomment -%}
+              <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+              <div
+                class="cf-turnstile"
+                data-sitekey="0x4AAAAAADCmgfcAXo3Wcjdw"
+                data-theme="light"
+              ></div>
 
               <div class="s-contact-us-btn-wrap">
                 <input type="submit" class="s-contact-us-btn w-button" value="{{ section.settings.button_text }}">
@@ -142,6 +155,14 @@
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
 
+      // Server rejects a missing/invalid token with 422, so bail early with a
+      // clearer message than "Security check failed".
+      const turnstileToken = form.querySelector('[name="cf-turnstile-response"]')?.value || '';
+      if (!turnstileToken) {
+        alert('Please complete the security check before submitting.');
+        return;
+      }
+
       const submitBtn = form.querySelector('[type="submit"]');
       const originalBtnValue = submitBtn ? submitBtn.value : null;
       if (submitBtn) {
@@ -156,11 +177,10 @@
 
       // NOTE: Content-Type: application/json + Authorization make this a
       // NON-simple CORS request, so the browser fires a preflight OPTIONS first.
-      // admin.weightrx.com must answer OPTIONS with:
-      //   Access-Control-Allow-Origin: https://weightrx.com
-      //   Access-Control-Allow-Headers: Content-Type, Authorization
-      //   Access-Control-Allow-Methods: POST, OPTIONS
-      // or the POST is blocked before it is ever sent.
+      // The route already allowlists https://weightrx.com and https://www.weightrx.com
+      // and answers OPTIONS with the right Allow-Headers — see
+      // internaldashboard/src/app/api/support-contact/route.ts. If this form is ever
+      // rendered on another domain, that allowlist has to be updated too.
       try {
         const response = await fetch('https://admin.weightrx.com/api/support-contact', {
           method: 'POST',
@@ -174,21 +194,26 @@
             email: form.querySelector('[name="contact[email]"]').value,
             phone: form.querySelector('[name="contact[phone]"]').value,
             message: form.querySelector('[name="contact[body]"]').value,
-            turnstile_token: form.querySelector('[name="cf-turnstile-response"]')?.value || '',
+            turnstile_token: turnstileToken,
           }),
         });
 
         if (response.ok) {
           alert('Thank you! Your message has been sent.');
           form.reset();
-          if (window.turnstile) window.turnstile.reset();
         } else {
-          alert('Something went wrong. Please try again.');
+          // The API returns { error: "..." } — show it rather than a generic message.
+          const data = await response.json().catch(function () {
+            return {};
+          });
+          alert(data.error || 'Something went wrong. Please try again.');
         }
       } catch (error) {
         console.error('Contact API Error:', error);
         alert('Error submitting form. Please try again.');
       } finally {
+        // A Turnstile token is single-use, so reset the widget after every attempt.
+        if (window.turnstile) window.turnstile.reset();
         if (submitBtn) {
           submitBtn.disabled = false;
           if (originalBtnValue !== null) submitBtn.value = originalBtnValue;
@@ -255,12 +280,6 @@
       "id": "button_text",
       "label": "Button Text",
       "default": "Send Message"
-    },
-    {
-      "type": "text",
-      "id": "turnstile_site_key",
-      "label": "Cloudflare Turnstile site key",
-      "info": "Leave blank to submit without a Turnstile token. Fill in to show the widget and send a real token."
     }
   ],
   "presets": [
