@@ -195,6 +195,9 @@
             phone: form.querySelector('[name="contact[phone]"]').value,
             message: form.querySelector('[name="contact[body]"]').value,
             turnstile_token: turnstileToken,
+            // The current key has the TRUSTED scope, whose default source is
+            // "patient_portal_refill" — wrong for this form. Tag it explicitly.
+            source: 'shopify_homepage_contact',
           }),
         });
 
