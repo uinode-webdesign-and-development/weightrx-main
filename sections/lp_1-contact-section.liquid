@@ -55,12 +55,12 @@
           <div class="s-contact-us-wrap w-form">
             {% comment %}
               Plain form (not Shopify's {% form 'contact' %}). Submission is handled
-              entirely by the JS below, which POSTs to the Zapier webhook. Using a
-              Shopify contact form caused a SECOND, native POST to /contact (triggered
-              by Shopify's captcha script calling form.submit()), which reloaded the
-              page with an "Email is invalid." error on top of the Zapier success.
-              A plain form with no action and no form_type input is ignored by that
-              captcha script, so only the Zapier submission runs.
+              entirely by the JS below, which POSTs JSON to the WeightRx admin API.
+              Using a Shopify contact form caused a SECOND, native POST to /contact
+              (triggered by Shopify's captcha script calling form.submit()), which
+              reloaded the page with an "Email is invalid." error on top of the
+              successful submission. A plain form with no action and no form_type
+              input is ignored by that captcha script, so only our submission runs.
             {% endcomment %}
             <form class="s-contact-us" novalidate>
               <div class="s-contact-us-grid">
@@ -109,6 +109,16 @@
                 ></textarea>
               </div>
 
+              {%- if section.settings.turnstile_site_key != blank -%}
+                {%- comment -%}
+                  Turnstile injects a hidden <input name="cf-turnstile-response"> into
+                  this form; the JS below reads it. No site key set = no widget, and
+                  turnstile_token is sent as "".
+                {%- endcomment -%}
+                <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+                <div class="cf-turnstile" data-sitekey="{{ section.settings.turnstile_site_key }}"></div>
+              {%- endif -%}
+
               <div class="s-contact-us-btn-wrap">
                 <input type="submit" class="s-contact-us-btn w-button" value="{{ section.settings.button_text }}">
               </div>
@@ -139,33 +149,44 @@
         submitBtn.value = 'Sending...';
       }
 
-      // Send the data as application/x-www-form-urlencoded (via URLSearchParams).
-      // This is a CORS "simple request", so the browser does NOT fire a preflight
-      // OPTIONS request. Zapier's catch hook does not return the
-      // Access-Control-Allow-Headers required to pass a preflight, so sending JSON
-      // with a "Content-Type: application/json" header gets blocked by the browser
-      // before the request is ever sent (the cause of "Error submitting form.").
-      const formData = new URLSearchParams({
-        full_name: form.querySelector('[name="contact[name]"]').value,
-        contact_number: form.querySelector('[name="contact[phone]"]').value,
-        email: form.querySelector('[name="contact[email]"]').value,
-        message: form.querySelector('[name="contact[body]"]').value,
-      });
+      // The API wants first_name/last_name; the form collects one "Full name".
+      // Split on the first space: "Ana Maria Perez" -> "Ana" / "Maria Perez".
+      const fullName = form.querySelector('[name="contact[name]"]').value.trim();
+      const spaceAt = fullName.indexOf(' ');
 
+      // NOTE: Content-Type: application/json + Authorization make this a
+      // NON-simple CORS request, so the browser fires a preflight OPTIONS first.
+      // admin.weightrx.com must answer OPTIONS with:
+      //   Access-Control-Allow-Origin: https://weightrx.com
+      //   Access-Control-Allow-Headers: Content-Type, Authorization
+      //   Access-Control-Allow-Methods: POST, OPTIONS
+      // or the POST is blocked before it is ever sent.
       try {
-        const response = await fetch('https://hooks.zapier.com/hooks/catch/22998787/4y6eanl/', {
+        const response = await fetch('https://admin.weightrx.com/api/support-contact', {
           method: 'POST',
-          body: formData,
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer weightrx_d41a4a3fcfc1e403730ed2fcbf7af7132e9ee09344852b0c12e9ee9a7baf4f40',
+          },
+          body: JSON.stringify({
+            first_name: spaceAt === -1 ? fullName : fullName.slice(0, spaceAt),
+            last_name: spaceAt === -1 ? '' : fullName.slice(spaceAt + 1).trim(),
+            email: form.querySelector('[name="contact[email]"]').value,
+            phone: form.querySelector('[name="contact[phone]"]').value,
+            message: form.querySelector('[name="contact[body]"]').value,
+            turnstile_token: form.querySelector('[name="cf-turnstile-response"]')?.value || '',
+          }),
         });
 
         if (response.ok) {
           alert('Thank you! Your message has been sent.');
           form.reset();
+          if (window.turnstile) window.turnstile.reset();
         } else {
           alert('Something went wrong. Please try again.');
         }
       } catch (error) {
-        console.error('Zapier Error:', error);
+        console.error('Contact API Error:', error);
         alert('Error submitting form. Please try again.');
       } finally {
         if (submitBtn) {
@@ -234,6 +255,12 @@
       "id": "button_text",
       "label": "Button Text",
       "default": "Send Message"
+    },
+    {
+      "type": "text",
+      "id": "turnstile_site_key",
+      "label": "Cloudflare Turnstile site key",
+      "info": "Leave blank to submit without a Turnstile token. Fill in to show the widget and send a real token."
     }
   ],
   "presets": [
